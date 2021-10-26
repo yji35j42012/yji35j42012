@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		html,body{
+			width: 100%;
+			height: 100%;
+		}
+		section{
+			display: flex;
+			height: 100%;
+			justify-content: center;
+			align-items: center;
+
+		}
+		section > div {
+			perspective: 1000px;
+			perspective-origin: 50% 50%;
+		}
+
+		section>div div {
+			position: absolute;
+			transform-style: preserve-3d;
+			top: 150px;
+			left: 150px;
+			transition: transform 1s;
+		}
+
+		section div img {
+			position: absolute;
+			box-sizing: border-box;
+			width: 200px;
+			height: 200px;
+			top: -100px;
+			left: -100px;
+			border: 1px solid green;
+			opacity: .8;
+			backface-visibility: hidden;
+		}
+
+		section>span {
+			display: block;
+		}
+
+		section>span a {
+			margin: 10px 0;
+			width: auto;
+			padding: 5px 10px;
+		}
+
+		section div img:nth-child(1) {
+			transform: rotateY(0deg) translateZ(100px);
+		}
+
+		section div img:nth-child(2) {
+			transform: rotateY(-90deg) translateZ(100px);
+		}
+
+		section div img:nth-child(3) {
+			transform: rotateX(90deg) translateZ(100px);
+		}
+
+		section div img:nth-child(4) {
+			transform: rotateX(-90deg) translateZ(100px);
+		}
+
+		section div img:nth-child(5) {
+			transform: rotateY(90deg) translateZ(100px);
+		}
+
+		section div img:nth-child(6) {
+			transform: rotateY(180deg) translateZ(100px);
+		}
+	</style>
+</head>
+
+<body>
+	<section>
+		<div>
+			<div>
+				<img src="./images/1.png" alt="">
+				<img src="./images/2.png" alt="">
+				<img src="./images/3.png" alt="">
+				<img src="./images/4.png" alt="">
+				<img src="./images/5.jpg" alt="">
+				<img src="./images/6.jpg" alt="">
+			</div>
+		</div>
+		<span>
+			<a>asasas</a>
+		</span>
+		<span>
+			<a>asasas</a>
+		</span>
+
+	</section>
+
+
+	<script>
+		var cube = document.querySelector("section > div > div");
+		var a = document.querySelectorAll("a");
+		var rx = 0;
+		var ry = 0;
+
+		for (var i = 0; i < a.length; i++) {
+			a[i].onclick = cubeHandler;
+		}
+
+		function cubeHandler() {
+
+			switch (this.innerHTML) {
+				case "Random":
+					change(Math.ceil(Math.random() * 6));
+					break;
+				default:
+					change(this.innerHTML * 1);
+			}
+
+			cube.addEventListener("transitionend", endHandler);
+			cube.style.transition = "";
+			cube.style.transform = "rotateX(" + rx + "deg) rotateY(" + ry + "deg)";
+
+
+
+
+		}
+		function change(num) {
+			switch (num) {
+				case 1:
+					rx = 0;
+					ry = 0;
+					break;
+				case 2:
+					rx = 0;
+					ry = 90;
+					break;
+				case 3:
+					rx = -90;
+					ry = 0;
+					break;
+				case 4:
+					rx = 90;
+					ry = 0;
+					break;
+				case 5:
+					rx = 0;
+					ry = -90;
+					break;
+				case 6:
+					rx = 0;
+					ry = 180;
+					break;
+			}
+			rx += 360 * Math.floor(Math.random() * 5);
+			ry += 360 * Math.floor(Math.random() * 5);
+		}
+		function endHandler(){
+			cube.removeEventListener("transitionend" , endHandler);
+			cube.style.transition = "none";
+			rx %= 360;
+			ry %= 360;
+			cube.style.transform = "rotateX("
+		}
+	</script>
+</body>
+
+</html>

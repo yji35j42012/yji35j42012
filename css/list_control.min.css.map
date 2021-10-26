@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../ba3_w3/style/scss/list_control.scss"
+    ],
+    "names": [],
+    "file": "list_control.min.css"
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="./style/css/all.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+	<div id="app" class="wrap">
+		<header class="header">
+			<div class="left_menu d_flex">
+				<button class="home_icon">
+					<svg viewBox="0 0 24 24" class="icon_home">
+						<path
+							d="M17.7,11.8c0.3,0,0.5,0.2,0.5,0.5v7.2c0,0.3-0.2,0.5-0.5,0.5h-4.4c-0.3,0-0.5-0.2-0.5-0.5v-2.7h-1.6v2.7c0,0.3-0.2,0.5-0.5,0.5H6.3c-0.3,0-0.5-0.2-0.5-0.5v-7c0-0.3,0.2-0.5,0.5-0.5c0.3,0,0.5,0.2,0.5,0.5V19h3.5v-2.7c0-0.3,0.2-0.5,0.5-0.5h2.5c0.3,0,0.5,0.2,0.5,0.5V19h3.5v-6.7C17.2,12.1,17.4,11.8,17.7,11.8z M20.4,12.2c0.2,0.2,0.2,0.5,0,0.7C20.3,13,20.1,13,20,13c-0.2,0-0.3,0-0.3-0.1L12,5.2l-7.7,7.7c-0.2,0.2-0.5,0.2-0.7,0c-0.2-0.2-0.2-0.5,0-0.7l8-8C11.8,4.1,11.9,4,12,4c0.1,0,0.2,0.1,0.3,0.2l3.2,3.2V5.7c0-0.3,0.2-0.5,0.5-0.5c0.3,0,0.5,0.2,0.5,0.5v2.7L20.4,12.2z">
+						</path>
+					</svg>
+				</button>
+				<ul class="d_flex ali_c">
+					<li class="on">滾球</li>
+					<li>今日</li>
+					<li>早盤</li>
+					<li>綜合過關</li>
+				</ul>
+			</div>
+			<div class="right_menu d_flex">
+				<ul class="d_flex ali_c">
+					<li>賽程</li>
+					<li>帳戶歷史</li>
+					<li>交易狀況</li>
+					<li class="point">10000 RMB</li>
+				</ul>
+				<div class="member_icon">m</div>
+			</div>
+		</header>
+		<div class="content">
+			<div class="content_info">
+				<router-view></router-view>
+			</div>
+			<div class="content_pic">
+				<router-view class="pic" name="pic"></router-view>
+			</div>
+		</div>
+	</div>
+
+
+
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+	<script src="https://unpkg.com/http-vue-loader"></script>
+	<script>
+		const routes = [
+			{
+				path: '',
+				components: {
+					default: httpVueLoader('./view/home.vue'),
+					'pic': httpVueLoader('./view/pic.vue'),
+				}
+			}
+		]
+		const router = new VueRouter({
+			// mode: 'history',
+			routes // (缩写) 相当于 routes: routes
+		})
+		let vm = new Vue({
+			el: "#app",
+			router,
+		})
+	</script>
+</body>
+
+</html>

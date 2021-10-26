@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animo.js/1.0.3/animate-animo.css">
+
+	<style>
+		@keyframes percent {
+			0% {
+				-webkit-transform: scaleX(1);
+				transform: scaleX(1);
+			}
+
+			30% {
+				-webkit-transform: scale3d(1.25, .75, 1);
+				transform: scale3d(1.25, .75, 1);
+			}
+
+			40% {
+				-webkit-transform: scale3d(.75, 1.25, 1);
+				transform: scale3d(.75, 1.25, 1);
+			}
+
+			50% {
+				-webkit-transform: scale3d(1.15, .85, 1);
+				transform: scale3d(1.15, .85, 1);
+			}
+
+			65% {
+				-webkit-transform: scale3d(.95, 1.05, 1);
+				transform: scale3d(.95, 1.05, 1);
+			}
+
+			75% {
+				-webkit-transform: scale3d(1.05, .95, 1);
+				transform: scale3d(1.05, .95, 1);
+			}
+
+			100% {
+				-webkit-transform: scaleX(1);
+				transform: scaleX(1);
+			}
+		}
+
+		.percent {
+			animation: percent 4s 2;
+		}
+
+		.pause {
+			animation-play-state: paused;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrap">
+		<img src="https://picsum.photos/200/200?random=1" alt="">
+
+		<div class="percent"></div>
+		<button class="animo">animo</button>
+		<button class="chain">chain</button>
+		<button class="custom">custom</button>
+		<button class="blur">blur</button>
+		<button class="focus">focus</button>
+		<button class="rotate">rotate</button>
+		<button class="pause">pause</button>
+		<button class="clear">clear</button>
+	</div>
+
+
+
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js'
+		integrity='sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=='
+		crossorigin='anonymous'></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/animo.js/1.0.3/animo.min.js"></script>
+	<script>
+		var target = $("img");
+		$(".animo").click(function () {
+			target.animo({
+				animation: 'shake',
+				duration: 0.5,
+				delay: 0.5,
+				iterate: '1',
+				timing: 'linear',
+				keep: false
+			});
+		})
+
+		$(".chain").click(function () {
+			target.animo({
+				animation: ['swing', 'flash', 'shake'],
+				iterate: '2'
+			});
+		})
+		$(".custom").click(function () {
+			target.animo("clearse");
+			target.animo({
+				animation: 'percent',
+				duration: 'auto',
+				delay: 'auto',
+				iterate: 'auto',
+				timing: 'cubic-bezier(0.175,0.885,0.320,1.275)',
+			}, nextAnimo);
+		})
+
+		function nextAnimo(e) {
+			e.element.animo({
+				animation: 'rubberBand',
+				duation: 0.5,
+			}, function () {
+				console.log('next complete');
+
+			});
+		}
+
+
+		$(".blur").click(function () {
+			target.animo('blur',{
+				amout:3,
+				focusAfter:false
+			})
+		})
+		$(".focus").click(function () {
+			target.animo('focus')
+		})
+		$(".rotate").click(function () {
+			target.animo('rotate',{
+				degrees:45
+			})
+		})
+		$(".pause").click(function () {
+			target.toggleClass('pause');
+		})
+		$(".clear").click(function () {
+			target.toggleClass('cleanse');
+		})
+	</script>
+</body>
+
+</html>

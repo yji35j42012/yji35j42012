@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        @keyframes percent {
+            0% {
+                top: 0;
+                left: 0;
+            }
+
+            25% {
+                top: 0;
+                left: 200px;
+            }
+
+            50% {
+                top: 200px;
+                left: 200px;
+            }
+
+            75% {
+                top: 200px;
+                left: 0;
+            }
+
+            100% {
+                top: 0;
+                left: 0;
+            }
+        }
+
+        @keyframes fromTo {
+            from {
+                top: 100px;
+                left: 100px;
+            }
+
+            to {
+                top: 200px;
+                left: 200px;
+            }
+        }
+
+        section:nth-child(1) div:hover img {
+            animation: fromTo 1s;
+        }
+
+        section:nth-child(2) div:hover img {
+            animation: percent 4s;
+        }
+
+        section:nth-child(3) div:hover img {
+            animation: fromTo 1s 1s;
+        }
+
+        section:nth-child(4) div:hover img {
+            animation: fromTo 1s 1s 2;
+        }
+
+        section:nth-child(5) div:hover img {
+            animation: fromTo 1s 0s 1 ease-in;
+        }
+
+        section:nth-child(6) div:hover img {
+            animation: fromTo 1s 1s 2 alternate;
+        }
+
+        section:nth-child(7) div img {
+            animation: percent 4s 0s infinite;
+            animation-play-state: paused;
+        }
+
+        section:nth-child(7) div:hover img {
+            animation-play-state: running;
+        }
+
+        section:nth-child(8) div:hover img {
+            animation: fromTo 1s 1s 2 alternate;
+            animation-fill-mode: both;
+        }
+
+        div {
+            position: relative;
+        }
+
+        img {
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div>
+            <p>1</p>
+            <img src="./images/1.png" alt="">
+        </div>
+    </section>
+    <section>
+        <div>
+            <p>2</p>
+            <img src="./images/2.png" alt="">
+        </div>
+    </section>
+    <section>
+        <div>
+            <p>3</p>
+            <img src="./images/3.png" alt="">
+        </div>
+    </section>
+    <section>
+        <div>
+            <p>4</p>
+            <img src="./images/1.png" alt="">
+        </div>
+    </section>
+    <section>
+        <div>
+            <p>5</p>
+            <img src="./images/2.png" alt="">
+        </div>
+    </section>
+    <section>
+        <div>
+            <p>6</p>
+            <img src="./images/3.png" alt="">
+        </div>
+    </section>
+    <section>
+        <div>
+            <p>7</p>
+            <img src="./images/1.png" alt="">
+        </div>
+    </section>
+    <section>
+        <div>
+            <p>8</p>
+            <img src="./images/2.png" alt="">
+        </div>
+    </section>
+
+    <script>
+        var target = document.querySelectorAll("section > div > img")[7];
+        console.log(target);
+
+        target.addEventListener("animationstart", function () {
+            console.log('動畫開始');
+        })
+        target.addEventListener("animationend", function () {
+            console.log('動畫結束');
+        })
+        target.addEventListener("animationiteration", function () {
+            console.log('動畫重新開始');
+        })
+    </script>
+</body>
+
+</html>

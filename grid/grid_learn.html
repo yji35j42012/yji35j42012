@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="./css/reset.css">
+	<style>
+		.grid{
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+		}
+		.item1{
+			background: aqua;
+		}
+		.item2{
+			background:aquamarine;
+		}
+		.item3{
+			background:burlywood;
+		}
+		.item4{
+			background:cadetblue;
+		}
+		.item5{
+			background:cornflowerblue;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="grid" style="display: none">
+		<div class="item item1">item1</div>
+		<div class="item item2">item2</div>
+		<div class="item item3">item3</div>
+		<div class="item item4">item4</div>
+	</div>
+
+	<div class="wrap" style="display:none;">
+		<header></header>
+		<div class="content">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+			<div>7</div>
+			<div>8</div>
+			<div>9</div>
+		</div>
+		<div class="btn_box">
+			<button>小費</button>
+			<button>開關</button>
+			<button>大費</button>
+			<button>成功</button>
+			<button>失敗</button>
+		</div>
+	</div>
+
+
+	<div class="wrap" style="display: none">
+		<div class="login_box">
+			<div class="title">sign in</div>
+			<div class="input_box">
+				<div class="acc">
+					<input type="text">
+				</div>
+				<div class="pwd">
+					<input type="text">
+				</div>
+				<div class="check">
+					<input type="text">
+				</div>
+				<label>
+					記住帳號
+				</label>
+				<button>登入</button>
+			</div>
+		</div>
+	</div>
+
+	<style>
+		.lobby{
+			width: 100%;
+			height: 100%;
+			display: grid;
+			grid-template-columns: 115px 1fr;
+			grid-template-rows: 30px 150px minmax( 0  , 1fr);
+			grid-template-areas:
+			"item1 item2"
+			"item1 item3"
+			"item1 item4"
+			;
+		}
+		.header_menu{
+			background:aqua;
+			grid-area:item2;
+		}
+		.lobby_title{
+			grid-area: item3;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			/* grid-gap: 5px */
+		}
+		.lobby_title_left{
+			background:red;
+			/* background: url('./images/lobby/lobby_live_pic_tw.jpg')no-repeat center center/cover; */
+		}
+		.lobby_title_right{
+			background: blue;
+			/* background: url('./images/lobby/lobby_vip_pic_tw.jpg')no-repeat center center/cover; */
+		}
+		.left_menu{
+			background: #eee;
+			grid-area: item1;
+		}
+		.content{
+			background: #ccc;
+			grid-area: item4;
+		}
+		.lobby_box{
+			height: 100%;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+		}
+		.lobby_table{
+			width: 100%;
+			height: 165px;
+			background:cornflowerblue;
+		}
+		.left_content,
+		.right_content{
+			overflow-x: hidden;
+			overflow-y: auto;
+		}
+		.left_content .lobby_table:nth-child(2n){
+			background: #ccc;
+		}
+		.left_content .lobby_table:nth-child(2n+1){
+			background: #eee;
+		}
+		.right_content .lobby_table:nth-child(2n+1){
+			background: #ccc;
+		}
+		.right_content .lobby_table:nth-child(2n){
+			background: #eee;
+		}
+		@media (max-width: 1220px) {
+			.left_menu{
+				display: none;
+			}
+			.lobby{
+				grid-template-columns: 1fr;
+				grid-template-areas:
+				"item2"
+				"item3"
+				"item4"
+				;
+			}
+		}
+		@media (max-width: 1024px){
+			.content{
+				overflow-y: auto;
+			}
+			.lobby_box{
+				grid-template-columns: 1fr;
+			}
+			.left_content, .right_content {
+				/* overflow-x: auto; */
+			}
+
+			/* .content{
+				grid-template-columns: 1fr;
+				overflow-y: auto
+			}
+			.left_content,
+			.right_content{
+				overflow-y: hidden;
+			} */
+		}
+	</style>
+
+	<div class="lobby">
+		<header class="header_menu"></header>
+		<div class="lobby_title">
+			<div class="lobby_title_left">
+				<div class="logo"></div>
+			</div>
+			<div class="lobby_title_right"></div>
+		</div>
+		<div class="left_menu"></div>
+		<div class="content">
+			<div class="lobby_box">
+				<div class="left_content">
+					<div class="lobby_table"></div>
+					<div class="lobby_table"></div>
+					<div class="lobby_table"></div>
+					<div class="lobby_table"></div>
+					<div class="lobby_table"></div>
+					<div class="lobby_table"></div>
+				</div>
+				<div class="right_content">
+					<div class="lobby_table"></div>
+					<div class="lobby_table"></div>
+					<div class="lobby_table"></div>
+					<div class="lobby_table"></div>
+					<div class="lobby_table"></div>
+					<div class="lobby_table"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

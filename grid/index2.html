@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		html,
+		body {
+			width: 100%;
+			height: 100%;
+		}
+
+		#warning {
+			display: grid;
+			grid-template-rows: 1fr;
+			grid-template-columns: repeat(7, 1fr);
+			padding: 0.5em;
+			background-color: #fcc;
+		}
+
+		#grid {
+			display: grid;
+			grid-template-columns: [start col-a] 200px [col-b] 50% [col-c] 100px [stop end last];
+			grid-template-rows: [start masthead] 3em [content] minmax(3em, 100%) [footer] 2em [stop end];
+			width: 100%;
+			height: 100%;
+			/* padding: 0.5em;
+			background-color: #fcc; */
+		}
+	</style>
+</head>
+
+<body>
+	<div id="grid">
+		<div class="grid_item">start col-a</div>
+		<div class="grid_item">col-b</div>
+		<div class="grid_item">col-c stop end last</div>
+		<div class="grid_item"></div>
+		<div class="grid_item">content</div>
+		<div class="grid_item"></div>
+		<div class="grid_item"></div>
+		<div class="grid_item"></div>
+		<div class="grid_item"></div>
+	</div>
+	<p id="warning" style="display:none;">
+		<img src="https://picsum.photos/50/50?random=3" alt="">
+		<strong>Note:</strong>
+		This elemetn is a <em>grid container</em>
+		with several <em>grid items</em>
+		inside it.
+	</p>
+</body>
+
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        #app {
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+        }
+
+        .router-link-exact-active {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .nav {
+            display: flex;
+        }
+
+        .nav li+li {
+            margin-left: 10px;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 200px;
+            margin-top: 10px;
+            font-size: 20px;
+            border: 10px solid #f00;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <div v-if="show === 1">
+            Page1
+        </div>
+        <div v-if="show === 2">
+            Page2
+        </div> -->
+        <header>
+            <ul class="nav">
+                <li>
+                    <router-link to="/">Index</router-link>
+                </li>
+                <li>
+                    <router-link to="/page1">Page1</router-link>
+                </li>
+                <li>
+                    <router-link to="/page2">Page2</router-link>
+                </li>
+                <li>
+                    <router-link to="/user">User</router-link>
+                </li>
+                <li>
+                    <router-link to="/user/profile">profile</router-link>
+                </li>
+                <li>
+                    <router-link to="/user/posts">posts</router-link>
+                </li>
+                <!-- <li>
+                    <router-link to="/user">User</router-link>
+                </li>
+                <li>
+                    <router-link to="/user2/123">User2</router-link>
+                </li>
+                <li>
+                    <router-link to="/user2/profile/456">User2 profile</router-link>
+                </li> -->
+            </ul>
+        </header>
+        <div class="content">
+            <router-view></router-view>
+        </div>
+
+    </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.js'
+        integrity='sha512-o9SZrtqlGkpa7EF+dDrNjEdRFFYhymlrBzDKpolHNolxsyx0IcXAbEm9i1e8QpoiMgEdKZVtY8XiK1t8i6jVDA=='
+        crossorigin='anonymous'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.5.1/vue-router.js'
+        integrity='sha512-mQKtM7fSv7pIQ6r4Jqe7c7K3QKEa1G+qNp0o9ohfGNeTT7pl85our+sPlSkzogl1oChZj75zhq9HGAj7Pf4Wjw=='
+        crossorigin='anonymous'></script>
+    <script>
+
+        //router 操作
+        //route  紀錄分配讀取資料
+        const Index = {
+            template: `<div>Index</div>`
+        }
+        const Page1 = {
+            template: `<div>Page1</div>`,
+        }
+        const Page2 = {
+            template: `<div>Page2</div>`,
+        }
+        const User = {
+            template: `
+            <div>
+                User
+                <router-view></router-view>
+            </div>
+            `,
+            mounted() {
+                console.log('user');
+            }
+
+        }
+        const Profile = {
+            template: `
+            <div>Profile</div>
+            `,
+            mounted() {
+                console.log('Profile');
+            }
+        }
+        const Posts = {
+            template: `<div>Posts</div>`,
+            mounted() {
+                console.log('Posts');
+            }
+        }
+        const UserContent = {
+            template: `<div>UserContent</div>`,
+            mounted() {
+                console.log('UserContent');
+            }
+        }
+        const User2 = {
+            template: `
+            <div>
+                User2 {{ $route.params.id }}
+                {{ num }}<button @click="num++">+</button>
+            </div>`,
+            mounted() {
+                setTimeout(function () {
+                    window.alert('api')
+                }, 500)
+            },
+            data() {
+                return {
+                    num: 0,
+                }
+            }
+        }
+        const Error = {
+            template: '<div>404</div>'
+        }
+        const router = new VueRouter({
+            routes: [
+                {
+                    path: "/",
+                    component: Index,
+                },
+                {
+                    path: "/page1",
+                    component: Page1,
+                },
+
+                {
+                    path: "/page2",
+                    component: Page2,
+                },
+                // {
+                //     path: '/user',
+                //     component: User,
+                // },
+                // {
+                //     path: '/user/posts',
+                //     component: UserPosts,
+                // },
+                {
+                    path: '/user',
+                    component: User,
+                    children: [
+                        {
+                            path: "",
+                            component: UserContent,
+                        },
+                        {
+                            path: "profile",
+                            component: Profile,
+                        },
+                        {
+                            path: "posts",
+                            component: Posts,
+                        }
+                    ]
+                },
+
+
+                { path: '/user2/:id(\\d+)', component: User2 },
+                { path: '/user2/(profile/)?:id(\\d+)', component: User2 },
+
+
+                {
+                    path: '/404',
+                    component: Error,
+                },
+                {
+                    path: '*',
+                    redirect: '/404',
+                },
+                {
+                    path: '*',
+                    component: Error,
+                },
+            ]
+        })
+
+
+
+        new Vue({
+            el: '#app',
+            router,
+            data() {
+                return {
+                    show: 1,
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>

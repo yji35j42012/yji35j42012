@@ -1,0 +1,52 @@
+
+
+
+
+ w3/w3_PR/tpl/key_card_New.html 新增一般公關看到的訊息、清單（詳細、紀錄、工作馬）、會員小列表
+ w3/w3_PR/tpl/alert07.html 出碼增加公關下拉選單，拒絕按鈕
+ w3/w3_PR/tpl/alert12.html 新增確定上桌、確定換桌 alert視窗
+ w3/w3_PR/tpl/alert13.html 工作碼alert視窗
+ w3/w3_PR/tpl/other_set.html 新增其他參數－工作馬
+ 
+put /home/119alex166/ctliico566/w3/w3_PR/tpl/alert07.html w3/w3_PR/tpl/alert07.html
+put /home/119alex166/ctliico566/w3/w3_PR/tpl/alert12.html w3/w3_PR/tpl/alert12.html
+put /home/119alex166/ctliico566/w3/w3_PR/tpl/alert13.html w3/w3_PR/tpl/alert13.html
+put /home/119alex166/ctliico566/w3/w3_PR/tpl/key_card_New.html w3/w3_PR/tpl/key_card_New.html
+put /home/119alex166/ctliico566/w3/w3_PR/tpl/other_set.html w3/w3_PR/tpl/other_set.html
+put /home/119alex166/ctliico566/w3/w3_PR/tpl/alert13.html w3/w3_PR/tpl/alert16.html
+put /home/119alex166/ctliico566/w3/w3_PR/tpl/alert13.html w3/w3_PR/tpl/alert15.html
+put /home/119alex166/ctliico566/w3/w3_PR/tpl/alert13.html w3/w3_PR/tpl/alert14.html
+
+
+put /home/119alex166/ctliico566/w3/w3_PR/style/mainControl_zh-tw.css w3/w3_PR/style/mainControl_zh-tw.css
+put /home/119alex166/ctliico566/w3/w3_PR/style/color_CO.css w3/w3_PR/style/color_CO.css
+put /home/119alex166/ctliico566/w3/w3_PR/style/color_CS.css w3/w3_PR/style/color_CS.css
+put /home/119alex166/ctliico566/w3/w3_PR/style/color_CT.css w3/w3_PR/style/color_CT.css
+
+put /home/119alex166/ctliico566/w3/w3_PR/images/icon_arrow.svg w3/w3_PR/images/icon_arrow.svg
+put /home/119alex166/ctliico566/w3/w3_PR/images/icon_refresh.svg w3/w3_PR/images/icon_refresh.svg
+put /home/119alex166/ctliico566/w3/w3_PR/images/icon_edit.svg w3/w3_PR/images/icon_edit.svg
+
+key_card_new.html
+maincontrol_zh-tw.css
+clolr_ct.css
+
+report_ctl_ring.html
+
+put /home/119alex166/ctliico566/w3/w3_PR/tpl/key_card_New.html w3/w3_PR/tpl/key_card_New.html
+put /home/119alex166/ctliico566/w3/w3_PR/style/color_CO.css w3/w3_PR/style/color_CO.css
+put /home/119alex166/ctliico566/w3/w3_PR/style/color_CS.css w3/w3_PR/style/color_CS.css
+put /home/119alex166/ctliico566/w3/w3_PR/style/color_CT.css w3/w3_PR/style/color_CT.css
+put /home/119alex166/ctliico566/w3/w3_PR/style/mainControl_zh-tw.css w3/w3_PR/style/mainControl_zh-tw.css
+put /home/119alex166/ctliico566/w3/w3_PR/images/icon_arrow.svg w3/w3_PR/images/icon_arrow.svg
+
+
+
+
+跳出的框框放在alart2.html裡面
+
+流局記錄	
+換靴記錄	
+排行榜	
+重置記錄	
+50局後報表		

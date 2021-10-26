@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/loading1.css">
+    <link rel="stylesheet" href="./css/loading2.css">
+    <link rel="stylesheet" href="./css/loading3.css">
+    <link rel="stylesheet" href="./css/loading4.css">
+    <link rel="stylesheet" href="./css/loading5.css">
+    <link rel="stylesheet" href="./css/loading6.css">
+
+    <style>
+        * {
+            font-size: 18px !important;
+        }
+
+        .wrap {
+            width: 100%;
+            height: 100%;
+        }
+
+        .top,
+        .bottom {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .loading_box {
+            position: relative;
+            width: calc(100% / 3 - 20px);
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ccc;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+
+        <div class="loading_box loading1" style="display: none">
+            <div class="box"></div>
+            <span>L</span>
+            <span>o</span>
+            <span>a</span>
+            <span>d</span>
+            <span>i</span>
+            <span>n</span>
+            <span>g</span>
+        </div>
+        <div class="loading_box" style="display: none">
+            <div class="loading2">
+                <div class='loader--dot'></div>
+                <div class='loader--dot'></div>
+                <div class='loader--dot'></div>
+                <div class='loader--dot'></div>
+                <div class='loader--dot'></div>
+                <div class='loader--dot'></div>
+                <div class='loader--text'></div>
+            </div>
+        </div>
+        <div class="loading_box" style="display: none">
+            <div class="loading-container">
+                <div class="loading"></div>
+                <div class="loading-text">loading</div>
+            </div>
+
+        </div>
+        <div class="loading_box" style="display: none">
+            <div class="loader">Loading...</div>
+        </div>
+        <div class="loading_box" style="display: none">
+            <div class="loading5">
+                <div class="bounceball"></div>
+                <div class="text">NOW LOADING</div>
+            </div>
+
+        </div>
+        <div class="loading_box" style="display: none">
+            <div class="loader6"></div>
+            <span>L</span>
+            <span>o</span>
+            <span>a</span>
+            <span>d</span>
+            <span>i</span>
+            <span>n</span>
+            <span>g</span>
+        </div>
+
+
+        <style>
+            .blue_bg {
+                background-color: #4285F4
+            }
+
+            .loading7 {
+                display: flex;
+                align-items: flex-end;
+            }
+
+            .loading7>span+span {
+                margin-left: 5px;
+            }
+
+            .loading7>span:not(.ball) {
+                width: 10px;
+                height: 50px;
+                background-color: #fff;
+                transform-origin: center bottom;
+            }
+
+            .loading7>span:nth-child(1) {
+                transform: scale(1, 0.2);
+                animation: loading7_block1 5s infinite linear;
+            }
+
+            .loading7>span:nth-child(2) {
+                transform: scale(1, 0.4);
+                animation: loading7_block2 5s infinite linear;
+            }
+
+            .loading7>span:nth-child(3) {
+                transform: scale(1, 0.6);
+            }
+
+            .loading7>span:nth-child(4) {
+                transform: scale(1, 0.8);
+                animation: loading7_block4 5s infinite linear;
+            }
+
+            .loading7>span:nth-child(5) {
+                transform: scale(1, 1);
+                animation: loading7_block5 5s infinite linear;
+            }
+
+            @keyframes loading7_block1 {
+                0% {
+                    transform: scale(1, 0.2);
+                }
+
+                40% {
+                    transform: scale(1, 0.2);
+                }
+
+                50% {
+                    transform: scale(1, 1);
+                }
+
+                90% {
+                    transform: scale(1, 1);
+                }
+
+                100% {
+                    transform: scale(1, 0.2);
+                }
+            }
+
+            @keyframes loading7_block2 {
+                0% {
+                    transform: scale(1, 0.4);
+                }
+
+                40% {
+                    transform: scale(1, 0.4);
+                }
+
+                50% {
+                    transform: scale(1, 0.8);
+                }
+
+                90% {
+                    transform: scale(1, 0.8);
+                }
+
+                100% {
+                    transform: scale(1, 0.4);
+                }
+            }
+
+            @keyframes loading7_block4 {
+                0% {
+                    transform: scale(1, 0.8);
+                }
+
+                40% {
+                    transform: scale(1, 0.8);
+                }
+
+                50% {
+                    transform: scale(1, 0.4);
+                }
+
+                90% {
+                    transform: scale(1, 0.4);
+                }
+
+                100% {
+                    transform: scale(1, 0.8);
+                }
+            }
+
+            @keyframes loading7_block5 {
+                0% {
+                    transform: scale(1, );
+                }
+
+                40% {
+                    transform: scale(1, 1);
+                }
+
+                50% {
+                    transform: scale(1, 0.2);
+                }
+
+                90% {
+                    transform: scale(1, 0.2);
+                }
+
+                100% {
+                    transform: scale(1, 1);
+                }
+            }
+
+            .ball {
+                position: absolute;
+                display: block;
+                width: 10px;
+                height: 10px;
+                background-color: #fff;
+                border-radius: 100%;
+                transition-duration: .3s;
+                animation: loading7_ball 5s infinite linear;
+            }
+
+            @keyframes loading7_ball {
+                0% {
+                    transform: translate(0, -12px);
+                }
+
+                5% {
+                    transform: translate(7px, -26px);
+                }
+
+                10% {
+                    transform: translate(15px, -22px);
+                }
+
+                17% {
+                    transform: translate(22px, -36px);
+                }
+
+                20% {
+                    transform: translate(30px, -32px);
+                }
+
+                27% {
+                    transform: translate(37px, -46px);
+                }
+
+                30% {
+                    transform: translate(45px, -42px);
+                }
+
+                37% {
+                    transform: translate(52px, -56px);
+                }
+
+                40% {
+                    transform: translate(60px, -52px);
+                }
+
+                50% {
+                    transform: translate(60px, -12px);
+                }
+
+                57% {
+                    transform: translate(52px, -26px);
+                }
+
+                60% {
+                    transform: translate(45px, -22px);
+                }
+
+                67% {
+                    transform: translate(37px, -36px);
+                }
+
+                70% {
+                    transform: translate(30px, -32px);
+                }
+
+                77% {
+                    transform: translate(22px, -46px);
+                }
+
+                80% {
+                    transform: translate(15px, -42px);
+                }
+
+                87% {
+                    transform: translate(7px, -56px);
+                }
+
+                90% {
+                    transform: translate(0, -52px);
+                }
+
+                100% {
+                    transform: translate(0, -12px);
+                }
+            }
+        </style>
+
+        <div class="loading_box blue_bg">
+            <div class="loading7">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <spna class="ball"></spna>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

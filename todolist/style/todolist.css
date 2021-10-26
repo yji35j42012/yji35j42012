@@ -1,0 +1,165 @@
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	box-sizing: border-box;
+	line-height: 1;
+}
+
+html,
+body,
+.wrap {
+	width: 100%;
+	height: 100%;
+}
+
+button {
+	border: none;
+	outline: none;
+}
+
+.wrap {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: linear-gradient(#457fca, #5691c8);
+}
+
+.todolist {
+	position: relative;
+	width: 500px;
+	height: 500px;
+	background-color: #eee;
+	box-shadow: 0px 2px 5px 1px rgb(0 0 0 / 25%);
+	border-radius: 10px;
+}
+
+.tab {
+	display: flex;
+	align-items: center;
+	height: 60px;
+	padding: 0 10px;
+}
+
+.tab li {
+	
+	min-width: 100px;
+	height: 30px;
+	background: #FFFFFF;
+	border: 1px solid #F15A24;
+	border-radius: 3px;
+	cursor: pointer;
+}
+.tab li a{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	color: #F15A24;
+	text-decoration: none;
+	transition-duration: .3s;
+}
+/* .tab li.on{
+	color: #fff;
+	background: #F15A24;
+} */
+.tab .router-link-exact-active{
+	color: #fff;
+	background: #F15A24;
+}
+.tab li+li {
+	margin-left: 10px;
+}
+
+.todolist_box {
+	overflow-x: hidden;
+	overflow-y: auto;
+	width: 100%;
+	height: calc(100% - 70px);
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.todolist_tb {
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.todolist_tb td {
+	padding: 10px 5px;
+	text-align: center;
+	box-shadow: 0 -1px 0 #e5e5e5 inset;
+}
+
+.icon {
+	width: 30px;
+	height: 30px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	cursor: pointer;
+	transition: border .3s linear, color .3s linear, background-color .3s linear, opacity .3s linear, box-shadow .3s linear;
+}
+
+.icon:hover,
+.icon:active {
+	opacity: .6;
+}
+
+.icon._delete {
+	background-image: url('../images/icon_delete.svg');
+}
+
+.todolist_chk {
+	position: relative;
+	display: block;
+	width: 20px;
+	height: 20px;
+	margin: auto;
+	border: 2px solid #F15A24;
+	cursor: pointer;
+}
+
+.todolist_chk input {
+	position: absolute;
+	display: none;
+}
+
+.todolist_chk span {
+	display: none;
+	position: absolute;
+	top: -3px;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	width: 12px;
+	height: 7px;
+	margin: auto;
+	border-width: 0 0 2px 2px;
+	border-style: solid;
+	border-color: #F15A24;
+	transform: rotate(-45deg);
+}
+
+.todolist_chk input:checked~span {
+	display: block;
+}
+
+
+.loading{
+	position: absolute;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	background: #eee;
+}
+@media only screen and (min-device-width: 1025px) {
+	::-webkit-scrollbar {
+		width: 6px;
+		height: 6px;
+		background-color: #f1f1f1;
+	}
+}
+

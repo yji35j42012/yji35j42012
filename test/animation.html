@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body,html{
+            width: 100%;
+            height: 100%;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .ani{background-color: gray;}
+        .ani1{
+            -moz-animation: myname 3s;
+            -webkit-animation: myname 3s;
+        }
+        .ani2:hover{-webkit-animation: myname 3s;}
+        .ani3{-webkit-animation: myname 3s linear;}
+        .ani4{-webkit-animation: myname 3s 3s;}
+        .ani5{-webkit-animation: myname 3s 3;}
+        .ani5_1{-webkit-animation: myname 3s infinite;}
+        .ani6{-webkit-animation: myname 3s 3 alternate;}
+        .ani6_1{-webkit-animation: myname 3s infinite alternate;}
+
+        .ani7{
+            -webkit-animation:  myname1 3s  linear infinite,
+                                myname2 3s  linear infinite;
+        } 
+        .ani8{
+            -webkit-animation: myname 5s linear infinite;
+            -webkit-animation-play-atate: paused;
+        }
+        @-webkit-keyframes myname{
+            0% {background-color: skyblue;}
+            50%{background-color: pink;}
+            100%{background-color: yellow;}
+        }
+        @-webkit-keyframes myname1{
+            0% {background-color: skyblue; opacity: 0;}
+            50%{background-color: pink;}
+            100%{background-color: yellow; opacity: 1;}
+        }
+        @-webkit-keyframes myname2{
+            0% {background-color: black; }
+            50%{background-color: blue;}
+            100%{background-color: red; }
+        }
+    </style>
+</head>
+<body>
+    <div class="ani ani1">預設播放</div>
+    <div class="ani ani2">碰到播放</div>
+    <div class="ani ani3">補間播放</div>
+    <div class="ani ani4">延遲３秒播放</div>
+    <div class="ani ani5">重埔播放３次</div>
+    <div class="ani ani5_1">無線播放</div>
+    <div class="ani ani6">反向播放3次</div>
+    <div class="ani ani6_1">反向播放3次</div>
+    <div class="ani ani7">套用多個關鍵影格</div>
+    <div class="ani ani8">碰到暫停播放</div>
+
+</body>
+</html>

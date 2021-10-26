@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+        .wrap {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #eee;
+        }
+
+        .menu,
+        .data,
+        .wrap_grid {
+            font-size: 0;
+        }
+
+        .num,
+        .type,
+        .title {
+            display: inline-block;
+            height: 25px;
+            line-height: 25px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .num {
+            width: 35px;
+            background: #ccf;
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+        }
+
+        .type {
+            width: 100px;
+            background: aqua;
+        }
+
+        .title {
+            width: 200px;
+            background: paleturquoise;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+
+        .btn {
+            font-size: 14px;
+            margin: 0 15px;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .content {
+            display: none;
+            max-width: 750px;
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+
+        .data {
+            display: inline-block;
+            width: 100%;
+            background: #eee;
+
+            padding: 20px;
+        }
+
+        .data table {
+            table-layout: fixed;
+        }
+
+        .data table tr {
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .data table td {
+            border: 0;
+            padding: 0;
+        }
+
+        .fun {
+            width: 100%;
+            height: 50px;
+            background: royalblue;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            padding-left: 30px;
+        }
+
+        .normol_select {
+            width: 80px;
+            height: 30px;
+            border: 1px solid #eee;
+            margin-right: 10px;
+        }
+
+        .normol_select select {
+            width: 100%;
+            height: 100%;
+            padding-left: 10px;
+            font-size: 14px;
+        }
+
+        .normol_input {
+            width: 200px;
+            height: 30px;
+        }
+
+        .normol_input input {
+            width: 100%;
+            height: 100%;
+            padding-left: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap" style="display:none">
+        <div class="menu">
+            <button class="btn">
+                << /button>
+                    <span class="num">1</span>
+                    <span class="type">哈哈哈</span>
+                    <span class="title">客客客客客客客客</span>
+                    <button class="btn">></button>
+        </div>
+
+        <div class="content">
+            <div class="fun">
+                <div class="normol_select">
+                    <select>
+                        <option>aaa</option>
+                        <option>bbb</option>
+                    </select>
+                </div>
+                <div class="normol_input">
+                    <input type="text">
+                </div>
+            </div>
+            <div class="data">
+                <table>
+                    <tr>
+                        <td><span class="num">1</span></td>
+                        <td><span class="type">哈哈哈</span></td>
+                        <td><span class="title">客客客客客客客客</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="num">1</span></td>
+                        <td><span class="type">哈哈哈</span></td>
+                        <td><span class="title">客客客客客客客客</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="num">1</span></td>
+                        <td><span class="type">哈哈哈</span></td>
+                        <td><span class="title">客客客客客客客客</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="num">1</span></td>
+                        <td><span class="type">哈哈哈</span></td>
+                        <td><span class="title">客客客客客客客客</span></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <style>
+        .wrap_grid {
+            width: 100%;
+            height: 100%;
+            background: #eee;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search_div {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-auto-rows: 30px 30px;
+        }
+
+        .search_div select {
+            border: 1px solid #ccc;
+            padding-left: 10px;
+        }
+    </style>
+
+    <div id="app" class="wrap_grid">
+        <div class="container">
+            <div class="search_div">
+                <select v-model="input.typeinput">
+                    <option :value="null">請選擇</option>
+                    <option v-for="item in typeList.sort">
+                        {{ item }}
+                    </option>
+
+                </select>
+                <select v-model="input.titleinput">
+                    <option :value="null">請選擇</option>
+                    <option v-for="item in titleList.sort">{{ item }}</option>
+                </select>
+            </div>
+            <div class="content_div" v-if="ccc">
+                <span class="num">{{ ccc.index + 1}}</span>
+                <span class="type">{{ ccc.type }}</span>
+                <span class="title">{{ ccc.title}}</span>
+            </div>
+        </div>
+    </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js'></script>
+
+    <script>
+        let data = {
+            input: {
+                typeinput: null,
+                titleinput: null
+            },
+            menu: [
+                { type: 'AAAAA', title: 'aaaaa' },
+                { type: 'BBBBB', title: 'bbbbb' },
+                { type: 'CCCCC', title: 'ccccc' },
+                { type: 'AAAAA', title: 'a1a1a' },
+            ],
+            tttt: [
+                { name: '台積電', count: 20 },
+                { name: '聯電', count: 20 },
+                { name: '台積電', count: 50 },
+            ],
+        }
+        let vm = new Vue({
+            el: "#app",
+            data: data,
+            computed: {
+                typeList() {
+                    let obj = {
+                        sort: [],
+                        map: {}
+                    }
+                    this.menu.forEach(({ item, type, title }, index) => {
+                        if (!obj.map[type]) {
+                            obj.sort.push(type)
+                            obj.map[type] = {
+                                sort: [],
+                                map: {}
+                            }
+                        }
+                        obj.map[type].sort.push(title)
+                        obj.map[type].map[title] = { index, title }
+                    });
+                    return obj
+                },
+                test() {
+                    let ttt = {
+                        sort: [],
+                        map: {}
+                    }
+                    this.tttt.forEach(({ item, name, count }, index) => {
+                        if (!ttt.map[name]) {
+                            ttt.sort.push(name)
+                            ttt.map[name] = {
+                                sort: [],
+                            }
+                        }
+                        ttt.map[name].sort.push(count)
+                    })
+                    return ttt
+                },
+
+
+
+                titleList() {
+                    this.input.titleinput = null
+                    if (this.input.typeinput) {
+                        return this.typeList.map[this.input.typeinput]
+                    } else {
+                        return []
+                    }
+                },
+                ccc() {
+                    if (this.input.titleinput) {
+                        return this.titleList.map[this.input.titleinput]
+                    } else {
+                        return null
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

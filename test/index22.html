@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		.btn {
+			position: relative;
+			width: 50px;
+			height: 50px;
+			border: none;
+			outline: none;
+		}
+
+		div+div {
+			margin-top: 10px;
+		}
+
+		.cal_box {
+			display: none;
+			position: absolute;
+			width: 200px;
+			height: 200px;
+			background-color: #eee;
+		}
+
+		.close {
+			position: absolute;
+			top: 0;
+			right: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 25px;
+			height: 25px;
+			transform: translate(25%, -25%);
+			border-radius: 50%;
+			background: #000;
+			color: #fff;
+			cursor: pointer;
+		}
+
+		.tb_box {
+			width: 100%;
+			max-width: 900px;
+			margin: auto;
+		}
+
+		table {
+			width: 100%;
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="app">
+		<div class="tb_box">
+			<table>
+				<tr>
+					<td width="20%">aaaaa</td>
+					<td width="20%">bbbbb</td>
+					<td width="35%">
+						<button id="1" class="btn">按鈕1</button>
+						<button id="2" class="btn">按鈕2</button>
+						<button id="3" class="btn">按鈕3</button>
+						<button id="4" class="btn">按鈕4</button>
+						<button id="5" class="btn">按鈕5</button>
+					</td>
+					<td width="25%">ccccc</td>
+					<td width="25%">ddddd</td>
+				</tr>
+			</table>
+		</div>
+
+		<div id="cal_box" class="cal_box">
+			<div class="close">X</div>
+		</div>
+	</div>
+
+
+	<script>
+		let btn = document.querySelectorAll('.btn');
+		let cal_box = document.getElementById('cal_box');
+		let close = document.querySelector('.close');
+
+		for (let i = 0; i < btn.length; i++) {
+			const element = btn[i];
+			element.onclick = function (e) {
+				console.log(e);
+				// console.log(element.offsetTop);
+				cal_box.style.display = 'block';
+				cal_box.style.top = element.offsetTop + 10 + 'px';
+				cal_box.style.left = element.offsetLeft + 55 + 'px';
+			}
+		}
+
+		close.onclick = function () {
+			cal_box.style.display = 'none';
+		}
+	</script>
+</body>
+
+</html>

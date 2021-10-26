@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+	<div class="wrap">
+		<img src="https://picsum.photos/200/200?random=1" alt="" style="position: relative">
+		<button onclick="start()">start</button>
+		<!-- <div class="percent"></div>
+		<button class="animo">animo</button>
+		<button class="chain">chain</button>
+		<button class="custom">custom</button>
+		<button class="blur">blur</button>
+		<button class="focus">focus</button>
+		<button class="rotate">rotate</button>
+		<button class="pause">pause</button>
+		<button class="clear">clear</button> -->
+	</div>
+
+
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js'
+		integrity='sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=='
+		crossorigin='anonymous'></script>
+
+	<script>
+		var animationLength = 200;
+		var animationTime = 1000;
+
+		function animateHandler() {
+			$('img').animate({
+				left: animationLength
+			}, animationTime)
+				.animate({
+					top: animationLength
+				}, animationTime, 'linear')
+				.animate({
+					left: 0
+				}, animationTime)
+				.queue(function () {
+					console.log("Last");
+					$(this).dequeue();
+				})
+				.animate({
+					top: 0
+				}, animationTime, 'linear', completeHandler)
+		}
+		function completeHandler() {
+			console.log('complete');
+		}
+
+		function start() {
+			console.log('aaa');
+
+			$('img').stop(true).css({
+				top: 0,
+				left: 0
+			});
+			animateHandler();
+		}
+
+		function stop() {
+			$('img').stop(true)
+		}
+	</script>
+</body>
+
+</html>

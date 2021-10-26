@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		section {
+			overflow: auto;
+			width: 500px;
+			height: 500px;
+			display: flex;
+		}
+
+		section img {
+			flex: none;
+			width: auto;
+			height: 600px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrap">
+		<nav>
+			<a>aaaaa</a>
+			<a>bbbbb</a>
+		</nav>
+
+		<section>
+			<img src="https://picsum.photos/200/200?random=1" alt="" style="position: relative">
+
+
+
+		</section>
+		<section>
+			<img src="https://picsum.photos/200/200?random=2" alt="" style="position: relative">
+		</section>
+		<section>
+			<img src="https://picsum.photos/200/200?random=3" alt="" style="position: relative">
+		</section>
+		<section>
+			<img src="https://picsum.photos/200/200?random=4" alt="" style="position: relative">q
+		</section>
+		<!-- <img src="https://picsum.photos/200/200?random=1" alt="" style="position: relative"> -->
+		<!-- <button onclick="start()">start</button>
+		<button onclick="stop()">stop</button> -->
+	</div>
+
+
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js'
+		integrity='sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=='
+		crossorigin='anonymous'></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.6/velocity.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.6/velocity.ui.js"></script>
+	<script>
+
+		// YYYYY
+		$(function () {
+			var active = 0;
+			$("nav a").click(function () {
+
+				if ($(this).hasClass("active")) return;
+				var before = $("nav a.active").index();
+				var index = $(this).index();
+				var slider;
+
+				$(this).addClass("active").siblings().removeClass('active');
+				if (before > index) {
+					slider = -1;
+				} else {
+					slider = 0;
+				}
+
+				$('section').eq(index).velocity("stop", true).velocity("scroll", 500)
+					.find(".slider li").removeClass("active").eq(slider).addClass("active")
+					.velocity("stop", true).velocity("scroll", {
+						axis: 'x',
+						duration: 0, //馬上移動 不需動畫
+						container: $("section").eq(index).find(".slider ul") // 要他跑到此處？？
+					});
+			}).eq(0).click();
+
+			$('section').mousewheel(function (e, delta) {
+				if (!$(this).has('.slider').length) {
+					var target = $("nav a").eq($(this).index());
+					if (delta > 0) {
+						target.prev().click();
+					} else {
+						target.next().click();
+					}
+				}
+			})
+
+
+			$('.slider a').click(function () {
+				var container = $(this).siblings("ul"),
+					slide = !container.find("li.active").length ? 0 : container.find("li.active").index(),
+					direct = $(this).hasClass("next") ? 1 : -1,
+					target = slide + direct < 0 ? [] : container.find("li").eq(slide + direct);
+
+				if (!target.length) {
+					$("nav a").eq($(this).parents('section').index() + direct).click();
+				} else {
+					target.addClass("active").velocity("stop", true).velocity("scroll", {
+						axis: 'x',
+						duration: 500,
+						container: container,
+						begin: clearWheel,
+						complete: setWheel,
+					}).siblings().removeClass('active');
+				}
+			});
+
+			$(".slider").movsewheel(wheelHander);
+			function clearWheel(element) {
+				$(element).parents('.slider').unmousewheel(wheelHander)
+			}
+			function setWheel(element) {
+				$(element).parents(".slider").mousewheel(wheelHander)
+			}
+			function wheelHander(e, delta) {
+				if (delta > 0) {
+					target.prev().click();
+				} else {
+					target.next().click();
+				}
+			}
+		})
+
+	</script>
+</body>
+
+</html>

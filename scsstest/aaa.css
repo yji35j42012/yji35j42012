@@ -1,0 +1,47 @@
+blockquote {
+  width: 100%;
+}
+
+figure {
+  margin: 0 0 20px 0;
+}
+
+blockquote {
+  width: 100%;
+}
+
+figure {
+  margin: 0 0 20px 0;
+}
+
+.txt {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.box12 {
+  border-top: 1px solid red;
+  border-bottom: 1px solid green;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.txt1 {
+  position: absolute;
+  top: 10px;
+  bottom: 200px;
+  right: 20px;
+}
+
+.ex01 {
+  position: absolute;
+  top: 10px;
+}
+/*# sourceMappingURL=aaa.css.map */

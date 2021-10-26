@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		html,
+		body {
+			width: 100%;
+			height: 100%;
+		}
+
+		section {
+			display: flex;
+			height: 100%;
+			justify-content: center;
+			align-items: center;
+
+		}
+
+		section>div {
+			perspective: 1000px;
+			perspective-origin: 50% 50%;
+			/* overflow: hidden; */
+		}
+
+		section>div div {
+			width: 100%;
+			height: 100%;
+			transform-style: preserve-3d;
+			top: 150px;
+			left: 150px;
+			transition: transform 1s;
+		}
+
+		section div img {
+			position: absolute;
+			box-sizing: border-box;
+			width: 200px;
+			height: 200px;
+			top: -100px;
+			left: -100px;
+			border: 1px solid green;
+			opacity: .8;
+			backface-visibility: hidden;
+		}
+
+		section>span {
+			display: block;
+		}
+
+		section>span a {
+			margin: 10px 0;
+			width: auto;
+			padding: 5px 10px;
+		}
+
+		.x img:nth-child(1) {
+			transform: rotateX(0deg) translateZ(175px);
+		}
+
+		.x img:nth-child(2) {
+			transform: rotateX(-60deg) translateZ(175px);
+		}
+
+		.x img:nth-child(3) {
+			transform: rotateX(-120deg) translateZ(175px);
+		}
+
+		.x img:nth-child(4) {
+			transform: rotateX(-180deg) translateZ(175px);
+		}
+
+		.x img:nth-child(5) {
+			transform: rotateX(-240deg) translateZ(175px);
+		}
+
+		.x img:nth-child(6) {
+			transform: rotateX(-300deg) translateZ(175px);
+		}
+
+
+		.y img:nth-child(1) {
+			transform: rotateY(0deg) translateZ(175px);
+		}
+
+		.y img:nth-child(2) {
+			transform: rotateY(60deg) translateZ(175px);
+		}
+
+		.y img:nth-child(3) {
+			transform: rotateY(120deg) translateZ(175px);
+		}
+
+		.y img:nth-child(4) {
+			transform: rotateY(180deg) translateZ(175px);
+		}
+
+		.y img:nth-child(5) {
+			transform: rotateY(240deg) translateZ(175px);
+		}
+
+		.y img:nth-child(6) {
+			transform: rotateY(300deg) translateZ(175px);
+		}
+		.btn{
+			position: absolute;
+			top: 0;
+
+		}
+	</style>
+</head>
+
+<body>
+	<section>
+		<div class="btn">
+			<span>
+				<a>x</a>
+			</span>
+			<span>
+				<a>y</a>
+			</span>
+			<span>
+				<a>Prev</a>
+			</span>
+			<span>
+				<a>Next</a>
+			</span>
+		</div>
+		<div>
+			<div class="x">
+				<img src="./images/1.png" alt="">
+				<img src="./images/2.png" alt="">
+				<img src="./images/3.png" alt="">
+				<img src="./images/4.png" alt="">
+				<img src="./images/5.jpg" alt="">
+				<img src="./images/6.jpg" alt="">
+			</div>
+			<!-- <div class="y">
+				<img src="./images/1.png" alt="">
+				<img src="./images/2.png" alt="">
+				<img src="./images/3.png" alt="">
+				<img src="./images/4.png" alt="">
+				<img src="./images/5.jpg" alt="">
+				<img src="./images/6.jpg" alt="">
+			</div> -->
+		</div>
+
+
+	</section>
+
+
+	<script>
+		var cube = document.querySelector("section > div > div");
+		var a = document.querySelectorAll("a");
+		var rx = 0,
+			ry = 0,
+			now = 0,
+			next = 0,
+			r = 0;
+
+		for (var i = 0; i < a.length; i++) {
+			a[i].onclick = cubeHandler;
+		}
+
+		function cubeHandler() {
+			console.log(this.innerHTML);
+
+			switch (this.innerHTML) {
+				case "x":
+					cube.className = "x";
+					break;
+				case "y":
+					cube.className = "y";
+					break;
+				case "Prev":
+					next = now - 1 < 0 ? 5 : now - 1;
+					break;
+				case "Next":
+					next = now + 1 > 5 ? 0 : now + 1;
+					break;
+				default:
+					next = (this.innerHTML - 1);
+			}
+
+			if (next > now) {
+				r = next - now <= 3 ? r + (next - now) * 60 : r - (6 - next + now) * 60;
+			} else if (next < now) {
+				r = now - next <= 3 ? r - (now - next) * 60 : r + (6 - now + next) * 60;
+			}
+			now = next;
+			if (cube.className == "x") {
+				console.log('aaaaa');
+
+				rx = r;
+				ry = 0;
+			} else if (cube.className == "y") {
+				rx = 0;
+				ry = -r;
+			}
+			cube.addEventListener("transitionend", endHandler);
+			cube.style.transition = "";
+			cube.style.transform = "rotateX(" + rx + "deg) rotateY(" + ry + "deg)";
+
+
+
+
+		}
+		function change(num) {
+			switch (num) {
+				case 1:
+					rx = 0;
+					ry = 0;
+					break;
+				case 2:
+					rx = 0;
+					ry = 90;
+					break;
+				case 3:
+					rx = -90;
+					ry = 0;
+					break;
+				case 4:
+					rx = 90;
+					ry = 0;
+					break;
+				case 5:
+					rx = 0;
+					ry = -90;
+					break;
+				case 6:
+					rx = 0;
+					ry = 180;
+					break;
+			}
+			rx += 360 * Math.floor(Math.random() * 5);
+			ry += 360 * Math.floor(Math.random() * 5);
+		}
+		function endHandler() {
+			cube.removeEventListener("transitionend", endHandler);
+			cube.style.transition = "none";
+			if( r < 0){
+				r += 360 * Math.ceil(Math.abs(r) / 360);
+				rx += 360 * Math.ceil(Math.abs(rx) / 360);
+				ry += 360 * Math.ceil(Math.abs(ry) / 360);
+			}
+
+			if( r > 0){
+				r %= 360;
+				rx %= 360;
+				r %= 360;
+			}
+
+			cube.style.transform = "rotateX(" + rx + "deg) rotateY (" + ry + "deg)"
+		}
+	</script>
+</body>
+
+</html>

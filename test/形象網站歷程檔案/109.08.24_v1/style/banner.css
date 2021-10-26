@@ -1,0 +1,191 @@
+.banner {
+	width: 100%;
+	/* height: calc(100vh - 60px); */
+	/* height: calc(100% - 60px); */
+	height: 100%;
+	background: #000;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+.banner_group{
+	width: 100%;
+	height: 100%;
+    display: flex;
+    transform: translateX(-200%);
+}
+.banner_item{
+    position: relative;
+    flex: 0 0 100%;
+	height: 100%;
+	display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.banner_txtbox{
+    position: absolute;
+	width: 60%;
+    padding: 0 150px;
+    z-index: 5;
+}
+.banner_item:nth-child(2) .banner_bigtxt{
+    font-size: 60px;
+}
+.banner_bigtxt{
+	font-size: 76px;
+	margin-bottom: 50px;
+	font-weight: bold;
+}
+.banner_midtxt{
+	font-size: 46px;
+	color: #FFFFCD;
+	margin-bottom: 5px;
+}
+.banner_minitxt{
+	font-size: 21px;
+	color: #fff;
+	line-height: 30px;
+}
+.banner_item:nth-child(1) .banner_pic {
+	position: absolute;
+	width: 900px;
+	height: 100%;
+	background: url('../images/peoplebg.png')no-repeat 40% center / cover;
+    right: 0px;
+}
+.banner_item:nth-child(2) .banner_pic  {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: url('../images/bg_banner02.png')no-repeat right center / contain;
+    right: 0px;
+}
+.banner_item:nth-child(3) .banner_pic  {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: url('../images/bg_banner03.png')no-repeat right center / contain;
+    /* right: 0px; */
+}
+.banner_item:nth-child(1) img:nth-child(1){
+    position: absolute;
+    height: 80%;
+    left: 0px;
+    right: 130px;
+    bottom: 5%;
+    margin: 0 auto;
+    z-index: 3;
+}
+.banner_item:nth-child(1) img:nth-child(2){
+    position: absolute;
+    z-index: 2;
+    height: 57%;
+    left: 10%;
+    top: 18%;
+}
+.banner_item:nth-child(1) img:nth-child(3){
+    position: absolute;
+    z-index: 2;
+    height: 60%;
+    left: 50%;
+    top: 17%;
+}
+.banner_item:nth-child(1) img:nth-child(4){
+    position: absolute;
+    z-index: 1;
+    height: 90%;
+    left: 20%;
+    top: -2%;
+}
+.banner_item:nth-child(2) img:nth-child(1){
+    position: absolute;
+    height: 20%;
+    right: 90px;
+    bottom: 20%;
+}
+.banner_item:nth-child(2) img:nth-child(2){
+    position: absolute;
+    height: 28%;
+    right: 29%;
+    bottom: 28%;
+}
+
+
+
+
+@media (max-width: 1440px){
+    .banner_bigtxt {font-size: 60px;}
+
+    .banner_item:nth-child(2) .banner_bigtxt{
+        font-size: 50px;
+    }
+    .banner_midtxt{font-size: 36px;}
+    .banner_item:nth-child(2) .banner_midtxt{
+        font-size: 30px;
+    }
+    .banner_item:nth-child(2) .banner_minitxt{
+        font-size: 18px;
+    }
+    .banner_txtbox{	padding: 0 100px;}
+    .banner_item:nth-child(1) .banner_pic{right: -150px;}
+    .banner_item:nth-child(2) .banner_pic{
+        background: url(../images/bg_banner02.png)no-repeat right center / cover;
+    }
+
+}
+@media (max-width: 1024px){
+    .banner_bigtxt {font-size: 50px;}
+    .banner_midtxt{font-size: 28px;}
+    .banner_minitxt{font-size: 18px;}
+    .banner_txtbox{padding: 0 80px 0 20px ;}
+    .banner_item:nth-child(1) .banner_pic{
+        right: -220px;
+        height: 90%;
+    }
+}
+@media (max-width: 768px){
+    .banner_item{flex-direction: column;}
+    .banner_txtbox{
+        width: 100%;
+        position: relative;
+        order: 2;
+        padding: 20px 80px ;
+    }
+    .banner_item:nth-child(1) .banner_pic{
+        position: relative;
+        /* width: 100%; */
+        right: auto;
+        height: 100%;
+        order: 1;
+        background: url(../images/peoplebg.png)no-repeat center top / contain;
+    }
+    .banner_item:nth-child(1) .banner_pic img{
+        bottom: 1%;
+    }
+    .banner_bigtxt{
+        margin-bottom: 0;
+    }
+    .banner_pic img:nth-child(1) {
+        position: absolute;
+        height: 80%;
+        left: 0px;
+        right: 180px;
+        bottom: 5%;
+        margin: 0 auto;
+        z-index: 3;
+    }
+    .banner_pic img:nth-child(3) {
+        position: absolute;
+        z-index: 2;
+        height: 60%;
+        left: 47%;
+        top: 23%;
+    }
+    .banner_pic img:nth-child(4) {
+        position: absolute;
+        z-index: 1;
+        height: 90%;
+        left: 24%;
+        top: 2%;
+    }
+}

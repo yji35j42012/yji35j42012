@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		img {
+			position: absolute;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="wrap">
+		<img id="#BOX" src="https://picsum.photos/200/200?random=1" alt="" style="position: relative">
+		<img src="https://picsum.photos/200/200?random=2" alt="" style="position: relative">
+		<button class="to">to</button>
+		<button class="staggerTo">staggerTo</button>
+		<button class="from">from</button>
+		<button class="staggerFrom">staggerFrom</button>
+		<button class="fromTo">fromTo</button>
+		<button class="staggerFromTo">staggerFromTo</button>
+	</div>
+
+
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js'
+		integrity='sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=='
+		crossorigin='anonymous'></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+	<script>
+		$(function () {
+			var timeline = new TimelineMax();
+	
+			timeline.add(TweenMax.to('#OPEN', 1, {
+				autoAlpha: 1
+			}), 1);
+			timeline.add(TweenMax.to('#BOX', 1, {
+				autoAlpha: 0
+			}), 4);
+			timeline.add(TweenMax.to('#TOP h2', .5, {
+				autoAlpha: 1,
+				top: 125
+			}), 5.5);
+
+			timeline.add(TweenMax.to('#TOP ul', .5, {
+				autoAlpha: 1,
+				top: 90
+			}), 5.75)
+
+			timeline.add(TweenMax.to('#SMALLCAR', .25, {
+				autoAlpha: 1,
+			}), 6)
+			timeline.add(TweenMax.to('#SMALLCAR', .5, {
+				left: -200,
+			}))
+
+			timeline.add(TweenMax.to('#CAR', .25, {
+				autoAlpha: 1,
+			}))
+
+			timeline.add(TweenMax.to('#CAR', .75, {
+				left: 20,
+			})).play();
+			// 跳過動畫
+			$("#SKIP").click(function () {
+				timeline.seek(timeline.endTime());
+				// seek 可跳到希望的影格
+			})
+		})
+	</script>
+</body>
+
+</html>

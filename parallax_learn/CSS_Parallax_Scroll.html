@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body{
+            width: 100%;
+            height: 100%;
+            font-size: 20px;
+            line-height: 40px;
+            letter-spacing: 2px;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        main{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: #222;
+        }
+        .bg{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-image: url('https://picsum.photos/1920/800?random=2');
+        }
+        .bg>h1{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            bottom: auto;
+            right: auto;
+            transform: translateX(-50%) translateY(-50%);
+            width: 80%;
+            max-width: 800px;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(0,0,0,0.5);
+            text-align: center;
+            font-weight: bolder;
+        }
+        .content{
+            width: 100%;
+            background-color: #fff;
+            box-sizing: border-box;
+        }
+        .content > div{
+            width: 80%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 100px 0;
+        }
+        #mountain {
+            width: 100%;
+            height: 500px;
+            background: url('https://picsum.photos/1920/500?random=1')no-repeat center/cover;
+        }
+
+        #mario {
+            width: 100%;
+            height: 800px;
+            background: url('https://picsum.photos/1920/800?random=2')no-repeat center/cover;
+        }
+
+        #goTop {
+            width: 50px;
+            height: 50px;
+            background: #000;
+        }
+
+
+        @keyframes scroll {
+            from {
+                background-position: 0px;
+            }
+            50%{
+                background-position: 400px;
+            }
+            to{
+                background-position: 800px;
+            }
+        }
+
+        body{
+            background: #444;
+        }
+        div{
+            top: 0;
+            bottom: 0;
+            right: 0;
+            background-repeat: repeat-x;
+            animation-name: scroll;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+        #container{
+            position: relative;
+            margin: 0 auto;
+            width: 800px;
+            height: 500px;
+            background-color: #7686ff;
+            background-image: url('https://picsum.photos/1920/800?random=2');
+            animation-duration: 40s;
+        }
+        #container div{
+            position: absolute;
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+        }
+        #mountain{
+            background-image: url('https://picsum.photos/1920/800?random=1');
+            animation-duration: 20s;
+            animation-direction: reverse;
+        }
+        #mario{
+            background-image: url('https://picsum.photos/1920/800?random=3');
+            animation-duration: 10s;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <main class="wrap main">
+        <div class="bg">
+            <h1>66666</h1>
+        </div>
+        <div class="content">
+            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores soluta, officiis libero perferendis porro inventore consequuntur, itaque dolorum nulla temporibus molestias dolorem est odio, quis possimus iste aliquam perspiciatis ex.</div>
+        </div>
+    </main>
+
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js'
+        integrity='sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=='
+        crossorigin='anonymous'></script>
+
+    <script>
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img{
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrap">
+        <img src="https://picsum.photos/200/200?random=1" alt="" style="position: relative">
+        <img src="https://picsum.photos/200/200?random=2" alt="" style="position: relative">
+        <button class="to">to</button>
+        <button class="staggerTo">staggerTo</button>
+        <button class="from">from</button>
+        <button class="staggerFrom">staggerFrom</button>
+        <button class="fromTo">fromTo</button>
+        <button class="staggerFromTo">staggerFromTo</button>
+    </div>
+
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js'
+        integrity='sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=='
+        crossorigin='anonymous'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script>
+        $(function () {
+            var target = $("img");
+            $('.to').click(function () {
+                clear();
+                TweenMax.to(target, 0.5, {
+                    top: 200,
+                    left: 200,
+                    rotation: 90,
+                });
+            })
+
+            $('.staggerTo').click(function () {
+                clear();
+                TweenMax.staggerTo(target, 0.5, {
+                    top: 200,
+                    left: 200,
+                    rotation: 90,
+                }, 0.25);
+            })
+
+            $(".from").click(function () {
+                clear();
+                TweenMax.from(target, 0.5, {
+                    top: 200,
+                    left: 200,
+                    rotation: 90,
+                })
+            })
+            $(".staggerFrom").click(function () {
+                clear();
+                TweenMax.staggerFrom(target, 0.5, {
+                    top: 200,
+                    left: 200,
+                    rotation: 90,
+                }, 0.25)
+            })
+
+            $(".fromTo").click(function () {
+                clear();
+                TweenMax.fromTo(target, 0.5, {
+                    top: 0,
+                    left: 0,
+                    rotation: -90,
+                }, {
+                        top: 200,
+                        left: 200,
+                        rotation: 90,
+                    })
+            })
+
+            $(".staggerFromTo").click(function () {
+                clear();
+                TweenMax.staggerFromTo(target, 0.5, {
+                    top: 100,
+                    left: 100,
+                    rotation: -90,
+                }, {
+                        top: 200,
+                        left: 200,
+                        rotation: 90,
+                    }, 0.25);
+            })
+            function clear() {
+                TweenMax.killTweensOf(target);
+                TweenMax.set(target, {
+                    clearProps: 'all'
+                })
+            }
+        })
+    </script>
+</body>
+
+</html>

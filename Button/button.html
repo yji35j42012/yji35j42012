@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="./css/reset.css">
+	<style>
+		.wrap {
+			width: 100%;
+			height: 100%;
+			padding: 50px;
+			background: #ccc;
+		}
+
+		.btn_box1,
+		.btn_box2 {
+			padding: 10px 0;
+			border-bottom: 1px solid #999;
+		}
+
+		.green_btn {
+			position: relative;
+			display: inline-block;
+			max-width: 150px;
+			width: 100%;
+			height: 40px;
+			line-height: 30px;
+			font-size: 18px;
+			text-shadow: 1px 2px 1px #000;
+			color: #f2ebbd;
+			box-shadow: inset 0px 0 5px 1px rgba(255, 255, 255, .2);
+			border-radius: 5px;
+			border-width: 1px 0 1px 0;
+			border-style: solid;
+			-o-border-image: linear-gradient(to right, rgba(156, 105, 50, 0), #9c6932, #fcf7b7, #9c6932, rgba(156, 105, 50, 0)) 5 5;
+			border-image: -webkit-linear-gradient(to right, rgba(156, 105, 50, 0), #9c6932, #fcf7b7, #9c6932, rgba(156, 105, 50, 0)) 5 5;
+			border-image: -webkit-linear-gradient(left, rgba(156, 105, 50, 0), #9c6932, #fcf7b7, #9c6932, rgba(156, 105, 50, 0)) 5 5;
+			border-image: linear-gradient(to right, rgba(156, 105, 50, 0), #9c6932, #fcf7b7, #9c6932, rgba(156, 105, 50, 0)) 5 5;
+			cursor: pointer;
+			background: #4B6135;
+			background: linear-gradient(180deg, #4B6135 0%, #000 100%);
+		}
+
+		.green_btn::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: radial-gradient(ellipse, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, .1) 51%, rgba(255, 255, 255, .3) 100%);
+			background-position: 70% 0%;
+			background-size: 250% 200%;
+		}
+
+		.green_btn:hover {
+			background: linear-gradient(180deg, #226b1c 0%, #052700 100%);
+		}
+
+		.btn_box2 .normal_btn {
+			position: relative;
+			display: inline-block;
+			min-width: 50px;
+			background-color: #999;
+			box-shadow: 0px 2px 0px 0px #777;
+			border-radius: 3px;
+			border: 0;
+			color: #fff;
+			padding: 0 5px;
+			font-size: 12px;
+		}
+
+		.btn_box2 .normal_btn_pro {
+			width: 80px;
+			height: 60px;
+			border-radius: 3px;
+		}
+
+		.btn_box2 .normal_btn:active {
+			transform: translate(0px, 1px);
+			-webkit-transform: translate(0px, 1px);
+		}
+
+		.btn_box2 .btn_blue {
+			background-color: #2356FF;
+			box-shadow: 0px 2px 0px 0px #0030cc;
+		}
+
+		.normal_btn_pro.btn_blue {
+			box-shadow: 0px 5px 0px 0px #0030cc;
+		}
+
+		.normal_btn_pro:active {
+			transform: translate(0px, 5px);
+			-webkit-transform: translate(0px, 5px);
+			box-shadow: 0px 1px 0px 0px;
+		}
+
+		.btn_box3 {
+			padding: 15px;
+		}
+
+		.btn_box3 .normal_btn {
+			position: relative;
+			padding: 15px 35px;
+			border-radius: 100px;
+			font-size: 14px;
+			background-color: #3baeff;
+			color: #fff;
+			border: 1px solid #3baeff;
+			cursor: pointer;
+		}
+
+		.btn_box3 .normal_btn:hover {
+			color: #ffffff;
+			background-color: #222226;
+			border-color: #222226;
+			transition: background .4s .4s, border-color .4s 0s, color .2s 0s;
+		}
+
+		.btn_box3 .normal_btn:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			margin: auto;
+			width: 70%;
+			height: 100%;
+			border-radius: 100px;
+			opacity: 0;
+			background-color: #222226;
+		}
+
+		.btn_box3 .normal_btn:hover::before {
+			color: #fff;
+			width: 100%;
+			opacity: 1;
+			transition: width .4s, background .4s .4s, border-color .4s 0s, color .2s 0s;
+		}
+
+		.btn_box3 .normal_btn:after {
+			position: relative;
+			content: attr(data-txt);
+			color: #fff;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrap">
+		<div class="btn_box1">
+			<button class="green_btn">按鈕</button>
+		</div>
+
+		<div class="btn_box2">
+			<button class="normal_btn">按鈕</button>
+			<button class="normal_btn btn_blue">按鈕</button>
+			<button class="normal_btn_pro btn_blue">按鈕</button>
+		</div>
+
+		<div class="btn_box3">
+			<button class="normal_btn" data-txt="按鈕"></button>
+		</div>
+	</div>
+</body>
+
+</html>

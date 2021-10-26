@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="./style/todolist.css">
+</head>
+
+<body>
+	<div id="app" class="wrap" style="background: #eee">
+		<!-- <router-link to="/todo" replace>All</router-link> |
+		<router-link to="/todo?filter=active" replace>Active</router-link> |
+		<router-link :to="{name:'/todo' , query:{filter:'done'}}" replace>Done</router-link> | -->
+		<div class="loading" v-if="loading">
+			loading．．．
+		</div>
+		<div class="todolist" v-else>
+			<ul class="tab">
+				<li class="on">
+					<router-link to="/todo" replace>All</router-link>
+				</li>
+				<li>
+					<router-link to="/todo?filter=active" replace>Active</router-link>
+				</li>
+				<li>
+					<router-link :to="{name:'/todo' , query:{filter:'done'}}" replace>Done</router-link>
+				</li>
+			</ul>
+			<div class="todolist_box">
+				<table class="todolist_tb">
+					<todoitem 
+						v-for="item of list" 
+						:key="item.tId" 
+						:todo="item.todo" 
+						:edit="item.tId === edit">
+					</todoitem>
+					<!-- <tr v-for="(item, index) in filterList" :key="item.tId">
+						<td width="10%">
+							<label class="todolist_chk">
+								<input type="checkbox" v-model="item.todo.done" :checked="item.todo.done">
+								<span></span>
+							</label>
+						</td>
+						<td width="20%">2020.03.26</td>
+						<td width="50%">
+							<span v-if="!edit">
+								{{ item.todo.content}}
+							</span>
+							<span v-else>
+								<input type="text" v-model="item.todo.content">
+							</span>
+						</td>
+						<td width="20%">
+							<button class="icon _delete"></button>
+						</td>
+					</tr> -->
+				</table>
+			</div>
+			<div class="function_box"></div>
+		</div>
+		<!-- <div style="position: absolute; right: 0; top:30px">
+			"dt:" {{dt}}
+		</div>
+		<div style="position: absolute; right: 0; top:50px">
+			"doneTodosCount:" {{doneTodosCount}}
+		</div>
+		<div style="position: absolute; right: 0; top:70px">
+			"doneTodosCount1:" {{doneTodosCount1}}
+		</div>
+		<div style="position: absolute; right: 0; top:90px">
+			"getId:" {{getId}}
+		</div>
+		<div style="position: absolute; right: 0; top:110px">
+			"count:" {{count}}
+		</div>
+		<div style="position: absolute; right: 0; top:130px">
+			"count1:" {{count1}}
+		</div>
+		<div style="position: absolute; right: 0; top:150px">
+			"count2:" {{count2}}
+		</div>
+		<div style="position: absolute; right: 0; top:170px">
+			"count3:" {{count3}}
+		</div>
+		<div style="position: absolute; right: 0; top:190px">
+			"filterList:" {{filterList}}
+		</div>
+		<button @click="increment" style="position: absolute; right: 0;">click</button> -->
+
+
+	</div>
+
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.js'
+		integrity='sha512-o9SZrtqlGkpa7EF+dDrNjEdRFFYhymlrBzDKpolHNolxsyx0IcXAbEm9i1e8QpoiMgEdKZVtY8XiK1t8i6jVDA=='
+		crossorigin='anonymous'></script>
+	<script src="https://unpkg.com/vuex@3.6.2/dist/vuex.js"></script>
+	<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.js"></script>
+	<script src="https://unpkg.com/http-vue-loader"></script>
+
+	<!-- <script src="./modutes/LocalStorage.js"></script>
+	<script src="./store/index.js"></script> -->
+
+	<script>
+		let KEY = 'todo-vue'
+		function load(KEY) {
+			return JSON.parse(window.localStorage.getItem(KEY || 'null'))
+		}
+		function save(KEY, data) {
+			window.localStorage.setItem(KEY, JSON.stringify(data))
+		}
+
+		const routes = []
+		const router = new VueRouter({
+			// mode: 'history',
+			routes // (缩写) 相当于 routes: routes
+		})
+		const store = new Vuex.Store({
+			state: {
+				todos: [
+					{ id: 1, content: '123', done: false, },
+					{ id: 2, content: '456', done: true, },
+					{ id: 3, content: '789', done: false, },
+					{ id: 4, content: '101112', done: false, },
+				],
+				count: 0,
+				count1: 0,
+				count2: 0,
+				count3: 0,
+			},
+			getters: {
+				list(state) {
+					return state.todos.map((todo, tId) => {
+						return {
+							tId,
+							todo
+						}
+					})
+				},
+				doneTodos: state => {
+					return state.todos.filter(todo => todo.done)
+				},
+				filterList: (state, getters) => {
+					return function (filter) {
+						let status = null
+						switch (filter) {
+							case 'all':
+								return getters.list
+							case 'active':
+								status = false
+								break
+							case 'done':
+								status = true
+								break
+						}
+						return getters.list.filter((todo) => {
+							return todo.todo.done === status
+						})
+					}
+				},
+				doneTodosCount: (state, getters) => {
+					return getters.doneTodos.length
+				},
+				getTodoById: (state) => (id) => {
+					return state.todos.find(todo => todo.id === id)
+				}
+			},
+			mutations: {
+				increment(state) {
+					state.count++
+				},
+				increment1(state, n) {
+					state.count1 += n
+				},
+				increment2(state, payload) {
+					state.count2 += payload.amount
+				},
+				increment3(state, payload) {
+					state.count3 += payload.amount
+				}
+			},
+			action: {
+				UPDATE_TODO({ commit }, { tId, todo }) {
+					// UPDATE_TODO 整個更新
+					// 1.PATCH //axios.patch() 
+					const todos = load(KEY)
+					todos.splice(tId, 1, todo)
+					STORE.save(KEY, todos)
+					// 2.commit mutation  寫入 state
+					commit('SET_TODOS', todos)
+					// 3. return
+					return {
+						tId,
+						todo
+					}
+				},
+			}
+		})
+
+		let data = {
+			gId: 1,
+			filter: 'all',
+			loading: false,
+			edit: false,
+		}
+		let vm = new Vue({
+			el: '#app',
+			data: data,
+			router,
+			components: {
+				'todoitem': httpVueLoader('./components/todoItem.vue')
+			},
+			store: store,
+			computed: {
+				count() {
+					return store.state.count
+				},
+				count1() {
+					return store.state.count1
+				},
+				count2() {
+					return store.state.count2
+				},
+				count3() {
+					return store.state.count3
+				},
+				dt() {
+					return store.getters.doneTodos
+				},
+				doneTodosCount() {
+					return this.$store.state.todos.filter(todo => todo.done).length
+				},
+				doneTodosCount1() {
+					return this.$store.getters.doneTodosCount
+				},
+				getId() {
+					return store.getters.getTodoById(this.gId)
+				},
+				filterList() {
+					return store.getters.filterList(this.filter)
+				}
+			},
+			methods: {
+				increment() {
+					this.$store.commit('increment')
+					this.$store.commit('increment1', 10)
+					store.commit('increment2', {
+						amount: 11
+					})
+					store.commit({
+						type: 'increment3',
+						amount: 13
+					})
+					console.log(this.$store.state.count)
+					this.gId++
+				},
+				check(id) {
+					console.log(id);
+
+				}
+			},
+			watch: {
+				$route: function (route) {
+					// check query
+					this.filter = route.query.filter || 'all'
+				}
+			}
+		})
+
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		html,
+		body {
+			width: 100%;
+			height: 100%;
+		}
+
+		.wrap {
+			width: 100%;
+			height: 100%;
+			background-color: #eee;
+		}
+
+		.box {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			width: 700px;
+			height: 700px;
+			margin: auto;
+			border-radius: 5px;
+			box-shadow: 0 0 5px #aaa;
+		}
+
+		.normal_tb {
+			overflow: hidden;
+			width: 100%;
+		}
+
+		th,
+		td {
+			padding: 5px;
+			text-align: center;
+		}
+
+		.removeTr {
+
+			animation: removetr .3s ease forwards;
+		}
+
+		@keyframes removetr {
+			0% {
+				transform: translateX(0)
+			}
+
+			20% {
+				transform: translateX(-50px)
+			}
+
+			100% {
+				transform: translateX(100%)
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrap">
+		<div class="box">
+			<table class="normal_tb">
+				<tr>
+					<th>欄位1</th>
+					<th>欄位2</th>
+					<th>欄位3</th>
+					<th>欄位4</th>
+					<th>功能</th>
+				</tr>
+			</table>
+			<table id="table_body" class="normal_tb">
+				<tr id="tr1">
+					<td>內容1</td>
+					<td>內容2</td>
+					<td>內容3</td>
+					<td>內容4</td>
+					<td>
+						<button onclick="del(0)">刪除</button>
+					</td>
+				</tr>
+				<tr id="tr2">
+					<td>內容1</td>
+					<td>內容2</td>
+					<td>內容3</td>
+					<td>內容4</td>
+					<td>
+						<button onclick="del(1)">刪除</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<script>
+		var moveTr = document.querySelectorAll("#table_body tr")
+
+		function del(num) {
+			moveTr[num].classList.add("removeTr");
+			let remove = setTimeout(() => {
+				moveTr[num].remove();
+			}, 300);
+			console.log(moveTr[num]);
+		}
+	</script>
+</body>
+
+</html>

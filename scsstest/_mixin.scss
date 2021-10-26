@@ -1,0 +1,201 @@
+@mixin poaHandler($adds){
+	@each $add in $adds {
+		font-size: $add;
+	}
+}
+
+
+
+
+// 常用
+@mixin pos_abs($top , $right , $bottom , $left){
+	position: absolute;
+	top: $top;
+	bottom: $bottom;
+	right: $right;
+	left: $left;
+}
+@mixin d_f($flex, $ai, $jc, $di, $wr) {
+	justify-content: $jc;
+	align-items: $ai;
+	display: $flex;
+	flex-direction: $di;
+	flex-wrap: $wr;
+}
+@mixin d_f_center($flex, $ai, $jc) {
+	justify-content: $jc;
+	align-items: $ai;
+	display: $flex;
+}
+@mixin bg_set($x, $y, $repeat, $size) {
+	background-position: $x $y;
+	background-repeat: $repeat;
+	background-size: $size;
+}
+@mixin omission($line, $height) {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: $line;
+	overflow: hidden;
+	max-height:$height;
+}
+// scroll
+@mixin scrollbar($x, $y) {
+	overflow-x: $x;
+	overflow-y: $y;
+	-webkit-overflow-scrolling: touch;
+}
+// 動畫
+%transition {
+	transition: all .3s ease-in-out;
+}
+
+
+// RWD相關
+@mixin mw_xl {
+	@media screen and (max-width: 1199px) {
+		@content;
+	}
+}
+@mixin mw_lg {
+	@media screen and (max-width: 991px) {
+		@content;
+	}
+}
+@mixin mw_md {
+	@media screen and (max-width: 767px) {
+		@content;
+	}
+}
+@mixin mw_sm {
+	@media screen and (max-width: 575px) {
+		@content;
+	}
+}
+
+// 手指hover相關
+// [class*="_btn"]:not(disable),
+// %hand {
+// 	cursor: pointer;
+// 	transition: all .2s ease-in-out;
+// }
+// [class*=_btn]:not(disable)>span,
+// %btn_initem{
+//     transition: all .3s .1s ease-in-out;
+// }
+// %no_hand{
+// 	cursor: default;
+// }
+@mixin hoverHandler($op, $bg) {
+	@media (pointer: fine),
+	(-moz-touch-enabled: 0),
+	screen and (-ms-high-contrast: active),
+	(-ms-high-contrast: none) {
+		&:hover {
+			@content;
+			opacity: $op;
+			background-image: $bg;
+		}
+	}
+
+	&:active {
+		@content;
+		opacity: $op;
+		background-image: $bg;
+	}
+}
+@mixin btn_hoverHandler($border, $txt) {
+	@media (pointer: fine),
+	(-moz-touch-enabled: 0),
+	screen and (-ms-high-contrast: active),
+	(-ms-high-contrast: none) {		
+		&:hover{
+			border-width: $border;
+			&::after{
+				color: $txt;
+			}
+			>span{
+				opacity: 1;
+			}
+		}		
+	}
+	&:active {
+		border-width: $border;
+		&::after {
+			color: $txt;
+		}
+		>span {
+			opacity: 1;
+		}
+	}
+}
+
+// 自定義
+// 選取勾勾
+@mixin checktick($width, $height, $x, $y, $boder, $bc) {
+	content: none;
+	display: block;
+	position: absolute;
+	width: $width;
+	height: $height;
+	left: $x;
+	top: $y;
+	border-width: 0 0 $boder $boder;
+	border-style:  solid;
+	border-color: $bc;
+	transform: rotate(-48deg);
+}
+
+
+// 百家按鈕基本組件
+@mixin btn_set($width, $height, $bg){
+	position: relative;
+	width: $width;
+	height: $height;
+	background: $bg;
+}
+@mixin btn_txt($jc, $color, $shadow) {
+	content: attr(data-txt);
+	position: relative;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: $jc;
+	color: $color;
+	text-shadow: 1px 1px 1px $shadow;
+	
+	top: 0;
+	left: 0;
+	pointer-events: none;
+}
+// 上下漸層線
+@mixin btn_border($px, $border_img) {
+	border: 1px solid #000;
+	border-width: $px 0;
+	border-image: $border_img;
+}
+// 內部span漸層
+@mixin btn_initem($bg_img) {
+    @include pos_abs(0,auto,auto,0);
+	width: 100%;
+	height: 100%;
+	background: $bg_img;
+	opacity: 0;
+}
+// _on效果
+@mixin btn_on($color) {
+	&._on{
+		@extend %no_hand;
+		@content;
+
+		&::after {
+			color: $color;
+		}
+
+		>span {
+			opacity: 1;
+		}
+	}
+	
+}

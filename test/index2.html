@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			box-sizing: border-box;
+		}
+
+		html,
+		body {
+			width: 100%;
+			height: 100%;
+		}
+
+		body {
+			background-color: #ccc;
+		}
+
+		.wrap {
+			padding: 10px 0 0 50px;
+		}
+
+		.select_box {
+			width: 100px;
+		}
+
+		.normal_select {
+			display: inline-block;
+			position: relative;
+			border: 1px solid #000;
+			height: 30px;
+			padding: 0 25px 0 10px;
+			line-height: 30px;
+			border-radius: 3px;
+			background-color: #fff;
+			display: flex;
+		}
+
+		.normal_select:after {
+			content: '\25BE';
+			position: absolute;
+			width: 10px;
+			height: 100%;
+			background-color: #fff;
+			color: #737B84;
+			font-size: 16px;
+			right: 3px;
+			pointer-events: none;
+		}
+
+		.normal_select ul {
+			position: absolute;
+			width: 100%;
+			top: calc(100% + 3px);
+			left: 0;
+			background-color: #fff;
+			border: 1px solid #000;
+			border-radius: 3px;
+			padding-left: 10px;
+			overflow-x: hidden;
+			overflow-y: auto;
+		}
+
+		.normal_select li {
+			height: 20px;
+		}
+
+		.normal_select select {
+			display: block;
+			width: 100%;
+			background: transparent;
+		}
+
+		.use_animate {
+			opacity: 0;
+			transform: scale(1, 0);
+			transition: all 300ms cubic-bezier(.55, 0, .42, 1);
+		}
+
+		.active .use_animate {
+			opacity: 1;
+			transform: scale(1, 1);
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrap">
+		<div class="select_box">
+			<div class="normal_select hide_on_mini hide_on_small hide_on_med active">
+				<span class="title">aaa</span>
+				<ul class="use_animate">
+					<li>aaa</li>
+					<li>bbb</li>
+					<li>ccc</li>
+				</ul>
+			</div>
+
+			<label class="normal_select hide_on_large" style="display: none">
+				<select>
+					<option>aaa</option>
+					<option>bbb</option>
+					<option>ccc</option>
+				</select>
+			</label>
+		</div>
+	</div>
+
+	<style>
+		select {
+			border: none;
+			outline: none;
+			appearance: none;
+			-moz-appearance: none;
+			-webkit-appearance: none;
+			-ms-appearance: none;
+		}
+
+		/* 寬度1024 */
+		@media only screen and (min-width: 1024px) {
+			.hide_on_large {
+				display: none !important;
+			}
+		}
+
+		/* 寬度 768 ~ 1024 */
+		@media only screen and (min-width: 768px) and (max-width: 1023px) {
+			.hide_on_med {
+				display: none !important;
+			}
+		}
+
+		/* 寬度 600 ~ 767 */
+		@media only screen and (min-width: 600px) and (max-width: 767px) {
+			.hide_on_small {
+				display: none !important;
+			}
+		}
+
+		/* 寬度 599 以下 */
+		@media only screen and (max-width: 599px) {
+			.hide_on_mini {
+				display: none !important;
+			}
+		}
+	</style>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #mountain{
+            width: 100%;
+            height: 500px;
+            background: url('https://picsum.photos/1920/500?random=1')no-repeat center/cover;
+        }
+        #mario{
+            width: 100%;
+            height: 800px;
+            background: url('https://picsum.photos/1920/800?random=2')no-repeat center/cover;
+        }
+
+        #goTop{
+            width: 50px;
+            height: 50px;
+            background: #000;
+        }
+    </style>
+</head>
+
+<body>
+	<div class="wrap">
+        <div id="container">
+            <div id="mountain"></div>
+            <div id="mario"></div>
+        </div>
+
+        <div id="goTop">
+            
+        </div>
+	</div>
+
+
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js'
+		integrity='sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=='
+		crossorigin='anonymous'></script>
+
+	<script>
+		
+        $(function () {
+            $("#goTop").click(function(){
+                $("html,body").animate({ scrollTop:0});
+                return false;
+            })
+        });
+
+        $(window).scroll(function(){
+            if($('#header').outerHeight(true)){
+            // if($(window).scrollTop() > 440){
+                $("html").addClass("fixed");
+            }else{
+                $("html").removeClass("fixed");
+            }
+        })
+	
+	</script>
+</body>
+
+</html>
