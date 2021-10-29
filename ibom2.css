@@ -1,0 +1,70 @@
+.light {
+    --headerBg: #0c2565;
+    --header_txt: #949eb5;
+    --header_txt_hv: #ffffff;
+    --header_txt_ac: #ffffff;
+    --header_txtBg_ac: #047ef6;
+
+    --menu_Bg: #0c2565;
+    --menu_betBg: #047ef6;
+    --menu_betBg_hv: #3699fc;
+    --menu_betBg_ac: #0370dd;
+    --menu_betBg_on: #047ef6; /* 與normal狀態顏色一樣在確認是否刪除 */
+    --menu_btnBg_hv: rgba(255, 255, 255, 0.1);
+    --menu_btnBg_ac: rgba(255, 255, 255, 0.1);
+    --menu_btnColor_ac: #fec12b;
+    --menu_btnColor_on: #fec12b;
+
+    --home_sportBtnBg: rgba(255, 255, 255, 0.1);
+    --home_sportBtnColor_ac: #30dff2;
+    --home_sportBtnBorder: #d5dcec;
+    --home_sportBtnBorder_hv: #0c2565;
+    --home_sportBtnBorder_ac: #047ef6;
+    --home_sportIconBg: #1e2841;
+    --home_sportIconBg_ac: #047ef6;
+
+    --game_sportBtnColor: #6778A1;
+    --game_sportBtnColor_hv: #047EF6;
+    --game_sportBtnColor_ac: #047EF6;
+    --game_sportBtnBg_ac: rgba(0, 0, 0, 0.12);
+    --game_sportBtnColor_on: #047EF6;
+}
+
+.dark {
+    --headerBg: #1e2841;
+    --header_txt: #75829b;
+    --header_txt_hv: #ffffff;
+    --header_txt_ac: #ffffff;
+    --header_txtbg_ac: #6700f4;
+
+    --menu_betBg: #6700f4;
+    --menu_betBg_hv: #7c1fff;
+    --menu_betBg_ac: #5500cc;
+    --menu_betBg_on: #6700f4; /* 與normal狀態顏色一樣在確認是否刪除*/
+    --menu_btnBg_hv: rgba(255, 255, 255, 0.1);
+    --menu_btnBg_ac: rgba(255, 255, 255, 0.1);
+    --menu_btnColor_ac: #30dff2;
+    --menu_btnColor_on: #30dff2;
+
+    --home_sportBtnBg: rgba(255, 255, 255, 0.1);
+    --home_sportBtnColor_ac: #30dff2;
+    --home_sportBtnBorder: rgba(255, 255, 255, 0.1);
+    --home_sportBtnBorder_hv: #30dff2;
+    --home_sportBtnBorder_ac: #30dff2;
+    --home_sportIconBg: #1e2841;
+    --home_sportIconBg_ac: rgba(255, 255, 255, 0.1);
+
+    --game_sportBtnColor: rgba(255, 255, 255, 0.45);
+    --game_sportBtnColor_hv: #ffffff;
+    --game_sportBtnColor_ac: #ffffff;
+    --game_sportBtnBg_ac: rgba(255, 255, 255, 0.1);
+    --game_sportBtnColor_on: #30DFF2;
+}
+
+.dark{
+    white:#fff;
+}
+
+.light{
+    white:#fff;
+}
