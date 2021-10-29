@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   font-family: 'Helvetica', sans-serif;
   -webkit-box-sizing: border-box;
@@ -47,28 +46,10 @@ html,
 body {
   width: 100%;
   height: 100%;
-  color: #1D1A31;
+  background-color: #000;
   -ms-touch-action: manipulation;
       touch-action: manipulation;
-  font-size: 15px;
-}
-
-/* 
-僅限ios15以上的safari瀏覽器
-才加class在html上(高度改為100vh的class)
-並於以下狀態
-在html加上重整高度class(一秒後移除)
-1.從登入頁進入到主框架時
-2.鍵盤彈出後收起時 
-*/
-html.ios15_height,
-html.ios15_height > body {
-  height: 100vh;
-}
-
-html.ios15_height.main_rotate,
-html.ios15_height.main_rotate > body {
-  height: 100.1%;
+  font-size: 16px;
 }
 
 *:hover,
@@ -114,7 +95,7 @@ textarea {
   -ms-appearance: none;
   appearance: none;
   resize: none;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 input::-ms-clear,
@@ -132,6 +113,11 @@ select::-ms-expand {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
 }
 
 tt {
@@ -161,31 +147,71 @@ tt {
 }
 
 .wrap {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 130px 1fr;
+      grid-template-columns: 130px 1fr;
   width: 100%;
   height: 100%;
 }
 
-.buttonBox {
-  padding: 5px;
-  border-bottom: 1px solid #ccc;
+.left_menu {
+  width: 130px;
+  height: 100%;
+  background-color: azure;
 }
 
-.button1 .normal_btn {
-  position: relative;
-  padding: 5px 35px;
-  border-radius: 100px;
-  font-size: 14px;
-  background-color: #3baeff;
-  color: #fff;
-  border: 1px solid #3baeff;
-  cursor: pointer;
+.main {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 750px auto;
+      grid-template-columns: 750px auto;
+  -ms-grid-rows: 50px 480px 80px;
+      grid-template-rows: 50px 480px 80px;
+      grid-template-areas: "header header" "video order" "table order" "road detail";
 }
 
-.button1 .normal_btn:hover {
-  color: #ffffff;
-  background-color: #222226;
-  border-color: #222226;
-  -webkit-transition: background 0.4s 0.4s, border-color 0.4s 0s, color 0.2s 0s;
-  transition: background 0.4s 0.4s, border-color 0.4s 0s, color 0.2s 0s;
+.header {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: header;
+  background-color: darkgrey;
+}
+
+.video {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: video;
+  background-color: cornsilk;
+}
+
+.table {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: table;
+  background-color: cornflowerblue;
+}
+
+.order {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  grid-area: order;
+  background-color: blanchedalmond;
+}
+
+.road {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  grid-area: road;
+  background-color: antiquewhite;
+}
+
+.detail {
+  -ms-grid-row: 4;
+  -ms-grid-column: 2;
+  grid-area: detail;
+  background-color: aquamarine;
 }
 /*# sourceMappingURL=all.css.map */
