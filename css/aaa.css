@@ -1,49 +1,60 @@
-blockquote {
-  width: 100%;
+.lv1 li:nth-child(1) {
+  background: red;
 }
 
-figure {
-  margin: 0 0 20px 0;
+.lv2 li:nth-child(1) {
+  background: red;
 }
 
-blockquote {
-  width: 100%;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+.lv2 li:nth-child(2) {
+  background: red;
 }
 
-figure {
-  margin: 0 0 20px 0;
+.lv3 li:nth-child(1) {
+  background: red;
 }
 
-.txt {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+.lv3 li:nth-child(2) {
+  background: red;
 }
 
-.box12 {
-  border-top: 1px solid red;
-  border-bottom: 1px solid green;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
+.lv3 li:nth-child(3) {
+  background: orange;
 }
 
-.txt1 {
-  position: absolute;
-  top: 10px;
-  bottom: 200px;
-  right: 20px;
+.lv4 li:nth-child(1) {
+  background: red;
 }
 
-.ex01 {
-  position: absolute;
-  top: 10px;
+.lv4 li:nth-child(2) {
+  background: red;
+}
+
+.lv4 li:nth-child(3) {
+  background: orange;
+}
+
+.lv4 li:nth-child(4) {
+  background: orange;
+}
+
+.lv5 li:nth-child(1) {
+  background: red;
+}
+
+.lv5 li:nth-child(2) {
+  background: red;
+}
+
+.lv5 li:nth-child(3) {
+  background: orange;
+}
+
+.lv5 li:nth-child(4) {
+  background: orange;
+}
+
+.lv5 li:nth-child(5) {
+  background: black;
 }
 /*# sourceMappingURL=aaa.css.map */

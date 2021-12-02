@@ -1,109 +1,122 @@
-$width-small:  400px;
-$width-medium: 760px;
-$width-large:  1200px;
-@mixin responsive($w) {
-    @if($w == $width-small){
-        @media screen and (max-width: $width-small) {
-            @content;
+@for $level from 1 through 5 {
+    @for $level1 from 1 through $level {
+        @if ($level1 < 3) {
+            .lv#{$level} li:nth-child(#{$level1}) {
+                background: red;
+            }
+        } @else if ($level1 < 5) {
+            .lv#{$level} li:nth-child(#{$level1}) {
+                background: orange;
+            }
+        } @else {
+            .lv#{$level} li:nth-child(#{$level1}) {
+                background: black;
+            }
         }
     }
 }
 
-blockquote {
-    width: 100%;
-    @include responsive(wide-screens) { width: 80%; }
-}
-figure {
-    margin: 0 0 20px 0;
-    @include responsive(wide-screens) { margin: 0 0 30px 0; }
-}
-
-blockquote {
-    width: 100%;
-    flex-wrap: wrap;
-}
-figure {
-    margin: 0 0 20px 0;
-}
-// .mediaa{
-//     @include responsive($width-small){
-//         display: block;
+// $width-small:  400px;
+// $width-medium: 760px;
+// $width-large:  1200px;
+// @mixin responsive($w) {
+//     @if($w == $width-small){
+//         @media screen and (max-width: $width-small) {
+//             @content;
+//         }
 //     }
 // }
 
-// .mediab{
-//     @include responsive($width-small){
-//         display: none;
+// blockquote {
+//     width: 100%;
+//     @include responsive(wide-screens) { width: 80%; }
+// }
+// figure {
+//     margin: 0 0 20px 0;
+//     @include responsive(wide-screens) { margin: 0 0 30px 0; }
+// }
+
+// blockquote {
+//     width: 100%;
+//     flex-wrap: wrap;
+// }
+// figure {
+//     margin: 0 0 20px 0;
+// }
+// // .mediaa{
+// //     @include responsive($width-small){
+// //         display: block;
+// //     }
+// // }
+
+// // .mediab{
+// //     @include responsive($width-small){
+// //         display: none;
+// //     }
+// // }
+
+// @mixin d_f($flex, $ai: stretch, $jc: flex-start) {
+//     display: $flex;
+//     align-items: $ai;
+//     justify-content: $jc;
+// }
+
+// .txt{
+//     @include d_f(flex )
+// }
+
+// .box12 {
+//     border: {
+//         top: 1px solid red;
+//         bottom: 1px solid green;
+
+//         bottom-left-radius: 3px;
+//         bottom-right-radius: 3px;
 //     }
 // }
 
+// @function pos-chtext($data) {
+//     $data: to-upper-case($data);
+//     @if $data== 'T' {
+//         @return top;
+//     } @else if $data== 'R' {
+//         @return right;
+//     } @else if $data== 'B' {
+//         @return bottom;
+//     } @else if $data== 'L' {
+//         @return left;
+//     }
+// }
+// @mixin poa($str...) {
+//     position: absolute;
+//     @for $i from 1 through length($str) {
+//         #{pos-chtext(str-slice(nth($str,$i), 1,1))}: str-slice(
+//             nth($str, $i),
+//             2
+//         );
+//     }
+// }
+// .txt1 {
+//     @include poa(t10px, b200px, r20px);
+// }
 
+// @mixin pos_a($direction, $val...) {
+//     position: absolute;
+//     $result: ();
+//     $data: to-upper-case($direction);
+//     @for $i from 1 through str-length($data) {
+//         $result: append($result, str-slice($data, $i, $i));
+//         #{pos-chtext(nth($result, $i))}: #{if(
+//                 length($val) ==1,
+//                 $val,
+//                 nth($val, $i)
+//             )};
+//     }
+// }
 
-
-
-
-@mixin d_f($flex, $ai: stretch, $jc: flex-start) {
-    display: $flex;
-    align-items: $ai;
-    justify-content: $jc;
-}
-
-.txt{
-    @include d_f(flex )
-}
-
-.box12 {
-    border: {
-        top: 1px solid red;
-        bottom: 1px solid green;
-
-        bottom-left-radius: 3px;
-        bottom-right-radius: 3px;
-    }
-}
-
-@function pos-chtext($data) {
-    $data: to-upper-case($data);
-    @if $data== 'T' {
-        @return top;
-    } @else if $data== 'R' {
-        @return right;
-    } @else if $data== 'B' {
-        @return bottom;
-    } @else if $data== 'L' {
-        @return left;
-    }
-}
-@mixin poa($str...) {
-    position: absolute;
-    @for $i from 1 through length($str) {
-        #{pos-chtext(str-slice(nth($str,$i), 1,1))}: str-slice(
-            nth($str, $i),
-            2
-        );
-    }
-}
-.txt1 {
-    @include poa(t10px, b200px, r20px);
-}
-
-@mixin pos_a($direction, $val...) {
-    position: absolute;
-    $result: ();
-    $data: to-upper-case($direction);
-    @for $i from 1 through str-length($data) {
-        $result: append($result, str-slice($data, $i, $i));
-        #{pos-chtext(nth($result, $i))}: #{if(
-                length($val) ==1,
-                $val,
-                nth($val, $i)
-            )};
-    }
-}
-
-.ex01 {
-    @include pos_a(t, 10px);
-}
+// .ex01 {
+//     @include pos_a(t, 10px);
+// }
 
 // .ex02 {
 //     @include pos_a(tb, 10px);
