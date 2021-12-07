@@ -8,8 +8,11 @@
 }
 
 .header {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    @include d_f(flex, center, center);
+    padding: 0 20px;
+    color: #fff;
     background-color: #242750;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .tbBox {
@@ -29,6 +32,7 @@
     th {
         height: 50px;
         padding: 5px;
+        background-color: rgba(0, 0, 0, 0.15);
         border-bottom: 1px solid #242750;
         font-size: 14px;
     }
@@ -68,5 +72,3 @@
         }
     }
 }
-
-

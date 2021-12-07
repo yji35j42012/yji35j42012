@@ -12,11 +12,15 @@
 
 <body>
 	<div id="app" class="wrap">
-		<div class="header"></div>
+		<div class="header">
+			使用者：{{username}}
+		</div>
 		<div class="container">
 			<div id="tbBox" class="tbBox">
 				<div class="tbBox_function">
 					<button class="normal_btn _add" @click="addHandler('add')">新增</button>
+					<button class="normal_btn _add" @click="storage('get')">顯示storage</button>
+					<button class="normal_btn _add" @click="storage('del')">刪除storage</button>
 					<input type="text" class="normal_inp">
 				</div>
 				<div id="scroll_y" class="scroll_y">
@@ -53,7 +57,7 @@
 		</div>
 		<transition name="fade">
 			<div v-if="alertShow" class="alert">
-				<div id="add" class="alert_box">
+				<div id="add" class="alert_box" style="display: block">
 					<div class="alert_head">
 						新增
 					</div>
@@ -68,22 +72,44 @@
 						</label>
 						<label class="label_inp">
 							<p>覺得好粗嗎？</p>
-							<input type="text" class="alert_inp" v-model="newList.evaluate_eat">
-						</label>
-						<label class="label_inp">
-							<p>動作夠快嗎？</p>
-							<input type="text" class="alert_inp" v-model="newList.evaluate_action">
+							<div class="star">
+								<ul class="star_group">
+									<li v-for="item in 5" name="eat" @click="star('eat',item)"
+										class="star_item ms-rating-item">
+										<i class="material-icons">star</i>
+									</li>
+								</ul>
+								<span class="star_score">
+									{{newList.evaluate_eat}}
+								</span>
+							</div>
+
 						</label>
 						<label class="label_inp">
 							<p>有沒有吃飽？</p>
-							<ul>
-								<li></li>
-								<li></li>
-								<li></li>
-								<li></li>
-								<li></li>
-							</ul>
-							<input type="text" class="alert_inp" v-model="newList.evaluate_amount">
+							<div class="star">
+								<ul class="star_group">
+									<li v-for="item in 5" name="amount" @click="star('amount',item)"
+										class="star_item ms-rating-item">
+										<i class="material-icons">star</i>
+									</li>
+								</ul>
+								<span class="star_score">
+									{{newList.evaluate_amount}}
+								</span>
+							</div>
+						</label>
+						<label class="label_inp">
+							<p>動作夠快嗎？</p>
+							<label class="normal_sel" @click="selHandler('sel_ul')">
+								<span class="normal_sel_txt">{{newList.evaluate_action}}</span>
+								<i class="material-icons icon">arrow_drop_down</i>
+
+								<ul id="sel_ul" class="normal_sel_ul">
+									<li v-for="(item,index) in actionList" @click="selLi(index)">{{item}}</li>
+								</ul>
+							</label>
+							<!-- <input type="text" class="alert_inp" v-model="newList.evaluate_action"> -->
 						</label>
 						<label class="label_inp">
 							<p>給個心得吧？</p>
@@ -99,8 +125,18 @@
 						</label>
 					</div>
 					<div class="alert_fun">
-						<button class="normal_btn _submit" @click="submit">送出</button>
+						<button class="normal_btn _submit" @click="submit('addItem')">送出</button>
 						<button class="normal_btn _cancel" @click="cancel">取消</button>
+					</div>
+				</div>
+
+				<div id="inp" class="alert_box _inp">
+					<div class="alert_body">
+						<p class="alert_ptxt">請問你的大名</p>
+						<input type="text" class="normal_inp" v-model="username">
+					</div>
+					<div class="alert_fun">
+						<button class="normal_btn _submit" @click="submit('user')">送出</button>
 					</div>
 				</div>
 			</div>
@@ -109,7 +145,8 @@
 			<div v-if="msgShow" class="alert">
 				<div id="msg" class="alert_box">
 					<div class="alert_msg">
-						新增成功
+						<p v-for="item in msgInfo">{{item}}</p>
+						<!-- 新增成功 -->
 					</div>
 					<div class="alert_fun">
 						<button class="normal_btn _cancel" @click="cancel">關閉</button>
@@ -129,6 +166,16 @@
 			el: "#app",
 			data() {
 				return {
+					username: '',
+					actionList: [
+						"請選擇",
+						"5-10分送達",
+						"10-20分送達",
+						"20-30分送達",
+						"30分以上送達",
+						"預定 - 有準時送達",
+						"預定 - 沒有準時",
+					],
 					evaluate: [
 						{
 							evaluate_id: 1,
@@ -144,17 +191,28 @@
 					],
 					newList: {
 						evaluate_name: '告胖早午餐-東興店',
-						evaluate_menu: '炒麵麵包',
-						evaluate_eat: 3,
-						evaluate_action: '預定 - 有準時送達',
-						evaluate_amount: 4,
-						evaluate_experience: '恩恩恩，嘿嘿嘿',
-						evaluate_user: 'alex',
+						evaluate_menu: '',
+						evaluate_eat: '',
+						evaluate_action: '請選擇',
+						evaluate_amount: '',
+						evaluate_experience: '',
+						evaluate_user: '',
 						evaluate_date: '',
 					},
 					num: 2,
 					alertShow: false,
 					msgShow: false,
+					msgState: '',
+					msgInfo: [],
+				}
+			},
+			mounted() {
+				var storage = localStorage.getItem('experience');
+				if (storage == null) {
+					this.alertShow = true;
+					this.classHandler('inp');
+				} else {
+					this.username = storage;
 				}
 			},
 			computed: {
@@ -165,27 +223,64 @@
 			methods: {
 				addHandler(str) {
 					this.alertShow = 'add';
-					console.log(this.getDate());
 					this.newList.evaluate_date = this.getDate();
-					this.alertHandler(str)
+					this.newList.evaluate_user = this.username;
+					this.classHandler(str)
 				},
-				submit() {
-					this.newList.id = this.evaluate.length;
-					this.evaluate.push(
-						this.newList
-					)
-					this.msgShow = true;
-					this.alertHandler('msg');
+				submit(str) {
+					if (str == 'addItem') {
+						console.log(this.msgInfo);
+						if (this.newList.evaluate_name == '') {
+							this.msgInfo.push('請填寫店名');
+						}
+						if (this.newList.evaluate_menu == '') {
+							this.msgInfo.push('請填寫點什麼');
+						}
+						if (this.newList.evaluate_eat == '') {
+							this.msgInfo.push('好不好粗請給分～');
+						}
+						if (this.newList.evaluate_amount == '') {
+							this.msgInfo.push('吃的飽不飽請給分～');
+						}
+						if (this.newList.evaluate_user == '') {
+							this.msgInfo.push('請告訴我你是誰');
+						}
+						if (this.newList.evaluate_user == '') {
+							this.msgInfo.push('請寫一下日期');
+						}
+
+						if (this.msgInfo.length !== 0) {
+							console.log(this.msgInfo.length);
+							this.msgShow = true;
+							this.classHandler('msg');
+							this.msgState = 'back';
+						} else {
+							console.log(this.msgInfo);
+							this.newList.id = this.evaluate.length;
+							this.evaluate.push(
+								this.newList
+							)
+							this.msgInfo.push('新增成功');
+							this.msgShow = true;
+							this.classHandler('msg');
+							this.msgState = 'ok';
+						}
+					} else if (str == 'user' && this.username !== '') {
+						this.alertShow = false;
+						localStorage.setItem('experience', this.username);
+
+					}
 				},
 				cancel() {
-					this.msgShow = false;
-					this.alertShow = false;
-				},
-				alertHandler(str) {
-					setTimeout(() => {
-						var addClass = document.getElementById(str);
-						addClass.classList.add('show')
-					}, 10);
+					if (this.msgState == 'back') {
+						this.msgShow = false;
+						this.msgState = '';
+					} else {
+						this.msgShow = false;
+						this.alertShow = false;
+					}
+					this.msgInfo = null;
+
 				},
 				getDate() {
 					let year = new Date().getFullYear();
@@ -199,8 +294,48 @@
 					}
 					return year + "-" + mounth + "-" + date;
 				},
-				dateHandler() {
+				storage(str) {
+					if (str == 'del') {
+						localStorage.removeItem('experience');
+					} else if (str == 'get') {
+						console.log(localStorage.getItem('experience'));
+					}
+				},
+				star(str, num) {
+					var addClass = document.querySelectorAll("[name='" + str + "']");
+					for (let i = 0; i < 5; i++) {
+						addClass[i].classList.remove('on')
+					}
+					for (var i = 0; i <= 5 - num; i++) {
+						addClass[5 - i - 1].classList.add('on');
+					}
 
+					if (str == 'eat') {
+						this.newList.evaluate_eat = 6 - num;
+					} else if (str == 'amount') {
+						this.newList.evaluate_amount = 6 - num;
+					}
+				},
+				selHandler(str) {
+					var addClass = document.getElementById(str);
+					if (addClass.classList.contains('show')) {
+						addClass.classList.remove('show')
+					} else {
+						this.classHandler(str);
+					}
+				},
+				dateHandler() { },
+				classHandler(str) {
+					setTimeout(() => {
+						var addClass = document.getElementById(str);
+						addClass.style.display = 'block';
+						setTimeout(() => {
+							addClass.classList.add('show')
+						}, 10)
+					}, 0);
+				},
+				selLi(num) {
+					this.newList.evaluate_action = this.actionList[num];
 				}
 			}
 		})

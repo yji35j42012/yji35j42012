@@ -127,8 +127,8 @@
 
     // alert_box
     &_box {
+        display: none;
         width: 350px;
-        // padding: 15px;
         background-color: #292d5a;
         color: #fff;
         border-radius: 3px;
@@ -139,6 +139,19 @@
         &.show {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        &._inp {
+            padding: 20px;
+            text-align: center;
+            p {
+                font-size: 20px;
+                font-weight: bold;
+                margin-bottom: 12px;
+            }
+            input {
+                text-align: center;
+            }
         }
     }
     // alert_head
@@ -165,18 +178,97 @@
     }
     // alert_msg
     &_msg {
-		@include d_f(flex, center, center);
-		min-width: 350px;
-		min-height: 100px;
-		background-color: #292d5a;
-		font-size: 20px;
-		font-weight: bold;
+        @include d_f(flex, center, center);
+        flex-direction: column;
+        min-width: 350px;
+        min-height: 100px;
+        padding: 10px;
+        background-color: #292d5a;
+        font-size: 20px;
+        font-weight: bold;
+
     }
 }
 
 .d_none {
     display: none !important;
 }
+
+.star {
+    @include d_f(flex, center);
+    &_group {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+    }
+    &_item {
+        @extend %hand;
+        &.on {
+            color: #ffc107;
+        }
+        &:hover {
+            color: #ffc107;
+            ~ .star_item {
+                color: #ffc107;
+            }
+        }
+    }
+    &_score {
+        margin-left: 5px;
+    }
+}
+
+.normal_sel {
+    position: relative;
+    display: inline-block;
+    min-width: 140px;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    @extend %hand;
+    &_txt {
+        @include d_f(flex, center);
+        height: 100%;
+        padding: 0 25px 0 10px;
+    }
+    &_ul {
+        position: absolute;
+        left: 0;
+        top: calc(100% + 5px);
+        width: 100%;
+        background-color: #252851;
+        border-radius: 3px;
+        transform-origin: top center;
+        transform: scale(1, 0);
+        opacity: 0;
+        @extend %transition;
+
+        &.show {
+            transform: scale(1, 1);
+            opacity: 1;
+        }
+        li {
+            padding: 10px 10px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+
+            @include hoverHandler {
+                background-color: rgba(0, 0, 0, 0.075);
+            }
+        }
+    }
+
+    .icon {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        @include d_f(flex, center, center);
+    }
+}
+
+// .txtc{
+//     text-align: center
+// }
 //
 
 // .normal_inp,
