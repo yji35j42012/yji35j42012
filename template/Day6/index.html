@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html id="version" lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="./css/all.css">
+	<link rel="stylesheet" href="../fontawesome-free-5.15.4-web/css/all.css">
+</head>
+
+<body>
+	<div id="app" class="wrap">
+		<div class="header"></div>
+		<div class="container">
+			<div id="tbBox" class="tbBox">
+				<div class="tbBox_function">
+					<button class="normal_btn _add" @click="addHandler('add')">新增</button>
+					<input type="text" class="normal_inp">
+				</div>
+				<div id="scroll_y" class="scroll_y">
+					<div class="tbBox_head">
+						<table>
+							<tr>
+								<th width="20%">店名</th>
+								<th width="10%">今天點什麼</th>
+								<th width="10%">好吃嗎</th>
+								<th width="10%">動作快速嗎</th>
+								<th width="10%">夠吃嗎</th>
+								<th width="20%">心得</th>
+								<th width="10%">填寫人</th>
+								<th width="10%">日期</th>
+							</tr>
+						</table>
+					</div>
+					<div class="tbBox_body">
+						<table>
+							<tr v-for="item in evaluate_list">
+								<td width="20%">{{item.evaluate_name}}</td>
+								<td width="10%">{{item.evaluate_menu}}</td>
+								<td width="10%">{{item.evaluate_eat}}</td>
+								<td width="10%">{{item.evaluate_action}}</td>
+								<td width="10%">{{item.evaluate_amount}}</td>
+								<td width="20%">{{item.evaluate_experience}}</td>
+								<td width="10%">{{item.evaluate_user}}</td>
+								<td width="10%">{{item.evaluate_date}}</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<transition name="fade">
+			<div v-if="alertShow" class="alert">
+				<div id="add" class="alert_box">
+					<div class="alert_head">
+						新增
+					</div>
+					<div class="alert_body">
+						<label class="label_inp">
+							<p>今天吃哪間勒？</p>
+							<input type="text" class="alert_inp" v-model="newList.evaluate_name">
+						</label>
+						<label class="label_inp">
+							<p>今天點什麼勒？</p>
+							<input type="text" class="alert_inp" v-model="newList.evaluate_menu">
+						</label>
+						<label class="label_inp">
+							<p>覺得好粗嗎？</p>
+							<input type="text" class="alert_inp" v-model="newList.evaluate_eat">
+						</label>
+						<label class="label_inp">
+							<p>動作夠快嗎？</p>
+							<input type="text" class="alert_inp" v-model="newList.evaluate_action">
+						</label>
+						<label class="label_inp">
+							<p>有沒有吃飽？</p>
+							<ul>
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+							<input type="text" class="alert_inp" v-model="newList.evaluate_amount">
+						</label>
+						<label class="label_inp">
+							<p>給個心得吧？</p>
+							<input type="text" class="alert_inp" v-model="newList.evaluate_experience">
+						</label>
+						<label class="label_inp">
+							<p>帥哥／美女</p>
+							<input type="text" class="alert_inp" v-model="newList.evaluate_user">
+						</label>
+						<label class="label_inp">
+							<p>今天幾號勒？</p>
+							<input type="text" class="alert_inp" v-model="newList.evaluate_date" @click="dateHandler">
+						</label>
+					</div>
+					<div class="alert_fun">
+						<button class="normal_btn _submit" @click="submit">送出</button>
+						<button class="normal_btn _cancel" @click="cancel">取消</button>
+					</div>
+				</div>
+			</div>
+		</transition>
+		<transition name="fade">
+			<div v-if="msgShow" class="alert">
+				<div id="msg" class="alert_box">
+					<div class="alert_msg">
+						新增成功
+					</div>
+					<div class="alert_fun">
+						<button class="normal_btn _cancel" @click="cancel">關閉</button>
+					</div>
+				</div>
+			</div>
+		</transition>
+	</div>
+
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.0/vue.js'
+		integrity='sha512-4EMifNzsGH/ixIeXTy7stkY1hrlVrYfOXlBBG0sGkCtVzHoCsyVxfXkzILZAMs/TI6MBrfDDK9YYWmhaG6BF2A=='
+		crossorigin='anonymous'></script>
+	<script src="./js/index.js"></script>
+
+	<script>
+		var vue = new Vue({
+			el: "#app",
+			data() {
+				return {
+					evaluate: [
+						{
+							evaluate_id: 1,
+							evaluate_name: '告胖早午餐-東興店',
+							evaluate_menu: '炒麵麵包',
+							evaluate_eat: 3,
+							evaluate_action: '預定 - 有準時送達',
+							evaluate_amount: 4,
+							evaluate_experience: '恩恩恩，嘿嘿嘿',
+							evaluate_user: 'alex',
+							evaluate_date: '2012-12-06',
+						},
+					],
+					newList: {
+						evaluate_name: '告胖早午餐-東興店',
+						evaluate_menu: '炒麵麵包',
+						evaluate_eat: 3,
+						evaluate_action: '預定 - 有準時送達',
+						evaluate_amount: 4,
+						evaluate_experience: '恩恩恩，嘿嘿嘿',
+						evaluate_user: 'alex',
+						evaluate_date: '',
+					},
+					num: 2,
+					alertShow: false,
+					msgShow: false,
+				}
+			},
+			computed: {
+				evaluate_list() {
+					return this.evaluate;
+				}
+			},
+			methods: {
+				addHandler(str) {
+					this.alertShow = 'add';
+					console.log(this.getDate());
+					this.newList.evaluate_date = this.getDate();
+					this.alertHandler(str)
+				},
+				submit() {
+					this.newList.id = this.evaluate.length;
+					this.evaluate.push(
+						this.newList
+					)
+					this.msgShow = true;
+					this.alertHandler('msg');
+				},
+				cancel() {
+					this.msgShow = false;
+					this.alertShow = false;
+				},
+				alertHandler(str) {
+					setTimeout(() => {
+						var addClass = document.getElementById(str);
+						addClass.classList.add('show')
+					}, 10);
+				},
+				getDate() {
+					let year = new Date().getFullYear();
+					let mounth = new Date().getMonth() + 1;
+					if (mounth < 9) {
+						mounth = "0" + mounth;
+					}
+					let date = new Date().getDate();
+					if (date < 9) {
+						date = "0" + date;
+					}
+					return year + "-" + mounth + "-" + date;
+				},
+				dateHandler() {
+
+				}
+			}
+		})
+	</script>
+
+	<script>
+		var tbBox = document.getElementById('tbBox');
+		var scroll_y = document.getElementById('scroll_y');
+		var scroll_head = document.querySelector('#scroll_y .tbBox_head');
+		// 修正有捲軸的誤差Ｆ
+		scroll_head.style.paddingRight = tbBox.clientWidth - scroll_y.clientWidth + "px";
+	</script>
+</body>
+
+</html>

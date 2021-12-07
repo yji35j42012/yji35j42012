@@ -1,0 +1,193 @@
+.wrap {
+    overflow: hidden;
+    overflow-y: auto;
+
+    width: 100%;
+    height: 100%;
+}
+
+header {
+    @include d_f(flex, center, space-between);
+    width: 100%;
+    height: 100px;
+    padding: 0 15px;
+    background-color: #fff;
+}
+
+.menu {
+    display: flex;
+
+    li + li {
+        margin-left: 26px;
+    }
+    li {
+        a {
+            @extend %transition;
+        }
+        @include hoverHandler {
+            a {
+                color: #55b9ff;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .on a {
+        color: #55b9ff;
+        text-decoration: underline;
+    }
+}
+
+.func {
+    @include d_f(flex);
+    height: 100%;
+    > div {
+        padding: 25px 30px;
+        border-left: 1px solid rgba(34, 34, 38, 0.1);
+    }
+    &_car {
+        @include d_f(flex, center);
+        span {
+            @extend %hand;
+            @extend %transition;
+            @include hoverHandler {
+                color: #3baeff;
+            }
+        }
+    }
+    &_burger {
+        position: relative;
+        @include d_f(flex, center);
+        &_btn {
+            position: relative;
+            width: 24px;
+            height: 18px;
+            background-color: transparent;
+            @extend %hand;
+            &::before,
+            &::after {
+                position: absolute;
+                content: '';
+                display: block;
+                width: 24px;
+                height: 2px;
+                background-color: #000;
+            }
+            &::before {
+                top: 0;
+            }
+            &::after {
+                bottom: 0;
+            }
+            span {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                width: 50%;
+                height: 2px;
+                margin: auto 0;
+                background-color: #000;
+                @extend %transition;
+            }
+            @include hoverHandler {
+                span {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    &_info {
+        span {
+            font-size: 14px;
+            color: rgba(34, 34, 38, 0.6);
+        }
+        p {
+            margin-top: 6px;
+            color: #222226;
+            font-size: 24px;
+            @extend %hand;
+            @extend %transition;
+            @include hoverHandler {
+                color: #55b9ff;
+            }
+        }
+    }
+}
+
+.banner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    &_item {
+        position: relative;
+        @include d_f(flex, center, center);
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(34, 34, 38, 0.3);
+        }
+    }
+    &_box {
+        position: relative;
+        max-width: 1200px;
+        &_h1 {
+            position: relative;
+            width: 60%;
+            padding-top: 45px;
+            font-size: 72px;
+            color: #fff;
+            font-weight: 700;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: block;
+                width: 40px;
+                height: 4px;
+                background-color: #3baeff;
+            }
+        }
+        &_p {
+            width: 60%;
+            margin-top: 21px;
+            color: #fff;
+            font-size: 24px;
+        }
+    }
+}
+.content {
+    padding: 147px 0;
+}
+
+.imgGroup {
+    display: flex;
+    flex-wrap: wrap;
+    li {
+        overflow: hidden;
+        width: 25%;
+        margin-bottom: 12px;
+        padding: 0 6px;
+        @include hoverHandler {
+            img {
+                transform: scale(1.1);
+            }
+        }
+        img {
+            width: 100%;
+            @extend %transition;
+        }
+    }
+}

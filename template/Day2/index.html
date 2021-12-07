@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html id="version" lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="./css/all.css">
+	<link rel="stylesheet" href="../fontawesome-free-5.15.4-web/css/all.css">
+</head>
+
+<body>
+	<div id="app" class="wrap">
+		<div class="menu">
+			<div class="logo">
+
+			</div>
+			<ul class="menu_group">
+				<li class="menu_item on">
+					<span class="menu_item_txt">
+						<i class="material-icons">dashboard</i>Dashboard
+					</span>
+				</li>
+				<li class="menu_item">
+					<span class="menu_item_txt">
+						<i class="fa fa-archive"></i>Menus
+					</span>
+
+					<ul>
+						<li>內層１</li>
+						<li>內層２</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="main">
+			<div class="header"></div>
+			<div class="container">
+				<div id="tbBox" class="tbBox">
+					<div class="tbBox_function"></div>
+					<div id="scroll_y" class="scroll_y">
+						<div class="tbBox_head">
+							<table>
+								<tr>
+									<th>ID</th>
+									<th>Product Name</th>
+									<th>Quantity</th>
+									<th>Status</th>
+									<th>Price</th>
+								</tr>
+							</table>
+						</div>
+						<div class="tbBox_body">
+							<table>
+								<tr v-for="item in num">
+									<td>55688</td>
+									<td>pizza</td>
+									<td>666</td>
+									<td>in stock</td>
+									<td>32</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.0/vue.js'
+		integrity='sha512-4EMifNzsGH/ixIeXTy7stkY1hrlVrYfOXlBBG0sGkCtVzHoCsyVxfXkzILZAMs/TI6MBrfDDK9YYWmhaG6BF2A=='
+		crossorigin='anonymous'></script>
+	<script src="./js/index.js"></script>
+
+	<script>
+		var vue = new Vue({
+			el: "#app",
+			data() {
+				return {
+					num: 20
+				}
+			}
+		})
+	</script>
+
+	<script>
+		var tbBox = document.getElementById('tbBox');
+		var scroll_y = document.getElementById('scroll_y');
+		var scroll_head = document.querySelector('#scroll_y .tbBox_head');
+		// 修正有捲軸的誤差Ｆ
+		scroll_head.style.paddingRight = tbBox.clientWidth - scroll_y.clientWidth + "px";
+	</script>
+</body>
+
+</html>
