@@ -439,6 +439,11 @@ img {
           justify-content: center;
 }
 
+.icon_btn {
+  width: 30px;
+  height: 30px;
+}
+
 .fade-enter-active,
 .fade-leave-active {
   -webkit-transition: opacity 0.3s ease;
