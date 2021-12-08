@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <select name="" id="sel">
+        <option value="">111</option>
+        <option value="">222</option>
+    </select>
+    <div id="app"></div>
+    <!-- <input type="text" > -->
+    <script>
+        var sel = document.getElementById('sel')
+        var app = document.getElementById('app')
+        window.addEventListener("orientationchange", function () {
+            sel.blur();
+        }, false);
+    </script>
+</body>
+
+</html>
