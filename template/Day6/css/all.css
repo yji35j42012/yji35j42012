@@ -70,6 +70,11 @@ button {
   border: none;
 }
 
+button {
+  border: none;
+  background-color: transparent;
+}
+
 img {
   width: 100%;
   vertical-align: middle;
@@ -80,7 +85,7 @@ img {
           transition-duration: 0.3s;
 }
 
-.normal_btn, .star_item, .normal_sel {
+.normal_btn, .star_item, .normal_sel, .icon_btn {
   cursor: pointer;
 }
 
@@ -440,8 +445,19 @@ img {
 }
 
 .icon_btn {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 30px;
   height: 30px;
+  padding: 5px;
+  color: #fff;
 }
 
 .fade-enter-active,

@@ -178,7 +178,6 @@
         background-color: #292d5a;
         font-size: 20px;
         font-weight: bold;
-
     }
 }
 
@@ -257,10 +256,15 @@
         @include d_f(flex, center, center);
     }
 }
-.icon_btn{
+.icon_btn {
+    @include d_f(inline-flex, center, center);
     width: 30px;
     height: 30px;
+    padding: 5px;
+    color: #fff;
+    @extend %hand;
 }
+
 // .txtc{
 //     text-align: center
 // }
