@@ -1,20 +1,33 @@
-@for $level from 1 through 5 {
-    @for $level1 from 1 through $level {
-        @if ($level1 < 3) {
-            .lv#{$level} li:nth-child(#{$level1}) {
-                background: red;
-            }
-        } @else if ($level1 < 5) {
-            .lv#{$level} li:nth-child(#{$level1}) {
-                background: orange;
-            }
-        } @else {
-            .lv#{$level} li:nth-child(#{$level1}) {
-                background: black;
-            }
-        }
+$icon: ('chips_auto01');
+$aaaaa: '../images/icon_chips_auto01.png';
+
+
+
+.aa {
+    @if $aaaaa == true {
+        width: 2px;
     }
+    top: $aaaaa;
+    bottom:1px;
+    background: url('./image/chips_auto01.png');
 }
+// @for $level from 1 through 5 {
+//     @for $level1 from 1 through $level {
+//         @if ($level1 < 3) {
+//             .lv#{$level} li:nth-child(#{$level1}) {
+//                 background: red;
+//             }
+//         } @else if ($level1 < 5) {
+//             .lv#{$level} li:nth-child(#{$level1}) {
+//                 background: orange;
+//             }
+//         } @else {
+//             .lv#{$level} li:nth-child(#{$level1}) {
+//                 background: black;
+//             }
+//         }
+//     }
+// }
 
 // $width-small:  400px;
 // $width-medium: 760px;

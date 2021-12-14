@@ -1,60 +1,6 @@
-.lv1 li:nth-child(1) {
-  background: red;
-}
-
-.lv2 li:nth-child(1) {
-  background: red;
-}
-
-.lv2 li:nth-child(2) {
-  background: red;
-}
-
-.lv3 li:nth-child(1) {
-  background: red;
-}
-
-.lv3 li:nth-child(2) {
-  background: red;
-}
-
-.lv3 li:nth-child(3) {
-  background: orange;
-}
-
-.lv4 li:nth-child(1) {
-  background: red;
-}
-
-.lv4 li:nth-child(2) {
-  background: red;
-}
-
-.lv4 li:nth-child(3) {
-  background: orange;
-}
-
-.lv4 li:nth-child(4) {
-  background: orange;
-}
-
-.lv5 li:nth-child(1) {
-  background: red;
-}
-
-.lv5 li:nth-child(2) {
-  background: red;
-}
-
-.lv5 li:nth-child(3) {
-  background: orange;
-}
-
-.lv5 li:nth-child(4) {
-  background: orange;
-}
-
-.lv5 li:nth-child(5) {
-  background: black;
+.aa {
+  top: "../images/icon_chips_auto01.png";
+  bottom: 1px;
+  background: url("./image/chips_auto01.png");
 }
 /*# sourceMappingURL=aaa.css.map */

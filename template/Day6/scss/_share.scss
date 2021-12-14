@@ -106,6 +106,15 @@
             border-color: #75757c;
         }
     }
+    &._danger {
+        color: #fff;
+        background-color: #f9423c;
+        border-color: #f9423c;
+        @include hoverHandler {
+            background-color: #db3c36;
+            border-color: #db3c36;
+        }
+    }
 }
 
 .alert {

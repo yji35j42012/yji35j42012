@@ -30,13 +30,13 @@
 					<button class="normal_btn _add" @click="addHandler('add')">
 						新增
 					</button>
-					<button class="normal_btn _add" @click="storage('get')">
+					<!-- <button class="normal_btn _add" @click="storage('get')">
 						顯示storage
-					</button>
+					</button> -->
 					<button class="normal_btn _add" @click="storage('del')">
 						刪除storage
 					</button>
-					<input type="text" class="normal_inp" />
+					<input type="text" class="normal_inp" v-model="filiterInp" placeholder="隨便搜" />
 				</div>
 				<div id="scroll_y" class="scroll_y">
 					<div class="tbBox_head">
@@ -90,7 +90,7 @@
 		<transition name="fade">
 			<div v-if="alertShow" class="alert">
 				<div id="add" class="alert_box" style="display: none">
-					<div class="alert_head">新增</div>
+					<div class="alert_head">{{alertTitle}}</div>
 					<div class="alert_body">
 						<label class="label_inp">
 							<p>今天吃哪間勒？</p>
@@ -169,8 +169,7 @@
 
 				<div id="inp" class="alert_box _inp">
 					<div class="alert_body">
-						<p class="alert_ptxt">請問你的大名</p>
-						
+						<p class="alert_ptxt">請問你的大名</p> 
 						<input type="text" class="normal_inp" v-model="username" />
 					</div>
 					<div class="alert_fun">
@@ -189,7 +188,10 @@
 						<!-- 新增成功 -->
 					</div>
 					<div class="alert_fun">
-						<button class="normal_btn _cancel" @click="cancel">
+						<button class="normal_btn _danger" @click="checkHandler" v-if="msgState == 'del'">確認</button>
+						<button class="normal_btn _cancel" v-if="msgState == 'del'" @click="cancel">取消</button>
+
+						<button class="normal_btn _cancel" @click="cancel" v-if="msgState !== 'del'">
 							關閉
 						</button>
 					</div>
@@ -205,6 +207,7 @@
 	<script src="./js/index.js"></script>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script>
+
 		var vue = new Vue({
 			el: "#app",
 			data() {
@@ -220,29 +223,41 @@
 						"預定 - 沒有準時",
 					],
 					evaluate: [
-						{
-							evaluate_id: 1,
-							evaluate_store: "告胖早午餐-東興店",
-							evaluate_menu: "炒麵麵包",
-							evaluate_eat: 3,
-							evaluate_action: 4,
-							evaluate_amount: 4,
-							evaluate_experience: "恩恩恩，嘿嘿嘿",
-							evaluate_user: "alex",
-							evaluate_date: "2012-12-06",
-						},
-						{
-							evaluate_id: 2,
-							evaluate_store: "肯德基",
-							evaluate_menu: "紐奧良雞",
-							evaluate_eat: 5,
-							evaluate_action: 4,
-							evaluate_amount: 4,
-							evaluate_experience: "嘿嘿嘿",
-							evaluate_user: "alex",
-							evaluate_date: "2012-12-08",
-						},
+						// {
+						// 	evaluate_id: 1,
+						// 	evaluate_store: "告胖早午餐-東興店",
+						// 	evaluate_menu: "炒麵麵包",
+						// 	evaluate_eat: 3,
+						// 	evaluate_action: 4,
+						// 	evaluate_amount: 4,
+						// 	evaluate_experience: "恩恩恩，嘿嘿嘿",
+						// 	evaluate_user: "alex",
+						// 	evaluate_date: "2012-12-06",
+						// },
+						// {
+						// 	evaluate_id: 2,
+						// 	evaluate_store: "肯德基",
+						// 	evaluate_menu: "紐奧良雞",
+						// 	evaluate_eat: 5,
+						// 	evaluate_action: 4,
+						// 	evaluate_amount: 4,
+						// 	evaluate_experience: "嘿嘿嘿",
+						// 	evaluate_user: "alex",
+						// 	evaluate_date: "2012-12-08",
+						// },
+						// {
+						// 	evaluate_id: 3,
+						// 	evaluate_store: "測試炒麵",
+						// 	evaluate_menu: "超級大炒麵",
+						// 	evaluate_eat: 5,
+						// 	evaluate_action: 4,
+						// 	evaluate_amount: 4,
+						// 	evaluate_experience: "嘿嘿嘿",
+						// 	evaluate_user: "alex",
+						// 	evaluate_date: "2012-12-08",
+						// },
 					],
+
 					newList: {
 						evaluate_store: "告胖早午餐-東興店",
 						evaluate_menu: "",
@@ -255,10 +270,13 @@
 					},
 					num: 2,
 					alertShow: false,
+					alertTitle: '',
 					msgShow: false,
 					msgState: "",
 					msgInfo: [],
 					index: null,
+					num: null,
+					filiterInp: ''
 				};
 			},
 			mounted() {
@@ -296,12 +314,17 @@
 			},
 			computed: {
 				evaluate_list() {
-					return this.evaluate;
+					// return this.evaluate
+					
+					return this.evaluate.filter((item) => {
+						return item.evaluate_menu.indexOf(this.filiterInp) !== -1 || item.evaluate_store.indexOf(this.filiterInp) !== -1
+					})
 				},
 			},
 			methods: {
 				addHandler(str) {
 					this.setNewlist();
+					this.alertTitle = '新增'
 					this.alertShow = "add";
 					this.newList.evaluate_date = this.getDate();
 					this.newList.evaluate_user = this.username;
@@ -342,7 +365,7 @@
 								this.msgShow = true;
 								this.classHandler("msg");
 								this.msgState = "ok";
-								this.setNewlist();
+
 							} else if (this.alertShow == 'edit') {
 								console.log('修改送出');
 								this.evaluate.splice(this.index, 1, this.newList);
@@ -352,9 +375,11 @@
 								this.msgState = "ok";
 							}
 							this.newList;
-							// axios.post('/api/setData.php', this.newList)
-							// .then((res) => { console.table(res.data) })
-							// .catch((error) => { console.error(error) })
+							axios.post('/api/setData.php', this.newList)
+								.then((res) => { console.table(res.data) })
+								.catch((error) => { console.error(error) })
+
+							this.setNewlist();
 						}
 					} else if (str == "user" && this.username !== "") {
 						this.alertShow = false;
@@ -363,12 +388,15 @@
 				},
 				cancel() {
 					if (this.msgState == "back") {
-						this.msgShow = false;
 						this.msgState = "";
+					} else if (this.msgState == "del") {
+						this.msgState = "";
+						this.index = null;
+						this.num = null;
 					} else {
-						this.msgShow = false;
 						this.alertShow = false;
 					}
+					this.msgShow = false;
 					this.msgInfo = [];
 
 				},
@@ -419,24 +447,40 @@
 				classHandler(str) {
 					setTimeout(() => {
 						var addClass = document.getElementById(str);
-						addClass.style.display = "block";
-						setTimeout(() => {
-							addClass.classList.add("show");
-						}, 10);
+						if (addClass.classList.contains('show')) {
+							addClass.classList.remove('show');
+							setTimeout(() => {
+								addClass.classList.add("show");
+							}, 10);
+						} else {
+							addClass.style.display = "block";
+							setTimeout(() => {
+								addClass.classList.add("show");
+							}, 10);
+						}
+
 					}, 0);
 				},
 				selLi(num) {
 					this.newList.evaluate_action = num;
 				},
 				del(num, index) {
-					console.log('num', num);
-					console.log('index', index);
-					axios.post('/api/delData.php', num)
-						.then((res) => { console.table(res.data) })
-						.catch((error) => { console.error(error) })
-					this.evaluate.splice(index, 1);
+					this.msgInfo.push('確認刪除嗎？');
+					this.msgShow = true;
+					this.classHandler("msg");
+					this.msgState = "del"
+					this.index = index;
+					this.num = num;
+
 				},
-				edit(str, num, index) {
+				edit(str, num, i) {
+					var index;
+					for (let i = 0; i < this.evaluate.length; i++) {
+						if (this.evaluate[i].evaluate_id == num) {
+							index = i
+						}
+					}
+
 					var resetList = {}
 					resetList.evaluate_store = this.evaluate[index].evaluate_store
 					resetList.evaluate_menu = this.evaluate[index].evaluate_menu
@@ -450,17 +494,14 @@
 					this.newList = resetList;
 
 					this.classHandler('add');
+
 					this.index = index
+					this.alertTitle = '修改'
 					this.alertShow = str;
 					setTimeout(() => {
 						this.star('eat', 6 - this.evaluate[index].evaluate_eat);
 						this.star('amount', 6 - this.evaluate[index].evaluate_amount);
 					}, 15);
-
-					// this.evaluate.splice(index, this.newList);
-					// this.newList.evaluate_date = this.getDate();
-					// this.newList.evaluate_user = this.username;
-					// 
 				},
 				setNewlist() {
 					var resetList = {}
@@ -474,6 +515,23 @@
 					resetList.evaluate_date = ''
 					this.newList = resetList;
 				},
+				checkHandler() {
+					axios.post('/api/delData.php', this.num)
+						.then((res) => { console.table(res.data) })
+						.catch((error) => { console.error(error) })
+					this.evaluate.splice(this.index, 1);
+					this.cancel();
+					this.classHandler("msg");
+
+					setTimeout(() => {
+						this.msgInfo.push('刪除成功');
+						this.msgShow = true;
+						this.classHandler("msg");
+						this.msgState = "back"
+					}, 10);
+
+
+				}
 			},
 		});
 	</script>

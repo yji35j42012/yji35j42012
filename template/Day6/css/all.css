@@ -214,6 +214,24 @@ img {
   border-color: #75757c;
 }
 
+.normal_btn._danger {
+  color: #fff;
+  background-color: #f9423c;
+  border-color: #f9423c;
+}
+
+@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+  .normal_btn._danger:hover {
+    background-color: #db3c36;
+    border-color: #db3c36;
+  }
+}
+
+.normal_btn._danger:active {
+  background-color: #db3c36;
+  border-color: #db3c36;
+}
+
 .alert {
   position: absolute;
   top: 0;
