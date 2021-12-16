@@ -145,9 +145,9 @@
 						</label>
 						<label class="label_inp">
 							<p>幾號吃得勒？</p>
-							<div class="calendar">
+							<div id="calendar" class="calendar" v-if="calendar.show">
 								<div class="calendar_head">
-									<span id="prev" class="material-icons calendar_head_prev">
+									<span id="prev" class="material-icons calendar_head_prev" @click="calendar_prev">
 										arrow_back_ios
 									</span>
 									<div class="calendar_head_info">
@@ -170,11 +170,9 @@
 											<th>SUN</th>
 										</tr>
 										<tr v-for="(item , index) in calendar.showTd">
-											<td 
-												v-for="(itemTd , i) in item" 
-												:data-m="itemTd.mon"
+											<td v-for="(itemTd , i) in item" :data-m="itemTd.mon"
 												@click="calendarHandler(itemTd.mon , itemTd.day)"
-												:name="itemTd.mon == calendar.month.num ?'calendar_td' : 'other' " 
+												:name="itemTd.mon == calendar.month.num ?'calendar_td' : 'other'+itemTd.day "
 												:data-d="itemTd.day">
 												{{itemTd.day}}
 											</td>
@@ -296,13 +294,17 @@
 					num: null,
 					filiterInp: '',
 					calendar: {
+						show: false,
 						olympic: [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
 						normal: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
 						monthName: ["January", "Febrary", "March", "April", "May", "June", "July", "Auguest", "September", "October", "November", "December"],
-						year: null,
+						year: {
+							now: null,
+							search: null,
+						},
 						month: {
-							num:0,
-							str:null,
+							num: 0,
+							str: null,
 						},
 						chose: null,
 						showTd: [],
@@ -311,13 +313,22 @@
 				};
 			},
 			mounted() {
+				// 使用者名稱
 				var storage = localStorage.getItem("experience");
 				if (storage == null) {
 					this.alertShow = true;
-					this.classHandler("inp");
+					this.addClassHandler("inp");
 				} else {
 					this.username = storage;
 				}
+				// 使用者名稱
+				// 日期初始化
+				var my_date = new Date();
+				this.calendar.year = my_date.getFullYear();
+				var my_month = my_date.getMonth();
+				var my_day = my_date.getDate();
+				// 日期初始化
+
 				axios({
 					method: "get",
 					url: "/api/getData.php",
@@ -346,7 +357,6 @@
 			computed: {
 				evaluate_list() {
 					// return this.evaluate
-
 					return this.evaluate.filter((item) => {
 						return item.evaluate_menu.indexOf(this.filiterInp) !== -1 || item.evaluate_store.indexOf(this.filiterInp) !== -1
 					})
@@ -359,7 +369,7 @@
 					this.alertShow = "add";
 					this.newList.evaluate_date = this.getDate();
 					this.newList.evaluate_user = this.username;
-					this.classHandler(str);
+					this.addClassHandler(str);
 				},
 				submit(str) {
 					if (str == "addItem") {
@@ -385,7 +395,7 @@
 						if (this.msgInfo.length !== 0) {
 							console.log(this.msgInfo.length);
 							this.msgShow = true;
-							this.classHandler("msg");
+							this.addClassHandler("msg");
 							this.msgState = "back";
 						} else {
 							if (this.alertShow == 'add') {
@@ -394,7 +404,7 @@
 								this.evaluate.push(this.newList);
 								this.msgInfo.push("新增成功");
 								this.msgShow = true;
-								this.classHandler("msg");
+								this.addClassHandler("msg");
 								this.msgState = "ok";
 
 							} else if (this.alertShow == 'edit') {
@@ -402,7 +412,7 @@
 								this.evaluate.splice(this.index, 1, this.newList);
 								this.msgInfo.push("修改成功");
 								this.msgShow = true;
-								this.classHandler("msg");
+								this.addClassHandler("msg");
 								this.msgState = "ok";
 							}
 							this.newList;
@@ -471,10 +481,10 @@
 					if (addClass.classList.contains("show")) {
 						addClass.classList.remove("show");
 					} else {
-						this.classHandler(str);
+						this.addClassHandler(str);
 					}
 				},
-				classHandler(str) {
+				addClassHandler(str) {
 					setTimeout(() => {
 						var addClass = document.getElementById(str);
 						if (addClass.classList.contains('show')) {
@@ -491,13 +501,20 @@
 
 					}, 0);
 				},
+				removeClassHandler(str) {
+					var removeClass = document.getElementById(str);
+					removeClass.classList.remove('show')
+					setTimeout(() => {
+						this.calendar.show = false;
+					}, 350);
+				},
 				selLi(num) {
 					this.newList.evaluate_action = num;
 				},
 				del(num, index) {
 					this.msgInfo.push('確認刪除嗎？');
 					this.msgShow = true;
-					this.classHandler("msg");
+					this.addClassHandler("msg");
 					this.msgState = "del"
 					this.index = index;
 					this.num = num;
@@ -522,7 +539,7 @@
 
 					this.newList = resetList;
 
-					this.classHandler('add');
+					this.addClassHandler('add');
 
 					this.index = index
 					this.alertTitle = '修改'
@@ -550,42 +567,46 @@
 						.catch((error) => { console.error(error) })
 					this.evaluate.splice(this.index, 1);
 					this.cancel();
-					this.classHandler("msg");
-
+					this.addClassHandler("msg");
 					setTimeout(() => {
 						this.msgInfo.push('刪除成功');
 						this.msgShow = true;
-						this.classHandler("msg");
+						this.addClassHandler("msg");
 						this.msgState = "back"
 					}, 10);
 				},
 				dateHandler() {
 					console.log('dateHandler');
+					this.calendar.show = true;
 					this.calendar.showTd = []
-					this.refreshDate();
-					console.log(this.calendar.showTd);
+					if (this.calendar.chose == null) {
+						this.createDate();
+					}
 
+					this.refreshDate();
+					this.addClassHandler('calendar');
 				},
 				refreshDate() {
 					var my_date = new Date();
 					var my_year = my_date.getFullYear();
 					var my_month = my_date.getMonth();
 					var my_day = my_date.getDate();
-					var prev = document.getElementById("prev");
-					var next = document.getElementById("next");
 
 					this.calendar.year = my_year;
 					this.calendar.month = {
 						num: my_month,
 						str: this.calendar.monthName[my_month],
 					};
-					var lastTotalDay = this.daysTotal(my_month - 1, my_year); //當月總天數
-					var totalDay = this.daysTotal(my_month, my_year); //當月總天數
-					var firstDay = this.dayStart(my_month, my_year); //當月第一天星期
+					var lastTotalDay = this.daysTotal(my_month - 1, this.calendar.year); //當月總天數
+					var totalDay = this.daysTotal(my_month, this.calendar.year); //當月總天數
+					var firstDay = this.dayStart(my_month, this.calendar.year); //當月第一天星期
 
 					var myclass;
 					var m = 0;
-					this.calendar.chose = my_day;
+					if (this.calendar.chose == null) {
+						this.calendar.chose = my_day;
+					}
+
 
 					// 第一天前
 					for (var i = 1; i < firstDay; i++) {
@@ -624,22 +645,29 @@
 						}
 					}
 					this.calendar.showTd.push(this.calendar.mList);
+
 					setTimeout(() => {
-						var chose = document.querySelector('[data-d="' + this.calendar.chose + '"]');
-						console.log('chose', chose);
-						chose.classList.add('chose');
+						var chose = document.querySelectorAll('[name="calendar_td"]');
+						chose[this.calendar.chose - 1].classList.add('chose');
 						this.calendar.mList = [];
 					}, 10);
 				},
 				calendarHandler(m, d) {
 					if (m == this.calendar.month.num) {
-						var old = document.querySelector('[data-d="' + this.calendar.chose + '"]');
-						var newClass = document.querySelector('[data-d="' + d + '"]');
-						old.classList.remove('chose')
-						newClass.classList.add('chose')
+						var old = document.querySelectorAll('[name="calendar_td"]');
+						old[this.calendar.chose - 1].classList.remove('chose');
+						old[d - 1].classList.add('chose');
 						this.calendar.chose = d;
-					}
+						m = m + 1
+						this.newList.evaluate_date = this.calendar.year + '-' + m + '-' + d;
+						this.removeClassHandler('calendar');
+					} else if (m < this.calendar.month.num) {
+						var old = document.querySelectorAll('[name="calendar_td"]');
+						var newAdd = document.querySelector('[name="other' + d + '"]');
+						newAdd.classList.addClass('chose')
+						console.log('newAdd', newAdd);
 
+					}
 				},
 				daysTotal(month, year) {
 					var tmp = year % 4;
@@ -653,6 +681,12 @@
 					var tmpDate = new Date(year, month, 1);
 					return (tmpDate.getDay());
 				},
+				calendar_prev() {
+					console.log('prev');
+				},
+				createDate() {
+					this.calendar.showTd = []
+				}
 			},
 		});
 	</script>

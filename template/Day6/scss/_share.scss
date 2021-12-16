@@ -338,7 +338,12 @@
     width: 300px;
     background-color: #fff;
     border-radius: 3px;
-
+    transform: scale(0, 0);
+    transform-origin: right bottom;
+    @extend %transition;
+    &.show {
+        transform: scale(1, 1);
+    }
     &_head {
         display: flex;
         justify-content: space-between;
