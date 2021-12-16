@@ -151,14 +151,13 @@
 										arrow_back_ios
 									</span>
 									<div class="calendar_head_info">
-										<div>{{calendar.month}}</div>
+										<div>{{calendar.month.str}}</div>
 										<div>{{calendar.year}}</div>
 									</div>
 									<span id="next" class="material-icons calendar_head_next">
 										arrow_forward_ios
 									</span>
 								</div>
-
 								<div class="calendar_body">
 									<table>
 										<tr>
@@ -170,13 +169,16 @@
 											<th>SAT</th>
 											<th>SUN</th>
 										</tr>
-										<tbody id="calendar_body">
-											<tr v-for="item in calendar.showTd">
-												<td name="calendar_td" v-for="itemTd in item"
-													@click="calendarHandler(itemTd)" :data-d="itemTd">{{itemTd}}
-												</td>
-											</tr>
-										</tbody>
+										<tr v-for="(item , index) in calendar.showTd">
+											<td 
+												v-for="(itemTd , i) in item" 
+												:data-m="itemTd.mon"
+												@click="calendarHandler(itemTd.mon , itemTd.day)"
+												:name="itemTd.mon == calendar.month.num ?'calendar_td' : 'other' " 
+												:data-d="itemTd.day">
+												{{itemTd.day}}
+											</td>
+										</tr>
 									</table>
 								</div>
 							</div>
@@ -185,12 +187,8 @@
 						</label>
 					</div>
 					<div class="alert_fun">
-						<button class="normal_btn _submit" @click="submit('addItem')">
-							送出
-						</button>
-						<button class="normal_btn _cancel" @click="cancel">
-							取消
-						</button>
+						<button class="normal_btn _submit" @click="submit('addItem')">送出</button>
+						<button class="normal_btn _cancel" @click="cancel">取消</button>
 					</div>
 				</div>
 
@@ -289,7 +287,6 @@
 						evaluate_user: "",
 						evaluate_date: "",
 					},
-					num: 2,
 					alertShow: false,
 					alertTitle: '',
 					msgShow: false,
@@ -303,12 +300,14 @@
 						normal: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
 						monthName: ["January", "Febrary", "March", "April", "May", "June", "July", "Auguest", "September", "October", "November", "December"],
 						year: null,
-						month: null,
+						month: {
+							num:0,
+							str:null,
+						},
 						chose: null,
 						showTd: [],
-
+						mList: [],
 					},
-					mList: [],
 				};
 			},
 			mounted() {
@@ -562,8 +561,8 @@
 				},
 				dateHandler() {
 					console.log('dateHandler');
+					this.calendar.showTd = []
 					this.refreshDate();
-					this.addClick();
 					console.log(this.calendar.showTd);
 
 				},
@@ -572,86 +571,75 @@
 					var my_year = my_date.getFullYear();
 					var my_month = my_date.getMonth();
 					var my_day = my_date.getDate();
-					var my_date = new Date();
-
-					var month = document.getElementById("month");
-					var calendar_body = document.getElementById("calendar_body");
 					var prev = document.getElementById("prev");
 					var next = document.getElementById("next");
 
 					this.calendar.year = my_year;
-					this.calendar.month = this.calendar.monthName[my_month];
-
-					var str = "<tr>";
+					this.calendar.month = {
+						num: my_month,
+						str: this.calendar.monthName[my_month],
+					};
+					var lastTotalDay = this.daysTotal(my_month - 1, my_year); //當月總天數
 					var totalDay = this.daysTotal(my_month, my_year); //當月總天數
 					var firstDay = this.dayStart(my_month, my_year); //當月第一天星期
 
 					var myclass;
 					var m = 0;
 					this.calendar.chose = my_day;
-					console.log('my_day', my_day);
 
 					// 第一天前
 					for (var i = 1; i < firstDay; i++) {
-						// str += "<td id='" + i + "'></td>"
 						m++;
-						this.mList.push('');
+						this.calendar.mList.push(
+							{
+								mon: my_month - 1,
+								day: lastTotalDay - firstDay + i + 1
+							}
+						);
 					}
 
 					for (var i = 1; i <= totalDay; i++) {
 						if (m == 7) {
-							// str += "</tr>" + "\n" + "\n" + "<tr>"
 							m = 0;
-							this.calendar.showTd.push(this.mList);
-							this.mList = [];
+							this.calendar.showTd.push(this.calendar.mList);
+							this.calendar.mList = [];
 						}
-						// if ((i < my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) || my_year < my_date.getFullYear() || (my_year == my_date.getFullYear() && my_month < my_date.getMonth())) {
-						// 	myclass = " class='lightgrey'";
-						// } else if (i == my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) {
-						// 	myclass = "name='calendar_td' class='today'"; //當天
-						// } else {
-						// 	myclass = "name='calendar_td' class='darkgrey'"; //今天之後
-						// }
-						// var mon = "data-m='" + my_month + "'"
-						// var d = "data-d='" + i + "'"
-						// str += "<td " + myclass + mon + d + ">  " + i + "</td> ";
 						m++;
-						this.mList.push(i);
+						this.calendar.mList.push(
+							{
+								mon: my_month,
+								day: i
+							}
+						);
 					}
-					// str += "</tr>"
-					this.calendar.showTd.push(this.mList);
-					// calendar_body.innerHTML = str;
-
-
-
+					if (m <= 7) {
+						for (let i = 1; i <= 8 - m; i++) {
+							this.calendar.mList.push(
+								{
+									mon: my_month + 1,
+									day: i
+								}
+							);
+							m++;
+						}
+					}
+					this.calendar.showTd.push(this.calendar.mList);
 					setTimeout(() => {
 						var chose = document.querySelector('[data-d="' + this.calendar.chose + '"]');
 						console.log('chose', chose);
-						chose.classList.add('chose')
+						chose.classList.add('chose');
+						this.calendar.mList = [];
 					}, 10);
-
 				},
-				calendarHandler(num) {
-					var old = document.querySelector('[data-d="' + this.calendar.chose + '"]');
-					var d = document.querySelector('[data-d="' + num + '"]');
-					old.classList.remove('chose')
-					d.classList.add('chose')
-					this.calendar.chose = num;
-				},
-				addClick() {
-					var tdList = document.querySelectorAll('[name="calendar_td"]');
-					for (let i = 0; i < tdList.length; i++) {
-						const element = tdList[i];
-						element.onclick = function () {
-							if (this.calendar.chose !== null) {
-								tdList[this.calendar.chose].classList.remove('chose');
-							}
-							element.classList.add('chose');
-						}
-						this.calendar.chose = i;
-						// console.log(this.calendar.chose);
-
+				calendarHandler(m, d) {
+					if (m == this.calendar.month.num) {
+						var old = document.querySelector('[data-d="' + this.calendar.chose + '"]');
+						var newClass = document.querySelector('[data-d="' + d + '"]');
+						old.classList.remove('chose')
+						newClass.classList.add('chose')
+						this.calendar.chose = d;
 					}
+
 				},
 				daysTotal(month, year) {
 					var tmp = year % 4;
