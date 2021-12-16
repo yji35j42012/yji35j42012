@@ -55,6 +55,7 @@
 }
 
 .label_inp {
+    position: relative;
     display: block;
     p {
         margin-bottom: 5px;
@@ -68,6 +69,16 @@
     }
     & + .label_inp {
         margin-top: 10px;
+    }
+    .txt {
+        display: block;
+        width: 100%;
+        height: 30px;
+        padding: 0 10px;
+        background-color: #fff;
+        color: #000;
+        line-height: 30px;
+        border-radius: 3px;
     }
 }
 
@@ -318,4 +329,82 @@
 .fade-enter-from,
 .fade-leave-to {
     opacity: 0;
+}
+
+.calendar {
+    position: absolute;
+    bottom: calc(100% - 20px);
+    right: 0;
+    width: 300px;
+    background-color: #fff;
+    border-radius: 3px;
+
+    &_head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #344583;
+
+        &_info {
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+            text-align: center;
+        }
+        &_prev,
+        &_next {
+            flex: none;
+            width: 20%;
+            height: 100%;
+            padding: 15px 10px 10px;
+            color: #bbbbbb;
+        }
+        &_next {
+            text-align: right;
+        }
+    }
+
+    &_body {
+        width: 100%;
+        padding: 0 15px;
+        box-sizing: border-box;
+        /* height: 100%; */
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            text-align: center;
+            /* height: 100%; */
+        }
+        th {
+            width: calc(100% / 7);
+            padding: 6px 0;
+            color: #a8a8a8;
+        }
+        td {
+            padding: 6px 0;
+            border: 1px;
+            color: #000;
+        }
+        .today {
+            border: 1px solid #6ac13c;
+            background: #e9f8df;
+            cursor: pointer;
+        }
+    }
+}
+.lightgrey {
+    color: #a8a8a8;
+    /*浅灰色*/
+}
+
+.darkgrey {
+    color: #565656;
+    cursor: pointer;
+    /*深灰色*/
+}
+.chose {
+    background-color: #c3bef7;
+    border: 1px solid #3f2e56;
 }

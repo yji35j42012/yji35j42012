@@ -243,11 +243,13 @@
             str += "</tr>"
             calendar_body.innerHTML = str;
         }
+        
         refreshDate();
+        
         addClick();
+        
         function addClick() {
             var tdList = document.querySelectorAll('[name="td"]');
-            console.log('add', tdList);
             for (let i = 0; i < tdList.length; i++) {
                 const element = tdList[i];
                 element.onclick = function () {

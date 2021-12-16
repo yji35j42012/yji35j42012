@@ -1,36 +1,11 @@
-/* blockquote {
-  width: 100%;
+.icon_firefox {
+  display: inline-block;
+  background: url(../images/icon_firefox.png) no-repeat center/contain;
 }
 
-figure {
-  margin: 0 0 20px 0;
-}
-
-blockquote {
-  width: 100%;
-}
-
-figure {
-  margin: 0 0 20px 0;
-}
-
-.txt {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-}
-
-.box12 {
-  border-top: 1px solid red;
-  border-bottom: 1px solid green;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
+.icon_google {
+  display: inline-block;
+  background: url(../images/icon_google.jpg) no-repeat center/contain;
 }
 
 .txt1 {
@@ -39,9 +14,4 @@ figure {
   bottom: 200px;
   right: 20px;
 }
-
-.ex01 {
-  position: absolute;
-  top: 10px;
-} */
 /*# sourceMappingURL=aaa.css.map */

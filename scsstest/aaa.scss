@@ -1,15 +1,40 @@
-$icon: ('chips_auto01');
-$aaaaa: '../images/icon_chips_auto01.png';
+$icon: ('firefox.png', 'google.jpg');
 
-
-
-.aa {
-    @if $aaaaa == true {
-        width: 2px;
+@each $name in $icon {
+    $num: str-index(#{$name}, '.'); //點點位置
+    $length: str-length(#{$name});  //文字長度
+    $ext: str-slice(#{$name}, $num, $length);//副檔名
+    $filename: str-slice(#{$name}, 1, $num - 1);//檔案名稱
+    .icon_#{$filename} {
+        display: inline-block;        
+        background: url(../images/icon_#{$filename}#{$ext}) no-repeat center / contain;
     }
-    top: $aaaaa;
-    bottom:1px;
-    background: url('./image/chips_auto01.png');
+}
+
+// 定位
+@function pos-chtext($data) {
+    $data: to-upper-case($data);
+    @if $data== 'T' {
+        @return top;
+    } @else if $data== 'R' {
+        @return right;
+    } @else if $data== 'B' {
+        @return bottom;
+    } @else if $data== 'L' {
+        @return left;
+    }
+}
+@mixin poa($str...) {
+    position: absolute;
+    @for $i from 1 through length($str) {
+        #{pos-chtext(str-slice(nth($str,$i), 1,1))}: str-slice(
+            nth($str, $i),
+            2
+        );
+    }
+}
+.txt1 {
+    @include poa(t10px, b200px, r20px);
 }
 // @for $level from 1 through 5 {
 //     @for $level1 from 1 through $level {
