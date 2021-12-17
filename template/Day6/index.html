@@ -66,10 +66,10 @@
 								<td width="10%">{{item.evaluate_user}}</td>
 								<td width="10%">{{item.evaluate_date}}</td>
 								<td width="10%">
-									<button class="icon_btn material-icons"
+									<button v-if="item.evaluate_user == username" class="icon_btn material-icons"
 										@click="edit('edit',item.evaluate_id , index)">edit</button>
 									<!-- <i class="far fa-trash-alt ms-text-danger"></i> -->
-									<button class="icon_btn material-icons"
+									<button v-if="item.evaluate_user == username" class="icon_btn material-icons"
 										@click="del(item.evaluate_id , index)">delete</button>
 								</td>
 							</tr>
@@ -80,7 +80,7 @@
 		</div>
 		<transition name="fade">
 			<div v-if="alertShow" class="alert">
-				<div id="add" class="alert_box" style="display: none">
+				<div id="add" class="alert_box show" style="display: block">
 					<div class="alert_head">{{alertTitle}}</div>
 					<div class="alert_body">
 						<label class="label_inp">
@@ -152,7 +152,7 @@
 									</span>
 									<div class="calendar_head_info">
 										<div>{{calendar.month.str}}</div>
-										<div>{{calendar.year}}</div>
+										<div>{{calendar.year.search}}</div>
 									</div>
 									<span id="next" class="material-icons calendar_head_next">
 										arrow_forward_ios
@@ -170,10 +170,10 @@
 											<th>SUN</th>
 										</tr>
 										<tr v-for="(item , index) in calendar.showTd">
-											<td v-for="(itemTd , i) in item" :data-m="itemTd.mon"
+											<td v-for="(itemTd , i) in item"
 												@click="calendarHandler(itemTd.mon , itemTd.day)"
-												:name="itemTd.mon == calendar.month.num ?'calendar_td' : 'other'+itemTd.day "
-												:data-d="itemTd.day">
+												:name="itemTd.mon == calendar.month.search ?'calendar_td' : 'other'+itemTd.day "
+												:data-m="itemTd.mon" :data-d="itemTd.day">
 												{{itemTd.day}}
 											</td>
 										</tr>
@@ -241,41 +241,42 @@
 						"預定 - 沒有準時",
 					],
 					evaluate: [
-						// {
-						// 	evaluate_id: 1,
-						// 	evaluate_store: "告胖早午餐-東興店",
-						// 	evaluate_menu: "炒麵麵包",
-						// 	evaluate_eat: 3,
-						// 	evaluate_action: 4,
-						// 	evaluate_amount: 4,
-						// 	evaluate_experience: "恩恩恩，嘿嘿嘿",
-						// 	evaluate_user: "alex",
-						// 	evaluate_date: "2012-12-06",
-						// },
-						// {
-						// 	evaluate_id: 2,
-						// 	evaluate_store: "肯德基",
-						// 	evaluate_menu: "紐奧良雞",
-						// 	evaluate_eat: 5,
-						// 	evaluate_action: 4,
-						// 	evaluate_amount: 4,
-						// 	evaluate_experience: "嘿嘿嘿",
-						// 	evaluate_user: "alex",
-						// 	evaluate_date: "2012-12-08",
-						// },
-						// {
-						// 	evaluate_id: 3,
-						// 	evaluate_store: "測試炒麵",
-						// 	evaluate_menu: "超級大炒麵",
-						// 	evaluate_eat: 5,
-						// 	evaluate_action: 4,
-						// 	evaluate_amount: 4,
-						// 	evaluate_experience: "嘿嘿嘿",
-						// 	evaluate_user: "alex",
-						// 	evaluate_date: "2012-12-08",
-						// },
+						{
+							evaluate_id: 1,
+							evaluate_store: "告胖早午餐-東興店",
+							evaluate_menu: "炒麵麵包",
+							evaluate_eat: 3,
+							evaluate_action: 4,
+							evaluate_amount: 4,
+							evaluate_experience: "恩恩恩，嘿嘿嘿",
+							evaluate_user: "alex",
+							evaluate_date: "2012-12-06",
+						},
+						{
+							evaluate_id: 2,
+							evaluate_store: "肯德基",
+							evaluate_menu: "紐奧良雞",
+							evaluate_eat: 5,
+							evaluate_action: 4,
+							evaluate_amount: 4,
+							evaluate_experience: "嘿嘿嘿",
+							evaluate_user: "alex",
+							evaluate_date: "2012-12-08",
+						},
+						{
+							evaluate_id: 3,
+							evaluate_store: "測試炒麵",
+							evaluate_menu: "超級大炒麵",
+							evaluate_eat: 5,
+							evaluate_action: 4,
+							evaluate_amount: 4,
+							evaluate_experience: "嘿嘿嘿",
+							evaluate_user: "alex1",
+							evaluate_date: "2012-12-08",
+						},
 					],
 					newList: {
+						evaluate_id: "",
 						evaluate_store: "告胖早午餐-東興店",
 						evaluate_menu: "",
 						evaluate_eat: "",
@@ -285,7 +286,7 @@
 						evaluate_user: "",
 						evaluate_date: "",
 					},
-					alertShow: false,
+					alertShow: true,
 					alertTitle: '',
 					msgShow: false,
 					msgState: "",
@@ -303,7 +304,8 @@
 							search: null,
 						},
 						month: {
-							num: 0,
+							now: null,
+							search: null,
 							str: null,
 						},
 						chose: null,
@@ -324,7 +326,16 @@
 				// 使用者名稱
 				// 日期初始化
 				var my_date = new Date();
-				this.calendar.year = my_date.getFullYear();
+				this.calendar.year = {
+					now: my_date.getFullYear(),
+					search: my_date.getFullYear()
+				};
+				this.calendar.month = {
+					now: my_date.getMonth(),
+					search: my_date.getMonth(),
+					str: this.calendar.monthName[my_date.getMonth()]
+				};
+
 				var my_month = my_date.getMonth();
 				var my_day = my_date.getDate();
 				// 日期初始化
@@ -406,6 +417,10 @@
 								this.msgShow = true;
 								this.addClassHandler("msg");
 								this.msgState = "ok";
+								this.newList;
+								axios.post('/api/setData.php', this.newList)
+									.then((res) => { console.table(res.data) })
+									.catch((error) => { console.error(error) })
 
 							} else if (this.alertShow == 'edit') {
 								console.log('修改送出');
@@ -414,11 +429,14 @@
 								this.msgShow = true;
 								this.addClassHandler("msg");
 								this.msgState = "ok";
+								this.newList;
+								console.log(this.newList);
+
+								axios.post('/api/updateData.php', this.newList)
+									.then((res) => { console.table(res.data) })
+									.catch((error) => { console.error(error) })
 							}
-							this.newList;
-							axios.post('/api/setData.php', this.newList)
-								.then((res) => { console.table(res.data) })
-								.catch((error) => { console.error(error) })
+
 
 							this.setNewlist();
 						}
@@ -528,6 +546,7 @@
 					}
 
 					var resetList = {}
+					resetList.evaluate_id = this.evaluate[index].evaluate_id
 					resetList.evaluate_store = this.evaluate[index].evaluate_store
 					resetList.evaluate_menu = this.evaluate[index].evaluate_menu
 					resetList.evaluate_eat = this.evaluate[index].evaluate_eat
@@ -551,6 +570,7 @@
 				},
 				setNewlist() {
 					var resetList = {}
+					resetList.evaluate_id = 1
 					resetList.evaluate_store = ''
 					resetList.evaluate_menu = ''
 					resetList.evaluate_eat = 0
@@ -576,49 +596,43 @@
 					}, 10);
 				},
 				dateHandler() {
-					console.log('dateHandler');
 					this.calendar.show = true;
 					this.calendar.showTd = []
 					if (this.calendar.chose == null) {
 						this.createDate();
 					}
 
-					this.refreshDate();
+					this.refreshDate(this.calendar.year.search, this.calendar.month.search);
 					this.addClassHandler('calendar');
 				},
-				refreshDate() {
+				refreshDate(searchY, searchM) {
 					var my_date = new Date();
-					var my_year = my_date.getFullYear();
-					var my_month = my_date.getMonth();
 					var my_day = my_date.getDate();
+					var lastTotalDay;
 
-					this.calendar.year = my_year;
-					this.calendar.month = {
-						num: my_month,
-						str: this.calendar.monthName[my_month],
-					};
-					var lastTotalDay = this.daysTotal(my_month - 1, this.calendar.year); //當月總天數
-					var totalDay = this.daysTotal(my_month, this.calendar.year); //當月總天數
-					var firstDay = this.dayStart(my_month, this.calendar.year); //當月第一天星期
+					var lastTotalDay = this.daysTotal(searchM - 1 < 0 ? 0 : searchM - 1, searchY); //當月總天數
+					var totalDay = this.daysTotal(searchM, searchY); //當月總天數
+					var firstDay = this.dayStart(searchM, searchY); //當月第一天星期
 
-					var myclass;
 					var m = 0;
 					if (this.calendar.chose == null) {
 						this.calendar.chose = my_day;
 					}
 
+					console.log('lastTotalDay', lastTotalDay);
+					console.log('searchM', searchM);
 
 					// 第一天前
 					for (var i = 1; i < firstDay; i++) {
 						m++;
 						this.calendar.mList.push(
 							{
-								mon: my_month - 1,
+								mon: searchM - 1 < 0 ? 11 : searchM - 1,
 								day: lastTotalDay - firstDay + i + 1
 							}
 						);
 					}
-
+					// 本月份
 					for (var i = 1; i <= totalDay; i++) {
 						if (m == 7) {
 							m = 0;
@@ -626,18 +640,21 @@
 							this.calendar.mList = [];
 						}
 						m++;
+
 						this.calendar.mList.push(
 							{
-								mon: my_month,
+								mon: searchM,
 								day: i
 							}
 						);
 					}
+					var l = m;
+					// 補齊後面天數
 					if (m <= 7) {
-						for (let i = 1; i <= 8 - m; i++) {
+						for (let i = 1; i < 8 - l; i++) {
 							this.calendar.mList.push(
 								{
-									mon: my_month + 1,
+									mon: searchM + 1 == 12 ? '0' : searchM + 1,
 									day: i
 								}
 							);
@@ -651,22 +668,57 @@
 						chose[this.calendar.chose - 1].classList.add('chose');
 						this.calendar.mList = [];
 					}, 10);
+
 				},
 				calendarHandler(m, d) {
-					if (m == this.calendar.month.num) {
+					if (m == this.calendar.month.search) {
 						var old = document.querySelectorAll('[name="calendar_td"]');
 						old[this.calendar.chose - 1].classList.remove('chose');
 						old[d - 1].classList.add('chose');
 						this.calendar.chose = d;
 						m = m + 1
-						this.newList.evaluate_date = this.calendar.year + '-' + m + '-' + d;
+						this.newList.evaluate_date = this.calendar.year.search + '-' + m + '-' + d;
 						this.removeClassHandler('calendar');
-					} else if (m < this.calendar.month.num) {
+					} else if (m == 0) {
+						console.log('跨年', m);
 						var old = document.querySelectorAll('[name="calendar_td"]');
-						var newAdd = document.querySelector('[name="other' + d + '"]');
-						newAdd.classList.addClass('chose')
-						console.log('newAdd', newAdd);
+						old[this.calendar.chose - 1].classList.remove('chose');
+						this.calendar.chose = d;
+						this.calendar.month.search = 0;
+						this.calendar.year.search++;
+						this.calendar.chose = d;
+						this.calendar.month.str = this.calendar.monthName[m];
+						m = m + 1
+						this.newList.evaluate_date = this.calendar.year.search + '-' + m + '-' + d;
+						this.removeClassHandler('calendar');
 
+
+					} else if (m < this.calendar.month.search) {
+						console.log('前');
+						var old = document.querySelectorAll('[name="calendar_td"]');
+						old[this.calendar.chose - 1].classList.remove('chose');
+						var newAdd = document.querySelector('[name="other' + d + '"]');
+						newAdd.classList.add('chose');
+						this.calendar.chose = d;
+						this.calendar.month.search = m;
+						this.calendar.month.str = this.calendar.monthName[m];
+						m = m + 1
+						this.newList.evaluate_date = this.calendar.year.search + '-' + m + '-' + d;
+						this.removeClassHandler('calendar');
+
+					} else if (m > this.calendar.month.search) {
+						console.log('後', m);
+						var old = document.querySelectorAll('[name="calendar_td"]');
+						old[this.calendar.chose - 1].classList.remove('chose');
+						var newAdd = document.querySelector('[name="other' + d + '"]');
+						newAdd.classList.add('chose');
+
+						m = m + 1
+						this.calendar.month.str = this.calendar.monthName[m];
+						this.calendar.chose = d;
+						this.calendar.month.str = this.calendar.monthName[0];
+						this.newList.evaluate_date = this.calendar.year.search + '-' + m + '-' + d;
+						this.removeClassHandler('calendar');
 					}
 				},
 				daysTotal(month, year) {
@@ -683,6 +735,12 @@
 				},
 				calendar_prev() {
 					console.log('prev');
+					this.calendar.month.search--;
+					// this.calendar.month = {
+					// 	now: my_date.getMonth(),
+					// 	search: my_date.getMonth(),
+					// 	str: this.calendar.monthName[my_date.getMonth()]
+					// };
 				},
 				createDate() {
 					this.calendar.showTd = []

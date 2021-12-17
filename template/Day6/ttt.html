@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            flex-wrap: wrap;
+            background: #222;
+        }
+
+        .pie {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: #46738D;
+            margin: 10px;
+        }
+
+        .pie1 {
+            background-image: linear-gradient(to right, transparent 50%, #E9C535 0);
+        }
+
+        .pie2 {
+            background-image: linear-gradient(to right, transparent 50%, #E9C535 0);
+        }
+
+        .pie2::before {
+            content: "";
+            display: block;
+            margin-left: 50%;
+            height: 100%;
+            border-radius: 0 100% 100% 0/50%;
+            background-color: inherit;
+            transform-origin: left;
+        }
+
+        .pie3::before {
+            transform: rotate(36deg);
+        }
+
+        .pie4::before {
+            background-color: #E9C535;
+            transform: rotate(36deg);
+        }
+
+        .pie5::before {
+            animation: spin 3s linear infinite, bg 6s step-end infinite;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(180deg);
+            }
+        }
+
+        @keyframes bg {
+            50% {
+                background-color: #E9C535;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pie"></div>
+    <div class="pie pie1"></div>
+    <div class="pie pie2"></div>
+    <div class="pie pie2 pie3"></div>
+    <div class="pie pie2 pie4"></div>
+    <div class="pie pie2 pie5"></div>
+</body>
+
+</html>
