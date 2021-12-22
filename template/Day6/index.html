@@ -727,11 +727,12 @@
                         };
                     }
                     // 第一天前
+                    var choseY = this.calendar.chose.year;
                     for (var i = 1; i < firstDay; i++) {
                         console.log('321', searchM);
                         m++;
                         this.calendar.mList.push({
-                            year: searchM == 0 ? this.calendar.chose.year - 1 : this.calendar.chose.year,
+                            year: searchM == 0 ? choseY - 1 : choseY,
                             mon: searchM - 1 < 0 ? 11 : searchM - 1,
                             day: lastTotalDay - firstDay + i + 1,
                         });
