@@ -1,14 +1,14 @@
 /* fallback */
 @font-face {
-    font-family: 'Material Icons';
+    font-family: "Material Icons";
     font-style: normal;
     font-weight: 400;
     src: url(https://fonts.gstatic.com/s/materialicons/v107/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2)
-        format('woff2');
+        format("woff2");
 }
 
 .material-icons {
-    font-family: 'Material Icons';
+    font-family: "Material Icons";
     font-weight: normal;
     font-style: normal;
     font-size: 24px;
@@ -19,7 +19,7 @@
     white-space: nowrap;
     word-wrap: normal;
     direction: ltr;
-    -webkit-font-feature-settings: 'liga';
+    -webkit-font-feature-settings: "liga";
     -webkit-font-smoothing: antialiased;
 }
 
@@ -363,6 +363,12 @@
             height: 100%;
             padding: 15px 10px 10px;
             color: #bbbbbb;
+            @extend %hand;
+
+            @extend %transition;
+            @include hoverHandler {
+                color: #ffffff;
+            }
         }
         &_next {
             text-align: right;
@@ -391,6 +397,12 @@
             padding: 6px 0;
             border: 1px;
             color: #000;
+            @extend %hand;
+        }
+        td:not(.chose) {
+            @include hoverHandler {
+                background-color: #eee;
+            }
         }
         .today {
             border: 1px solid #6ac13c;
