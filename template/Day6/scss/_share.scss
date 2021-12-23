@@ -243,6 +243,7 @@
         padding: 0 25px 0 10px;
     }
     &_ul {
+        z-index: 1;
         position: absolute;
         left: 0;
         top: calc(100% + 5px);

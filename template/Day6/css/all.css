@@ -425,6 +425,7 @@ img {
 }
 
 .normal_sel_ul {
+  z-index: 1;
   position: absolute;
   left: 0;
   top: calc(100% + 5px);
