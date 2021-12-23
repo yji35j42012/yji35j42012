@@ -8,11 +8,35 @@
 }
 
 .header {
-    @include d_f(flex, center, center);
+    @include d_f(flex, center, space-between);
     padding: 0 20px;
     color: #fff;
     background-color: #242750;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    .username {
+        @include d_f(flex, center, center);
+    }
+    .material-icons {
+        margin-right: 5px;
+    }
+
+    &_menu {
+        @include d_f(flex, center, space-between);
+        li {
+            color: #fff;
+            @extend %hand;
+            @extend %transition;
+            @include hoverHandler {
+                color: #ff8306;
+            }
+        }
+        li.on {
+            color: #ff8306;
+        }
+        li + li {
+            margin-left: 10px;
+        }
+    }
 }
 
 .tbBox {

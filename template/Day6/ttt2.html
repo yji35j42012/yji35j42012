@@ -44,82 +44,7 @@
                 </ul>
             </div>
             <div class="container">
-                <div id="tbBox" class="tbBox">
-                    <div class="tbBox_function">
-                        <button
-                            class="normal_btn _add"
-                            @click="addHandler('add')"
-                        >
-                            新增
-                        </button>
-                        <!-- <button class="normal_btn _add" @click="storage('get')">
-						顯示storage
-					</button> -->
-                        <button class="normal_btn _add" @click="storage('del')">
-                            刪除storage
-                        </button>
-                        <input
-                            type="text"
-                            class="normal_inp"
-                            v-model="filiterInp"
-                            placeholder="隨便搜"
-                        />
-                    </div>
-                    <div id="scroll_y" class="scroll_y">
-                        <div class="tbBox_head">
-                            <table>
-                                <tr>
-                                    <th width="10%">店名</th>
-                                    <th width="10%">今天點什麼</th>
-                                    <th width="10%">好吃嗎</th>
-                                    <th width="10%">動作快速嗎</th>
-                                    <th width="10%">夠吃嗎</th>
-                                    <th width="20%">心得</th>
-                                    <th width="10%">填寫人</th>
-                                    <th width="10%">日期</th>
-                                    <th width="10%">功能</th>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="tbBox_body">
-                            <table>
-                                <tr v-for="(item , index) in evaluate_list">
-                                    <td width="10%">{{item.evaluate_store}}</td>
-                                    <td width="10%">{{item.evaluate_menu}}</td>
-                                    <td width="10%">{{item.evaluate_eat}}</td>
-                                    <td width="10%">
-                                        {{actionList[item.evaluate_action]}}
-                                    </td>
-                                    <td width="10%">
-                                        {{item.evaluate_amount}}
-                                    </td>
-                                    <td width="20%">
-                                        {{item.evaluate_experience}}
-                                    </td>
-                                    <td width="10%">{{item.evaluate_user}}</td>
-                                    <td width="10%">{{item.evaluate_date}}</td>
-                                    <td width="10%">
-                                        <button
-                                            v-if="item.evaluate_user == username"
-                                            class="icon_btn material-icons"
-                                            @click="edit('edit',item.evaluate_id , index)"
-                                        >
-                                            edit
-                                        </button>
-                                        <!-- <i class="far fa-trash-alt ms-text-danger"></i> -->
-                                        <button
-                                            v-if="item.evaluate_user == username"
-                                            class="icon_btn material-icons"
-                                            @click="del(item.evaluate_id , index)"
-                                        >
-                                            delete
-                                        </button>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+                <router-view></router-view>
             </div>
             <transition name="fade">
                 <div v-if="alertShow" class="alert">
@@ -354,77 +279,41 @@
         </div>
 
         <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.0/vue.js"
-            integrity="sha512-4EMifNzsGH/ixIeXTy7stkY1hrlVrYfOXlBBG0sGkCtVzHoCsyVxfXkzILZAMs/TI6MBrfDDK9YYWmhaG6BF2A=="
+            src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.js"
+            integrity="sha512-o9SZrtqlGkpa7EF+dDrNjEdRFFYhymlrBzDKpolHNolxsyx0IcXAbEm9i1e8QpoiMgEdKZVtY8XiK1t8i6jVDA=="
             crossorigin="anonymous"
         ></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="./js/index.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+        <script src="https://unpkg.com/http-vue-loader"></script>
+
+        <script src="//cdn.bootcss.com/vuex/3.0.1/vuex.min.js"></script>
         <script>
+            const routes = [
+                {
+                    path: "",
+                    components: {
+                        default: httpVueLoader("./page/index.vue"),
+                    },
+                },
+            ];
+            const router = new VueRouter({
+                // mode: 'history',
+                routes: routes, // (缩写) 相当于 routes: routes
+            });
+
             var vue = new Vue({
                 el: "#app",
+                router,
                 data() {
                     return {
                         username: "",
                         menu: {
                             now: "wh",
                         },
-                        actionList: [
-                            "請選擇",
-                            "5-10分送達",
-                            "10-20分送達",
-                            "20-30分送達",
-                            "30分以上送達",
-                            "預定 - 有準時送達",
-                            "預定 - 沒有準時",
-                        ],
-                        evaluate: [
-                            {
-                                evaluate_id: 1,
-                                evaluate_store: "告胖早午餐-東興店",
-                                evaluate_menu: "炒麵麵包",
-                                evaluate_eat: 3,
-                                evaluate_action: 4,
-                                evaluate_amount: 4,
-                                evaluate_experience: "恩恩恩，嘿嘿嘿",
-                                evaluate_user: "alex",
-                                evaluate_date: "2012-12-6",
-                            },
-                            {
-                                evaluate_id: 2,
-                                evaluate_store: "肯德基",
-                                evaluate_menu: "紐奧良雞",
-                                evaluate_eat: 5,
-                                evaluate_action: 4,
-                                evaluate_amount: 4,
-                                evaluate_experience: "嘿嘿嘿",
-                                evaluate_user: "alex",
-                                evaluate_date: "2012-12-8",
-                            },
-                            {
-                                evaluate_id: 3,
-                                evaluate_store: "測試炒麵",
-                                evaluate_menu: "超級大炒麵",
-                                evaluate_eat: 5,
-                                evaluate_action: 4,
-                                evaluate_amount: 4,
-                                evaluate_experience: "嘿嘿嘿",
-                                evaluate_user: "alex1",
-                                evaluate_date: "2012-12-8",
-                            },
-                        ],
-                        newList: {
-                            evaluate_id: "",
-                            evaluate_store: "告胖早午餐-東興店",
-                            evaluate_menu: "",
-                            evaluate_eat: "",
-                            evaluate_action: 0,
-                            evaluate_amount: "",
-                            evaluate_experience: "",
-                            evaluate_user: "",
-                            evaluate_date: "",
-                        },
+
                         alertShow: false,
                         alertTitle: "",
                         msgShow: false,
