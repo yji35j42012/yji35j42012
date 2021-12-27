@@ -262,13 +262,26 @@ module.exports = {
                 title: '新增',
                 show: 'add',
             })
-
-            // this.setNewlist()
-            // this.newList.evaluate_date = this.getDate()
-
             this.addClassHandler(str)
         },
+        addClassHandler(str) {
+            setTimeout(() => {
+                var addClass = document.getElementById(str)
+                if (addClass.classList.contains('show')) {
+                    addClass.classList.remove('show')
+                    setTimeout(() => {
+                        addClass.classList.add('show')
+                    }, 10)
+                } else {
+                    addClass.style.display = 'block'
+                    setTimeout(() => {
+                        addClass.classList.add('show')
+                    }, 10)
+                }
+            }, 0)
+        },
 
+        /*
         cancel() {
             if (this.msgState == 'back') {
                 this.msgState = ''
@@ -394,22 +407,6 @@ module.exports = {
                 this.addClassHandler(str)
             }
         },
-        addClassHandler(str) {
-            setTimeout(() => {
-                var addClass = document.getElementById(str)
-                if (addClass.classList.contains('show')) {
-                    addClass.classList.remove('show')
-                    setTimeout(() => {
-                        addClass.classList.add('show')
-                    }, 10)
-                } else {
-                    addClass.style.display = 'block'
-                    setTimeout(() => {
-                        addClass.classList.add('show')
-                    }, 10)
-                }
-            }, 0)
-        },
         removeClassHandler(str) {
             var removeClass = document.getElementById(str)
             removeClass.classList.remove('show')
@@ -470,19 +467,7 @@ module.exports = {
                 this.star('amount', 6 - this.evaluate[index].evaluate_amount)
             }, 15)
         },
-        setNewlist() {
-            var resetList = {}
-            resetList.evaluate_id = 1
-            resetList.evaluate_store = ''
-            resetList.evaluate_menu = ''
-            resetList.evaluate_eat = 0
-            resetList.evaluate_action = 0
-            resetList.evaluate_amount = 0
-            resetList.evaluate_experience = ''
-            resetList.evaluate_user = ''
-            resetList.evaluate_date = ''
-            this.newList = resetList
-        },
+
         checkHandler() {
             axios
                 .post('/api/delData.php', this.num)
@@ -657,6 +642,8 @@ module.exports = {
             if (this.menu.now == str) return
             this.menu.now = str
         },
+
+        */
     },
 }
 </script>

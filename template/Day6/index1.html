@@ -139,7 +139,6 @@
                             <div class="txt" @click="dateHandler">
                                 {{editList.evaluate_date}}
                             </div>
-                            <!-- <input type="text" class="alert_inp" v-model="editList.evaluate_date" @click="dateHandler" /> -->
                         </label>
                     </div>
                     <div class="alert_fun">
@@ -422,6 +421,20 @@
                     this.msgShow = false;
                     this.msgInfo = [];
                 },
+                dateHandler() {
+                    this.calendar.show = true;
+                    this.calendar.showTd = [];
+                    if (this.calendar.chose == null) {
+                        this.createDate();
+                    }
+
+                    this.refreshDate(
+                        this.calendar.year.search,
+                        this.calendar.month.search
+                    );
+                    this.addClassHandler("calendar");
+                },
+                /*
 
 
                 addHandler(str) {
@@ -646,19 +659,6 @@
                         );
                     }, 15);
                 },
-                setNewlist() {
-                    var resetList = {};
-                    resetList.evaluate_id = 1;
-                    resetList.evaluate_store = "";
-                    resetList.evaluate_menu = "";
-                    resetList.evaluate_eat = 0;
-                    resetList.evaluate_action = 0;
-                    resetList.evaluate_amount = 0;
-                    resetList.evaluate_experience = "";
-                    resetList.evaluate_user = "";
-                    resetList.evaluate_date = "";
-                    this.newList = resetList;
-                },
                 checkHandler() {
                     axios
                         .post("/api/delData.php", this.num)
@@ -678,19 +678,7 @@
                         this.msgState = "back";
                     }, 10);
                 },
-                dateHandler() {
-                    this.calendar.show = true;
-                    this.calendar.showTd = [];
-                    if (this.calendar.chose == null) {
-                        this.createDate();
-                    }
-
-                    this.refreshDate(
-                        this.calendar.year.search,
-                        this.calendar.month.search
-                    );
-                    this.addClassHandler("calendar");
-                },
+          
                 refreshDate(searchY, searchM) {
                     var my_date = new Date();
                     var my_day = my_date.getDate();
@@ -836,7 +824,9 @@
                 menuHandler(str) {
                     if (this.menu.now == str) return;
                     this.menu.now = str;
-                },
+                },*/
+
+
             },
         });
     </script>
