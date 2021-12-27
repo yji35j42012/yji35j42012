@@ -80,91 +80,57 @@
 module.exports = {
     data() {
         return {
-            username: '',
+            username: "",
             menu: {
-                now: 'wh',
+                now: "wh",
             },
             actionList: [
-                '請選擇',
-                '5-10分送達',
-                '10-20分送達',
-                '20-30分送達',
-                '30分以上送達',
-                '預定 - 有準時送達',
-                '預定 - 沒有準時',
+                "請選擇",
+                "5-10分送達",
+                "10-20分送達",
+                "20-30分送達",
+                "30分以上送達",
+                "預定 - 有準時送達",
+                "預定 - 沒有準時",
             ],
-            evaluate: [
-                {
-                    evaluate_id: 1,
-                    evaluate_store: '告胖早午餐-東興店',
-                    evaluate_menu: '炒麵麵包',
-                    evaluate_eat: 3,
-                    evaluate_action: 4,
-                    evaluate_amount: 4,
-                    evaluate_experience: '恩恩恩，嘿嘿嘿',
-                    evaluate_user: 'alex',
-                    evaluate_date: '2012-12-6',
-                },
-                {
-                    evaluate_id: 2,
-                    evaluate_store: '肯德基',
-                    evaluate_menu: '紐奧良雞',
-                    evaluate_eat: 5,
-                    evaluate_action: 4,
-                    evaluate_amount: 4,
-                    evaluate_experience: '嘿嘿嘿',
-                    evaluate_user: 'alex',
-                    evaluate_date: '2012-12-8',
-                },
-                {
-                    evaluate_id: 3,
-                    evaluate_store: '測試炒麵',
-                    evaluate_menu: '超級大炒麵',
-                    evaluate_eat: 5,
-                    evaluate_action: 4,
-                    evaluate_amount: 4,
-                    evaluate_experience: '嘿嘿嘿',
-                    evaluate_user: 'alex1',
-                    evaluate_date: '2012-12-8',
-                },
-            ],
-            newList: {
-                evaluate_id: '',
-                evaluate_store: '告胖早午餐-東興店',
-                evaluate_menu: '',
-                evaluate_eat: '',
-                evaluate_action: 0,
-                evaluate_amount: '',
-                evaluate_experience: '',
-                evaluate_user: '',
-                evaluate_date: '',
-            },
+            evaluateIn: [],
+            // newList: {
+            //     evaluate_id: "",
+            //     evaluate_store: "告胖早午餐-東興店",
+            //     evaluate_menu: "",
+            //     evaluate_eat: "",
+            //     evaluate_action: 0,
+            //     evaluate_amount: "",
+            //     evaluate_experience: "",
+            //     evaluate_user: "",
+            //     evaluate_date: "",
+            // },
             alertShow: false,
-            alertTitle: '',
+            alertTitle: "",
             msgShow: false,
-            msgState: '',
+            msgState: "",
             msgInfo: [],
             index: null,
             num: null,
-            filiterInp: '',
+            filiterInp: "",
             calendar: {
                 func: null,
                 show: false,
                 olympic: [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
                 normal: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
                 monthName: [
-                    'January',
-                    'Febrary',
-                    'March',
-                    'April',
-                    'May',
-                    'June',
-                    'July',
-                    'Auguest',
-                    'September',
-                    'October',
-                    'November',
-                    'December',
+                    "January",
+                    "Febrary",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "Auguest",
+                    "September",
+                    "October",
+                    "November",
+                    "December",
                 ],
                 year: {
                     now: null,
@@ -182,7 +148,7 @@ module.exports = {
                 showTd: [],
                 mList: [],
             },
-        }
+        };
     },
     mounted() {
         // 使用者名稱
@@ -196,89 +162,94 @@ module.exports = {
         // 使用者名稱
 
         // 日期初始化
-        var my_date = new Date()
+        var my_date = new Date();
         this.calendar.year = {
             now: my_date.getFullYear(),
             search: my_date.getFullYear(),
-        }
+        };
         this.calendar.month = {
             now: my_date.getMonth(),
             search: my_date.getMonth(),
             str: this.calendar.monthName[my_date.getMonth()],
-        }
+        };
         this.calendar.day = {
             now: null,
             search: my_date.getDate(),
-        }
+        };
         this.calendar.chose = {
             year: null,
             mon: null,
             day: null,
-        }
+        };
         // 日期初始化
 
-        axios({
-            method: 'get',
-            url: '/api/getData.php',
-            'Content-Type': 'application/json',
-        })
-            .then((res) => {
-                res.data.forEach((item) => {
-                    this.evaluate.push({
-                        evaluate_id: item[0],
-                        evaluate_store: item[1],
-                        evaluate_menu: item[2],
-                        evaluate_eat: item[3],
-                        evaluate_action: item[4],
-                        evaluate_amount: item[5],
-                        evaluate_experience: item[6],
-                        evaluate_user: item[7],
-                        evaluate_date: item[8],
-                    })
-                })
-                console.log(this.evaluate)
-            })
-            .catch((err) => {
-                console.error(err)
-            })
+        // evaluateIn
+
+
+        
+        // axios({
+        //     method: 'get',
+        //     url: '/api/getData.php',
+        //     'Content-Type': 'application/json',
+        // })
+        //     .then((res) => {
+        //         res.data.forEach((item) => {
+        //             this.evaluate.push({
+        //                 evaluate_id: item[0],
+        //                 evaluate_store: item[1],
+        //                 evaluate_menu: item[2],
+        //                 evaluate_eat: item[3],
+        //                 evaluate_action: item[4],
+        //                 evaluate_amount: item[5],
+        //                 evaluate_experience: item[6],
+        //                 evaluate_user: item[7],
+        //                 evaluate_date: item[8],
+        //             })
+        //         })
+        //         console.log(this.evaluate)
+        //     })
+        //     .catch((err) => {
+        //         console.error(err)
+        //     })
     },
     computed: {
+        evaluate() {},
         evaluate_list() {
             // return this.evaluate
             return this.evaluate.filter((item) => {
                 return (
                     item.evaluate_menu.indexOf(this.filiterInp) !== -1 ||
                     item.evaluate_store.indexOf(this.filiterInp) !== -1
-                )
-            })
+                );
+            });
         },
         calendar_list() {
-            return this.calendar.showTd
+            return this.calendar.showTd;
         },
     },
     methods: {
         addHandler(str) {
-            store.dispatch('ALERT', {
-                title: '新增',
-                show: 'add',
-            })
-            this.addClassHandler(str)
+            store.dispatch("ALERT", {
+                title: "新增",
+                show: "add",
+            });
+            this.addClassHandler(str);
         },
         addClassHandler(str) {
             setTimeout(() => {
-                var addClass = document.getElementById(str)
-                if (addClass.classList.contains('show')) {
-                    addClass.classList.remove('show')
+                var addClass = document.getElementById(str);
+                if (addClass.classList.contains("show")) {
+                    addClass.classList.remove("show");
                     setTimeout(() => {
-                        addClass.classList.add('show')
-                    }, 10)
+                        addClass.classList.add("show");
+                    }, 10);
                 } else {
-                    addClass.style.display = 'block'
+                    addClass.style.display = "block";
                     setTimeout(() => {
-                        addClass.classList.add('show')
-                    }, 10)
+                        addClass.classList.add("show");
+                    }, 10);
                 }
-            }, 0)
+            }, 0);
         },
 
         /*
@@ -645,5 +616,5 @@ module.exports = {
 
         */
     },
-}
+};
 </script>
