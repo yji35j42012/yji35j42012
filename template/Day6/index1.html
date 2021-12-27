@@ -469,7 +469,7 @@
                         return store.state.alert;
                     },
                     editList() {
-                        return store.state.newList;
+                        return store.state.editList;
                     },
                     evaluate_list() {
                         // return this.evaluate
@@ -577,7 +577,11 @@
                             } else {
                                 if (store.state.alert.show == "add") {
                                     console.log("新增送出", this.editList);
-                                    this.evaluate.push(this.editList);
+                                    store.dispatch(
+                                        "CREATE_EVALUATE",
+                                        this.editList
+                                    );
+                                    // this.evaluate.push(this.editList);
                                     // axios
                                     //     .post("/api/setData.php", this.editList)
                                     //     .then((res) => {
@@ -797,6 +801,21 @@
                     },
                     createDate() {
                         this.calendar.showTd = [];
+                    },
+
+                    resetList() {
+                        var resetList = {};
+                        resetList.evaluate_id = null;
+                        resetList.evaluate_store = "";
+                        resetList.evaluate_menu = "";
+                        resetList.evaluate_eat = 0;
+                        resetList.evaluate_action = 0;
+                        resetList.evaluate_amount = 0;
+                        resetList.evaluate_experience = "";
+                        resetList.evaluate_user = "";
+                        resetList.evaluate_date = "";
+                        this.editList = resetList;
+                        // state.newList = resetList;
                     },
                     /*
 

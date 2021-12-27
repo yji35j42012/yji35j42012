@@ -21,7 +21,7 @@ const store = new Vuex.Store({
             show: null,
             title: null,
         },
-        newList: {
+        editList: {
             evaluate_id: "",
             evaluate_store: "告胖早午餐-東興店",
             evaluate_menu: "",
@@ -87,8 +87,8 @@ const store = new Vuex.Store({
             state.alert = str;
         },
         SET_EDIT_LIST(state, str) {
-            state.newList.evaluate_user = state.username;
-            state.newList.evaluate_date = str;
+            state.editList.evaluate_user = state.username;
+            state.editList.evaluate_date = str;
         },
         RESET_EDIT_LIST(state) {
             var resetList = {};
@@ -101,7 +101,10 @@ const store = new Vuex.Store({
             resetList.evaluate_experience = "";
             resetList.evaluate_user = "";
             resetList.evaluate_date = "";
-            state.newList = resetList;
+            state.editList = resetList;
+        },
+        SET_EVALUATE(state, list) {
+            state.evaluate = list;
         },
     },
     actions: {
@@ -118,6 +121,59 @@ const store = new Vuex.Store({
         },
         EDIT_LIST({ commit }, str) {
             commit("SET_EDIT_LIST");
+        },
+        CREATE_EVALUATE({ commit }, list) {
+            console.log("CREATE_EVALUATE", list);
+            axios
+                .post("/api/setData.php", list)
+                .then((res) => {
+                    console.log('res.data',res.data);
+                    var list = [];
+                    res.data.forEach((item) => {
+                        list.push({
+                            evaluate_id: item[0],
+                            evaluate_store: item[1],
+                            evaluate_menu: item[2],
+                            evaluate_eat: item[3],
+                            evaluate_action: item[4],
+                            evaluate_amount: item[5],
+                            evaluate_experience: item[6],
+                            evaluate_user: item[7],
+                            evaluate_date: item[8],
+                        });
+                    });
+                    commit("SET_EVALUATE", list);
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        },
+        READ_EVALUATE({ commit }) {
+            axios({
+                method: "get",
+                url: "/api/getData.php",
+                "Content-Type": "application/json",
+            })
+                .then((res) => {
+                    var list = [];
+                    res.data.forEach((item) => {
+                        list.push({
+                            evaluate_id: item[0],
+                            evaluate_store: item[1],
+                            evaluate_menu: item[2],
+                            evaluate_eat: item[3],
+                            evaluate_action: item[4],
+                            evaluate_amount: item[5],
+                            evaluate_experience: item[6],
+                            evaluate_user: item[7],
+                            evaluate_date: item[8],
+                        });
+                    });
+                    commit("SET_EVALUATE", list);
+                })
+                .catch((err) => {
+                    console.error(err);
+                });
         },
     },
 });

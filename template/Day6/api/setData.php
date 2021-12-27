@@ -16,10 +16,19 @@
 			$data["evaluate_experience"] . "','". 
 			$data["evaluate_user"] . "','". 
 			$data["evaluate_date"] ."')";
-			
-echo($sql);
-	mysqli_query($link,$sql);
 
+	mysqli_query($link,$sql);
+	$sql = "SELECT * FROM `evaluate`";
+	$result = mysqli_query($link,$sql );
+
+
+	$arr=array();
+	while($row=mysqli_fetch_row($result)){
+		$arr[]= $row;
+	}
+	mysqli_free_result($result);
+
+    echo(json_encode($arr));
 	// $getSql = "SELECT * FROM `evaluate`";
 	// $result = mysqli_query($link,$getSql );
 	// $arr=array();

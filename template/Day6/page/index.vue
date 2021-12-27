@@ -183,49 +183,20 @@ module.exports = {
         };
         // 日期初始化
 
-        // evaluateIn
-
-
-        
-        // axios({
-        //     method: 'get',
-        //     url: '/api/getData.php',
-        //     'Content-Type': 'application/json',
-        // })
-        //     .then((res) => {
-        //         res.data.forEach((item) => {
-        //             this.evaluate.push({
-        //                 evaluate_id: item[0],
-        //                 evaluate_store: item[1],
-        //                 evaluate_menu: item[2],
-        //                 evaluate_eat: item[3],
-        //                 evaluate_action: item[4],
-        //                 evaluate_amount: item[5],
-        //                 evaluate_experience: item[6],
-        //                 evaluate_user: item[7],
-        //                 evaluate_date: item[8],
-        //             })
-        //         })
-        //         console.log(this.evaluate)
-        //     })
-        //     .catch((err) => {
-        //         console.error(err)
-        //     })
+        store.dispatch("READ_EVALUATE");
     },
     computed: {
-        evaluate() {},
         evaluate_list() {
-            // return this.evaluate
-            return this.evaluate.filter((item) => {
+            return store.state.evaluate.filter((item) => {
                 return (
                     item.evaluate_menu.indexOf(this.filiterInp) !== -1 ||
                     item.evaluate_store.indexOf(this.filiterInp) !== -1
                 );
             });
         },
-        calendar_list() {
-            return this.calendar.showTd;
-        },
+        // calendar_list() {
+        //     return this.calendar.showTd;
+        // },
     },
     methods: {
         addHandler(str) {
