@@ -1,17 +1,17 @@
-.aa {
-  top: "../images/icon_chips_auto0.png";
-  bottom: 1px;
-  background: url("./image/chips_auto01.png");
+.icon_firefox {
+  display: inline-block;
+  background: url(../images/icon_firefox.png) no-repeat center/contain;
 }
 
-body.ruby-on-rails {
-  top: number;
+.icon_google {
+  display: inline-block;
+  background: url(../images/icon_google.jpg) no-repeat center/contain;
 }
 
-.tilt {
-  -wekbit-transform: rotate(15deg);
-  -m1s-transform: rotate(15deg);
-  -webkit-transform: rotate(15deg);
-          transform: rotate(15deg);
+.txt1 {
+  position: absolute;
+  top: 10px;
+  bottom: 200px;
+  right: 20px;
 }
 /*# sourceMappingURL=aaa.css.map */

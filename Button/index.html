@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
 	<link rel="stylesheet" href="/button/style/css/all.css">
-
+	<link rel="stylesheet" href="./style/css/all.css">
 </head>
 
 <body>
@@ -23,7 +23,26 @@
 		<div class="buttonBox button3">
 			<button class="normal_btn" data-txt="按鈕"></button>
 		</div>
+		<div class="buttonBox button4">
+			<button id="btn4" class="normal_btn" data-txt="按鈕">
+				<span id="btn4_span"></span>
+			</button>
+		</div>
 	</div>
+	<script>
+		var btn4 = document.getElementById('btn4')
+		var btn4_span = document.getElementById('btn4_span')
+		btn4.addEventListener('mouseover', function (e) {
+			btn4_span.style.top = e.offsetY + 'px'
+			btn4_span.style.left = e.offsetX + 'px'
+		})
+		btn4.addEventListener('mouseout', function (e) {
+			btn4_span.style.top = e.offsetY + 'px'
+			btn4_span.style.left = e.offsetX + 'px'
+		})
+		console.log(btn4);
+
+	</script>
 </body>
 
 </html>

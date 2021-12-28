@@ -28,3 +28,41 @@
         }
     }
 }
+
+.button4 {
+    box-sizing: border-box;
+    .normal_btn {
+        overflow: hidden;
+        position: relative;
+        width: 110px;
+        height: 45px;
+        padding: 12px 40px;
+        color: #ffffff;
+        background-color: #7b68ee;
+        &::after {
+            position: relative;
+            display: block;
+            content: attr(data-txt);
+            pointer-events: none;
+        }
+        span {
+            position: absolute;
+            display: block;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background-color: #3e57d0;
+            -webkit-transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+            transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            border-radius: 30px;
+            pointer-events: none;
+        }
+
+        &:hover span {
+            width: 225%;
+            height: 562.5px;
+        }
+    }
+}

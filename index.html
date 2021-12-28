@@ -2,47 +2,74 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="./style/css/reset.css">
-    <link rel="stylesheet" href="./style/css/all.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="./style/css/reset.css">
+	<link rel="stylesheet" href="./style/css/all.css">
 
 </head>
 
 <body>
-    <div class="wrap">
-        <a class="normal_btn" href="./button">按鈕樣式</a>
-    </div>
-    <script>
-        var a = document.querySelectorAll
-        for (let index = 0; index < array.length; index++) {
-            const element = array[index];
-        }
-    </script>
+	<div id="app" class="wrap">
+		<a class="normal_btn" href="./button">按鈕樣式</a>
 
-    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.9/vue.global.min.js'></script>
-    <script src="./js/vue-router.js"></script>
-    
-        const routes = [
-            {
-                path: '',
-                components: {
-                    default: httpVueLoader('./components/home/home.vue'),
-                }
-            },
-        ]
 
-        const vue = {
-            data() {
-                return {
-                    counter: 0
-                }
-            }
-        }
+		<ol style="display: block">
+			<li v-for="item in todos">{{item.text}}</li>
+		</ol>
+		<TodoItem />
+	</div>
 
-        Vue.createApp(vue).mount('#app') -->
+
+	<script src="./js/libs/vue_3_2_26.js"></script>
+	<script src="./js/libs/vue_loader.js"></script>
+
+	<script>
+		const vue = {
+			data() {
+				return {
+					counter: 0,
+					todos: [
+						{ text: 'Learn JavaScript' },
+						{ text: 'Learn Vue' },
+						{ text: 'Build something awesome' }
+					]
+				}
+			},
+			components: {
+				TodoItem: httpVueLoader("./components/todoList.vue"),
+			},
+			mounted() {
+				setInterval(() => {
+					this.counter++
+				}, 1000)
+			}
+		}
+		Vue.createApp(vue).mount('#app')
+	</script>
+	<!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.9/vue.global.min.js'></script>
+	<script src="./js/vue-router.js"></script>
+	
+		const routes = [
+			{
+				path: '',
+				components: {
+					default: httpVueLoader('./components/home/home.vue'),
+				}
+			},
+		]
+
+		const vue = {
+			data() {
+				return {
+					counter: 0
+				}
+			}
+		}
+
+		Vue.createApp(vue).mount('#app') -->
 
 </body>
 
