@@ -3,7 +3,7 @@
 <template>
     <div id="tbBox" class="tbBox">
         <div class="tbBox_function">
-            <button class="normal_btn _add" @click="addHandler('add')">
+            <button class="normal_btn _add" @click="addHandler('addedit')">
                 新增
             </button>
             <!-- <button class="normal_btn _add" @click="storage('get')">
@@ -56,7 +56,9 @@
                             <button
                                 v-if="item.evaluate_user == username"
                                 class="icon_btn material-icons"
-                                @click="edit('edit', item.evaluate_id, index)"
+                                @click="
+                                    editHandler('addedit', item.evaluate_id, index)
+                                "
                             >
                                 edit
                             </button>
@@ -94,17 +96,6 @@ module.exports = {
                 "預定 - 沒有準時",
             ],
             evaluateIn: [],
-            // newList: {
-            //     evaluate_id: "",
-            //     evaluate_store: "告胖早午餐-東興店",
-            //     evaluate_menu: "",
-            //     evaluate_eat: "",
-            //     evaluate_action: 0,
-            //     evaluate_amount: "",
-            //     evaluate_experience: "",
-            //     evaluate_user: "",
-            //     evaluate_date: "",
-            // },
             alertShow: false,
             alertTitle: "",
             msgShow: false,
@@ -182,7 +173,7 @@ module.exports = {
             day: null,
         };
         // 日期初始化
-
+        this.username = store.state.username;
         store.dispatch("READ_EVALUATE");
     },
     computed: {
@@ -205,6 +196,49 @@ module.exports = {
                 show: "add",
             });
             this.addClassHandler(str);
+        },
+        editHandler(str, num, i) {
+            store.dispatch("ALERT", {
+                title: "修改",
+                show: "edit",
+            });
+            
+            this.addClassHandler(str);
+
+            // var index;
+            // for (let i = 0; i < this.evaluate.length; i++) {
+            //     if (this.evaluate[i].evaluate_id == num) {
+            //         index = i;
+            //     }
+            // }
+            // var resetList = {};
+            // resetList.evaluate_id = this.evaluate[index].evaluate_id;
+            // resetList.evaluate_store = this.evaluate[index].evaluate_store;
+            // resetList.evaluate_menu = this.evaluate[index].evaluate_menu;
+            // resetList.evaluate_eat = this.evaluate[index].evaluate_eat;
+            // resetList.evaluate_action = this.evaluate[index].evaluate_action;
+            // resetList.evaluate_amount = this.evaluate[index].evaluate_amount;
+            // resetList.evaluate_experience =
+            //     this.evaluate[index].evaluate_experience;
+            // resetList.evaluate_user = this.evaluate[index].evaluate_user;
+            // resetList.evaluate_date = this.evaluate[index].evaluate_date;
+            // this.newList = resetList;
+            // this.addClassHandler("add");
+            // this.index = index;
+            // this.alertTitle = "修改";
+            // this.alertShow = str;
+            // const chars = this.newList.evaluate_date.split("-");
+            // this.calendar.year.search = chars[0];
+            // this.calendar.chose.year = chars[0];
+            // this.calendar.month.search = chars[1] - 1;
+            // this.calendar.chose.mon = chars[1] - 1;
+            // this.calendar.month.str = this.calendar.monthName[chars[1] - 1];
+            // this.calendar.day.search = chars[2];
+            // this.calendar.chose.day = chars[2];
+            // setTimeout(() => {
+            //     this.star("eat", 6 - this.evaluate[index].evaluate_eat);
+            //     this.star("amount", 6 - this.evaluate[index].evaluate_amount);
+            // }, 15);
         },
         addClassHandler(str) {
             setTimeout(() => {
@@ -367,48 +401,7 @@ module.exports = {
             this.index = index
             this.num = num
         },
-        edit(str, num, i) {
-            var index
-            for (let i = 0; i < this.evaluate.length; i++) {
-                if (this.evaluate[i].evaluate_id == num) {
-                    index = i
-                }
-            }
-
-            var resetList = {}
-            resetList.evaluate_id = this.evaluate[index].evaluate_id
-            resetList.evaluate_store = this.evaluate[index].evaluate_store
-            resetList.evaluate_menu = this.evaluate[index].evaluate_menu
-            resetList.evaluate_eat = this.evaluate[index].evaluate_eat
-            resetList.evaluate_action = this.evaluate[index].evaluate_action
-            resetList.evaluate_amount = this.evaluate[index].evaluate_amount
-            resetList.evaluate_experience = this.evaluate[
-                index
-            ].evaluate_experience
-            resetList.evaluate_user = this.evaluate[index].evaluate_user
-            resetList.evaluate_date = this.evaluate[index].evaluate_date
-
-            this.newList = resetList
-
-            this.addClassHandler('add')
-
-            this.index = index
-            this.alertTitle = '修改'
-            this.alertShow = str
-
-            const chars = this.newList.evaluate_date.split('-')
-            this.calendar.year.search = chars[0]
-            this.calendar.chose.year = chars[0]
-            this.calendar.month.search = chars[1] - 1
-            this.calendar.chose.mon = chars[1] - 1
-            this.calendar.month.str = this.calendar.monthName[chars[1] - 1]
-            this.calendar.day.search = chars[2]
-            this.calendar.chose.day = chars[2]
-            setTimeout(() => {
-                this.star('eat', 6 - this.evaluate[index].evaluate_eat)
-                this.star('amount', 6 - this.evaluate[index].evaluate_amount)
-            }, 15)
-        },
+       
 
         checkHandler() {
             axios

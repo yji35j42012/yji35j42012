@@ -1,752 +1,856 @@
 <!DOCTYPE html>
 <html id="version" lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>今午你想來點？</title>
+        <link rel="stylesheet" href="./css/all.css" />
+    </head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>今午你想來點？</title>
-    <link rel="stylesheet" href="./css/all.css" />
-</head>
+    <body>
+        <div id="app" class="wrap">
+            <div class="header">
+                <div class="username">
+                    <span class="material-icons"> account_circle </span
+                    >{{username}}
+                </div>
 
-<body>
-    <div id="app" class="wrap">
-        <div class="header">
-            <div class="username">
-                <span class="material-icons"> account_circle </span>{{username}}
+                <ul class="header_menu">
+                    <li
+                        :class="menu.now == 'wh' ? 'on' : ''"
+                        @click="menuHandler('wh')"
+                    >
+                        <router-link to="/">今天甲蝦密</router-link>
+                    </li>
+                    <li
+                        :class="menu.now == 'sc' ? 'on' : ''"
+                        @click="menuHandler('sc')"
+                    >
+                        <router-link to="/score">排行榜</router-link>
+                    </li>
+                </ul>
             </div>
-
-            <ul class="header_menu">
-                <li :class="menu.now == 'wh' ? 'on' : ''" @click="menuHandler('wh')">
-                    <router-link to="/">今天甲蝦密</router-link>
-                </li>
-                <li :class="menu.now == 'sc' ? 'on' : ''" @click="menuHandler('sc')">
-                    <router-link to="/score">排行榜</router-link>
-                </li>
-            </ul>
-        </div>
-        <div class="container">
-            <router-view></router-view>
-        </div>
-        <transition name="fade">
-            <div v-if="alertShow.show" class="alert">
-                <div id="add" class="alert_box">
-                    <div class="alert_head">{{alertShow.title}}</div>
-                    <div class="alert_body">
-                        <label class="label_inp">
-                            <p>今天吃哪間勒？</p>
-                            <input type="text" class="alert_inp" v-model="editList.evaluate_store" />
-                        </label>
-                        <label class="label_inp">
-                            <p>今天點什麼勒？</p>
-                            <input type="text" class="alert_inp" v-model="editList.evaluate_menu" />
-                        </label>
-                        <label class="label_inp">
-                            <p>覺得好粗嗎？</p>
-                            <div class="star">
-                                <ul class="star_group">
-                                    <li v-for="item in 5" name="eat" @click="star('eat',item)"
-                                        class="star_item ms-rating-item">
-                                        <i class="material-icons">star</i>
-                                    </li>
-                                </ul>
-                                <span class="star_score">
-                                    {{editList.evaluate_eat}}
-                                </span>
-                            </div>
-                        </label>
-                        <label class="label_inp">
-                            <p>有沒有吃飽？</p>
-                            <div class="star">
-                                <ul class="star_group">
-                                    <li v-for="item in 5" name="amount" @click="star('amount',item)"
-                                        class="star_item ms-rating-item">
-                                        <i class="material-icons">star</i>
-                                    </li>
-                                </ul>
-                                <span class="star_score">
-                                    {{editList.evaluate_amount}}
-                                </span>
-                            </div>
-                        </label>
-                        <label class="label_inp">
-                            <p>動作夠快嗎？</p>
-                            <label class="normal_sel" @click="selHandler('sel_ul')">
-                                <span class="normal_sel_txt">
-                                    {{actionList[editList.evaluate_action]}}
-                                </span>
-                                <i class="material-icons icon">arrow_drop_down</i>
-
-                                <ul id="sel_ul" class="normal_sel_ul">
-                                    <li v-for="(item,index) in actionList" @click="selLi(index)">
-                                        {{item}}
-                                    </li>
-                                </ul>
+            <div class="container">
+                <router-view></router-view>
+            </div>
+            <transition name="fade">
+                <div v-if="alertShow.show" class="alert">
+                    <div id="addedit" class="alert_box">
+                        <div class="alert_head">{{alertShow.title}}</div>
+                        <div class="alert_body">
+                            <label class="label_inp">
+                                <p>今天吃哪間勒？</p>
+                                <input
+                                    type="text"
+                                    class="alert_inp"
+                                    v-model="editList.evaluate_store"
+                                />
                             </label>
-                            <!-- <input type="text" class="alert_inp" v-model="editList.evaluate_action"> -->
-                        </label>
-                        <label class="label_inp">
-                            <p>給個心得吧？</p>
-                            <input type="text" class="alert_inp" v-model="editList.evaluate_experience" />
-                        </label>
-                        <label class="label_inp">
-                            <p>帥哥／美女</p>
-                            <input type="text" class="alert_inp" v-model="editList.evaluate_user" />
-                        </label>
-                        <label class="label_inp">
-                            <p>幾號吃得勒？</p>
-                            <div id="calendar" class="calendar" v-if="calendar.show">
-                                <div class="calendar_head">
-                                    <span id="prev" class="
+                            <label class="label_inp">
+                                <p>今天點什麼勒？</p>
+                                <input
+                                    type="text"
+                                    class="alert_inp"
+                                    v-model="editList.evaluate_menu"
+                                />
+                            </label>
+                            <label class="label_inp">
+                                <p>覺得好粗嗎？</p>
+                                <div class="star">
+                                    <ul class="star_group">
+                                        <li
+                                            v-for="item in 5"
+                                            name="eat"
+                                            @click="star('eat',item)"
+                                            class="star_item ms-rating-item"
+                                        >
+                                            <i class="material-icons">star</i>
+                                        </li>
+                                    </ul>
+                                    <span class="star_score">
+                                        {{editList.evaluate_eat}}
+                                    </span>
+                                </div>
+                            </label>
+                            <label class="label_inp">
+                                <p>有沒有吃飽？</p>
+                                <div class="star">
+                                    <ul class="star_group">
+                                        <li
+                                            v-for="item in 5"
+                                            name="amount"
+                                            @click="star('amount',item)"
+                                            class="star_item ms-rating-item"
+                                        >
+                                            <i class="material-icons">star</i>
+                                        </li>
+                                    </ul>
+                                    <span class="star_score">
+                                        {{editList.evaluate_amount}}
+                                    </span>
+                                </div>
+                            </label>
+                            <label class="label_inp">
+                                <p>動作夠快嗎？</p>
+                                <label
+                                    class="normal_sel"
+                                    @click="selHandler('sel_ul')"
+                                >
+                                    <span class="normal_sel_txt">
+                                        {{actionList[editList.evaluate_action]}}
+                                    </span>
+                                    <i class="material-icons icon"
+                                        >arrow_drop_down</i
+                                    >
+
+                                    <ul id="sel_ul" class="normal_sel_ul">
+                                        <li
+                                            v-for="(item,index) in actionList"
+                                            @click="selLi(index)"
+                                        >
+                                            {{item}}
+                                        </li>
+                                    </ul>
+                                </label>
+                                <!-- <input type="text" class="alert_inp" v-model="editList.evaluate_action"> -->
+                            </label>
+                            <label class="label_inp">
+                                <p>給個心得吧？</p>
+                                <input
+                                    type="text"
+                                    class="alert_inp"
+                                    v-model="editList.evaluate_experience"
+                                />
+                            </label>
+                            <label class="label_inp">
+                                <p>帥哥／美女</p>
+                                <input
+                                    type="text"
+                                    class="alert_inp"
+                                    v-model="editList.evaluate_user"
+                                />
+                            </label>
+                            <label class="label_inp">
+                                <p>幾號吃得勒？</p>
+                                <div
+                                    id="calendar"
+                                    class="calendar"
+                                    v-if="calendar.show"
+                                >
+                                    <div class="calendar_head">
+                                        <span
+                                            id="prev"
+                                            class="
                                                 material-icons
                                                 calendar_head_prev
-                                            " @click="calendar_prev">
-                                        arrow_back_ios
-                                    </span>
-                                    <div class="calendar_head_info">
-                                        <div>{{calendar.month.str}}</div>
-                                        <div>{{calendar.year.search}}</div>
-                                    </div>
-                                    <span id="next" class="
+                                            "
+                                            @click="calendar_prev"
+                                        >
+                                            arrow_back_ios
+                                        </span>
+                                        <div class="calendar_head_info">
+                                            <div>{{calendar.month.str}}</div>
+                                            <div>{{calendar.year.search}}</div>
+                                        </div>
+                                        <span
+                                            id="next"
+                                            class="
                                                 material-icons
                                                 calendar_head_next
-                                            " @click="calendar_next">
-                                        arrow_forward_ios
-                                    </span>
+                                            "
+                                            @click="calendar_next"
+                                        >
+                                            arrow_forward_ios
+                                        </span>
+                                    </div>
+                                    <div class="calendar_body">
+                                        <table>
+                                            <tr>
+                                                <th>MON</th>
+                                                <th>TUE</th>
+                                                <th>WED</th>
+                                                <th>THU</th>
+                                                <th>FRI</th>
+                                                <th>SAT</th>
+                                                <th>SUN</th>
+                                            </tr>
+                                            <tr
+                                                v-for="(item , index) in calendar_list"
+                                            >
+                                                <td
+                                                    v-for="(itemTd , i) in item"
+                                                    @click="calendarHandler(itemTd.year,itemTd.mon , itemTd.day)"
+                                                    :name="itemTd.mon == calendar.month.search ?'calendar_td' : 'other'+itemTd.day "
+                                                    :data-y="itemTd.year"
+                                                    :data-m="itemTd.mon"
+                                                    :data-d="itemTd.day"
+                                                >
+                                                    {{itemTd.day}}
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
                                 </div>
-                                <div class="calendar_body">
-                                    <table>
-                                        <tr>
-                                            <th>MON</th>
-                                            <th>TUE</th>
-                                            <th>WED</th>
-                                            <th>THU</th>
-                                            <th>FRI</th>
-                                            <th>SAT</th>
-                                            <th>SUN</th>
-                                        </tr>
-                                        <tr v-for="(item , index) in calendar_list">
-                                            <td v-for="(itemTd , i) in item"
-                                                @click="calendarHandler(itemTd.year,itemTd.mon , itemTd.day)"
-                                                :name="itemTd.mon == calendar.month.search ?'calendar_td' : 'other'+itemTd.day "
-                                                :data-y="itemTd.year" :data-m="itemTd.mon" :data-d="itemTd.day">
-                                                {{itemTd.day}}
-                                            </td>
-                                        </tr>
-                                    </table>
+                                <div class="txt" @click="dateHandler">
+                                    {{editList.evaluate_date}}
                                 </div>
-                            </div>
-                            <div class="txt" @click="dateHandler">
-                                {{editList.evaluate_date}}
-                            </div>
-                        </label>
+                            </label>
+                        </div>
+                        <div class="alert_fun">
+                            <button
+                                class="normal_btn _submit"
+                                @click="submit('addItem')"
+                            >
+                                送出
+                            </button>
+                            <button class="normal_btn _cancel" @click="cancel">
+                                取消
+                            </button>
+                        </div>
                     </div>
-                    <div class="alert_fun">
-                        <button class="normal_btn _submit" @click="submit('addItem')">
-                            送出
-                        </button>
-                        <button class="normal_btn _cancel" @click="cancel">
-                            取消
-                        </button>
+
+                    <div id="inp" class="alert_box _inp">
+                        <div class="alert_body">
+                            <p class="alert_ptxt">請問你的大名</p>
+                            <input
+                                type="text"
+                                class="normal_inp"
+                                v-model="username"
+                            />
+                        </div>
+                        <div class="alert_fun">
+                            <button
+                                class="normal_btn _submit"
+                                @click="submit('user')"
+                            >
+                                送出
+                            </button>
+                        </div>
                     </div>
                 </div>
-
-                <div id="inp" class="alert_box _inp">
-                    <div class="alert_body">
-                        <p class="alert_ptxt">請問你的大名</p>
-                        <input type="text" class="normal_inp" v-model="username" />
-                    </div>
-                    <div class="alert_fun">
-                        <button class="normal_btn _submit" @click="submit('user')">
-                            送出
-                        </button>
+            </transition>
+            <transition name="fade">
+                <div v-if="msgShow" class="alert">
+                    <div id="msg" class="alert_box">
+                        <div class="alert_msg">
+                            <p v-for="item in msgInfo">{{item}}</p>
+                            <!-- 新增成功 -->
+                        </div>
+                        <div class="alert_fun">
+                            <button
+                                class="normal_btn _danger"
+                                @click="checkHandler"
+                                v-if="msgState == 'del'"
+                            >
+                                確認
+                            </button>
+                            <button
+                                class="normal_btn _cancel"
+                                v-if="msgState == 'del'"
+                                @click="cancel"
+                            >
+                                取消
+                            </button>
+                            <button
+                                class="normal_btn _cancel"
+                                @click="cancel"
+                                v-if="msgState !== 'del'"
+                            >
+                                關閉
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </transition>
-        <transition name="fade">
-            <div v-if="msgShow" class="alert">
-                <div id="msg" class="alert_box">
-                    <div class="alert_msg">
-                        <p v-for="item in msgInfo">{{item}}</p>
-                        <!-- 新增成功 -->
-                    </div>
-                    <div class="alert_fun">
-                        <button class="normal_btn _danger" @click="checkHandler" v-if="msgState == 'del'">
-                            確認
-                        </button>
-                        <button class="normal_btn _cancel" v-if="msgState == 'del'" @click="cancel">
-                            取消
-                        </button>
-                        <button class="normal_btn _cancel" @click="cancel" v-if="msgState !== 'del'">
-                            關閉
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </transition>
-    </div>
+            </transition>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.js"
-        integrity="sha512-o9SZrtqlGkpa7EF+dDrNjEdRFFYhymlrBzDKpolHNolxsyx0IcXAbEm9i1e8QpoiMgEdKZVtY8XiK1t8i6jVDA=="
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="./js/index.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
-    <script src="https://unpkg.com/http-vue-loader"></script>
+            <transition name="fade" v-if="taostShow">
+                <div class="toast">{{ taostShow}}</div>
+            </transition>
+        </div>
 
-    <script src="//cdn.bootcss.com/vuex/3.0.1/vuex.min.js"></script>
-    <script src="./store/store.js"></script>
-    <script>
-        const routes = [
-            {
-                path: "",
-                components: {
-                    default: httpVueLoader("./page/index.vue"),
-                },
-            },
-            {
-                path: "/score",
-                components: {
-                    default: httpVueLoader("./page/score.vue"),
-                },
-            },
-        ];
-        const router = new VueRouter({
-            // mode: 'history',
-            routes: routes, // (缩写) 相当于 routes: routes
-        });
-        var vue = new Vue({
-            el: "#app",
-            router,
-            data() {
-                return {
-                    username: "",
-                    menu: {
-                        now: "wh",
+        <!-- <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.js"
+            integrity="sha512-o9SZrtqlGkpa7EF+dDrNjEdRFFYhymlrBzDKpolHNolxsyx0IcXAbEm9i1e8QpoiMgEdKZVtY8XiK1t8i6jVDA=="
+            crossorigin="anonymous"
+        ></script> -->
+        <script src="./js/libs/vue_2_6_9.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="./js/index.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+        <script src="https://unpkg.com/http-vue-loader"></script>
+
+        <script src="//cdn.bootcss.com/vuex/3.0.1/vuex.min.js"></script>
+        <script src="./store/store.js"></script>
+        <script>
+            const routes = [
+                {
+                    path: "",
+                    components: {
+                        default: httpVueLoader("./page/index.vue"),
                     },
-
-                    actionList: [
-                        "請選擇",
-                        "5-10分送達",
-                        "10-20分送達",
-                        "20-30分送達",
-                        "30分以上送達",
-                        "預定 - 有準時送達",
-                        "預定 - 沒有準時",
-                    ],
-                    evaluate: [
-                        //     {
-                        //         evaluate_id: 1,
-                        //         evaluate_store: "告胖早午餐-東興店",
-                        //         evaluate_menu: "炒麵麵包",
-                        //         evaluate_eat: 3,
-                        //         evaluate_action: 4,
-                        //         evaluate_amount: 4,
-                        //         evaluate_experience: "恩恩恩，嘿嘿嘿",
-                        //         evaluate_user: "alex",
-                        //         evaluate_date: "2012-12-6",
-                        //     },
-                        //     {
-                        //         evaluate_id: 2,
-                        //         evaluate_store: "肯德基",
-                        //         evaluate_menu: "紐奧良雞",
-                        //         evaluate_eat: 5,
-                        //         evaluate_action: 4,
-                        //         evaluate_amount: 4,
-                        //         evaluate_experience: "嘿嘿嘿",
-                        //         evaluate_user: "alex",
-                        //         evaluate_date: "2012-12-8",
-                        //     },
-                        //     {
-                        //         evaluate_id: 3,
-                        //         evaluate_store: "測試炒麵",
-                        //         evaluate_menu: "超級大炒麵",
-                        //         evaluate_eat: 5,
-                        //         evaluate_action: 4,
-                        //         evaluate_amount: 4,
-                        //         evaluate_experience: "嘿嘿嘿",
-                        //         evaluate_user: "alex1",
-                        //         evaluate_date: "2012-12-8",
-                        //     },
-                    ],
-
-                    msgShow: false,
-                    msgState: "",
-                    msgInfo: [],
-                    index: null,
-                    num: null,
-                    filiterInp: "",
-                    calendar: {
-                        func: null,
-                        show: false,
-                        olympic: [
-                            31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31,
-                        ],
-                        normal: [
-                            31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31,
-                        ],
-                        monthName: [
-                            "January",
-                            "Febrary",
-                            "March",
-                            "April",
-                            "May",
-                            "June",
-                            "July",
-                            "Auguest",
-                            "September",
-                            "October",
-                            "November",
-                            "December",
-                        ],
-                        year: {
-                            now: null,
-                            search: null,
-                        },
-                        month: {
-                            now: null,
-                            search: null,
-                            str: null,
-                        },
-                        day: {
-                            search: null,
-                        },
-                        chose: null,
-                        showTd: [],
-                        mList: [],
+                },
+                {
+                    path: "/score",
+                    components: {
+                        default: httpVueLoader("./page/score.vue"),
                     },
-                };
-            },
-            mounted() {
-                // 使用者名稱
-                if (store.state.username == null) {
-                    var storage = localStorage.getItem("experience");
-                    if (storage == null) {
-                        store.dispatch("ALERT", {
-                            show: true,
-                        });
-                        this.addClassHandler("inp");
-                    } else {
-                        store.dispatch("USER", storage);
-                        this.username = storage;
-                    }
-                }
-
-                // 使用者名稱
-
-                // 日期初始化
-                var my_date = new Date();
-                this.calendar.year = {
-                    now: my_date.getFullYear(),
-                    search: my_date.getFullYear(),
-                };
-                this.calendar.month = {
-                    now: my_date.getMonth(),
-                    search: my_date.getMonth(),
-                    str: this.calendar.monthName[my_date.getMonth()],
-                };
-                this.calendar.day = {
-                    now: null,
-                    search: my_date.getDate(),
-                };
-                this.calendar.chose = {
-                    year: null,
-                    mon: null,
-                    day: null,
-                };
-
-                // 日期初始化
-
-                // axios({
-                //     method: "get",
-                //     url: "/api/getData.php",
-                //     "Content-Type": "application/json",
-                // })
-                //     .then((res) => {
-                //         res.data.forEach((item) => {
-                //             this.evaluate.push({
-                //                 evaluate_id: item[0],
-                //                 evaluate_store: item[1],
-                //                 evaluate_menu: item[2],
-                //                 evaluate_eat: item[3],
-                //                 evaluate_action: item[4],
-                //                 evaluate_amount: item[5],
-                //                 evaluate_experience: item[6],
-                //                 evaluate_user: item[7],
-                //                 evaluate_date: item[8],
-                //             });
-                //         });
-                //         console.log(this.evaluate);
-                //     })
-                //     .catch((err) => {
-                //         console.error(err);
-                //     });
-            },
-            computed: {
-                alertShow() {
-                    return store.state.alert;
                 },
-                editList() {
-                    return store.state.editList;
-                },
-                evaluate_list() {
-                    // return this.evaluate
-                    return this.evaluate.filter((item) => {
-                        return (
-                            item.evaluate_menu.indexOf(this.filiterInp) !==
-                            -1 ||
-                            item.evaluate_store.indexOf(this.filiterInp) !==
-                            -1
-                        );
-                    });
-                },
-                calendar_list() {
-                    return this.calendar.showTd;
-                },
-            },
-            methods: {
-                cancel() {
-                    if (this.msgState == "back") {
-                        this.msgState = "";
-                    } else if (this.msgState == "del") {
-                        this.msgState = "";
-                        this.index = null;
-                        this.num = null;
-                    } else {
-                        console.log('asdf',store.state.alert.show);
-                        
-                        this.removeClassHandler(store.state.alert.show);
+            ];
+            const router = new VueRouter({
+                // mode: 'history',
+                routes: routes, // (缩写) 相当于 routes: routes
+            });
+            var vue = new Vue({
+                el: "#app",
+                router,
+                data() {
+                    return {
+                        username: "",
+                        menu: {
+                            now: "wh",
+                        },
 
-                    }
-                    this.msgShow = false;
-                    this.msgInfo = [];
-                },
-                dateHandler() {
-                    this.calendar.show = true;
-                    this.calendar.showTd = [];
-                    if (this.calendar.chose == null) {
-                        this.createDate();
-                    }
+                        actionList: [
+                            "請選擇",
+                            "5-10分送達",
+                            "10-20分送達",
+                            "20-30分送達",
+                            "30分以上送達",
+                            "預定 - 有準時送達",
+                            "預定 - 沒有準時",
+                        ],
+                        evaluate: [
+                            //     {
+                            //         evaluate_id: 1,
+                            //         evaluate_store: "告胖早午餐-東興店",
+                            //         evaluate_menu: "炒麵麵包",
+                            //         evaluate_eat: 3,
+                            //         evaluate_action: 4,
+                            //         evaluate_amount: 4,
+                            //         evaluate_experience: "恩恩恩，嘿嘿嘿",
+                            //         evaluate_user: "alex",
+                            //         evaluate_date: "2012-12-6",
+                            //     },
+                            //     {
+                            //         evaluate_id: 2,
+                            //         evaluate_store: "肯德基",
+                            //         evaluate_menu: "紐奧良雞",
+                            //         evaluate_eat: 5,
+                            //         evaluate_action: 4,
+                            //         evaluate_amount: 4,
+                            //         evaluate_experience: "嘿嘿嘿",
+                            //         evaluate_user: "alex",
+                            //         evaluate_date: "2012-12-8",
+                            //     },
+                            //     {
+                            //         evaluate_id: 3,
+                            //         evaluate_store: "測試炒麵",
+                            //         evaluate_menu: "超級大炒麵",
+                            //         evaluate_eat: 5,
+                            //         evaluate_action: 4,
+                            //         evaluate_amount: 4,
+                            //         evaluate_experience: "嘿嘿嘿",
+                            //         evaluate_user: "alex1",
+                            //         evaluate_date: "2012-12-8",
+                            //     },
+                        ],
 
-                    this.refreshDate(
-                        this.calendar.year.search,
-                        this.calendar.month.search
-                    );
-                    this.addClassHandler("calendar");
-                },
-                menuHandler(str) {
-                    if (this.menu.now == str) return;
-                    this.menu.now = str;
-                },
-                star(str, num) {
-                    var addClass = document.querySelectorAll(
-                        "[name='" + str + "']"
-                    );
-                    for (let i = 0; i < 5; i++) {
-                        addClass[i].classList.remove("on");
-                    }
-                    for (var i = 0; i <= 5 - num; i++) {
-                        addClass[5 - i - 1].classList.add("on");
-                    }
-                    if (str == "eat") {
-                        this.editList.evaluate_eat = 6 - num;
-                    } else if (str == "amount") {
-                        this.editList.evaluate_amount = 6 - num;
-                    }
-                },
-                selHandler(str) {
-                    var addClass = document.getElementById(str);
-                    if (addClass.classList.contains("show")) {
-                        addClass.classList.remove("show");
-                    } else {
-                        this.addClassHandler(str);
-                    }
-                },
-                selLi(num) {
-                    this.editList.evaluate_action = num;
-                },
-
-                submit(str) {
-                    if (str == "addItem") {
-                        console.log(this.msgInfo);
-                        if (this.editList.evaluate_store == "") {
-                            this.msgInfo.push("請填寫店名");
-                        }
-                        if (this.editList.evaluate_menu == "") {
-                            this.msgInfo.push("請填寫點什麼");
-                        }
-                        if (this.editList.evaluate_eat == "") {
-                            this.msgInfo.push("好不好粗請給分～");
-                        }
-                        if (this.editList.evaluate_amount == "") {
-                            this.msgInfo.push("吃的飽不飽請給分～");
-                        }
-                        if (this.editList.evaluate_user == "") {
-                            this.msgInfo.push("請告訴我你是誰");
-                        }
-                        if (this.editList.evaluate_user == "") {
-                            this.msgInfo.push("請寫一下日期");
-                        }
-                        if (this.msgInfo.length !== 0) {
-                            console.log(this.msgInfo.length);
-                            this.msgShow = true;
-                            this.addClassHandler("msg");
-                            this.msgState = "back";
-                        } else {
-                            if (store.state.alert.show == "add") {
-                                console.log("新增送出", this.editList);
-                                store.dispatch(
-                                    "CREATE_EVALUATE",
-                                    this.editList
-                                );
-                                // this.evaluate.push(this.editList);
-                                // axios
-                                //     .post("/api/setData.php", this.editList)
-                                //     .then((res) => {
-                                //         console.table(res.data);
-                                //     })
-                                //     .catch((error) => {
-                                //         console.error(error);
-                                //     });
-
-                                // this.newList.id = this.evaluate.length;
-                                // this.evaluate.push(this.newList);
-                                // this.msgInfo.push("新增成功");
-                                // this.msgShow = true;
-                                // this.addClassHandler("msg");
-                                // this.msgState = "ok";
-                                // this.newList;
-                            } else if (this.alertShow == "edit") {
-                                console.log("修改送出");
-                                this.evaluate.splice(
-                                    this.index,
-                                    1,
-                                    this.newList
-                                );
-                                this.msgInfo.push("修改成功");
-                                this.msgShow = true;
-                                this.addClassHandler("msg");
-                                this.msgState = "ok";
-                                this.newList;
-                                console.log(this.newList);
-
-                                axios
-                                    .post(
-                                        "/api/updateData.php",
-                                        this.newList
-                                    )
-                                    .then((res) => {
-                                        console.table(res.data);
-                                    })
-                                    .catch((error) => {
-                                        console.error(error);
-                                    });
-                            }
-
-                            // this.setNewlist();
-                        }
-                    } else if (str == "user" && this.username !== "") {
-                        store.dispatch("ALERT", {
-                            title: "",
+                        taostShow: null,
+                        msgShow: false,
+                        msgState: "",
+                        msgInfo: [],
+                        index: null,
+                        num: null,
+                        filiterInp: "",
+                        calendar: {
+                            func: null,
                             show: false,
-                        });
-                        localStorage.setItem("experience", this.username);
-                    }
+                            olympic: [
+                                31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31,
+                            ],
+                            normal: [
+                                31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31,
+                            ],
+                            monthName: [
+                                "January",
+                                "Febrary",
+                                "March",
+                                "April",
+                                "May",
+                                "June",
+                                "July",
+                                "Auguest",
+                                "September",
+                                "October",
+                                "November",
+                                "December",
+                            ],
+                            year: {
+                                now: null,
+                                search: null,
+                            },
+                            month: {
+                                now: null,
+                                search: null,
+                                str: null,
+                            },
+                            day: {
+                                search: null,
+                            },
+                            chose: null,
+                            showTd: [],
+                            mList: [],
+                        },
+                    };
                 },
-                addClassHandler(str) {
-                    setTimeout(() => {
-                        var addClass = document.getElementById(str);
-                        if (addClass.classList.contains("show")) {
-                            addClass.classList.remove("show");
-                            setTimeout(() => {
-                                addClass.classList.add("show");
-                            }, 10);
+                mounted() {
+                    // 使用者名稱
+                    if (store.state.username == null) {
+                        var storage = localStorage.getItem("experience");
+                        if (storage == null) {
+                            store.dispatch("ALERT", {
+                                show: true,
+                            });
+                            this.addClassHandler("inp");
                         } else {
-                            addClass.style.display = "block";
-                            setTimeout(() => {
-                                addClass.classList.add("show");
-                            }, 10);
+                            store.dispatch("USER", storage);
+                            this.username = storage;
                         }
-                    }, 0);
-                },
+                    }
 
-                removeClassHandler(str) {
-                    var removeClass = document.getElementById(str);
-                    removeClass.classList.remove("show");
-                    if (str == 'calendar') {
-                        setTimeout(() => {
-                            this.calendar.show = false;
-                        }, 350);
-                    } else if (str == 'add') {
-                        setTimeout(() => {
+                    // 使用者名稱
+
+                    // 日期初始化
+                    var my_date = new Date();
+                    this.calendar.year = {
+                        now: my_date.getFullYear(),
+                        search: my_date.getFullYear(),
+                    };
+                    this.calendar.month = {
+                        now: my_date.getMonth(),
+                        search: my_date.getMonth(),
+                        str: this.calendar.monthName[my_date.getMonth()],
+                    };
+                    this.calendar.day = {
+                        now: null,
+                        search: my_date.getDate(),
+                    };
+                    this.calendar.chose = {
+                        year: null,
+                        mon: null,
+                        day: null,
+                    };
+
+                    // 日期初始化
+
+                    // axios({
+                    //     method: "get",
+                    //     url: "/api/getData.php",
+                    //     "Content-Type": "application/json",
+                    // })
+                    //     .then((res) => {
+                    //         res.data.forEach((item) => {
+                    //             this.evaluate.push({
+                    //                 evaluate_id: item[0],
+                    //                 evaluate_store: item[1],
+                    //                 evaluate_menu: item[2],
+                    //                 evaluate_eat: item[3],
+                    //                 evaluate_action: item[4],
+                    //                 evaluate_amount: item[5],
+                    //                 evaluate_experience: item[6],
+                    //                 evaluate_user: item[7],
+                    //                 evaluate_date: item[8],
+                    //             });
+                    //         });
+                    //         console.log(this.evaluate);
+                    //     })
+                    //     .catch((err) => {
+                    //         console.error(err);
+                    //     });
+                },
+                computed: {
+                    alertShow() {
+                        return store.state.alert;
+                    },
+                    editList() {
+                        return store.state.editList;
+                    },
+                    evaluate_list() {
+                        // return this.evaluate
+                        return this.evaluate.filter((item) => {
+                            return (
+                                item.evaluate_menu.indexOf(this.filiterInp) !==
+                                    -1 ||
+                                item.evaluate_store.indexOf(this.filiterInp) !==
+                                    -1
+                            );
+                        });
+                    },
+                    calendar_list() {
+                        return this.calendar.showTd;
+                    },
+                },
+                methods: {
+                    cancel() {
+                        if (this.msgState == "back") {
+                            this.msgState = "";
+                        } else if (this.msgState == "del") {
+                            this.msgState = "";
+                            this.index = null;
+                            this.num = null;
+                        } else if (
+                            store.state.alert.show == "edit" ||
+                            store.state.alert.show == "add"
+                        ) {
+                            this.removeClassHandler("addedit");
                             store.dispatch("ALERT", {
                                 title: "",
                                 show: false,
                             });
-                        }, 350);
-                    }
-                },
-                refreshDate(searchY, searchM) {
-                    var my_date = new Date();
-                    var my_day = my_date.getDate();
-                    var lastTotalDay; //上月總天數
-
-                    var lastTotalDay = this.daysTotal(
-                        searchM - 1 < 0 ? 0 : searchM - 1,
-                        searchY
-                    );
-                    var totalDay = this.daysTotal(searchM, searchY); //當月總天數
-                    var firstDay = this.dayStart(searchM, searchY); //當月第一天星期
-
-                    var m = 0;
-                    if (this.calendar.chose.day == null) {
-                        this.calendar.chose = {
-                            year: this.calendar.year.now,
-                            mon: this.calendar.month.now,
-                            day: my_date.getDate(),
-                        };
-                    }
-                    // 第一天前
-                    for (var i = 1; i < firstDay; i++) {
-                        m++;
-                        this.calendar.mList.push({
-                            year: searchM == 0 ? searchY - 1 : searchY,
-                            mon: searchM - 1 < 0 ? 11 : searchM - 1,
-                            day: lastTotalDay - firstDay + i + 1,
-                        });
-                    }
-                    // 本月份
-                    for (var i = 1; i <= totalDay; i++) {
-                        if (m == 7) {
-                            m = 0;
-                            this.calendar.showTd.push(this.calendar.mList);
-                            this.calendar.mList = [];
                         }
-                        m++;
-                        this.calendar.mList.push({
-                            year: searchY,
-                            mon: searchM,
-                            day: i,
-                        });
-                    }
-                    var l = m;
-                    // 補齊後面天數
-                    if (m <= 7) {
-                        for (let i = 1; i < 8 - l; i++) {
+                        this.msgShow = false;
+                        this.msgInfo = [];
+                    },
+                    dateHandler() {
+                        this.calendar.show = true;
+                        this.calendar.showTd = [];
+                        if (this.calendar.chose == null) {
+                            this.createDate();
+                        }
+
+                        this.refreshDate(
+                            this.calendar.year.search,
+                            this.calendar.month.search
+                        );
+                        this.addClassHandler("calendar");
+                    },
+                    menuHandler(str) {
+                        if (this.menu.now == str) return;
+                        this.menu.now = str;
+                    },
+                    star(str, num) {
+                        var addClass = document.querySelectorAll(
+                            "[name='" + str + "']"
+                        );
+                        for (let i = 0; i < 5; i++) {
+                            addClass[i].classList.remove("on");
+                        }
+                        for (var i = 0; i <= 5 - num; i++) {
+                            addClass[5 - i - 1].classList.add("on");
+                        }
+                        if (str == "eat") {
+                            this.editList.evaluate_eat = 6 - num;
+                        } else if (str == "amount") {
+                            this.editList.evaluate_amount = 6 - num;
+                        }
+                    },
+                    selHandler(str) {
+                        var addClass = document.getElementById(str);
+                        if (addClass.classList.contains("show")) {
+                            addClass.classList.remove("show");
+                        } else {
+                            this.addClassHandler(str);
+                        }
+                    },
+                    selLi(num) {
+                        this.editList.evaluate_action = num;
+                    },
+
+                    submit(str) {
+                        if (str == "addItem") {
+                            console.log(this.msgInfo);
+                            if (this.editList.evaluate_store == "") {
+                                this.msgInfo.push("請填寫店名");
+                            }
+                            if (this.editList.evaluate_menu == "") {
+                                this.msgInfo.push("請填寫點什麼");
+                            }
+                            if (this.editList.evaluate_eat == "") {
+                                this.msgInfo.push("好不好粗請給分～");
+                            }
+                            if (this.editList.evaluate_amount == "") {
+                                this.msgInfo.push("吃的飽不飽請給分～");
+                            }
+                            if (this.editList.evaluate_user == "") {
+                                this.msgInfo.push("請告訴我你是誰");
+                            }
+                            if (this.editList.evaluate_user == "") {
+                                this.msgInfo.push("請寫一下日期");
+                            }
+                            if (this.msgInfo.length !== 0) {
+                                console.log(this.msgInfo.length);
+                                this.msgShow = true;
+                                this.addClassHandler("msg");
+                                this.msgState = "back";
+                            } else {
+                                if (store.state.alert.show == "add") {
+                                    console.log("新增送出", this.editList);
+                                    store.dispatch(
+                                        "CREATE_EVALUATE",
+                                        this.editList
+                                    );
+
+                                    if (store.state.toast.title !== null) {
+                                        this.toastHandler(
+                                            store.state.toast.title
+                                        );
+                                        // this.taostShow =
+                                        //     store.state.toast.title;
+                                        // console.log(store.state.toast.title);
+                                    }
+                                    store.dispatch("ALERT", {
+                                        title: "",
+                                        show: false,
+                                    });
+                                    // this.evaluate.push(this.editList);
+                                    // axios
+                                    //     .post("/api/setData.php", this.editList)
+                                    //     .then((res) => {
+                                    //         console.table(res.data);
+                                    //     })
+                                    //     .catch((error) => {
+                                    //         console.error(error);
+                                    //     });
+
+                                    // this.newList.id = this.evaluate.length;
+                                    // this.evaluate.push(this.newList);
+                                    // this.msgInfo.push("新增成功");
+                                    // this.msgShow = true;
+                                    // this.addClassHandler("msg");
+                                    // this.msgState = "ok";
+                                    // this.newList;
+                                } else if (this.alertShow == "edit") {
+                                    console.log("修改送出");
+                                    this.evaluate.splice(
+                                        this.index,
+                                        1,
+                                        this.newList
+                                    );
+                                    this.msgInfo.push("修改成功");
+                                    this.msgShow = true;
+                                    this.addClassHandler("msg");
+                                    this.msgState = "ok";
+                                    this.newList;
+                                    console.log(this.newList);
+
+                                    axios
+                                        .post(
+                                            "/api/updateData.php",
+                                            this.newList
+                                        )
+                                        .then((res) => {
+                                            console.table(res.data);
+                                        })
+                                        .catch((error) => {
+                                            console.error(error);
+                                        });
+                                }
+
+                                // this.setNewlist();
+                            }
+                        } else if (str == "user" && this.username !== "") {
+                            store.dispatch("ALERT", {
+                                title: "",
+                                show: false,
+                            });
+                            localStorage.setItem("experience", this.username);
+                        }
+                    },
+                    addClassHandler(str) {
+                        setTimeout(() => {
+                            var addClass = document.getElementById(str);
+                            if (addClass.classList.contains("show")) {
+                                addClass.classList.remove("show");
+                                setTimeout(() => {
+                                    addClass.classList.add("show");
+                                }, 10);
+                            } else {
+                                addClass.style.display = "block";
+                                setTimeout(() => {
+                                    addClass.classList.add("show");
+                                }, 10);
+                            }
+                        }, 0);
+                    },
+
+                    removeClassHandler(str) {
+                        var removeClass = document.getElementById(str);
+                        removeClass.classList.remove("show");
+                        if (str == "calendar") {
+                            setTimeout(() => {
+                                this.calendar.show = false;
+                            }, 350);
+                        }
+                    },
+
+                    toastHandler(str) {
+                        this.taostShow = store.state.toast.title;
+                        setTimeout(() => {
+                            this.taostShow = null;
+                            store.dispatch("TOAST", null);
+                        }, 3000);
+                    },
+                    refreshDate(searchY, searchM) {
+                        var my_date = new Date();
+                        var my_day = my_date.getDate();
+                        var lastTotalDay; //上月總天數
+
+                        var lastTotalDay = this.daysTotal(
+                            searchM - 1 < 0 ? 0 : searchM - 1,
+                            searchY
+                        );
+                        var totalDay = this.daysTotal(searchM, searchY); //當月總天數
+                        var firstDay = this.dayStart(searchM, searchY); //當月第一天星期
+
+                        var m = 0;
+                        if (this.calendar.chose.day == null) {
+                            this.calendar.chose = {
+                                year: this.calendar.year.now,
+                                mon: this.calendar.month.now,
+                                day: my_date.getDate(),
+                            };
+                        }
+                        // 第一天前
+                        for (var i = 1; i < firstDay; i++) {
+                            m++;
                             this.calendar.mList.push({
-                                year: searchM == 11 ? searchY + 1 : searchY,
-                                mon: searchM + 1 == 12 ? "0" : searchM + 1,
+                                year: searchM == 0 ? searchY - 1 : searchY,
+                                mon: searchM - 1 < 0 ? 11 : searchM - 1,
+                                day: lastTotalDay - firstDay + i + 1,
+                            });
+                        }
+                        // 本月份
+                        for (var i = 1; i <= totalDay; i++) {
+                            if (m == 7) {
+                                m = 0;
+                                this.calendar.showTd.push(this.calendar.mList);
+                                this.calendar.mList = [];
+                            }
+                            m++;
+                            this.calendar.mList.push({
+                                year: searchY,
+                                mon: searchM,
                                 day: i,
                             });
-                            m++;
                         }
-                    }
-                    this.calendar.showTd.push(this.calendar.mList);
-                    this.calendar.mList = [];
+                        var l = m;
+                        // 補齊後面天數
+                        if (m <= 7) {
+                            for (let i = 1; i < 8 - l; i++) {
+                                this.calendar.mList.push({
+                                    year: searchM == 11 ? searchY + 1 : searchY,
+                                    mon: searchM + 1 == 12 ? "0" : searchM + 1,
+                                    day: i,
+                                });
+                                m++;
+                            }
+                        }
+                        this.calendar.showTd.push(this.calendar.mList);
+                        this.calendar.mList = [];
 
-                    if (
-                        this.calendar.chose.year == searchY &&
-                        this.calendar.chose.mon == searchM
-                    ) {
-                        setTimeout(() => {
+                        if (
+                            this.calendar.chose.year == searchY &&
+                            this.calendar.chose.mon == searchM
+                        ) {
+                            setTimeout(() => {
+                                var chose = document.querySelectorAll(
+                                    '[name="calendar_td"]'
+                                );
+
+                                chose[
+                                    this.calendar.chose.day - 1
+                                ].classList.add("chose");
+                                this.calendar.mList = [];
+                            }, 10);
+                        } else {
                             var chose = document.querySelectorAll(
                                 '[name="calendar_td"]'
                             );
-
-                            chose[
-                                this.calendar.chose.day - 1
-                            ].classList.add("chose");
-                            this.calendar.mList = [];
-                        }, 10);
-                    } else {
-                        var chose = document.querySelectorAll(
-                            '[name="calendar_td"]'
-                        );
-                        for (let i = 0; i < chose.length; i++) {
-                            chose[i].classList.remove("chose");
+                            for (let i = 0; i < chose.length; i++) {
+                                chose[i].classList.remove("chose");
+                            }
                         }
-                    }
-                },
-                daysTotal(month, year) {
-                    var tmp = year % 4;
-                    if (tmp == 0) {
-                        return this.calendar.olympic[month];
-                    } else {
-                        return this.calendar.normal[month];
-                    }
-                },
+                    },
+                    daysTotal(month, year) {
+                        var tmp = year % 4;
+                        if (tmp == 0) {
+                            return this.calendar.olympic[month];
+                        } else {
+                            return this.calendar.normal[month];
+                        }
+                    },
 
-                calendarHandler(y, m, d) {
-                    console.log(y, m, d);
-                    this.calendar.chose = {
-                        year: y,
-                        mon: parseInt(m),
-                        day: d,
-                    };
-                    this.calendar.year.search = y;
-                    this.calendar.month.search = parseInt(m);
-                    this.calendar.month.str = this.calendar.monthName[m];
+                    calendarHandler(y, m, d) {
+                        console.log(y, m, d);
+                        this.calendar.chose = {
+                            year: y,
+                            mon: parseInt(m),
+                            day: d,
+                        };
+                        this.calendar.year.search = y;
+                        this.calendar.month.search = parseInt(m);
+                        this.calendar.month.str = this.calendar.monthName[m];
 
-                    m = parseInt(m) + 1;
-                    this.editList.evaluate_date = y + "-" + m + "-" + d;
+                        m = parseInt(m) + 1;
+                        this.editList.evaluate_date = y + "-" + m + "-" + d;
 
-                    this.removeClassHandler("calendar");
-                },
-                dayStart(month, year) {
-                    var tmpDate = new Date(year, month, 1);
-                    return tmpDate.getDay();
-                },
-                calendar_prev() {
-                    console.log("prev");
-                    this.calendar.showTd = [];
-                    this.calendar.func = "pn";
-                    var searchY = this.calendar.year;
-                    var searchM = this.calendar.month;
-                    if (searchM.search == 0) {
-                        searchY.search--;
-                        searchM.search = 11;
-                    } else {
-                        searchM.search--;
-                    }
-                    searchM.str = this.calendar.monthName[searchM.search];
-                    this.refreshDate(searchY.search, searchM.search);
-                },
-                calendar_next() {
-                    console.log("next");
-                    this.calendar.showTd = [];
-                    this.calendar.func = "pn";
-                    var searchY = this.calendar.year;
-                    var searchM = this.calendar.month;
-                    if (searchM.search == 11) {
-                        searchY.search++;
-                        searchM.search = 0;
-                    } else {
-                        searchM.search++;
-                    }
-                    searchM.str = this.calendar.monthName[searchM.search];
-                    this.refreshDate(searchY.search, searchM.search);
-                },
-                createDate() {
-                    this.calendar.showTd = [];
-                },
+                        this.removeClassHandler("calendar");
+                    },
+                    dayStart(month, year) {
+                        var tmpDate = new Date(year, month, 1);
+                        return tmpDate.getDay();
+                    },
+                    calendar_prev() {
+                        console.log("prev");
+                        this.calendar.showTd = [];
+                        this.calendar.func = "pn";
+                        var searchY = this.calendar.year;
+                        var searchM = this.calendar.month;
+                        if (searchM.search == 0) {
+                            searchY.search--;
+                            searchM.search = 11;
+                        } else {
+                            searchM.search--;
+                        }
+                        searchM.str = this.calendar.monthName[searchM.search];
+                        this.refreshDate(searchY.search, searchM.search);
+                    },
+                    calendar_next() {
+                        console.log("next");
+                        this.calendar.showTd = [];
+                        this.calendar.func = "pn";
+                        var searchY = this.calendar.year;
+                        var searchM = this.calendar.month;
+                        if (searchM.search == 11) {
+                            searchY.search++;
+                            searchM.search = 0;
+                        } else {
+                            searchM.search++;
+                        }
+                        searchM.str = this.calendar.monthName[searchM.search];
+                        this.refreshDate(searchY.search, searchM.search);
+                    },
+                    createDate() {
+                        this.calendar.showTd = [];
+                    },
 
-                resetList() {
-                    var resetList = {};
-                    resetList.evaluate_id = null;
-                    resetList.evaluate_store = "";
-                    resetList.evaluate_menu = "";
-                    resetList.evaluate_eat = 0;
-                    resetList.evaluate_action = 0;
-                    resetList.evaluate_amount = 0;
-                    resetList.evaluate_experience = "";
-                    resetList.evaluate_user = "";
-                    resetList.evaluate_date = "";
-                    this.editList = resetList;
-                    // state.newList = resetList;
-                },
-                /*
+                    resetList() {
+                        var resetList = {};
+                        resetList.evaluate_id = null;
+                        resetList.evaluate_store = "";
+                        resetList.evaluate_menu = "";
+                        resetList.evaluate_eat = 0;
+                        resetList.evaluate_action = 0;
+                        resetList.evaluate_amount = 0;
+                        resetList.evaluate_experience = "";
+                        resetList.evaluate_user = "";
+                        resetList.evaluate_date = "";
+                        this.editList = resetList;
+                        // state.newList = resetList;
+                    },
+                    /*
 
 
             addHandler(str) {
@@ -866,11 +970,11 @@
       
             
           */
-            },
-        });
-    </script>
+                },
+            });
+        </script>
 
-    <!-- <script>
+        <!-- <script>
         var tbBox = document.getElementById("tbBox");
         var scroll_y = document.getElementById("scroll_y");
         var scroll_head = document.querySelector("#scroll_y .tbBox_head");
@@ -878,6 +982,5 @@
         scroll_head.style.paddingRight =
             tbBox.clientWidth - scroll_y.clientWidth + "px";
     </script> -->
-</body>
-
+    </body>
 </html>

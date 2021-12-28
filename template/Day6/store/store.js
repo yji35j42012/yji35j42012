@@ -16,7 +16,9 @@ const timeHandler = {
 const store = new Vuex.Store({
     state: {
         username: null,
-        toast: null,
+        toast: {
+            title: null,
+        },
         alert: {
             show: null,
             title: null,
@@ -106,6 +108,9 @@ const store = new Vuex.Store({
         SET_EVALUATE(state, list) {
             state.evaluate = list;
         },
+        SET_TOAST(state, str) {
+            state.toast.title = str;
+        },
     },
     actions: {
         USER({ commit }, str) {
@@ -117,17 +122,19 @@ const store = new Vuex.Store({
                 console.log("str", str);
                 commit("RESET_EDIT_LIST");
                 commit("SET_EDIT_LIST", timeHandler.getDate());
+            }else if(str.show =='edit'){
+                console.log("editstr", str);
             }
         },
-        EDIT_LIST({ commit }, str) {
-            commit("SET_EDIT_LIST");
-        },
+        // EDIT_LIST({ commit }, str) {
+        //     commit("SET_EDIT_LIST");
+        // },
         CREATE_EVALUATE({ commit }, list) {
-            console.log("CREATE_EVALUATE", list);
+            this.state.toast.title = "新增成功";
             axios
                 .post("/api/setData.php", list)
                 .then((res) => {
-                    console.log('res.data',res.data);
+                    console.log("res.data", res.data);
                     var list = [];
                     res.data.forEach((item) => {
                         list.push({
@@ -174,6 +181,9 @@ const store = new Vuex.Store({
                 .catch((err) => {
                     console.error(err);
                 });
+        },
+        TOAST({ commit }, str) {
+            commit("SET_TOAST", str);
         },
     },
 });
