@@ -1,4 +1,5 @@
 .banner {
+    position: relative;
     width: 100%;
     height: calc(100% - 35px);
     &_item {
@@ -13,7 +14,7 @@
     &_txt {
         display: inline-block;
         padding: 25px 20px;
-        background-color: rgba(255, 255, 255, 0.38);;
+        background-color: rgba(255, 255, 255, 0.38);
         color: #000;
         &_num {
             color: #fff;
@@ -21,7 +22,7 @@
             font-size: 72px;
             font-style: italic;
         }
-        &_title{
+        &_title {
             line-height: 56px;
             font-size: 48px;
         }
@@ -29,21 +30,65 @@
             color: #3e3e3e;
             line-height: 64px;
         }
-        &_price{
+        &_price {
             display: inline-block;
             line-height: 36px;
-            .normal{
+            .normal {
                 font-size: 30px;
             }
-            .holiday{
+            .holiday {
                 font-size: 16px;
             }
         }
 
-        .normal_btn{
+        .normal_btn {
             width: 120px;
             height: 45px;
             float: right;
+        }
+    }
+}
+
+.page {
+    position: absolute;
+    left: 30px;
+    bottom: 24px;
+    @include d_f(flex, center);
+    li {
+        background-color: #fff;
+    }
+    &_prev,
+    &_next {
+        @include d_f(flex, center, center);
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        .material-icons {
+            font-size: 12px;
+        }
+    }
+    &_prev + &_dot,
+    &_dot + &_next {
+        margin-left: 13px;
+    }
+    &_dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        & + & {
+            margin-left: 6px;
+        }
+    }
+}
+
+.link{
+    position: absolute;
+    li{
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        & + & {
+            margin-left: 15px;
         }
     }
 }

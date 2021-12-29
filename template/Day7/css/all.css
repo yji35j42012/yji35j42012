@@ -167,6 +167,7 @@ header {
 }
 
 .banner {
+  position: relative;
   width: 100%;
   height: calc(100% - 35px);
 }
@@ -221,6 +222,73 @@ header {
   width: 120px;
   height: 45px;
   float: right;
+}
+
+.page {
+  position: absolute;
+  left: 30px;
+  bottom: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.page li {
+  background-color: #fff;
+}
+
+.page_prev, .page_next {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.page_prev .material-icons, .page_next .material-icons {
+  font-size: 12px;
+}
+
+.page_prev + .page_dot,
+.page_dot + .page_next {
+  margin-left: 13px;
+}
+
+.page_dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.page_dot + .page_dot {
+  margin-left: 6px;
+}
+
+.link {
+  position: absolute;
+}
+
+.link li {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.link li + .link li {
+  margin-left: 15px;
 }
 
 footer {
