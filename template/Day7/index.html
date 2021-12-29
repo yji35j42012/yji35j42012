@@ -6,10 +6,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/all.css">
 </head>
 
 <body>
+    <div id="app" class="wrap">
+        <header>
+            <div class="logo">
+                <a href="#">
+                    <img src="./images/logo.png" alt="FUN ROOM">
+                </a>
+            </div>
 
+            <ul class="menu">
+                <li>
+                    <router-link to="/">單人房</router-link>
+                </li>
+                <li>
+                    <router-link to="/">豪華單人房</router-link>
+                </li>
+                <li>
+                    <router-link to="/">雙人房</router-link>
+                </li>
+                <li>
+                    <router-link to="/">豪華雙人房</router-link>
+                </li>
+                <li>
+                    <router-link to="/">雙床房</router-link>
+                </li>
+                <li>
+                    <router-link to="/">豪華雙床房</router-link>
+                </li>
+            </ul>
+        </header> <router-view></router-view>
+    </div>
+
+    <script src="./js/libs/vue_2_6_9.js"></script>
+    <script src="./js/libs/vue-router.js"></script>
+    <script src="./js/libs/http-vue-loader.js"></script>
+    <script src="./js/libs/vuex_3_0_1.js"></script>
+    <script>
+        const routes = [
+            {
+                path: "",
+                components: {
+                    default: httpVueLoader("./page/index.vue"),
+                },
+            },
+            {
+                path: "/score",
+                components: {
+                    // default: httpVueLoader("./page/score.vue"),
+                },
+            },
+        ];
+        const router = new VueRouter({
+            // mode: 'history',
+            routes: routes, // (缩写) 相当于 routes: routes
+        });
+
+        var vue = new Vue({
+            el: "#app",
+            router,
+            data() {
+                return {}
+            }
+        })
+    </script>
 </body>
 
 </html>
