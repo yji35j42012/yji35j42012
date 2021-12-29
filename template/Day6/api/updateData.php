@@ -28,7 +28,28 @@
 
 			// UPDATE `evaluate` SET `evaluate_store`=[value-2],`evaluate_menu`=[value-3],`evaluate_eat`=[value-4],`evaluate_action`=[value-5],`evaluate_amount`=[value-6],`evaluate_experience`=[value-7],`evaluate_user`=[value-8],`evaluate_date`=[value-9] WHERE 1
 			
-	echo($sql);
+	// echo($sql);
 	mysqli_query($link,$sql);
+
+
+	$sql = "SELECT * FROM `evaluate`";
+	$result = mysqli_query($link,$sql );
+	// 查詢筆數
+	// $result_num = mysqli_num_rows($result);
+	
+	// $row = mysqli_fetch_assoc($result);
+	$arr=array();
+
+	// while($row = mysqli_fetch_assoc($result)){
+	// 	$arr[]= $row['text_name'];
+	// }
+	while($row=mysqli_fetch_row($result)){
+		$arr[]= $row;
+	}
+	// echo(json_encode($row));
+    // 釋放資料庫查到的記憶體
+    mysqli_free_result($result);
+
+    echo(json_encode($arr));//這裡用echo而不是return
 
 ?>

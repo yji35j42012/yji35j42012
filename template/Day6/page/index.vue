@@ -70,7 +70,7 @@
                             <button
                                 v-if="item.evaluate_user == username"
                                 class="icon_btn material-icons"
-                                @click="del(item.evaluate_id, index)"
+                                @click="delHandler(item.evaluate_id, index)"
                             >
                                 delete
                             </button>
@@ -86,46 +86,46 @@
 module.exports = {
     data() {
         return {
-            username: '',
+            username: "",
             menu: {
-                now: 'wh',
+                now: "wh",
             },
             actionList: [
-                '請選擇',
-                '5-10分送達',
-                '10-20分送達',
-                '20-30分送達',
-                '30分以上送達',
-                '預定 - 有準時送達',
-                '預定 - 沒有準時',
+                "請選擇",
+                "5-10分送達",
+                "10-20分送達",
+                "20-30分送達",
+                "30分以上送達",
+                "預定 - 有準時送達",
+                "預定 - 沒有準時",
             ],
             evaluateIn: [],
             alertShow: false,
-            alertTitle: '',
+            alertTitle: "",
             msgShow: false,
-            msgState: '',
+            msgState: "",
             msgInfo: [],
             index: null,
             num: null,
-            filiterInp: '',
+            filiterInp: "",
             calendar: {
                 func: null,
                 show: false,
                 olympic: [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
                 normal: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
                 monthName: [
-                    'January',
-                    'Febrary',
-                    'March',
-                    'April',
-                    'May',
-                    'June',
-                    'July',
-                    'Auguest',
-                    'September',
-                    'October',
-                    'November',
-                    'December',
+                    "January",
+                    "Febrary",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "Auguest",
+                    "September",
+                    "October",
+                    "November",
+                    "December",
                 ],
                 year: {
                     now: null,
@@ -143,7 +143,7 @@ module.exports = {
                 showTd: [],
                 mList: [],
             },
-        }
+        };
     },
     mounted() {
         // 使用者名稱
@@ -157,28 +157,28 @@ module.exports = {
         // 使用者名稱
 
         // 日期初始化
-        var my_date = new Date()
+        var my_date = new Date();
         this.calendar.year = {
             now: my_date.getFullYear(),
             search: my_date.getFullYear(),
-        }
+        };
         this.calendar.month = {
             now: my_date.getMonth(),
             search: my_date.getMonth(),
             str: this.calendar.monthName[my_date.getMonth()],
-        }
+        };
         this.calendar.day = {
             now: null,
             search: my_date.getDate(),
-        }
+        };
         this.calendar.chose = {
             year: null,
             mon: null,
             day: null,
-        }
+        };
         // 日期初始化
-        this.username = store.state.username
-        store.dispatch('READ_EVALUATE')
+        this.username = store.state.username;
+        store.dispatch("READ_EVALUATE");
     },
     computed: {
         evaluate_list() {
@@ -186,8 +186,8 @@ module.exports = {
                 return (
                     item.evaluate_menu.indexOf(this.filiterInp) !== -1 ||
                     item.evaluate_store.indexOf(this.filiterInp) !== -1
-                )
-            })
+                );
+            });
         },
         // calendar_list() {
         //     return this.calendar.showTd;
@@ -195,77 +195,58 @@ module.exports = {
     },
     methods: {
         addHandler(str) {
-            store.dispatch('ALERT', {
-                title: '新增',
-                show: 'add',
-            })
-            this.addClassHandler(str)
+            store.dispatch("ALERT", {
+                title: "新增",
+                show: "add",
+            });
+            this.addClassHandler(str);
         },
         editHandler(str, num, i) {
-            console.log('i', i)
-            console.log('num', num)
-
-            store.dispatch('ALERT', {
-                title: '修改',
-                show: 'edit',
+            store.dispatch("ALERT", {
+                title: "修改",
+                show: "edit",
                 id: num,
                 index: i,
-            })
-
-            this.addClassHandler(str)
-
-            // var index;
-            // for (let i = 0; i < this.evaluate.length; i++) {
-            //     if (this.evaluate[i].evaluate_id == num) {
-            //         index = i;
-            //     }
-            // }
-            // var resetList = {};
-            // resetList.evaluate_id = this.evaluate[index].evaluate_id;
-            // resetList.evaluate_store = this.evaluate[index].evaluate_store;
-            // resetList.evaluate_menu = this.evaluate[index].evaluate_menu;
-            // resetList.evaluate_eat = this.evaluate[index].evaluate_eat;
-            // resetList.evaluate_action = this.evaluate[index].evaluate_action;
-            // resetList.evaluate_amount = this.evaluate[index].evaluate_amount;
-            // resetList.evaluate_experience =
-            //     this.evaluate[index].evaluate_experience;
-            // resetList.evaluate_user = this.evaluate[index].evaluate_user;
-            // resetList.evaluate_date = this.evaluate[index].evaluate_date;
-            // this.newList = resetList;
-            // this.addClassHandler("add");
+            });
+            this.addClassHandler(str);
+        },
+        delHandler(num, index) {
+            console.log(num);
+            store.dispatch("MSG", {
+                msgTxt: ["確認刪除嗎？"],
+                msgState: "del",
+                delId: num,
+            });
+            // this.msgInfo.push("確認刪除嗎？");
+            // this.msgShow = true;
+            // this.addClassHandler("msg");
+            // this.msgState = "del";
             // this.index = index;
-            // this.alertTitle = "修改";
-            // this.alertShow = str;
-            // const chars = this.newList.evaluate_date.split("-");
-            // this.calendar.year.search = chars[0];
-            // this.calendar.chose.year = chars[0];
-            // this.calendar.month.search = chars[1] - 1;
-            // this.calendar.chose.mon = chars[1] - 1;
-            // this.calendar.month.str = this.calendar.monthName[chars[1] - 1];
-            // this.calendar.day.search = chars[2];
-            // this.calendar.chose.day = chars[2];
-            // setTimeout(() => {
-            //     this.star("eat", 6 - this.evaluate[index].evaluate_eat);
-            //     this.star("amount", 6 - this.evaluate[index].evaluate_amount);
-            // }, 15);
+            // this.num = num;
         },
         addClassHandler(str) {
             setTimeout(() => {
-                var addClass = document.getElementById(str)
-                if (addClass.classList.contains('show')) {
-                    addClass.classList.remove('show')
+                var addClass = document.getElementById(str);
+                if (addClass.classList.contains("show")) {
+                    addClass.classList.remove("show");
                     setTimeout(() => {
-                        addClass.classList.add('show')
-                    }, 10)
+                        addClass.classList.add("show");
+                    }, 10);
                 } else {
-                    addClass.style.display = 'block'
+                    addClass.style.display = "block";
                     setTimeout(() => {
-                        addClass.classList.add('show')
-                    }, 10)
+                        addClass.classList.add("show");
+                    }, 10);
                 }
-            }, 0)
+            }, 0);
         },
-
+        storage(str) {
+            if (str == "del") {
+                localStorage.removeItem("experience");
+            } else if (str == "get") {
+                console.log(localStorage.getItem("experience"));
+            }
+        },
         /*
         cancel() {
             if (this.msgState == 'back') {
@@ -363,13 +344,7 @@ module.exports = {
             }
             return year + '-' + mounth + '-' + date
         },
-        storage(str) {
-            if (str == 'del') {
-                localStorage.removeItem('experience')
-            } else if (str == 'get') {
-                console.log(localStorage.getItem('experience'))
-            }
-        },
+ 
         star(str, num) {
             var addClass = document.querySelectorAll("[name='" + str + "']")
             for (let i = 0; i < 5; i++) {
@@ -401,14 +376,6 @@ module.exports = {
         },
         selLi(num) {
             this.newList.evaluate_action = num
-        },
-        del(num, index) {
-            this.msgInfo.push('確認刪除嗎？')
-            this.msgShow = true
-            this.addClassHandler('msg')
-            this.msgState = 'del'
-            this.index = index
-            this.num = num
         },
        
 
@@ -589,5 +556,5 @@ module.exports = {
 
         */
     },
-}
+};
 </script>
