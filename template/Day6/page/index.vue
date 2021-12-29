@@ -57,7 +57,11 @@
                                 v-if="item.evaluate_user == username"
                                 class="icon_btn material-icons"
                                 @click="
-                                    editHandler('addedit', item.evaluate_id, index)
+                                    editHandler(
+                                        'addedit',
+                                        item.evaluate_id,
+                                        index
+                                    )
                                 "
                             >
                                 edit
@@ -82,46 +86,46 @@
 module.exports = {
     data() {
         return {
-            username: "",
+            username: '',
             menu: {
-                now: "wh",
+                now: 'wh',
             },
             actionList: [
-                "請選擇",
-                "5-10分送達",
-                "10-20分送達",
-                "20-30分送達",
-                "30分以上送達",
-                "預定 - 有準時送達",
-                "預定 - 沒有準時",
+                '請選擇',
+                '5-10分送達',
+                '10-20分送達',
+                '20-30分送達',
+                '30分以上送達',
+                '預定 - 有準時送達',
+                '預定 - 沒有準時',
             ],
             evaluateIn: [],
             alertShow: false,
-            alertTitle: "",
+            alertTitle: '',
             msgShow: false,
-            msgState: "",
+            msgState: '',
             msgInfo: [],
             index: null,
             num: null,
-            filiterInp: "",
+            filiterInp: '',
             calendar: {
                 func: null,
                 show: false,
                 olympic: [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
                 normal: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
                 monthName: [
-                    "January",
-                    "Febrary",
-                    "March",
-                    "April",
-                    "May",
-                    "June",
-                    "July",
-                    "Auguest",
-                    "September",
-                    "October",
-                    "November",
-                    "December",
+                    'January',
+                    'Febrary',
+                    'March',
+                    'April',
+                    'May',
+                    'June',
+                    'July',
+                    'Auguest',
+                    'September',
+                    'October',
+                    'November',
+                    'December',
                 ],
                 year: {
                     now: null,
@@ -139,7 +143,7 @@ module.exports = {
                 showTd: [],
                 mList: [],
             },
-        };
+        }
     },
     mounted() {
         // 使用者名稱
@@ -153,28 +157,28 @@ module.exports = {
         // 使用者名稱
 
         // 日期初始化
-        var my_date = new Date();
+        var my_date = new Date()
         this.calendar.year = {
             now: my_date.getFullYear(),
             search: my_date.getFullYear(),
-        };
+        }
         this.calendar.month = {
             now: my_date.getMonth(),
             search: my_date.getMonth(),
             str: this.calendar.monthName[my_date.getMonth()],
-        };
+        }
         this.calendar.day = {
             now: null,
             search: my_date.getDate(),
-        };
+        }
         this.calendar.chose = {
             year: null,
             mon: null,
             day: null,
-        };
+        }
         // 日期初始化
-        this.username = store.state.username;
-        store.dispatch("READ_EVALUATE");
+        this.username = store.state.username
+        store.dispatch('READ_EVALUATE')
     },
     computed: {
         evaluate_list() {
@@ -182,8 +186,8 @@ module.exports = {
                 return (
                     item.evaluate_menu.indexOf(this.filiterInp) !== -1 ||
                     item.evaluate_store.indexOf(this.filiterInp) !== -1
-                );
-            });
+                )
+            })
         },
         // calendar_list() {
         //     return this.calendar.showTd;
@@ -191,19 +195,24 @@ module.exports = {
     },
     methods: {
         addHandler(str) {
-            store.dispatch("ALERT", {
-                title: "新增",
-                show: "add",
-            });
-            this.addClassHandler(str);
+            store.dispatch('ALERT', {
+                title: '新增',
+                show: 'add',
+            })
+            this.addClassHandler(str)
         },
         editHandler(str, num, i) {
-            store.dispatch("ALERT", {
-                title: "修改",
-                show: "edit",
-            });
-            
-            this.addClassHandler(str);
+            console.log('i', i)
+            console.log('num', num)
+
+            store.dispatch('ALERT', {
+                title: '修改',
+                show: 'edit',
+                id: num,
+                index: i,
+            })
+
+            this.addClassHandler(str)
 
             // var index;
             // for (let i = 0; i < this.evaluate.length; i++) {
@@ -242,19 +251,19 @@ module.exports = {
         },
         addClassHandler(str) {
             setTimeout(() => {
-                var addClass = document.getElementById(str);
-                if (addClass.classList.contains("show")) {
-                    addClass.classList.remove("show");
+                var addClass = document.getElementById(str)
+                if (addClass.classList.contains('show')) {
+                    addClass.classList.remove('show')
                     setTimeout(() => {
-                        addClass.classList.add("show");
-                    }, 10);
+                        addClass.classList.add('show')
+                    }, 10)
                 } else {
-                    addClass.style.display = "block";
+                    addClass.style.display = 'block'
                     setTimeout(() => {
-                        addClass.classList.add("show");
-                    }, 10);
+                        addClass.classList.add('show')
+                    }, 10)
                 }
-            }, 0);
+            }, 0)
         },
 
         /*
@@ -580,5 +589,5 @@ module.exports = {
 
         */
     },
-};
+}
 </script>
