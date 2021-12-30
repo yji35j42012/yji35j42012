@@ -1,0 +1,98 @@
+.wrap {
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 75px calc(100% - 75px);
+    width: 100%;
+    height: 100%;
+    background-color: #323a67;
+}
+
+.header {
+    @include d_f(flex, center, space-between);
+    padding: 0 20px;
+    color: #fff;
+    background-color: #242750;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    .username {
+        @include d_f(flex, center, center);
+    }
+    .material-icons {
+        margin-right: 5px;
+    }
+
+    &_menu {
+        @include d_f(flex, center, space-between);
+        li {
+            color: #fff;
+            @extend %hand;
+            @extend %transition;
+            @include hoverHandler {
+                color: #ff8306;
+            }
+        }
+        li.on {
+            color: #ff8306;
+        }
+        li + li {
+            margin-left: 10px;
+        }
+    }
+}
+
+.tbBox {
+    position: relative;
+    height: 100%;
+    text-align: center;
+    background-color: #252851;
+
+    table {
+        width: 100%;
+        background-color: #252851;
+        color: #fff;
+    }
+    tr {
+        background-color: #252851;
+    }
+    th {
+        height: 50px;
+        padding: 5px;
+        background-color: rgba(0, 0, 0, 0.15);
+        border-bottom: 1px solid #242750;
+        font-size: 14px;
+    }
+    td {
+        height: 50px;
+        padding: 5px;
+        border-top: 1px solid #242750;
+        font-size: 14px;
+    }
+    &_function {
+        display: flex;
+        align-items: center;
+        height: 50px;
+        padding: 0 20px;
+
+        * + * {
+            margin-left: 10px;
+        }
+    }
+    .scroll_y {
+        height: calc(100% - 50px);
+        padding-top: 50px;
+        // background-color: #fff;
+    }
+    &_head {
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+    }
+    &_body {
+        // height: calc(100% - 50px);
+
+        tr:hover {
+            background-color: rgba(0, 0, 0, 0.075);
+        }
+    }
+}

@@ -11,13 +11,15 @@
 
 <body>
 	<div id="app" class="wrap">
-		<header>
+		<header :class="showMenu ? 'showMenu' : ''">
 			<div class="logo">
 				<a href="#">
 					<img src="./images/logo.png" alt="FUN ROOM">
 				</a>
 			</div>
-
+			<button class="menu_btn" @click="menuHandler()">
+				<span class="menu_btn_line"></span>
+			</button>
 			<ul class="menu">
 				<li>
 					<router-link to="/">單人房</router-link>
@@ -38,7 +40,8 @@
 					<router-link to="/">豪華雙床房</router-link>
 				</li>
 			</ul>
-		</header> <router-view></router-view>
+		</header>
+		<router-view></router-view>
 	</div>
 
 	<script src="./js/libs/vue_2_6_9.js"></script>
@@ -69,7 +72,14 @@
 			el: "#app",
 			router,
 			data() {
-				return {}
+				return {
+					showMenu: false
+				}
+			},
+			methods: {
+				menuHandler() {
+					this.showMenu = !this.showMenu
+				}
 			}
 		})
 	</script>

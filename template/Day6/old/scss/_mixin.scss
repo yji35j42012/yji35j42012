@@ -25,16 +25,29 @@
     justify-content: $jc;
 }
 
-// RWD相關
-$breakpoints: (
-	XL: 1259px,
-	L: 1023px,
-	M: 995px,
-	S: 767px,
-	XS: 599px
-);
-@mixin mw($size){
-    @media screen and (max-width: map-get($breakpoints, $size)) {
-		@content;
-	}
+
+@mixin mw_xxl {
+    @media screen and (max-width: 1620px) {
+        @content;
+    }
+}
+@mixin mw_xl {
+    @media screen and (max-width: 1320px) {
+        @content;
+    }
+}
+@mixin mw_lg2ml {
+    @media screen and (max-width: 1320px) and (min-width: 961px) {
+        @content;
+    }
+}
+@mixin mw_lg {
+    @media screen and (max-width: 960px) {
+        @content;
+    }
+}
+@mixin mw_md {
+    @media screen and (max-width: 730px) {
+        @content;
+    }
 }

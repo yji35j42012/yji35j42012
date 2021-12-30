@@ -56,6 +56,8 @@
     @include d_f(flex, center);
     li {
         background-color: #fff;
+        @extend %hand;
+        @extend %transition;
     }
     &_prev,
     &_next {
@@ -63,6 +65,11 @@
         width: 30px;
         height: 30px;
         border-radius: 50%;
+
+        @include hoverHandler {
+            background-color: #000;
+            color: #fff;
+        }
         .material-icons {
             font-size: 12px;
         }
@@ -74,22 +81,43 @@
     &_dot {
         width: 8px;
         height: 8px;
+        border: 1px solid transparent;
         border-radius: 50%;
         & + & {
             margin-left: 6px;
         }
+
+        &.on {
+            background-color: #000;
+        }
+        @include hoverHandler {
+            border-color: #000;
+        }
     }
 }
 
-.link{
+.link {
     position: absolute;
-    li{
+    right: 30px;
+    bottom: 24px;
+    @include d_f(flex, center);
+    li {
+        @include d_f(flex, center, center);
         width: 30px;
         height: 30px;
         border-radius: 50%;
-        & + & {
-            margin-left: 15px;
+        background-color: #000000;
+        fill: #fff;
+        @extend %hand;
+        @extend %transition;
+
+        @include hoverHandler {
+            background-color: #fff;
+            fill: #000;
         }
+    }
+    li + li {
+        margin-left: 15px;
     }
 }
 
