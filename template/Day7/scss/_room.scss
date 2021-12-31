@@ -1,0 +1,115 @@
+.photo {
+    @include d_f(flex);
+    &_item {
+        width: 30%;
+        margin: 0 0 0 8px;
+
+        &_f,
+        &_s {
+            overflow: hidden;
+            position: relative;
+            height: calc(50% - 8px);
+            img {
+                position: absolute;
+                width: auto;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                height: 100%;
+                margin: auto;
+            }
+        }
+        &_f {
+            margin-bottom: 16px;
+        }
+        &_s {
+            margin-top: 16px;
+        }
+    }
+    &_item._big {
+        width: 70%;
+        margin: 0 8px 0 0;
+    }
+    // &_item{
+    //     width: calc(30% - 8px);
+    //     float: right;
+    // }
+    // &_item._big{
+    //     width: calc(70% - 8px);
+    //     float: left;
+    // }
+    // &:after {
+    //     content: "";
+    //     clear: both;
+    // }
+}
+
+.room {
+    &_box {
+        @include d_f(flex, stretch, space-between);
+        padding-top: 35px;
+    }
+    &_info {
+        @include d_f(flex, center, space-between);
+        h2 {
+            font-size: 48px;
+        }
+    }
+    &_reserve {
+        // room_reserve_price
+        &_price {
+            @include d_f(flex , stretch , flex-end);
+            &_item {
+                font-size: 36px;
+                &::before {
+                    content: attr(data-bef);
+                    display: block;
+                    color: #949494;
+                    font-size: 16px;
+                }
+                &::after {
+                    content: attr(data-aft);
+                    font-size: 18px;
+                }
+                &+&{
+                    margin-left: 15px;
+                }
+            }
+        }
+
+        &_box {
+            padding: 30px;
+            background-color: #fff;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.25);
+            p {
+                color: #6d6d6d;
+                font-size: 16px;
+                line-height: 34px;
+            }
+            input {
+                display: block;
+                width: 100%;
+                max-width: 320px;
+                height: 40px;
+                background-color: #ededed;
+            }
+            .date {
+                display: inline-block;
+                width: 50%;
+
+                & + & {
+                    margin-left: 15px;
+                }
+                &_box {
+                    @include d_f(flex, center, space-between);
+                }
+            }
+            .normal_btn {
+                width: 100%;
+                max-width: 320px;
+                height: 50px;
+            }
+        }
+    }
+}

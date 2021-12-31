@@ -1,14 +1,14 @@
 /* fallback */
 @font-face {
-    font-family: 'Material Icons';
+    font-family: "Material Icons";
     font-style: normal;
     font-weight: 400;
     src: url(https://fonts.gstatic.com/s/materialicons/v107/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2)
-        format('woff2');
+        format("woff2");
 }
 
 .material-icons {
-    font-family: 'Material Icons';
+    font-family: "Material Icons";
     font-weight: normal;
     font-style: normal;
     font-size: 24px;
@@ -19,14 +19,16 @@
     white-space: nowrap;
     word-wrap: normal;
     direction: ltr;
-    -webkit-font-feature-settings: 'liga';
+    -webkit-font-feature-settings: "liga";
     -webkit-font-smoothing: antialiased;
 }
 
 .wrap {
     position: relative;
     width: 100%;
+    max-width: 1200px;
     height: 100%;
+    margin: auto;
 }
 header {
     position: absolute;
@@ -37,7 +39,8 @@ header {
     width: 100%;
     height: 110px;
     padding: 0 37px 0 23px;
-    background-color: #ffffff9e;
+    background: rgba(255, 255, 255, 0.62);
+    backdrop-filter: blur(21px);
     @include mw(S) {
         height: 55px;
     }
@@ -61,18 +64,20 @@ header {
 }
 .menu {
     @include d_f(flex, center);
-
+    @extend %transition;
     @include mw(S) {
-        display: none;
         position: absolute;
         top: 0;
         left: 0;
+        display: block;
         width: 100%;
+        padding-top: 55px;
+        transform: translateY(-100%);
         background: rgba(255, 255, 255, 0.62);
         text-align: center;
-        padding-top: 55px;
+
         .showMenu & {
-            display: block;
+            transform: translateY(0);
         }
         li {
             padding: 7px 0;
@@ -84,11 +89,11 @@ header {
             margin-left: 0;
         }
     }
-
+    // menu_btn
     &_btn {
         position: relative;
         z-index: 1;
-        @include d_f(flex, center);
+        display: none;
         width: 20px;
         height: 15px;
         &_line {
@@ -101,7 +106,7 @@ header {
             &::after {
                 position: absolute;
                 left: 0;
-                content: '';
+                content: "";
                 display: block;
                 width: 100%;
                 height: 2px;
@@ -128,20 +133,31 @@ header {
         }
 
         @include mw(S) {
-            display: block;
+            @include d_f(flex, center);
         }
     }
 }
 .container {
     width: 100%;
     height: 100%;
+    .room & {
+        padding: 0 80px;
+        @include mw(S) {
+            padding: 0;
+        }
+    }
 }
 
 .normal_btn {
     background-color: #000000;
     color: #fff;
-}
 
+    @extend %hand;
+    @extend %transition;
+    @include hoverHandler {
+        opacity: 0.9;
+    }
+}
 // .scroll_y {
 //     overflow-x: hidden;
 //     overflow-y: auto;
