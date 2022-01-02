@@ -51,15 +51,89 @@
         padding-top: 35px;
     }
     &_info {
-        @include d_f(flex, center, space-between);
+        @include d_f(flex, stretch, space-between);
+        align-content: flex-start;
+        flex-wrap: wrap;
+        width: 100%;
         h2 {
             font-size: 48px;
         }
+        // room_info_evaluate
+        &_evaluate {
+            margin-bottom: 10px;
+            li {
+                &:first-child {
+                    border-bottom: 1px solid #000;
+                }
+                .material-icons {
+                    font-size: 18px;
+                }
+            }
+        }
+
+        table {
+            width: 100%;
+            margin-bottom: 55px;
+            text-align: left;
+            th {
+                font-weight: bold;
+                font-size: 18px;
+            }
+            td {
+                font-size: 16px;
+            }
+            th,
+            td {
+                height: 40px;
+            }
+        }
+        // room_info_txt
+        &_txt {
+            margin-bottom: 10px;
+            color: #656565;
+            font-size: 16px;
+            line-height: 24px;
+        }
+        //room_info_device
+        &_device {
+            @include d_f(flex);
+            flex-wrap: wrap;
+            color: #cbcbcb;
+            fill: #cbcbcb;
+            width: 90%;
+            li {
+                width: calc(100% / 6);
+                text-align: center;
+                margin-bottom: 20px;
+                font-weight: 300;
+                font-size: 14px;
+                &:first-child {
+                    width: 100%;
+                    margin-bottom: 40px;
+                    color: #000;
+                    text-align: left;
+                    font-weight: bold;
+                    font-size: 18px;
+                }
+
+                span {
+                    display: block;
+                }
+
+                &.on {
+                    color: #000;
+                    fill: #000;
+                }
+            }
+        }
     }
     &_reserve {
+        flex: 0 0 378px;
+        margin-left: 50px;
         // room_reserve_price
         &_price {
-            @include d_f(flex , stretch , flex-end);
+            @include d_f(flex, stretch, flex-end);
+            margin-bottom: 20px;
             &_item {
                 font-size: 36px;
                 &::before {
@@ -72,7 +146,7 @@
                     content: attr(data-aft);
                     font-size: 18px;
                 }
-                &+&{
+                & + & {
                     margin-left: 15px;
                 }
             }
@@ -82,6 +156,12 @@
             padding: 30px;
             background-color: #fff;
             box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.25);
+            label {
+                display: block;
+            }
+            label + label {
+                margin-bottom: 10px;
+            }
             p {
                 color: #6d6d6d;
                 font-size: 16px;
@@ -95,16 +175,32 @@
                 background-color: #ededed;
             }
             .date {
-                display: inline-block;
-                width: 50%;
-
-                & + & {
-                    margin-left: 15px;
+                @include d_f(flex, stretch, space-between);
+                margin-bottom: 30px;
+                &_start,
+                &_end {
+                    display: inline-block;
+                    width: calc(50% - 8px);
                 }
                 &_box {
                     @include d_f(flex, center, space-between);
+                    height: 40px;
+                    padding: 0 10px;
+                    background-color: #ededed;
                 }
             }
+            // .date {
+            //
+            //
+            //     font-size: 0;
+            //     & + & {
+            //         margin-left: 15px;
+            //     }
+            //     // date_box
+            //     &_box {
+            //         @include d_f(flex, center, space-between);
+            //     }
+            // }
             .normal_btn {
                 width: 100%;
                 max-width: 320px;

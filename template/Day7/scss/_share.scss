@@ -41,7 +41,7 @@ header {
     padding: 0 37px 0 23px;
     background: rgba(255, 255, 255, 0.62);
     backdrop-filter: blur(21px);
-    @include mw(S) {
+    @include mw(M) {
         height: 55px;
     }
     &.showMenu {
@@ -54,7 +54,7 @@ header {
     width: 120px;
     height: 60px;
 
-    @include mw(S) {
+    @include mw(M) {
         width: 60px;
         height: 30px;
     }
@@ -65,7 +65,7 @@ header {
 .menu {
     @include d_f(flex, center);
     @extend %transition;
-    @include mw(S) {
+    @include mw(M) {
         position: absolute;
         top: 0;
         left: 0;
@@ -85,7 +85,7 @@ header {
     }
     li + li {
         margin-left: 48px;
-        @include mw(S) {
+        @include mw(M) {
             margin-left: 0;
         }
     }
@@ -132,7 +132,7 @@ header {
             }
         }
 
-        @include mw(S) {
+        @include mw(M) {
             @include d_f(flex, center);
         }
     }
@@ -142,7 +142,7 @@ header {
     height: 100%;
     .room & {
         padding: 0 80px;
-        @include mw(S) {
+        @include mw(M) {
             padding: 0;
         }
     }

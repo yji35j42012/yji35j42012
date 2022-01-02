@@ -47,7 +47,7 @@ html,
 body {
   width: 100%;
   height: 100%;
-  background-color: #f0f0fa;
+  background-color: #ffffff;
   font-family: 'Abhaya Libre', sans-serif;
 }
 
@@ -143,7 +143,7 @@ header {
           backdrop-filter: blur(21px);
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 995px) {
   header {
     height: 55px;
   }
@@ -160,7 +160,7 @@ header.showMenu {
   height: 60px;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 995px) {
   .logo {
     width: 60px;
     height: 30px;
@@ -183,7 +183,7 @@ header.showMenu {
           justify-content: flex-start;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 995px) {
   .menu {
     position: absolute;
     top: 0;
@@ -209,7 +209,7 @@ header.showMenu {
   margin-left: 48px;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 995px) {
   .menu li + li {
     margin-left: 0;
   }
@@ -264,7 +264,7 @@ header.showMenu {
           transform: rotate(-45deg) translateY(50%);
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 995px) {
   .menu_btn {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -287,7 +287,7 @@ header.showMenu {
   padding: 0 80px;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 995px) {
   .room .container {
     padding: 0;
   }
@@ -362,7 +362,7 @@ header.showMenu {
   font-size: 16px;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 995px) {
   .banner_txt {
     top: 120px;
     left: unset;
@@ -407,7 +407,7 @@ header.showMenu {
   float: right;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 995px) {
   .banner_txt .normal_btn {
     width: 80px;
     height: 30px;
@@ -416,7 +416,7 @@ header.showMenu {
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 995px) {
   .banner {
     height: 100%;
   }
@@ -502,7 +502,7 @@ header.showMenu {
   border-color: #000;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 995px) {
   .page {
     left: 20px;
     bottom: 40px;
@@ -570,7 +570,7 @@ header.showMenu {
   margin-left: 15px;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 995px) {
   .link {
     top: 70px;
     left: 20px;
@@ -602,7 +602,7 @@ footer {
   padding-right: 18px;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 995px) {
   footer {
     display: none;
   }
@@ -672,16 +672,110 @@ footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
 }
 
 .room_info h2 {
   font-size: 48px;
+}
+
+.room_info_evaluate {
+  margin-bottom: 10px;
+}
+
+.room_info_evaluate li:first-child {
+  border-bottom: 1px solid #000;
+}
+
+.room_info_evaluate li .material-icons {
+  font-size: 18px;
+}
+
+.room_info table {
+  width: 100%;
+  margin-bottom: 55px;
+  text-align: left;
+}
+
+.room_info table th {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.room_info table td {
+  font-size: 16px;
+}
+
+.room_info table th,
+.room_info table td {
+  height: 40px;
+}
+
+.room_info_txt {
+  margin-bottom: 10px;
+  color: #656565;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.room_info_device {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  color: #cbcbcb;
+  fill: #cbcbcb;
+  width: 90%;
+}
+
+.room_info_device li {
+  width: calc(100% / 6);
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.room_info_device li:first-child {
+  width: 100%;
+  margin-bottom: 40px;
+  color: #000;
+  text-align: left;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.room_info_device li span {
+  display: block;
+}
+
+.room_info_device li.on {
+  color: #000;
+  fill: #000;
+}
+
+.room_reserve {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 378px;
+          flex: 0 0 378px;
+  margin-left: 50px;
 }
 
 .room_reserve_price {
@@ -694,6 +788,7 @@ footer {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  margin-bottom: 20px;
 }
 
 .room_reserve_price_item {
@@ -723,6 +818,14 @@ footer {
           box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.25);
 }
 
+.room_reserve_box label {
+  display: block;
+}
+
+.room_reserve_box label + label {
+  margin-bottom: 10px;
+}
+
 .room_reserve_box p {
   color: #6d6d6d;
   font-size: 16px;
@@ -738,12 +841,21 @@ footer {
 }
 
 .room_reserve_box .date {
-  display: inline-block;
-  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 30px;
 }
 
-.room_reserve_box .date + .room_reserve_box .date {
-  margin-left: 15px;
+.room_reserve_box .date_start, .room_reserve_box .date_end {
+  display: inline-block;
+  width: calc(50% - 8px);
 }
 
 .room_reserve_box .date_box {
@@ -756,6 +868,9 @@ footer {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  height: 40px;
+  padding: 0 10px;
+  background-color: #ededed;
 }
 
 .room_reserve_box .normal_btn {
