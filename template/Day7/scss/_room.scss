@@ -1,54 +1,80 @@
 .photo {
-    @include d_f(flex);
+    position: relative;
+    // @include d_f(flex);
     &_item {
-        width: 30%;
-        margin: 0 0 0 8px;
+        width: 31%;
+        float: right;
+        // margin: 0 0 0 8px;
 
-        &_f,
-        &_s {
+        &._big {
+            width: calc(69% - 8px);
+            // margin: 0 8px 0 0;
+            float: left;
+        }
+        &:nth-child(2) {
+            margin-top: 110px;
+        }
+        &:nth-child(3) {
+            margin-top: 10px;
+        }
+        &:not(._big) {
             overflow: hidden;
-            position: relative;
-            height: calc(50% - 8px);
-            img {
-                position: absolute;
-                width: auto;
-                top: 0;
-                bottom: 0;
-                right: 0;
-                left: 0;
-                height: 100%;
-                margin: auto;
+        }
+    }
+    .page {
+        display: none;
+    }
+    @include mw(M) {
+        overflow: hidden;
+        @include d_f(flex);
+        width: 100%;
+        &_item {
+            flex: none;
+            width: 100%;
+            float: none;
+            &._big {
+                width: 100%;
+                float: none;
+            }
+            &:nth-child(2),
+            &:nth-child(3) {
+                margin-top: 0;
             }
         }
-        &_f {
-            margin-bottom: 16px;
-        }
-        &_s {
-            margin-top: 16px;
+        .page {
+            display: flex;
+            justify-content: center;
+            left: 0;
+            right: 0;
+            bottom: 12px;
+            margin: 0 auto;
+            li {
+                margin-top: 0;
+            }
+            li + li {
+                margin-left: 6px;
+            }
+            &_prev + .page_dot,
+            &_dot + .page_next {
+                margin-left: 19px;
+            }
         }
     }
-    &_item._big {
-        width: 70%;
-        margin: 0 8px 0 0;
+    &::after {
+        content: '';
+        display: block;
+        clear: both;
     }
-    // &_item{
-    //     width: calc(30% - 8px);
-    //     float: right;
-    // }
-    // &_item._big{
-    //     width: calc(70% - 8px);
-    //     float: left;
-    // }
-    // &:after {
-    //     content: "";
-    //     clear: both;
-    // }
 }
 
 .room {
     &_box {
         @include d_f(flex, stretch, space-between);
         padding-top: 35px;
+
+        @include mw(M) {
+            display: block;
+        }
     }
     &_info {
         @include d_f(flex, stretch, space-between);
@@ -61,12 +87,24 @@
         // room_info_evaluate
         &_evaluate {
             margin-bottom: 10px;
-            li {
-                &:first-child {
-                    border-bottom: 1px solid #000;
-                }
-                .material-icons {
-                    font-size: 18px;
+
+            .material-icons {
+                font-size: 18px;
+            }
+
+            .evaluate {
+                border-bottom: 1px solid #000;
+            }
+            .introduce {
+                display: none;
+            }
+            @include mw(M) {
+                order: -1;
+                display: block;
+                width: 100%;
+
+                .star {
+                    display: none;
                 }
             }
         }

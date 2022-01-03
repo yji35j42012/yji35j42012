@@ -1,14 +1,14 @@
 /* fallback */
 @font-face {
-    font-family: "Material Icons";
+    font-family: 'Material Icons';
     font-style: normal;
     font-weight: 400;
     src: url(https://fonts.gstatic.com/s/materialicons/v107/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2)
-        format("woff2");
+        format('woff2');
 }
 
 .material-icons {
-    font-family: "Material Icons";
+    font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
     font-size: 24px;
@@ -19,7 +19,7 @@
     white-space: nowrap;
     word-wrap: normal;
     direction: ltr;
-    -webkit-font-feature-settings: "liga";
+    -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
 }
 
@@ -106,7 +106,7 @@ header {
             &::after {
                 position: absolute;
                 left: 0;
-                content: "";
+                content: '';
                 display: block;
                 width: 100%;
                 height: 2px;
@@ -156,6 +156,67 @@ header {
     @extend %transition;
     @include hoverHandler {
         opacity: 0.9;
+    }
+}
+
+.page {
+    position: absolute;
+    // left: 30px;
+    // bottom: 24px;
+    @include d_f(flex, center);
+    li {
+        background-color: #fff;
+        @extend %hand;
+        @extend %transition;
+    }
+    &_prev,
+    &_next {
+        @include d_f(flex, center, center);
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+
+        @include hoverHandler {
+            background-color: #000;
+            color: #fff;
+        }
+        .material-icons {
+            font-size: 12px;
+        }
+    }
+    &_prev + &_dot,
+    &_dot + &_next {
+        margin-left: 13px;
+    }
+    &_dot {
+        width: 8px;
+        height: 8px;
+        border: 1px solid transparent;
+        border-radius: 50%;
+        & + & {
+            margin-left: 6px;
+        }
+
+        &.on {
+            background-color: #000;
+        }
+        @include hoverHandler {
+            border-color: #000;
+        }
+    }
+
+    @include mw(M) {
+        &_prev + &_dot,
+        &_dot + &_next {
+            margin-left: 0;
+            margin-top: 8px;
+        }
+        &_dot {
+            & + & {
+                margin-left: 0;
+                margin-top: 5px;
+            }
+        }
     }
 }
 // .scroll_y {

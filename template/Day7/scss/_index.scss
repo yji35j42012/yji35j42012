@@ -89,73 +89,18 @@
             }
         }
     }
+
+    .page {
+        left: 30px;
+        bottom: 24px;
+        @include mw(M) {
+            left: 20px;
+            bottom: 40px;
+            flex-direction: column;
+        }
+    }
     @include mw(M) {
         height: 100%;
-    }
-}
-
-.page {
-    position: absolute;
-    left: 30px;
-    bottom: 24px;
-    @include d_f(flex, center);
-    li {
-        background-color: #fff;
-        @extend %hand;
-        @extend %transition;
-    }
-    &_prev,
-    &_next {
-        @include d_f(flex, center, center);
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-
-        @include hoverHandler {
-            background-color: #000;
-            color: #fff;
-        }
-        .material-icons {
-            font-size: 12px;
-        }
-    }
-    &_prev + &_dot,
-    &_dot + &_next {
-        margin-left: 13px;
-    }
-    &_dot {
-        width: 8px;
-        height: 8px;
-        border: 1px solid transparent;
-        border-radius: 50%;
-        & + & {
-            margin-left: 6px;
-        }
-
-        &.on {
-            background-color: #000;
-        }
-        @include hoverHandler {
-            border-color: #000;
-        }
-    }
-
-    @include mw(M) {
-        left: 20px;
-        bottom: 40px;
-        flex-direction: column;
-
-        &_prev + &_dot,
-        &_dot + &_next {
-            margin-left: 0;
-            margin-top: 8px;
-        }
-        &_dot {
-            & + & {
-                margin-left: 0;
-                margin-top: 5px;
-            }
-        }
     }
 }
 

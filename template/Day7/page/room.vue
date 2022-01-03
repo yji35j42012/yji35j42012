@@ -7,19 +7,33 @@
                 <img src="./images/room1.jpg" alt="" />
             </div>
             <div class="photo_item">
-                <div class="photo_item_f">
-                    <img src="./images/room2.jpg" alt="" />
-                </div>
-                <div class="photo_item_s">
-                    <img src="./images/room3.jpg" alt="" />
-                </div>
+                <img src="./images/room2.jpg" alt="" />
             </div>
+            <div class="photo_item">
+                <img src="./images/room3.jpg" alt="" />
+            </div>
+
+            <ul class="page">
+                <li class="page_prev">
+                    <span class="material-icons">
+                        arrow_back_ios
+                    </span>
+                </li>
+                <li class="page_dot on"></li>
+                <li class="page_dot"></li>
+                <li class="page_next">
+                    <span class="material-icons">
+                        arrow_forward_ios
+                    </span>
+                </li>
+            </ul>
         </div>
         <div class="room_box">
             <div class="room_info">
                 <h2>Deluxe Double Room</h2>
                 <ul class="room_info_evaluate">
-                    <li>房客評價 (128)</li>
+                    <li class="introduce">房間介紹</li>
+                    <li class="evaluate">房客評價 (128)</li>
                     <li class="star">
                         <span class="material-icons"> star </span>
                         <span class="material-icons"> star </span>
@@ -65,6 +79,7 @@
                         <td></td>
                     </tr>
                 </table>
+
                 <ul class="room_info_device">
                     <li class="title">客房設施</li>
                     <li class="on">
@@ -298,10 +313,10 @@
 <script>
 module.exports = {
     data() {
-        return {};
+        return {}
     },
     mounted() {},
     computed: {},
     methods: {},
-};
+}
 </script>

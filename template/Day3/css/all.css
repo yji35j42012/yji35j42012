@@ -194,15 +194,15 @@ img {
     color: #ffffff;
     background-color: #222226;
     border-color: #222226;
-    -webkit-transition: background 0.4s 0.4s, border-color 0.4s 0s, color 0.2s 0s;
-    transition: background 0.4s 0.4s, border-color 0.4s 0s, color 0.2s 0s;
+    -webkit-transition: background 0.4s 0.4s, border-color 0.4s 0s, color 0.2s 0s;
+    transition: background 0.4s 0.4s, border-color 0.4s 0s, color 0.2s 0s;
   }
   .normal_btn:hover::before {
     color: #fff;
     width: 100%;
     opacity: 1;
-    -webkit-transition: width 0.4s, background 0.4s 0.4s, border-color 0.4s 0s, color 0.2s 0s;
-    transition: width 0.4s, background 0.4s 0.4s, border-color 0.4s 0s, color 0.2s 0s;
+    -webkit-transition: width 0.4s, background 0.4s 0.4s, border-color 0.4s 0s, color 0.2s 0s;
+    transition: width 0.4s, background 0.4s 0.4s, border-color 0.4s 0s, color 0.2s 0s;
   }
 }
 
@@ -210,16 +210,16 @@ img {
   color: #ffffff;
   background-color: #222226;
   border-color: #222226;
-  -webkit-transition: background 0.4s 0.4s, border-color 0.4s 0s, color 0.2s 0s;
-  transition: background 0.4s 0.4s, border-color 0.4s 0s, color 0.2s 0s;
+  -webkit-transition: background 0.4s 0.4s, border-color 0.4s 0s, color 0.2s 0s;
+  transition: background 0.4s 0.4s, border-color 0.4s 0s, color 0.2s 0s;
 }
 
 .normal_btn:active::before {
   color: #fff;
   width: 100%;
   opacity: 1;
-  -webkit-transition: width 0.4s, background 0.4s 0.4s, border-color 0.4s 0s, color 0.2s 0s;
-  transition: width 0.4s, background 0.4s 0.4s, border-color 0.4s 0s, color 0.2s 0s;
+  -webkit-transition: width 0.4s, background 0.4s 0.4s, border-color 0.4s 0s, color 0.2s 0s;
+  transition: width 0.4s, background 0.4s 0.4s, border-color 0.4s 0s, color 0.2s 0s;
 }
 
 .wrap {
