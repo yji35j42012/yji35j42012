@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+em,
+img,
+tt,
+b,
+i,
+ol,
+ul,
+li,
+form,
+label,
+caption {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  list-style: none;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  font-family: 'Abhaya Libre', sans-serif;
+}
+
+*:hover,
+*:focus,
+*:active {
+  outline: 0;
+  -moz-outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input,
+textarea,
+button {
+  border: none;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+}
+
+img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+.wrap {
+  width: 100%;
+  height: 100%;
+}
+
+.home {
+  padding-top: 20px;
+  background-color: #a6f3ff;
+}
+
+.home_head {
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  max-width: 1340px;
+  height: 70px;
+  background-color: #fff;
+  border-radius: 100px;
+}
+
+.home .logo {
+  width: 130px;
+  height: 100%;
+  background-color: pink;
+  text-align: center;
+}
+
+.home .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  height: 100%;
+}
+
+.home .menu li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-width: 100px;
+  height: 100%;
+  padding: 0 10px;
+  text-align: center;
+}
+
+.home .menu .cooperate {
+  background-color: #1b7bcc;
+  color: #ffffff;
+}
+
+.home .menu .login {
+  background-color: #fd65aa;
+  color: #ffffff;
+}
+/*# sourceMappingURL=all.css.map */
