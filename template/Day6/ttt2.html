@@ -1,91 +1,95 @@
 <!DOCTYPE html>
 <html id="version" lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>今午你想來點？</title>
-        <link rel="stylesheet" href="./css/all.css" />
 
-        <style>
-            ul {
-                display: flex;
-                color: #fff;
-                padding: 10px;
-            }
-            li + li {
-                margin-left: 10px;
-            }
-        </style>
-    </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>今午你想來點？</title>
+    <link rel="stylesheet" href="./css/all.css" />
 
-    <body>
-        <div id="app" class="wrap">
-            <ul>
-                <li>
-                    <router-link to="/">ttt1</router-link>
-                </li>
-                <li>
-                    <router-link to="/ttt2">ttt2</router-link>
-                </li>
-            </ul>
-            <div>
-                <router-view></router-view>
-            </div>
+    <style>
+        ul {
+            display: flex;
+            color: #fff;
+            padding: 10px;
+        }
+
+        li+li {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="wrap">
+        <ul>
+            <li>
+                <router-link to="/">ttt1</router-link>
+            </li>
+            <li>
+                <router-link to="/ttt2">ttt2</router-link>
+            </li>
+        </ul>
+        <div>
+            <router-view></router-view>
         </div>
+    </div>
 
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.js"
-            integrity="sha512-o9SZrtqlGkpa7EF+dDrNjEdRFFYhymlrBzDKpolHNolxsyx0IcXAbEm9i1e8QpoiMgEdKZVtY8XiK1t8i6jVDA=="
-            crossorigin="anonymous"
-        ></script>
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <script src="./js/index.js"></script>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
-        <script src="https://unpkg.com/http-vue-loader"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.js"
+        integrity="sha512-o9SZrtqlGkpa7EF+dDrNjEdRFFYhymlrBzDKpolHNolxsyx0IcXAbEm9i1e8QpoiMgEdKZVtY8XiK1t8i6jVDA=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="https://unpkg.com/http-vue-loader"></script>
 
-        <script src="//cdn.bootcss.com/vuex/3.0.1/vuex.min.js"></script>
-        <script src="./store/store.js"></script>
-        <script>
-            const routes = [
-                {
-                    path: "",
-                    components: {
-                        default: httpVueLoader("./page/ttt1.vue"),
-                    },
+    <script src="//cdn.bootcss.com/vuex/3.0.1/vuex.min.js"></script>
+    <script src="./store/store.js"></script>
+    <script>
+        const routes = [
+            {
+                path: "",
+                components: {
+                    default: httpVueLoader("./page/ttt1.vue"),
                 },
-                {
-                    path: "/ttt2",
-                    components: {
-                        default: httpVueLoader("./page/ttt2.vue"),
-                    },
+            },
+            {
+                path: "/ttt2",
+                components: {
+                    default: httpVueLoader("./page/ttt2.vue"),
                 },
-            ];
-            const router = new VueRouter({
-                // mode: 'history',
-                routes: routes, // (缩写) 相当于 routes: routes
-            });
-            
+            },
+        ];
+        const router = new VueRouter({
+            // mode: 'history',
+            routes: routes, // (缩写) 相当于 routes: routes
+        });
 
-            var vue = new Vue({
-                el: "#app",
-                store: store,
-                router,
-                data() {
-                    return {};
-                },
-                methods: {},
-            });
-        </script>
 
-        <script>
-            var tbBox = document.getElementById("tbBox");
-            var scroll_y = document.getElementById("scroll_y");
-            var scroll_head = document.querySelector("#scroll_y .tbBox_head");
-            // 修正有捲軸的誤差
-            scroll_head.style.paddingRight =
-                tbBox.clientWidth - scroll_y.clientWidth + "px";
-        </script>
-    </body>
+        var vue = new Vue({
+            el: "#app",
+            store: store,
+            components: {
+                about: httpVueLoader("./components/about.vue"),
+            },
+            router,
+            data() {
+                return {};
+            },
+            methods: {},
+        });
+    </script>
+
+    <script>
+        var tbBox = document.getElementById("tbBox");
+        var scroll_y = document.getElementById("scroll_y");
+        var scroll_head = document.querySelector("#scroll_y .tbBox_head");
+        // 修正有捲軸的誤差
+        scroll_head.style.paddingRight =
+            tbBox.clientWidth - scroll_y.clientWidth + "px";
+    </script>
+</body>
+
 </html>

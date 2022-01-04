@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="./css/all.css">
+</head>
+
+<body>
+	<div id="app" class="wrap">
+		<header class="header">
+			<div class="username">
+				{{username}}
+			</div>
+			<button id="menu" class="menu" @click="menuHandler">
+				<span class="menu_btn"></span>
+			</button>
+
+			<ul class="menu_group">
+				<li id="icon_acc" class="menu_group_item">
+					<h1 class="icon_acc" name="menu" @click="menuList('icon_acc')">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+							<path :d="icon.acc.path" />
+						</svg>
+						帳號管理
+					</h1>
+					<ul class="menu_group_itemSec">
+						<li id="list_ag" name="menuSec" @click="menuSecList('list_ag')">代理商</li>
+						<li id="list_acc" name="menuSec" @click="menuSecList('list_acc')">會員</li>
+					</ul>
+				</li>
+			</ul>
+		</header>
+		<router-view></router-view>
+
+	</div>
+
+	<script src="./js/libs/vue_2_6_9.js"></script>
+	<script src="./js/libs/vue-router.js"></script>
+	<script src="./js/libs/http-vue-loader.js"></script>
+	<script src="./js/libs/vuex_3_0_1.js"></script>
+	<script src="./js/icon_all.js"></script>
+	<script src="./store/store.js"></script>
+
+	<script>
+		const routes = [
+			{
+				path: "",
+				components: {
+					default: httpVueLoader("./page/index.vue"),
+				},
+			},
+			// {
+			// 	path: "/room",
+			// 	components: {
+			// 		default: httpVueLoader("./page/room.vue"),
+			// 	},
+			// },
+		];
+		const router = new VueRouter({
+			// mode: 'history',
+			routes: routes, // (缩写) 相当于 routes: routes
+		});
+
+		var vue = new Vue({
+			el: "#app",
+			router,
+			data() {
+				return {
+					menu: {
+						first: null,
+						second: null
+					}
+				};
+			},
+			// watch: {
+			// 	$route(to, from) {
+			// 		var now = this.$route.path;
+			// 		if (this.$route.path == "/") {
+			// 			this.nowPath = 'index';
+			// 		} else {
+			// 			this.nowPath = now.split('/')[1]
+			// 		}
+			// 		this.showMenu = false;
+			// 	},
+			// },
+			methods: {
+				menuHandler() {
+					var menuClass = document.getElementById('menu');
+					if (menuClass.classList.contains('active')) {
+						menuClass.classList.remove('active');
+					} else {
+						menuClass.classList.add('active');
+					}
+				},
+				menuList(str) {
+					var menuClass = document.getElementById(str);
+					if (menuClass.classList.contains('active')) {
+						menuClass.classList.remove('active');
+					} else {
+						menuClass.classList.add('active');
+					}
+				},
+				menuSecList(str) {
+					var menuClassAll = document.querySelectorAll("[name='menuSec']");
+
+					var menuClass = document.getElementById(str);
+					if (menuClass.classList.contains('on')) {
+						menuClass.classList.remove('on');
+					} else {
+						for (let i = 0; i < menuClassAll.length; i++) {
+							menuClassAll[i].classList.remove('on');
+						}
+						menuClass.classList.add('on');
+					}
+				}
+				// menuHandler() {
+				// 	this.showMenu = !this.showMenu;
+				// },
+			},
+			computed: {
+				username() {
+					return store.state.username
+				},
+				icon() {
+					return store.state.icon_all
+				}
+			}
+		});
+	</script>
+</body>
+
+</html>
