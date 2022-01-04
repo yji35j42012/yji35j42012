@@ -628,6 +628,7 @@
                                 show: false,
                             });
                             localStorage.setItem("experience", this.username);
+                            store.dispatch("USER", this.username);
                         }
                     },
                     addClassHandler(str) {

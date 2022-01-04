@@ -86,7 +86,6 @@
 module.exports = {
     data() {
         return {
-            username: "",
             menu: {
                 now: "wh",
             },
@@ -177,7 +176,7 @@ module.exports = {
             day: null,
         };
         // 日期初始化
-        this.username = store.state.username;
+        // this.username = store.state.username;
         store.dispatch("READ_EVALUATE");
     },
     computed: {
@@ -188,6 +187,9 @@ module.exports = {
                     item.evaluate_store.indexOf(this.filiterInp) !== -1
                 );
             });
+        },
+        username() {
+            return store.state.username;
         },
         // calendar_list() {
         //     return this.calendar.showTd;
