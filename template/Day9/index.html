@@ -15,12 +15,12 @@
 			<div class="username">
 				{{username}}
 			</div>
-			<button id="menu" class="menu" @click="menuHandler">
+			<button id="menu" :class="['menu', menu.menuShow ? 'active' : '']" @click="menuHandler">
 				<span class="menu_btn"></span>
 			</button>
 			<ul class="menu_group">
-				<li id="icon_acc" class="menu_group_item">
-					<h1 class="icon_acc" name="menu" @click="menuList('icon_acc')">
+				<li id="icon_acc" :class="['menu_group_item' , this.menu.menuSecShow == 'icon_acc' ?'active' : '']">
+					<h1 class="icon_acc" @click="menuList('icon_acc')">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 							<path :d="icon.acc.path" />
 						</svg>
@@ -30,10 +30,10 @@
 						</svg>
 					</h1>
 					<ul class="menu_group_itemSec">
-						<li id="list_ag" name="menuSec" @click="menuSecList('list_ag')">
+						<li id="list_ag" name="menuSec" @click="menuList('list_ag')">
 							<router-link to="/">代理商</router-link>
 						</li>
-						<li id="list_acc" name="menuSec" @click="menuSecList('list_acc')">
+						<li id="list_acc" name="menuSec" @click="menuList('list_acc')">
 							<router-link to="/">會員</router-link>
 						</li>
 					</ul>
@@ -87,57 +87,41 @@
 			data() {
 				return {
 					menu: {
+						menuShow: false,
+						menuSecShow: false,
+						path: null,
 						first: null,
 						second: null
 					}
 				};
 			},
-			watch: {
-				$route(to, from) {
-					var menuClass = document.getElementById('menu');
-					menuClass.classList.remove('active');
-
-					// var now = this.$route.path;
-					// if (this.$route.path == "/") {
-					// 	this.nowPath = 'index';
-					// } else {
-					// 	this.nowPath = now.split('/')[1]
-					// }
-					// this.showMenu = false;
-				},
-			},
+			// watch: {
+			// 	$route(to, from) {
+			// 		var menuClass = document.getElementById('menu');
+			// 		menuClass.classList.remove('active');
+			// 		var now = this.$route.path;
+			// 		if (this.$route.path == "/") {
+			// 			this.nowPath = 'index';
+			// 		} else {
+			// 			this.nowPath = now.split('/')[1]
+			// 		}
+			// 		this.showMenu = false;
+			// 	},
+			// },
 			methods: {
 				menuHandler() {
-					var menuClass = document.getElementById('menu');
-					if (menuClass.classList.contains('active')) {
-						menuClass.classList.remove('active');
-					} else {
-						menuClass.classList.add('active');
-					}
+					this.menu.menuShow = !this.menu.menuShow
 				},
 				menuList(str) {
-					var menuClass = document.getElementById(str);
-					if (menuClass.classList.contains('active')) {
-						menuClass.classList.remove('active');
+					// console.log(this);
+					if (str == null) {
+						this.menu.menuSecShow = str;
+					} else if (this.menu.menuSecShow == str) {
+						this.menu.menuSecShow = null
 					} else {
-						menuClass.classList.add('active');
+						this.menu.menuSecShow = str;
 					}
 				},
-				menuSecList(str) {
-					var menuClassAll = document.querySelectorAll("[name='menuSec']");
-					var menuClass = document.getElementById(str);
-					if (menuClass.classList.contains('on')) {
-						// menuClass.classList.remove('on');
-					} else {
-						for (let i = 0; i < menuClassAll.length; i++) {
-							menuClassAll[i].classList.remove('on');
-						}
-						menuClass.classList.add('on');
-					}
-				}
-				// menuHandler() {
-				// 	this.showMenu = !this.showMenu;
-				// },
 			},
 			computed: {
 				username() {
