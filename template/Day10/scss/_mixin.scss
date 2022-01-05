@@ -1,0 +1,40 @@
+%transition {
+    transition-duration: 0.3s;
+}
+
+%hand {
+    cursor: pointer;
+}
+@mixin hoverHandler {
+    @media (pointer: fine) and (max-resolution: 2dppx),
+        screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2),
+        (-moz-touch-enabled: 0) {
+        &:hover {
+            @content;
+        }
+    }
+    &:active {
+        @content;
+    }
+}
+
+// juc 預設值 flex-start 、 align-items 預設值 stretch
+@mixin d_f($flex, $ai: stretch, $jc: flex-start) {
+    display: $flex;
+    align-items: $ai;
+    justify-content: $jc;
+}
+
+// RWD相關
+$breakpoints: (
+	XL: 1259px,
+	L: 1023px,
+	M: 995px,
+	S: 767px,
+	XS: 599px
+);
+@mixin mw($size){
+    @media screen and (max-width: map-get($breakpoints, $size)) {
+		@content;
+	}
+}
