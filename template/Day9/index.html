@@ -20,7 +20,7 @@
 			</button>
 			<ul class="menu_group">
 				<li id="icon_acc" :class="['menu_group_item' , this.menu.menuSecShow == 'icon_acc' ?'active' : '']">
-					<h1 class="icon_acc" @click="menuList('icon_acc')">
+					<h1 class="icon_acc" @click="menuList('icon_acc','icon_acc')">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 							<path :d="icon.acc.path" />
 						</svg>
@@ -30,15 +30,15 @@
 						</svg>
 					</h1>
 					<ul class="menu_group_itemSec">
-						<li id="list_ag" name="menuSec" @click="menuList('list_ag')">
+						<li id="list_ag" name="menuSec" @click="menuList('icon_acc','list_ag')">
 							<router-link to="/">代理商</router-link>
 						</li>
-						<li id="list_acc" name="menuSec" @click="menuList('list_acc')">
+						<li id="list_acc" name="menuSec" @click="menuList('icon_acc','list_acc')">
 							<router-link to="/">會員</router-link>
 						</li>
 					</ul>
 				</li>
-				<li id="noname" class="menu_group_item">
+				<li id="noname" class="menu_group_item" @click="menuList('noinside','list_ag')">
 					<router-link to="/noname">
 						<h1>
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -89,38 +89,49 @@
 					menu: {
 						menuShow: false,
 						menuSecShow: false,
+						pageShow: null,
 						path: null,
 						first: null,
 						second: null
 					}
 				};
 			},
-			// watch: {
-			// 	$route(to, from) {
-			// 		var menuClass = document.getElementById('menu');
-			// 		menuClass.classList.remove('active');
-			// 		var now = this.$route.path;
-			// 		if (this.$route.path == "/") {
-			// 			this.nowPath = 'index';
-			// 		} else {
-			// 			this.nowPath = now.split('/')[1]
-			// 		}
-			// 		this.showMenu = false;
-			// 	},
-			// },
+			watch: {
+				$route(to, from) {
+					this.menu.menuShow = false
+					// 		var menuClass = document.getElementById('menu');
+					// 		menuClass.classList.remove('active');
+					// 		var now = this.$route.path;
+					// 		if (this.$route.path == "/") {
+					// 			this.nowPath = 'index';
+					// 		} else {
+					// 			this.nowPath = now.split('/')[1]
+					// 		}
+					// 		this.showMenu = false;
+				},
+			},
 			methods: {
 				menuHandler() {
 					this.menu.menuShow = !this.menu.menuShow
 				},
-				menuList(str) {
+				menuList(outside, inside) {
 					// console.log(this);
-					if (str == null) {
-						this.menu.menuSecShow = str;
-					} else if (this.menu.menuSecShow == str) {
+					if (outside == inside) {
+						this.menu.menuSecShow = outside
+					} else if (outside == 'noinside') {
 						this.menu.menuSecShow = null
-					} else {
-						this.menu.menuSecShow = str;
+					} else if (outside == this.menu.menuSecShow) {
+						this.menu.pageShow = inside
+					} else if (outside !== this.menu.menuSecShow) {
+						this.menu.menuSecShow = outside
 					}
+					// if (str == null) {
+					// 	this.menu.menuSecShow = str;
+					// } else if (this.menu.menuSecShow == str) {
+					// 	this.menu.menuSecShow = null
+					// } else {
+					// 	this.menu.menuSecShow = str;
+					// }
 				},
 			},
 			computed: {
