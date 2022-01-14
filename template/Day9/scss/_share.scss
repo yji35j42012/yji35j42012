@@ -181,7 +181,9 @@
     }
 }
 
-.container {
+.ma_main {
+    position: relative;
     width: 100%;
     height: calc(100% - 60px);
+    background-color: #f2f2f2;
 }
