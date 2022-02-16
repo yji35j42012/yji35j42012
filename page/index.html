@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		/* fallback */
+		@font-face {
+			font-family: 'Material Icons';
+			font-style: normal;
+			font-weight: 400;
+			src: url(https://fonts.gstatic.com/s/materialicons/v121/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2) format('woff2');
+		}
+
+		.material-icons {
+			font-family: 'Material Icons';
+			font-weight: normal;
+			font-style: normal;
+			font-size: 24px;
+			line-height: 1;
+			letter-spacing: normal;
+			text-transform: none;
+			display: inline-block;
+			white-space: nowrap;
+			word-wrap: normal;
+			direction: ltr;
+			-webkit-font-feature-settings: 'liga';
+			-webkit-font-smoothing: antialiased;
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		html,
+		body {
+			width: 100%;
+			height: 100%;
+		}
+
+		.wrap {
+			display: flex;
+			justify-content: center;
+			align-content: center;
+			flex-wrap: wrap;
+			width: 100%;
+			height: 100%;
+		}
+
+		.pageNum {
+			display: block;
+			width: 100%;
+			text-align: center;
+			margin-bottom: 20px;
+		}
+
+		.page {
+			display: flex;
+		}
+
+		.page li {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 25px;
+			height: 25px;
+			border: 1px solid #ccc;
+			border-radius: 50%;
+		}
+
+		.page li.on {
+			background-color: #ccc;
+		}
+
+		.page li+li {
+			margin-left: 5px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="app" class="wrap">
+		<div class="pageNum">
+			現在頁數：{{nowPageNum}}
+		</div>
+		<div class="pageNum">
+			餘數：{{showPage}}
+		</div>
+		<ul class="page">
+			<li>
+				<span class="material-icons">
+					chevron_left
+				</span>
+			</li>
+			<li :class="['page_li' , nowPageNum==item ? 'on' : '']" v-for="(item,index) in showPage" :key="index"
+				@click="chanPage(item)">
+				{{item == 'more' ? '...' : item}}
+			</li>
+			<li>
+				<span class="material-icons">
+					chevron_right
+				</span>
+			</li>
+		</ul>
+	</div>
+
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.2/vue.js'
+		integrity='sha512-9cBpxTrWHJC8JqDUn0uJpGWG80V3DiGiu2u1YHt2EqF+qloD6IvkOJaIZOdGBOTy0BisjueoEyG7vsdEYlmi4g=='
+		crossorigin='anonymous'></script>
+	<script>
+		let data = {
+			msg: 'app',
+			page: 6,
+			nowPageNum: 1
+		}
+		let vue = new Vue({
+			el: '#app',
+			data: data,
+			computed: {
+				showPage() {
+					// let show = [1, 2, '...', 5, 6]
+					let show = []
+					let page = this.page
+					let nowPageNum = this.nowPageNum
+					// let show = parseInt(page) % 5
+					// console.log('餘數', show);
+					if (page > 5) {
+						// nowPageNum * 5  1*5 = 5
+						// nowPageNum * 5  2*5 = 10
+						if (nowPageNum * 5 < page) {
+							for (let i = nowPageNum; i < nowPageNum + 2; i++) {
+								show.push(i)
+							}
+							show.push('more')
+							for (let i = page; i < page + 2; i++) {
+								show.push(i - 1)
+							}
+						} else {
+							for (let i = page; i < page + 5; i++) {
+								show.push(i-4)
+							}
+							// show = [2, 3, 4, 5, 6]
+						}
+
+						// // 1
+						// show = [1, 2, 'more', 5, 6]
+						// // 2
+						// show = [2, 3, 4, 5, 6]
+						// // 6
+						// show = [1, 2, 'more', 5, 6]
+
+					} else {
+						for (let i = 0; i < page; i++) {
+							show.push(i + 1)
+						}
+					}
+					return show;
+					// 13 % 5
+				}
+			},
+			methods: {
+				chanPage(num) {
+					if (num == 'more') return
+					console.log('num', num);
+					this.nowPageNum = num
+				}
+			}
+		})
+	</script>
+</body>
+
+</html>
