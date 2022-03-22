@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+        body{
+            overflow: hidden;
+        }
+        .wrap {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        #btn{
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap" >
+        <button id="btn">aaaaa</button>
+        <div style="height: 2000px">
+
+        </div>
+    </div>
+
+    <script>
+        
+        var w = document.querySelector(".wrap");
+        console.log('w', document.querySelector(".mem_container").scrollTop);
+
+        var btn = document.getElementById('btn');
+        console.log(btn);
+        btn.addEventListener("click",function(){
+            console.log('w', w.scrollTop);
+            
+        })
+
+    </script>
+</body>
+
+</html>

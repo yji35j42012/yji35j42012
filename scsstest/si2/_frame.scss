@@ -1,0 +1,61 @@
+.frame{
+    width: 100%;
+    height: 100%;
+
+    // menu .frame__header
+    &__menu{
+        height: 35px;
+    }
+
+    // 主內容 .frame__main
+    &__main{
+        @include d_f(flex, unset, flex-start);
+        height: calc(100% - 35px);
+
+        // 左邊list .frame__main__list
+        &__list{
+            @extend %transition;
+            @include scrollbar(hidden, auto);
+            flex: 0 0 170px;
+            height: 100%;
+
+            // 左邊list收起
+            @at-root .--list_close .frame__main__list{
+                flex: 0;
+            }
+        }
+
+        // 開關list btn .frame__main__btn
+        &__btn{
+            position: relative;
+            flex: 0 0 10px;
+            height: 100%;
+            background: map-get($bg_color, bluegreen);
+
+            &::after{
+                @include pos_a(tlb, 0);
+                @include triangle(10px, map-get($bg_color, primary), left, 1);
+                content: '';
+                border-top-width: 15px;
+                border-bottom-width: 15px;
+                margin: auto;
+            }
+
+            // 左邊list收起
+            @at-root .--list_close .frame__main__btn{
+
+                &::after{
+                    border-right-width: 0;
+                    border-left: 10px solid map-get($bg_color, primary);
+                }
+            }
+        }
+
+        // 右邊盤面 .frame__main__market
+        &__market{
+            @extend %transition;
+            flex: 1 1 100%;
+            height: 100%;
+        }
+    }
+}

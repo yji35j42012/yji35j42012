@@ -1,0 +1,408 @@
+// 盤面控制btn
+.control_btn{
+	@include d_f(flex, center, flex-start);
+	padding: 5px;
+	text-align: center;
+
+	li {
+		min-width: 60px;
+		padding: 5px;
+		background: map-get($btn_color, darkblue);
+		color: map-get($txt_color, white);
+
+		&+ li{
+			border-left: 1px solid map-get($bg_color, blue);
+		}
+
+		&:first-child{
+			@include radius(5px 0 0 5px);
+		}
+
+		&:last-child{
+			@include radius(0 5px 5px 0);
+		}
+
+		// 手指效果
+		@include hoverHandler{
+			opacity: 0.8;
+		}
+	}
+}
+
+// 羽毛球表格架構
+.market_BMall {
+	border: 1px solid map-get($bg_color, blue);
+}
+.market_BMbox{
+	@include d_f(flex, unset, flex-start);
+
+	// 盤面title
+	&.--head{
+		>div{
+			padding: 5px;
+			background: map-get($bg_color , secondary);
+			border-left: 1px solid map-get($bg_color , white);
+			font-size: 13px;
+			text-align: center;
+		}
+	}
+
+	
+
+	// 盤面賽事
+	&.--body{
+		&:first-child{
+			border-bottom: 1px solid map-get($bg_color, blue);
+		}
+		&+ .--body{
+			border-top: 1px solid map-get($bg_color, blue);
+		}
+
+		.td_1st{
+			@include d_f(flex, center, center);
+			flex-direction: column;
+			
+			>span{
+				padding: 5px 3px;
+				font-weight: bold;
+			}
+		}
+
+		>div.--closed{
+			background: map-get($bg_color, lightgray);
+		}
+		
+		>div + div {
+			border-left: 1px solid map-get($bg_color, blue);
+		}
+	}
+
+	// 盤面內表格
+	&__tb{
+		width: 100%;
+		height: 100%;
+		text-align: right;
+
+		th,
+		td{
+			padding: 3px;
+		}
+		th{
+			height: 30px;
+			background: map-get($bg_color, primary);
+			border-bottom: 1px solid map-get($bg_color, blue);
+			font-weight: bold;
+			text-align: left;
+		}
+	}
+}
+
+
+// 籃球表格架構
+.market_BKall {
+	@include d_f(flex, unset, unset);
+	border-left:1px solid map-get($bg_color, black);
+
+	+.market_BKall{
+		border-top: 0;
+	}
+}
+.market_BKbox{
+	position: relative;
+	border-color: map-get($bg_color, black);
+	border-width: 0 1px 1px 0;
+	border-style: solid;
+	flex:none;
+	
+	.arrR_btn,
+	.arrL_btn {
+		@include pos_a(tr, 2px, 2px);
+		width: 15px;
+		height: 15px;
+		background: url(../images/control/icon_arrBtn.png) no-repeat;
+		z-index: 1;
+
+		@include hoverHandler{
+			opacity: .7;
+		}
+
+		&.--active{
+			background-position: right center;
+		}
+	}
+
+	.arrL_btn{
+		left: 2px;
+		background-position: right center;
+
+		&.--active {
+			background-position: left center;
+		}
+	}
+
+	// .market_BKbox__div
+	&__div{
+		@include d_f(flex, center, space-between);
+		height: 100%;
+		flex-direction: column;
+
+		.odd {
+			width: 100%;
+			height: 50%;
+			text-align: right;
+			table-layout: fixed;
+			
+			+.odd{
+				border-top: 1px solid map-get($bg_color, black);
+			}
+
+			td {
+				padding: 0 3px;
+			}
+		}
+
+		li {
+			@include d_f(flex, center, center);
+			margin-bottom: 3px;
+			text-align: center;
+
+			@at-root .market_BKbox__div .team li {
+				@include omission(1, 18px);
+			}
+		}
+	}
+
+	
+
+	.odd_box{
+		min-width: 30px;
+		height: 18px;
+		padding: 0 2px;
+		border: 1px solid map-get($bg_color, black);
+		border-right: 0;
+		color: map-get($txt_color, gray);
+		text-align: right;
+	}
+
+	code+code {
+		border-left: 1px solid map-get($bg_color, black);
+	}
+
+	// head
+	@at-root .--head .market_BKbox {
+		&::before{
+			content: attr(data-txt);
+			display: block;
+			width: 100%;
+			padding: 3px 5px;
+			background: map-get($bg_color, lightblue);
+			border-top: 1px solid map-get($bg_color, black);
+			border-bottom: 1px solid map-get($bg_color, black);
+			color: map-get($txt_color, black);
+			font-size: 12px;
+			text-align: center;
+		}
+
+		.market_BKbox__div {
+			height: calc(100% - 22px);
+		}
+	}
+
+	// DB Dashboard
+	.dashB{
+		@include d_f(inline-flex, unset, flex-start);
+		width: 50%;
+		height: 50%;
+		background: map-get($bg_color, white);
+
+		&:nth-child(3),
+		&:nth-child(4) {
+			border-top: 1px solid map-get($bg_color, black);
+		}
+
+		// 扣掉第一行標題高
+		@at-root .--head .dashB{
+			height: calc((100% - 22px) / 2);
+		}
+
+		// .dashB__aside
+		&__aside{
+			@include d_f(flex, center, center);
+			flex:none;
+			width: 15px;
+			background: map-get($bg_color, lightgray);
+			border-right: 1px solid map-get($txt_color, black);
+			font-size: 12px;
+			font-weight: bold;
+			word-break: break-all;
+			text-align: center;
+
+			@at-root .dashB:nth-child(even) .dashB__aside {
+				border-left: 1px solid map-get($bg_color, black);
+			}
+		}
+
+		// .dashB__main
+		&__main{
+			position: relative;
+			flex: 1 1 100%;
+
+			// .dashB__main__bg 寬度=顏色
+			// @mixin bgcGet($bgnum,$name,$have) {
+			//     @if $bgnum<=30 {
+			//         background: if($have, map-get($bg_color, #{$name}_01),map-get($bg_color, #{$name}_03));
+			//     }
+			//     @else if $bgnum<=51 {
+			//         background: map-get($bg_color, #{$name}_02);
+			//     }
+			//     @else if $bgnum<=100 {
+			//         background: if($have, map-get($bg_color, #{$name}_03), map-get($bg_color, #{$name}_01));
+			//     }
+			// }
+
+			// @for $bgnum from 1 through 100 {
+			//     .home.w#{$bgnum} {
+			//         @include bgcGet($bgnum,'home', true);
+			//     }
+
+			//     .w#{$bgnum}+.away {
+			//         @include bgcGet($bgnum,'away', false);
+			//     }
+			// }
+
+			// .dashB__main__bg ％數=顏色
+			@mixin bgcGet($bgnum, $name) {
+				@if $bgnum<=30 {
+					background: map-get($bg_color, #{$name}_01);
+				}
+				@else if $bgnum<=70 {
+					background: map-get($bg_color, #{$name}_02);
+				}
+				@else if $bgnum<=100 {
+					background: map-get($bg_color, #{$name}_03);
+				}
+			}
+
+			@for $bgnum from 1 through 100 {
+				.home.bg_color#{$bgnum} {
+					@include bgcGet($bgnum, home);
+				}
+
+				.away.bg_color#{$bgnum} {
+					@include bgcGet($bgnum, away);
+				}
+			}
+
+			
+			&__bg{
+				@include d_f(flex, unset, flex-start);
+				height: calc(100% - 15px);
+
+				.redLine{
+					@include pos_a(tl, 0);
+					width: 3px;
+					height: calc(100% - 16px);
+					background: map-get($bg_color, red);
+					z-index: 1;
+
+					&[style="left:0%"]{
+						display: none;
+					}
+				}
+				
+				.home{
+					position: relative;
+					height: 100%;
+					display: block;
+
+					&:not(.w0)::before {
+						@include pos_a(tr, 0);
+						content: '';
+						width: 1px;
+						height: 100%;
+						background: map-get($bg_color, black);
+						z-index: 1;
+					}
+					&:not(.w0)::after {
+						@include pos_a(tr, 33%, -5px);
+						content: 'S';
+						font-size: 16px;
+						font-weight: bold;
+						margin: auto;
+						z-index: 1;
+					}
+				}
+				.away {
+					height: 100%;
+					display: block;
+					flex: 1;
+				}
+			}
+
+			// .dashB__main__line 線段
+			&__line{
+				@include pos_a(tl, 0);
+				@include d_f(flex, unset, flex-start);
+				width: 100%;
+				height: calc(100% - 15px);
+				border-bottom: 1px solid map-get($bg_color, black);
+
+				li{
+					position: relative;
+					width: calc(100% / 20);
+					
+					&:not(:last-child) {
+						border-right: 1px solid map-get($bg_color, white);
+					}
+
+					&::before{
+						@include pos_a(tl, calc(100% + 2px), 4px);
+						content: attr(data-txt);
+						font-size: 12px;
+						margin: auto;
+					}
+				}
+
+			}
+		}
+	}
+	
+	// Provider欄位
+	&:last-child .market_BKbox__div{
+		padding-top: 5px;
+	}
+
+	//dashborad欄位
+	&.--dashboard{
+		display: flex;
+		flex-wrap: wrap;
+
+	}
+}
+
+//球頭修正欄位
+.agloTable{
+	border-collapse: separate;
+	border-spacing: 2px;
+	background: map-get($bg_color , white);
+	th{
+		position: relative;
+		color:#fff;
+		background: map-get($bg_color , algoTB_th);
+		height: 20px;
+		.close_btn{
+			@include pos_a(tbr,0);
+		}
+	}
+	td{
+		padding: 2px 5px;
+	}
+	tr{
+		&:nth-child(even){
+			background: map-get($bg_color , algoTB_tr01);
+		}
+		&:nth-child(odd){
+			background: map-get($bg_color , algoTB_tr02);
+		}
+	}
+}

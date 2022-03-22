@@ -1,0 +1,87 @@
+// 字體顏色
+$txt_color:(
+    primary: #222,
+    blue: #00f,
+    red: #f00,
+    white:#fff,
+    green: #090,
+    gray: #999,
+    darkgray: #333,
+    yellow:rgb(254,201,61),
+);
+
+// 背景色
+$bg_color:(
+    primary: #56D1CB,
+    secondary: #fcc,  
+    white: #fff,  
+    black: #000,
+    red: #f00,
+    darkred: #8D2810,
+    yellow: #fff5c5,
+    pink: #f4989a,
+    green: #090,
+    blue: #0153C0,
+    lightblue:#96ccfd,
+    middblue: #3399FF,
+    bluegreen: #cffefd,
+    purple:#6666cc,
+    gameClose:#cccccc,
+    gray: #999,
+    lightgray: #e1e1e1,
+    darkgray: #666,
+    alert_title: #3F659F,
+    alert_bg: #AABFCD,
+    home_01: #D9E1F3,
+    home_02: #90A9DD,
+    home_03: #234E79,
+    away_01: #E2EFD9,
+    away_02: #A9CF8A,
+    away_03: #014000,
+    BKdash_01:#0081d7,
+    BKdash_02:#00a5ef,
+    BKdash_03:#70c6eb,
+    BKdash_04:#ffffa1,
+    BKdash_05:#ffd876,
+    BKdash_06:#ffaf63,
+    BKdash_07:#ffa33e,
+    BKdash_08:#e75d4c,
+    algoTB_th:#4d73be,
+    algoTB_tr01:#b7c6e4,
+    algoTB_tr02:#dbe1f2,
+    loading_BG:#f3f3f3,
+    loading_txtBG:#911103,
+);
+
+// 按鈕色
+$btn_color:(
+    primary: linear-gradient(to top, #ccc 0%, #f6f6f6 50%),
+    primary_hover: linear-gradient(to bottom, #ccc 0%, #f6f6f6 50%),
+    red: linear-gradient(to bottom, #e72805 , #c22306),
+    blue: linear-gradient(to bottom, #3390b8 , #1f3d83),
+    green:linear-gradient(to bottom, #00bb2c , #00811e),
+    lightblue: linear-gradient(to bottom, #cde0ef,#5bb9dc),
+    lightblue_vl: linear-gradient(to top, #cde0ef,#5bb9dc),
+    darkblue: linear-gradient(to bottom, #0055A9 0%,#003083 100%),
+    gray: #e2e2e2,
+);
+
+
+
+// 顏色class
+@each $name, $value in $txt_color {
+    .txt_#{$name} {
+        color: $value !important;
+    }
+}
+@each $name, $value in $bg_color {
+    .bg_#{$name} {
+        background: $value !important;
+    }
+}
+//dashboard等級顏色
+// @for $num from 1 through 8{
+//     .BKdash_0#{$num}{
+//         background: map-get($bg_color , BKdash_0#{$num});
+//     }
+// }

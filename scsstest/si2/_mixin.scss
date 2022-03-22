@@ -1,0 +1,291 @@
+// 常用設定
+// 動畫
+%transition {
+	transition: all .3s ease-in-out;
+}
+
+// 定位
+@function pos-chtext($data) {
+    @if $data=='T' {
+        @return top;
+    }
+    @else if $data=='R' {
+        @return right;
+    }
+    @else if $data=='B' {
+        @return bottom;
+    }
+    @else if $data=='L' {
+        @return left;
+    }
+}
+@mixin pos_a ($direction, $val...) {
+	position: absolute;
+
+    $result: ();
+    $data: to-upper-case($direction);
+    @for $i from 1 through str-length($data) {
+        $result: append($result, str-slice($data, $i, $i));
+        #{pos-chtext(nth($result, $i))}:#{if(length($val)==1,$val,nth($val,$i))};
+    }
+}
+
+@mixin d_f($flex, $ai, $jc) {
+	display: $flex;
+	align-items: $ai;
+	justify-content: $jc;
+}
+
+// 左右置中
+$align: (
+    c: center,
+    l: left,
+	r: right,
+
+);
+@each $name, $value in $align {
+	.txt#{$name} {
+		text-align: $value !important;
+	}
+}
+
+// 多行縮字點點點
+@mixin omission($line, $height) {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: $line;
+	overflow: hidden;
+	max-height:$height;
+}
+// scroll
+@mixin scrollbar($x, $y, $open:touch) {
+	overflow-x: $x;
+	overflow-y: $y;
+	-webkit-overflow-scrolling: $open;
+}
+
+// 自定義
+// 圓角
+@mixin radius($size: 2px){
+	border-radius: $size;
+}
+// 勾勾
+@mixin checktick($box, $xy, $boder, $bg) {
+	@extend %hand;
+	@include d_f(inline-flex, center, flex-start);
+	position: relative;
+
+	input{
+        display: none;
+    }
+
+	span{
+		@include radius();
+		position: relative;
+		display: inline-block;
+        width: $box;
+        height: $box;
+        background: $bg;
+		border: 1px solid map-get($bg_color , gray);
+        margin: 2px;
+
+		&::before{
+			@include pos_a(tl, $xy);
+			content: none;
+			display: block;
+			width: ($box / 2);
+			height: ($box / 3);
+			border-width: 0 0 $boder $boder;
+			border-style:  solid;
+			border-color: map-get($bg_color , white);
+			transform: rotate(-48deg);
+		}
+	}
+	
+
+	input:checked + span{
+		background: map-get($bg_color, blue);
+		border-color: map-get($bg_color , blue);
+	}
+
+	input:checked + span::before{
+		content: '';
+	}
+	
+}
+
+// 單選圓圈
+@mixin radio($box, $bg) {
+    @extend %hand;
+	@include d_f(inline-flex, center, flex-start);
+
+	input{
+        display: none;
+    }
+
+	span{
+        position: relative;
+        width: $box;
+        height: $box;
+        display: block;
+        background: map-get($bg_color, white);
+		border: 1px solid map-get($bg_color , gray);
+		border-radius: $box;
+        margin-right: 5px;
+
+        &::before{
+            @include pos_a(trbl, 0);
+            content: none;
+            width: calc(100% - 4px);
+            height: calc(100% - 4px);
+            background: $bg;
+			border-radius: 100%;
+            margin: auto;
+        }
+    }
+
+	input:checked + span::before{
+		content: '';
+	}
+}
+
+// 三角形
+@mixin triangle ($size, $color, $align, $type: 0.8666666) {
+	height: 0;
+	width: 0;
+
+	@if $align==top {
+		border-bottom: ($size * $type) solid $color;
+		border-left: ($size / 2) solid transparent;
+		border-right: ($size / 2) solid transparent;
+	}
+
+	@else if $align==right {
+		border-left: ($size * $type) solid $color;
+		border-top: ($size / 2) solid transparent;
+		border-bottom: ($size / 2) solid transparent;
+	}
+
+	@else if $align==bottom {
+		border-top: ($size * $type) solid $color;
+		border-left: ($size / 2) solid transparent;
+		border-right: ($size / 2) solid transparent;
+	}
+
+	@else if $align==left {
+		border-right: ($size * $type) solid $color;
+		border-top: ($size / 2) solid transparent;
+		border-bottom: ($size / 2) solid transparent;
+	}
+
+	@else if $align==right-top {
+		border-right: $size solid $color;
+		border-bottom: $size solid transparent;
+	}
+
+	@else if $align==left-top {
+		border-left: $size solid $color;
+		border-bottom: $size solid transparent;
+	}
+
+	@else if $align==right-bottom {
+		border-right: $size solid $color;
+		border-top: $size solid transparent;
+	}
+
+	@else if $align==left-bottom {
+		border-left: $size solid $color;
+		border-top: $size solid transparent;
+	}
+}
+
+// 手指hover相關
+// 一般
+[class*="_btn"]:not(:disabled),
+.hand,
+%hand {
+	cursor: pointer;
+}
+.no_hand,
+%no_hand {
+	cursor: default;
+	transition: none;
+}
+
+// 一般滑過
+@mixin hoverHandler {
+	@media (pointer: fine) and (max-resolution: 2dppx),
+	screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2),
+	(-moz-touch-enabled: 0) {
+		&:hover {
+			&:not(:disabled):not(.--on){
+				@content;
+			}
+		}
+	}
+	&:active {
+		&:not(:disabled):not(.--on){
+			@content;
+		}
+	}
+
+	transition: all .3s ease-in-out;
+}
+
+.hand{
+	@include hoverHandler{
+		opacity: 0.8;
+	}
+}
+
+// 寬度設定
+$num: 100; 
+@while $num > 0 {
+	.w#{$num} {
+		width: $num * 1%;
+	}
+	.w#{$num}_5 {
+		width: $num * 1% + 0.5;
+	}
+	.w#{$num}px {
+		width: $num + px !important;
+	}
+
+	$num: $num - 1;
+}
+
+// 距離設定
+$direction: (
+    t: top,
+    r: right,
+	b: bottom,
+	l: left,
+
+);
+@each $name, $value in $direction{
+	@for $num from 2 through 20 {
+		.m#{$name}#{$num} {
+			margin-#{$value}: $num + px;
+		}
+	}
+}
+
+// si2控端組件
+// 上下左右線段生成
+@each $name, $value in $direction {
+	.line_#{$name} {
+		border-#{$value}: 1px solid map-get($bg_color, blue);
+	}
+}
+
+// icon設定
+$icon: (
+	// 'redClose',
+	// 'rightPush',
+);
+@each $name in $icon {
+	.icon_#{$name} {
+		display: inline-block;
+		background:url(../images/control/icon_#{$name}.svg) no-repeat center / contain;
+	}
+}
