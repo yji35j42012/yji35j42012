@@ -40,7 +40,6 @@ $bg_color: (
 
 // @extend .error;
 @for $DBnum from 0 through 100 {
-	$count: 0;
 	// .BKdash_#{$DBnum} {
 	//     // @include DBcolor($DBnum);
 	//     @if $DBnum <=30 {
