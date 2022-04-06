@@ -121,6 +121,10 @@
 			background-color: #c3bef7;
 			border: 1px solid #3f2e56;
 		}
+
+		.chose {
+			background-color: rgb(105, 194, 73);
+		}
 	</style>
 </head>
 
@@ -128,14 +132,14 @@
 	<div id="app" class="wrap">
 		<div>
 			<div>
-				<p>起始日期</p>
+				<p>起訖日期</p>
 				<span @click="showCalendar('start')">{{calendar.showDate.start}}</span>
 				<span @click="showCalendar('end')">{{calendar.showDate.end}}</span>
 			</div>
 		</div>
 		<div class="calendar" v-if="calendar.show">
 			<div class="calendar_head">
-				<span id="prev" class="material-icons calendar_head_prev" @click="prevMon">
+				<span id="prev" class="material-icons calendar_head_prev" @click="prevMonth">
 					arrow_back_ios
 				</span>
 				<div class="calendar_head_info">
@@ -144,7 +148,7 @@
 					</div>
 					<div id="year" class="year">{{calendar.year.search }}</div>
 				</div>
-				<span id="next" class="material-icons calendar_head_next" @click="nextMon">
+				<span id="next" class="material-icons calendar_head_next" @click="nextMonth">
 					arrow_forward_ios
 				</span>
 			</div>
@@ -161,9 +165,9 @@
 						<th>日</th>
 					</tr>
 					<tr v-for="(item , index) in calendar_list">
-						<td v-for="(itemTd , i) in item" @click="calendarHandler(itemTd.year,itemTd.mon , itemTd.day)"
-							:name="itemTd.mon == calendar.month.search ?'calendar_td' : 'other'+itemTd.day "
-							:data-y="itemTd.year" :data-m="itemTd.mon" :data-d="itemTd.day">
+						<td v-for="(itemTd , i) in item" @click="dayChange(itemTd.year,itemTd.month , itemTd.day)"
+							:name="itemTd.month == calendar.month.search + 1 ?'calendar_td' : 'other'+itemTd.day "
+							:data-y="itemTd.year" :data-m="itemTd.month" :data-d="itemTd.day">
 							{{itemTd.day}}
 						</td>
 					</tr>
@@ -180,8 +184,6 @@
 			el: "#app",
 			data() {
 				return {
-					// func: null,
-					// show: false,
 					calendar: {
 						show: false,
 						olympic: [
@@ -248,11 +250,15 @@
 					if (str == 'start') {
 						var searchYear = this.calendar.showDate.start.split('/')[0]
 						var searchMonth = this.calendar.showDate.start.split('/')[1]
+						var searchDay = this.calendar.showDate.start.split('/')[2]
 					} else if (str == 'end') {
 						var searchYear = this.calendar.showDate.end.split('/')[0]
 						var searchMonth = this.calendar.showDate.end.split('/')[1]
+						var searchDay = this.calendar.showDate.start.split('/')[2]
 					}
-					console.log('searchMonth', searchMonth);
+					this.calendar.year.chose = searchYear
+					this.calendar.month.chose = searchMonth
+					this.calendar.day.chose = searchDay
 
 					this.refreshDate(parseInt(searchYear), parseInt(searchMonth));
 				},
@@ -262,9 +268,12 @@
 					this.calendar.month.search = searchMonth - 1
 
 					var lastTotalDay = this.daysTotal(
-						searchMonth - 1 < 0 ? 0 : searchMonth - 1,
-						searchMonth
+						searchYear,
+						searchMonth - 1 < 0 ? 0 : searchMonth - 1
+
 					);//上月總天數
+
+
 					var totalDay = this.daysTotal(searchYear + 1911, searchMonth - 1); //當月總天數
 					var firstDay = this.dayStart(searchYear + 1911, searchMonth - 1); //當月第一天星期幾
 					var count = 0
@@ -279,6 +288,8 @@
 							day: lastTotalDay - firstDay + i + 1,
 						});
 					}
+
+
 					// 本月份
 					for (var i = 1; i <= totalDay; i++) {
 						if (count == 7) {
@@ -310,12 +321,34 @@
 					}
 					this.calendar.showTd.push(this.calendar.mList);
 					this.calendar.mList = [];
-
-
+					if (
+						this.calendar.year.chose == searchYear &&
+						this.calendar.month.chose == searchMonth
+					) {
+						setTimeout(() => {
+							var chose = document.querySelectorAll(
+								'[name="calendar_td"]'
+							);
+							chose[
+								this.calendar.day.chose - 1
+							].classList.add("chose");
+							this.calendar.mList = [];
+						}, 10);
+					} else {
+						var chose = document.querySelectorAll(
+							'[name="calendar_td"]'
+						);
+						for (let i = 0; i < chose.length; i++) {
+							chose[i].classList.remove("chose");
+						}
+					}
 
 				},
 				// 查訊月份總天數計算
 				daysTotal(year, month) {
+
+					console.log('daysTotal year', year);
+					console.log('daysTotal month', month);
 					var tmp = year % 4;
 					if (tmp == 0) {
 						return this.calendar.olympic[month];
@@ -328,13 +361,54 @@
 					var tmpDate = new Date(year, month, 1);
 					return tmpDate.getDay();
 				},
+				dayChange(year, month, day) {
+					console.log(year, month, day);
+					this.calendar.year.chose = year
+					this.calendar.month.chose = month
+					this.calendar.day.chose = day
+					this.calendar.year.search = year;
+					this.calendar.month.search = parseInt(month);
+					this.calendar.month.str = this.calendar.monthName[month];
+
+					// month = parseInt(month) + 1;
+					if (month == 0) {
+						month = 12
+					} else if (month == 13) {
+						month = 1
+					}
+					this.calendar.showDate.start = year + "/" + month + "/" + day;
+					this.calendar.show = false;
+				},
 				// 上一個月
-				prevMon() {
-					console.log("prevMon");
+				prevMonth() {
+					console.log("prevMonth");
+					this.calendar.showTd = [];
+					var searchYear = this.calendar.year;
+					var searchMonth = this.calendar.month;
+					if (searchMonth.search == 0) {
+						searchYear.search--;
+						searchMonth.search = 11;
+					} else {
+						searchMonth.search--;
+					}
+					// searchMonth.str = this.calendar.monthName[searchM.search];
+					this.refreshDate(searchYear.search, searchMonth.search + 1);
 				},
 				// 下一個月
-				nextMon() {
+				nextMonth() {
 					console.log("nextMon");
+					this.calendar.showTd = [];
+					var searchYear = this.calendar.year;
+					var searchMonth = this.calendar.month;
+					if (searchMonth.search == 11) {
+						searchYear.search++;
+						searchMonth.search = 0;
+					} else {
+						searchMonth.search++;
+					}
+					// searchM.str = this.calendar.monthName[searchM.search];
+					this.refreshDate(searchYear.search, searchMonth.search + 1);
+
 				},
 			},
 		});
