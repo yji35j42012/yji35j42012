@@ -1,241 +1,241 @@
 /* _hv = hover _ac = active _on = on */
 
 .dark {
-    /* header */
-    --headerBg: #1e2841;
-    --header_txtColor: #75829b;
-    --header_txt_hv: #ffffff;
-    --header_txt_ac: #ffffff;
-    --header_txtBg_ac: #6700f4;
-    --header_cashColor: #30dff2;
-    /* 下方menu */
-    --menuB_betBg: #6700f4;
-    --menuB_betBg_hv: #7c1fff;
-    --menuB_betBg_ac: #5500cc;
-    --menuB_btnBg: #1e2841;
-    --menuB_btnBg_hv: rgba(255, 255, 255, 0.1);
-    --menuB_btnBg_ac: rgba(255, 255, 255, 0.1);
-    --menuB_btnColor: #ffffff;
-    --menuB_btnColor_ac: #30dff2;
-    --menuB_btnColor_on: #30dff2;
-    /* 首頁sport按鈕 */
-    --home_sportBtnBg: rgba(255, 255, 255, 0.1);
-    --home_sportBtnColor_ac: #30dff2;
-    --home_sportBtnBorder: rgba(255, 255, 255, 0.1);
-    --home_sportBtnBorder_hv: #30dff2;
-    --home_sportBtnBorder_ac: #30dff2;
-    --home_sportIconBg: #1e2841;
-    --home_sportIconBg_ac: rgba(255, 255, 255, 0.1);
+	/* header */
+	--headerBg: #1e2841;
+	--header_txtColor: #75829b;
+	--header_txt_hv: #ffffff;
+	--header_txt_ac: #ffffff;
+	--header_txtBg_ac: #6700f4;
+	--header_cashColor: #30dff2;
+	/* 下方menu */
+	--menuB_betBg: #6700f4;
+	--menuB_betBg_hv: #7c1fff;
+	--menuB_betBg_ac: #5500cc;
+	--menuB_btnBg: #1e2841;
+	--menuB_btnBg_hv: rgba(255, 255, 255, 0.1);
+	--menuB_btnBg_ac: rgba(255, 255, 255, 0.1);
+	--menuB_btnColor: #ffffff;
+	--menuB_btnColor_ac: #30dff2;
+	--menuB_btnColor_on: #30dff2;
+	/* 首頁sport按鈕 */
+	--home_sportBtnBg: rgba(255, 255, 255, 0.1);
+	--home_sportBtnColor_ac: #30dff2;
+	--home_sportBtnBorder: rgba(255, 255, 255, 0.1);
+	--home_sportBtnBorder_hv: #30dff2;
+	--home_sportBtnBorder_ac: #30dff2;
+	--home_sportIconBg: #1e2841;
+	--home_sportIconBg_ac: rgba(255, 255, 255, 0.1);
 
-    /* 外層盤面sport按鈕 */
-    --game_sportBtnColor: rgba(255, 255, 255, 0.45);
-    --game_sportBtnColor_hv: #ffffff;
-    --game_sportBtnColor_ac: #ffffff;
-    --game_sportBtnBg_ac: rgba(255, 255, 255, 0.1);
-    --game_sportBtnColor_on: #30dff2;
-    /* 外層盤面標題、文字 */
-    --game_titleColor: #ffffff;
-    --game_roundColor: #30dff2; /* 第三輪 */
-    /* 外層盤面返回按鈕 */
-    --game_backBtnColor: #ffffff;
-    --game_backBtnBg_hv: rgba(255, 255, 255, 0.1);
-    --game_backBtnBg_ac: rgba(255, 255, 255, 0.45);
-    /* 盤口切換 (主要玩法 熱門玩法)*/
-    --game_lineBtnColor: #ffffff;
-    --game_lineBtnBg: #1e2841;
-    --game_lineBtnBg_hv: #2d3c62;
-    --game_lineBtnBg_ac: #131a2a;
-    --game_lineBtnBg_on: #6700f4;
-    /* 賽事 冠軍 leg = leganc */
-    --game_legTabColor: #75829b;
-    --game_legTabColor_hv: #30dff2;
-    --game_legTabColor_ac: #30dff2;
-    --game_legTabBg_ac: rgba(255, 255, 255, 0.1);
-    --game_legTabBorder_on: #30dff2;
-    /* 聯盟標題 */
-    --game_legTitleColor: #ffffff;
-    --game_legTitleBg: #1e2841;
-    --game_legTitleBg_hv: #2d3c62;
-    --game_legTitleBg_ac: #131a2a;
-    --game_legParlayColor: #ffffff;
-    --game_legFlagBg: #ffffff;
-    /* 賽事資訊 */
-    --game_infoBg_hv: rgba(255, 255, 255, 0.1);
-    --game_infoBg_ac: rgba(255, 255, 255, 0.1);
-    --game_infoStart: #75829b;
-    --game_infoAway: #9ee835;
-    --game_infoInformation: #30dff2;
-    --game_infoTvColor: #ffffff;
-    --game_infoTvColor_hv: #30dff2;
-    --game_infoTvColor_ac: #30dff2;
-    --game_infoTvBg_ac: rgba(255, 255, 255, 0.1);
-    --game_infoCount: #ffffff;
-    --game_infoCount_hv: #30dff2;
-    --game_infoCount_ac: #30dff2;
-    --game_infoTime: #ffffff;
-    --game_infoTeam: #ffffff;
-    --game_infoScore: #fec12b;
-    --game_infoToss: #30dff2;
-    --game_infoRedCard: #d3655f;
-    /* obt */
-    --game_obtColor: #ffffff; /* 全部color */
-    --game_obtBg: #1e2841;
-    --game_obtBg_hv: #131a2a;
-    --game_obtColor_ac: #30dff2;
-    --game_obtBg_ac: #131a2a;
-    --game_obtColor_on: #30dff2;
-    /* video */
-    --game_videoColor: #75829b;
-    --game_videoColor_hv: #ffffff;
-    --game_videoColor_ac: #ffffff;
-    --game_videoColor_on: #ffffff;
-    --game_videoBg: #1e2841;
-    --game_videoBg_ac: #6700f4;
-    --game_videoBg_on: #6700f4;
+	/* 外層盤面sport按鈕 */
+	--game_sportBtnColor: rgba(255, 255, 255, 0.45);
+	--game_sportBtnColor_hv: #ffffff;
+	--game_sportBtnColor_ac: #ffffff;
+	--game_sportBtnBg_ac: rgba(255, 255, 255, 0.1);
+	--game_sportBtnColor_on: #30dff2;
+	/* 外層盤面標題、文字 */
+	--game_titleColor: #ffffff;
+	--game_roundColor: #30dff2; /* 第三輪 */
+	/* 外層盤面返回按鈕 */
+	--game_backBtnColor: #ffffff;
+	--game_backBtnBg_hv: rgba(255, 255, 255, 0.1);
+	--game_backBtnBg_ac: rgba(255, 255, 255, 0.45);
+	/* 盤口切換 (主要玩法 熱門玩法)*/
+	--game_lineBtnColor: #ffffff;
+	--game_lineBtnBg: #1e2841;
+	--game_lineBtnBg_hv: #2d3c62;
+	--game_lineBtnBg_ac: #131a2a;
+	--game_lineBtnBg_on: #6700f4;
+	/* 賽事 冠軍 leg = leganc */
+	--game_legTabColor: #75829b;
+	--game_legTabColor_hv: #30dff2;
+	--game_legTabColor_ac: #30dff2;
+	--game_legTabBg_ac: rgba(255, 255, 255, 0.1);
+	--game_legTabBorder_on: #30dff2;
+	/* 聯盟標題 */
+	--game_legTitleColor: #ffffff;
+	--game_legTitleBg: #1e2841;
+	--game_legTitleBg_hv: #2d3c62;
+	--game_legTitleBg_ac: #131a2a;
+	--game_legParlayColor: #ffffff;
+	--game_legFlagBg: #ffffff;
+	/* 賽事資訊 */
+	--game_infoBg_hv: rgba(255, 255, 255, 0.1);
+	--game_infoBg_ac: rgba(255, 255, 255, 0.1);
+	--game_infoStart: #75829b;
+	--game_infoAway: #9ee835;
+	--game_infoInformation: #30dff2;
+	--game_infoTvColor: #ffffff;
+	--game_infoTvColor_hv: #30dff2;
+	--game_infoTvColor_ac: #30dff2;
+	--game_infoTvBg_ac: rgba(255, 255, 255, 0.1);
+	--game_infoCount: #ffffff;
+	--game_infoCount_hv: #30dff2;
+	--game_infoCount_ac: #30dff2;
+	--game_infoTime: #ffffff;
+	--game_infoTeam: #ffffff;
+	--game_infoScore: #fec12b;
+	--game_infoToss: #30dff2;
+	--game_infoRedCard: #d3655f;
+	/* obt */
+	--game_obtColor: #ffffff; /* 全部color */
+	--game_obtBg: #1e2841;
+	--game_obtBg_hv: #131a2a;
+	--game_obtColor_ac: #30dff2;
+	--game_obtBg_ac: #131a2a;
+	--game_obtColor_on: #30dff2;
+	/* video */
+	--game_videoColor: #75829b;
+	--game_videoColor_hv: #ffffff;
+	--game_videoColor_ac: #ffffff;
+	--game_videoColor_on: #ffffff;
+	--game_videoBg: #1e2841;
+	--game_videoBg_ac: #6700f4;
+	--game_videoBg_on: #6700f4;
 
-    /* 日期選單 */
-    --game_dateColor: #ffffff;
-    --game_dateColor_ac: #ffffff;
-    --game_dateColor_on: #ffffff;
-    --game_dateBg: rgba(255, 255, 255, 0.1);
-    --game_dateBg_hv: rgba(255, 255, 255, 0.45);
-    --game_dateBg_ac: #6700f4;
-    --game_dateBg_on: #6700f4;
-    --game_dateBorder: rgba(255, 255, 255, 0.45);
-    --game_dateBorder_hv: #ffffff;
-    --game_dateBorder_ac: #ffffff;
-    --game_dateBorder_on: #6700f4;
-    /* 聯盟按鈕 */
-    --game_legBtnColor: #30dff2;
-    --game_legBtnBg_hv: rgba(255, 255, 255, 0.1);
-    --game_legBtnBg_ac: rgba(255, 255, 255, 0.1);
-    /* 聯盟多選按鈕 */
-    --game_legMultColor: #ffffff;
-    --game_legMultColor_hv: #30dff2;
-    --game_legMultColor_ac: #30dff2;
-    --game_legMultBorder: rgba(255, 255, 255, 0.45);
-    --game_legMultBorder_hv: #ffffff;
-    --game_legMultBorder_ac: #30dff2;
-    --game_legMultColor_on: #ffffff;
-    --game_legMultBg_on: #30dff2;
-    --game_legMultBorder_on: #30dff2;
-    /* 右側選單 */
-    --menuR_historyColor: #ffffff;
-    --menuR_historyColor_ac: #30dff2;
-    --menuR_historyBg: rgba(255, 255, 255, 0.1);
-    --menuR_historyBorder_hv: #ffffff;
-    --menuR_historyBorder_ac: #30dff2;
+	/* 日期選單 */
+	--game_dateColor: #ffffff;
+	--game_dateColor_ac: #ffffff;
+	--game_dateColor_on: #ffffff;
+	--game_dateBg: rgba(255, 255, 255, 0.1);
+	--game_dateBg_hv: rgba(255, 255, 255, 0.45);
+	--game_dateBg_ac: #6700f4;
+	--game_dateBg_on: #6700f4;
+	--game_dateBorder: rgba(255, 255, 255, 0.45);
+	--game_dateBorder_hv: #ffffff;
+	--game_dateBorder_ac: #ffffff;
+	--game_dateBorder_on: #6700f4;
+	/* 聯盟按鈕 */
+	--game_legBtnColor: #30dff2;
+	--game_legBtnBg_hv: rgba(255, 255, 255, 0.1);
+	--game_legBtnBg_ac: rgba(255, 255, 255, 0.1);
+	/* 聯盟多選按鈕 */
+	--game_legMultColor: #ffffff;
+	--game_legMultColor_hv: #30dff2;
+	--game_legMultColor_ac: #30dff2;
+	--game_legMultBorder: rgba(255, 255, 255, 0.45);
+	--game_legMultBorder_hv: #ffffff;
+	--game_legMultBorder_ac: #30dff2;
+	--game_legMultColor_on: #ffffff;
+	--game_legMultBg_on: #30dff2;
+	--game_legMultBorder_on: #30dff2;
+	/* 右側選單 */
+	--menuR_historyColor: #ffffff;
+	--menuR_historyColor_ac: #30dff2;
+	--menuR_historyBg: rgba(255, 255, 255, 0.1);
+	--menuR_historyBorder_hv: #ffffff;
+	--menuR_historyBorder_ac: #30dff2;
 
-    --menuR_languageColor: #ffffff;
-    --menuR_languageColor_ac: #30dff2;
-    --menuR_languageColor_on: #30dff2;
-    --menuR_languageBg: rgba(255, 255, 255, 0.1);
-    --menuR_languageBg_hv: #2d3c62;
-    --menuR_languageBg_ac: #131a2a;
-    --menuR_languageBg_on: rgba(255, 255, 255, 0.1);
-    --menuR_languageBorder_hv: rgba(255, 255, 255, 0.45);
-    --menuR_languageBorder_ac: rgba(255, 255, 255, 0.45);
-    /* 登出鈕 */
-    --menu_logoutColor: #ffffff;
-    --menu_logoutBg: #1e2841;
-    --menu_logoutBg_hv: #2d3c62;
-    --menu_logoutBg_ac: #131a2a;
-    /* 一搬輸入匡 */
-    --inputColor: #75829b;
-    --inputBorder: #75829b;
-    --inputBorder_hv: #30dff2;
-    --inputBorder_fc: #323b3c;
-    --inputBorder_va: #30dff2;
-    --inputErrBorder: #ec6e63;
-    --inputErrBorder_va: #ec6e63;
-    /* 核選方塊 */
-    --checkColor: #ffffff;
-    --checkBorder: rgba(255, 255, 255, 0.45);
-    --checkBorder_hv: #ffffff;
-    --checkBorder_ac: #30dff2;
-    --checkBg_chk: #30dff2;
-    --checkBorder_chk: #30dff2;
+	--menuR_languageColor: #ffffff;
+	--menuR_languageColor_ac: #30dff2;
+	--menuR_languageColor_on: #30dff2;
+	--menuR_languageBg: rgba(255, 255, 255, 0.1);
+	--menuR_languageBg_hv: #2d3c62;
+	--menuR_languageBg_ac: #131a2a;
+	--menuR_languageBg_on: rgba(255, 255, 255, 0.1);
+	--menuR_languageBorder_hv: rgba(255, 255, 255, 0.45);
+	--menuR_languageBorder_ac: rgba(255, 255, 255, 0.45);
+	/* 登出鈕 */
+	--menu_logoutColor: #ffffff;
+	--menu_logoutBg: #1e2841;
+	--menu_logoutBg_hv: #2d3c62;
+	--menu_logoutBg_ac: #131a2a;
+	/* 一搬輸入匡 */
+	--inputColor: #75829b;
+	--inputBorder: #75829b;
+	--inputBorder_hv: #30dff2;
+	--inputBorder_fc: #323b3c;
+	--inputBorder_va: #30dff2;
+	--inputErrBorder: #ec6e63;
+	--inputErrBorder_va: #ec6e63;
+	/* 核選方塊 */
+	--checkColor: #ffffff;
+	--checkBorder: rgba(255, 255, 255, 0.45);
+	--checkBorder_hv: #ffffff;
+	--checkBorder_ac: #30dff2;
+	--checkBg_chk: #30dff2;
+	--checkBorder_chk: #30dff2;
 
-    /* 下注單共同區塊 */
-    --bet_inputColor: #75829b;
-    --bet_inputBg: #ffffff;
-    --bet_inputBorder: #ffffff;
-    --bet_inputBorder_hv: #30dff2;
-    --bet_inputBorder_fc: #30dff2;
-    --bet_inputBorder_va: #30dff2;
-    --bet_inputErrColor: #75829b;
-    --bet_inputErrColor_va: #ec6e63;
-    --bet_inputErrBorder_va: #ec6e63;
+	/* 下注單共同區塊 */
+	--bet_inputColor: #75829b;
+	--bet_inputBg: #ffffff;
+	--bet_inputBorder: #ffffff;
+	--bet_inputBorder_hv: #30dff2;
+	--bet_inputBorder_fc: #30dff2;
+	--bet_inputBorder_va: #30dff2;
+	--bet_inputErrColor: #75829b;
+	--bet_inputErrColor_va: #ec6e63;
+	--bet_inputErrBorder_va: #ec6e63;
 
-    --bet_addBetColor: #ffffff;
-    --bet_addBetBg: #1e2841;
-    --bet_betBg: #6700f4;
-    --bet_betBg_hv: #7c1fff;
-    --bet_betBg_ac: #5500cc;
-    /* 下注單  */
-    --bet_blockColor: #ffffff; /* 通用色 */
-    --bet_scoreColor: #fec12b; /* 畫面上的(0-0) */
-    --bet_nameColor: rgba(255, 255, 255, 0.45); /* 畫面上的智利盃 */
-    --bet_maxbet: rgba(255, 255, 255, 0.45); /* 畫面上的可贏額 */
-    --bet_maxbetCount: #30dff2; /* 畫面上可贏額下面的數字 */
-    --bet_closeColor: rgba(255, 255, 255, 0.45);
+	--bet_addBetColor: #ffffff;
+	--bet_addBetBg: #1e2841;
+	--bet_betBg: #6700f4;
+	--bet_betBg_hv: #7c1fff;
+	--bet_betBg_ac: #5500cc;
+	/* 下注單  */
+	--bet_blockColor: #ffffff; /* 通用色 */
+	--bet_scoreColor: #fec12b; /* 畫面上的(0-0) */
+	--bet_nameColor: rgba(255, 255, 255, 0.45); /* 畫面上的智利盃 */
+	--bet_maxbet: rgba(255, 255, 255, 0.45); /* 畫面上的可贏額 */
+	--bet_maxbetCount: #30dff2; /* 畫面上可贏額下面的數字 */
+	--bet_closeColor: rgba(255, 255, 255, 0.45);
 
-    --bet_lockColor: #75829b;
-    --bet_lockBg: #131a2a;
-    --bet_lockBorder: #34446e;
+	--bet_lockColor: #75829b;
+	--bet_lockBg: #131a2a;
+	--bet_lockBorder: #34446e;
 
-    --bet_blockOddColor: #ffffff; /* 通用文字色 */
-    --bet_plusOddColor: #ec6e63; /* 正賠率 */
-    --bet_plusOddColor_on: #ffffff; /* 正賠率 */
-    --bet_minusOddColor: #13c1c1; /* 負賠率 */
-    --bet_minusOddColor_on: #ffffff; /* 負賠率 */
+	--bet_blockOddColor: #ffffff; /* 通用文字色 */
+	--bet_plusOddColor: #ec6e63; /* 正賠率 */
+	--bet_plusOddColor_on: #ffffff; /* 正賠率 */
+	--bet_minusOddColor: #13c1c1; /* 負賠率 */
+	--bet_minusOddColor_on: #ffffff; /* 負賠率 */
 
-    --bet_oddBg: #1e2841;
-    --bet_oddBg_hv: #2d3c62;
-    --bet_oddBg_on: #6700f4;
-    --bet_oddBorder: #34446e;
+	--bet_oddBg: #1e2841;
+	--bet_oddBg_hv: #2d3c62;
+	--bet_oddBg_on: #6700f4;
+	--bet_oddBorder: #34446e;
 
-    --bet_oddChangeBg: #485e99;
-    --bet_oddChangeBorder: #34446e;
+	--bet_oddChangeBg: #485e99;
+	--bet_oddChangeBorder: #34446e;
 
-    --bet_icon: #75829b;
-    --bet_icon_hv: #ffffff;
-    --bet_icon_ac: #ffffff;
+	--bet_icon: #75829b;
+	--bet_icon_hv: #ffffff;
+	--bet_icon_ac: #ffffff;
 
-    /* 帳戶歷史總攬 */
-    --history_th: #1e2841;
-    --history_td: rgba(255, 255, 255, 0.1);
-    /* 帳戶歷史內層 */
-    --history_blockColor: #ffffff; /* 通用色 */
-    --history_titleBg: #1e2841;
-    --history_team: rgba(255, 255, 255, 0.45); /* 梅里比拉 v 塔拉干特 */
-    --history_betcon: #fec12b; /* Team右邊數字(0.5) */
-    --history_scoreColor: #fec12b; /* 1-0 */
-    --history_winloss: #30dff2; /* 172.00 */
-    --bet_maxbetCount: #13c1c1; /* 畫面上可贏金額下面的數字 */
-    --history_cashout: #30dff2; /* 全部/部分兌現 */
-    --history_cancel: #ec6e63; /* 已取消 - 取消原因 */
-    /* 內層盤面 */
-    --more_blockColor: #ffffff; /* 通用色 */
-    --more_headBg: #1e2841;
-    --more_itemColor: #ec6e63;
-    --more_itemBg: #1e2841;
-    --more_itemBorder: #34446e;
-    --more_periodColor: #30dff2;
+	/* 帳戶歷史總攬 */
+	--history_th: #1e2841;
+	--history_td: rgba(255, 255, 255, 0.1);
+	/* 帳戶歷史內層 */
+	--history_blockColor: #ffffff; /* 通用色 */
+	--history_titleBg: #1e2841;
+	--history_team: rgba(255, 255, 255, 0.45); /* 梅里比拉 v 塔拉干特 */
+	--history_betcon: #fec12b; /* Team右邊數字(0.5) */
+	--history_scoreColor: #fec12b; /* 1-0 */
+	--history_winloss: #30dff2; /* 172.00 */
+	--bet_maxbetCount: #13c1c1; /* 畫面上可贏金額下面的數字 */
+	--history_cashout: #30dff2; /* 全部/部分兌現 */
+	--history_cancel: #ec6e63; /* 已取消 - 取消原因 */
+	/* 內層盤面 */
+	--more_blockColor: #ffffff; /* 通用色 */
+	--more_headBg: #1e2841;
+	--more_itemColor: #ec6e63;
+	--more_itemBg: #1e2841;
+	--more_itemBorder: #34446e;
+	--more_periodColor: #30dff2;
 
-    /* 計分板 */
-    --sBoard_blockColor: #ffffff; /* 通用色 */
-    --sBoard_infoBg: #1e1e30;
-    --sBoard_infoToss: #30dff2;
-    --sBoard_infoRedCard: #d3655f;
-    --sBoard_scoreColor: #ffff9f;
-    --sBoard_scoreDetailColor: #ffff9f;
-    --sBoard_periodColor: #ffff9f;
-    --sBoard_addTimeColor: #ffff9f;
-    --sBoard_stopColor: #ed4c5c;
+	/* 計分板 */
+	--sBoard_blockColor: #ffffff; /* 通用色 */
+	--sBoard_infoBg: #1e1e30;
+	--sBoard_infoToss: #30dff2;
+	--sBoard_infoRedCard: #d3655f;
+	--sBoard_scoreColor: #ffff9f;
+	--sBoard_scoreDetailColor: #ffff9f;
+	--sBoard_periodColor: #ffff9f;
+	--sBoard_addTimeColor: #ffff9f;
+	--sBoard_stopColor: #ed4c5c;
 
-    /* 彈窗 */
-    --popup_blockColor: #ffffff; /* 通用色 */
-    --popup_headBg: #1e2841;
-    --popup_closeColor: rgba(255, 255, 255, 0.45);
+	/* 彈窗 */
+	--popup_blockColor: #ffffff; /* 通用色 */
+	--popup_headBg: #1e2841;
+	--popup_closeColor: rgba(255, 255, 255, 0.45);
 }
