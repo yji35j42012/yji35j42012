@@ -1,0 +1,15 @@
+.wrap {
+    width: 100%;
+    height: 100%;
+    background-color: #fefefe;
+}
+
+.head {
+    width: 100%;
+    height: 60px;
+}
+
+.container{
+	width: 100%;
+	height: calc(100% - 60px);
+}

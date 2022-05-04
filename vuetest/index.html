@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="./style/css/all.css">
+</head>
+
+<body>
+
+	<div id="app" class="wrap">
+		<div class="head"></div>
+		<router-view></router-view>
+	</div>
+	<!-- 基本js -->
+	<script src="./js/libs/axios.js"></script>
+	<script src="./js/libs/vue_2_6_9.js"></script>
+	<script src="./js/libs/vue-router.js"></script>
+	<script src="./js/libs/http-vue-loader.js"></script>
+	<script src="./js/libs/vuex_3_0_1.js"></script>
+	<script src="./store/store.js"></script>
+	<!-- 基本js -->
+
+	<script>
+		const routes = [
+			{
+				path: "/",
+				components: {
+					default: httpVueLoader("./page/changeCalculator.vue"),
+				},
+			}
+			// },
+			// {
+			// 	path: "/",
+			// 	components: {
+			// 		default: httpVueLoader("./page/login.vue"),
+			// 	},
+			// },
+			// {
+			// 	path: "/login",
+			// 	components: {
+			// 		default: httpVueLoader("./page/login.vue"),
+			// 	},
+			// },
+			// {
+			// 	path: "/detail",
+			// 	components: {
+			// 		default: httpVueLoader("./page/detail.vue"),
+			// 	},
+			// },
+			// {
+			// 	path: "/user",
+			// 	components: {
+			// 		default: httpVueLoader("./page/user.vue"),
+			// 	},
+			// },
+			// {
+			// 	path: "/received",
+			// 	component: httpVueLoader("./page/received.vue"),
+			// 	children: [
+			// 		{
+			// 			path: "",
+			// 			component: httpVueLoader(
+			// 				"./page/receivedInfo.vue"
+			// 			),
+			// 		},
+			// 		{
+			// 			path: ":startDate/:endDate",
+			// 			component: httpVueLoader(
+			// 				"./page/receivedTotal.vue"
+			// 			),
+			// 		},
+			// 		{
+			// 			path: "detail/:startDate/:endDate",
+			// 			component: httpVueLoader(
+			// 				"./page/receivedDetail.vue"
+			// 			),
+			// 		},
+			// 		{
+			// 			path: "count/:startDate/:endDate",
+			// 			component: httpVueLoader(
+			// 				"./page/receivedCount.vue"
+			// 			),
+			// 		},
+			// 	],
+			// },
+		];
+		const router = new VueRouter({
+			// mode: 'history',
+			routes: routes, // (缩写) 相当于 routes: routes
+		});
+
+		var vue = new Vue({
+			el: "#app",
+			data() {
+				return {};
+			},
+			components: {
+
+			},
+			mounted() {
+
+			},
+			router,
+			computed: {
+
+			},
+			methods: {},
+		});
+	</script>
+</body>
+
+</html>
