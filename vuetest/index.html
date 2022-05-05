@@ -12,8 +12,11 @@
 <body>
 
 	<div id="app" class="wrap">
-		<div class="head"></div>
-		<router-view></router-view>
+		<div class="nav"></div>
+		<div class="main">
+			<router-view></router-view>
+		</div>
+
 	</div>
 	<!-- 基本js -->
 	<script src="./js/libs/axios.js"></script>
@@ -29,7 +32,7 @@
 			{
 				path: "/",
 				components: {
-					default: httpVueLoader("./page/changeCalculator.vue"),
+					default: httpVueLoader("./page/home.vue"),
 				},
 			}
 			// },
