@@ -13,27 +13,33 @@
     color: #fff;
     background-color: #242750;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
     .username {
         @include d_f(flex, center, center);
     }
+
     .material-icons {
         margin-right: 5px;
     }
 
     &_menu {
         @include d_f(flex, center, space-between);
+
         li {
             color: #fff;
             @extend %hand;
             @extend %transition;
+
             @include hoverHandler {
                 color: #ff8306;
             }
         }
+
         li.on {
             color: #ff8306;
         }
-        li + li {
+
+        li+li {
             margin-left: 10px;
         }
     }
@@ -50,9 +56,11 @@
         background-color: #252851;
         color: #fff;
     }
+
     tr {
         background-color: #252851;
     }
+
     th {
         height: 50px;
         padding: 5px;
@@ -60,27 +68,31 @@
         border-bottom: 1px solid #242750;
         font-size: 14px;
     }
+
     td {
         height: 50px;
         padding: 5px;
         border-top: 1px solid #242750;
         font-size: 14px;
     }
+
     &_function {
         display: flex;
         align-items: center;
         height: 50px;
         padding: 0 20px;
 
-        * + * {
+        *+* {
             margin-left: 10px;
         }
     }
+
     .scroll_y {
         height: calc(100% - 50px);
         padding-top: 50px;
         // background-color: #fff;
     }
+
     &_head {
         position: absolute;
         top: 50px;
@@ -88,6 +100,7 @@
         width: 100%;
         background-color: #fff;
     }
+
     &_body {
         // height: calc(100% - 50px);
 
@@ -95,4 +108,15 @@
             background-color: rgba(0, 0, 0, 0.075);
         }
     }
+}
+
+.min_1280 {
+    min-width: 1280px
+}
+.tbBox_head{
+    overflow: hidden;
+}
+.tbBox_body{
+    overflow-x: auto;
+    overflow-y: hidden;
 }

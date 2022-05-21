@@ -1,8 +1,9 @@
-<style scoped></style>
+<style scoped>
+</style>
 
 
 <template>
-    <div>about</div>
+	<div>about</div>
 </template>
 
 <script>
@@ -10,9 +11,9 @@ module.exports = {
 	data() {
 		return {
 			tabNum: 0,
-			tabName:'exhibition',
+			tabName: 'exhibition',
 		};
 	},
-	
+
 };
 </script>

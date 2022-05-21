@@ -91,6 +91,10 @@ img {
 }
 
 /* fallback */
+.disclaimer {
+  display: none !important;
+}
+
 @font-face {
   font-family: "Material Icons";
   font-style: normal;
@@ -782,5 +786,18 @@ img {
 
 .tbBox_body tr:hover {
   background-color: rgba(0, 0, 0, 0.075);
+}
+
+.min_1280 {
+  min-width: 1280px;
+}
+
+.tbBox_head {
+  overflow: hidden;
+}
+
+.tbBox_body {
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 /*# sourceMappingURL=all.css.map */
