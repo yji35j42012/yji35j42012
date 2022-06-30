@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+
+		}
+
+		html,
+		body,
+		.wrap {
+			width: 100%;
+			height: 100%;
+		}
+
+		.wrap {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+		}
+
+		.func {
+			padding: 4px;
+			background-color: #28292e;
+			border-radius: 5px;
+		}
+
+		.imgBox {
+			position: relative;
+			width: 450px;
+			height: 300px;
+		}
+
+		.img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+
+		.rangeBox_txt {
+			width: 90px;
+			color: rgba(187, 188, 196, 0.7);
+		}
+
+		.rangeBox_inp {
+			width: 50px;
+			padding: 0 5px;
+			background-color: rgba(187, 188, 196, 0.1);
+			color: #bbbcc4;
+			border: none;
+			outline: none;
+		}
+
+		.rangeBox {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.range {
+			position: relative;
+			width: 100px;
+			margin: 0 6px;
+		}
+
+		.range::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			width: 100%;
+			height: 2px;
+			margin: auto;
+			background-color: rgba(187, 188, 196, 0.1);
+		}
+
+		.range_ball {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			display: block;
+			width: 12px;
+			height: 12px;
+			margin: auto;
+			background-color: rgb(173, 175, 184);
+			border-radius: 2px;
+			transform: translateX(-50%);
+		}
+
+		.rangeBox+.rangeBox {
+			margin-top: 4px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="app" class="wrap">
+		<h1>{{message}}</h1>
+		<div class="func">
+			<div class="rangeBox">
+				<span class="rangeBox_txt">pic1</span>
+				<div class="range">
+					<span id="ball1" class="range_ball" @mousedown="ballHandler('1')"
+						@touchStart="ballHandler('1')"></span>
+				</div>
+				<input id="inp1" type="text" class="rangeBox_inp">
+			</div>
+			<div class="rangeBox">
+				<span class="rangeBox_txt">pic2</span>
+				<div class="range">
+					<span id="ball2" class="range_ball" @mousedown="ballHandler('2')"
+						@touchStart="ballHandler('2')"></span>
+				</div>
+				<input id="inp2" type="text" class="rangeBox_inp">
+			</div>
+			<div class="rangeBox">
+				<span class="rangeBox_txt">angle</span>
+				<div class="range">
+					<span id="ball3" class="range_ball" @mousedown="ballHandler('3')"
+						@touchStart="ballHandler('3')"></span>
+				</div>
+				<input id="inp3" type="text" class="rangeBox_inp">
+			</div>
+		</div>
+		<div class="imgBox">
+			<div v-for="(item,index) in imgSrc" class="img"
+				:style="{color:item.color ,'background-image': 'url(' + item.src + ')' } "></div>
+		</div>
+	</div>
+
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.37/vue.global.min.js'
+		integrity='sha512-rCO3ZZnxh9j/Y725Iq2Cqr2lc9fi83zVeN3PFTUosktylZsCFjD13PDbKrzKjKO/idjM4KlMQC52AsoGFTAe6A=='
+		crossorigin='anonymous'></script>
+	<script>
+		const App = {
+			data() {
+				return {
+					test: 'red',
+					message: 'You loaded this page on ' + new Date().toLocaleString(),
+					imgSrc: [
+						{ src: 'https://picsum.photos/450/300?random=1', color: 'red' },
+						{ src: 'https://picsum.photos/450/300?random=2', color: 'green' },
+					],
+					startX: 0,
+					who: null
+				}
+			},
+			methods: {
+				ballHandler(str, $event) {
+					this.startX = event.clientX;
+					this.who = str;
+					console.log('str', str);
+
+					window.addEventListener("mousemove", this.ballMouseMove);
+					window.addEventListener("mouseup", this.ballMouseUp);
+				},
+				ballMouseMove($event) {
+					var whoDrop = document.getElementById('ball' + this.who);
+					var inp = document.getElementById('inp' + this.who);
+					if (!event.touches) {
+						//相容移動端
+						$event.preventDefault();
+						var nx = event.clientX;
+					} else {
+						//相容PC端
+						var nx = event.touches[0].pageX;
+					}
+					let newl = nx - this.startX;
+					this.startX = nx;
+					var moveX = whoDrop.offsetLeft + newl;
+					console.log('s', newl);
+					if (moveX > 100 || moveX < 0) {
+						return;
+					} else {
+						if (moveX < 0) { moveX = 0 } else if (moveX > 100) { moveX = 100 }
+						whoDrop.style.left = moveX + 'px';
+						inp.value = moveX;
+					}
+				},
+				ballMouseUp() {
+					window.removeEventListener("mousemove", this.ballMouseMove);
+					window.removeEventListener("mouseup", this.ballMouseUp);
+					window.removeEventListener("touchmove", this.ballMouseMove);
+					window.removeEventListener("touchend", this.ballMouseUp);
+				},
+			},
+		}
+
+		Vue.createApp(App).mount('#app')
+	</script>
+</body>
+
+</html>
