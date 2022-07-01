@@ -33,7 +33,33 @@
 					</li>
 				</ul>
 				<div class="tbBox">
-					<div class="tb_head"></div>
+					<div class="tbBox_head">
+						<table>
+							<th>對象</th>
+							<th>金額</th>
+							<th>新增</th>
+							<th>減少</th>
+							<th>餘額</th>
+						</table>
+					</div>
+					<div class="tbBox_body">
+						<table>
+							<tr v-for="item in 30">
+								<td>對象</td>
+								<td>金額</td>
+								<td>新增</td>
+								<td>減少</td>
+								<td>餘額</td>
+							</tr>
+							<tr>
+								<th>小記</th>
+								<th>金額</th>
+								<th>新增</th>
+								<th>減少</th>
+								<th>餘額</th>
+							</tr>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>
