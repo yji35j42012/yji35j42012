@@ -202,11 +202,13 @@ header {
   background-color: #359b9b;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-}
-
-.tab_item + .tab_item {
   -webkit-transform: translateX(-30px);
           transform: translateX(-30px);
+}
+
+.tab_item:first-child {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
 }
 
 .tab_item.on {

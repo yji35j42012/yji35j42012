@@ -47,22 +47,23 @@ header {
     @include d_f(inline-flex);
     height: 20px;
     color: #fff;
-
+    // tab_item
     &_item {
         @include d_f(inline-flex, center, center);
         width: 150px;
-		height: 100%;
-		padding: 0 30px;
-		background-color: #359b9b;
+        height: 100%;
+        padding: 0 30px;
+        background-color: #359b9b;
         border-top-left-radius: 8px;
         border-top-right-radius: 8px;
-        & + & {
-            transform: translateX(-30px);
+        transform: translateX(-30px);
+        &:first-child {
+            transform: translateX(0);
         }
         &.on {
-			position: relative;
-			background-color: #085a5a;
-			z-index: 1;
+            position: relative;
+            background-color: #085a5a;
+            z-index: 1;
         }
     }
 }

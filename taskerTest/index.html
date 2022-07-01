@@ -10,7 +10,7 @@
 </head>
 
 <body>
-	<div class="wrap">
+	<div id="app" class="wrap">
 		<header></header>
 		<div class="content">
 			<div class="menu"></div>
@@ -25,16 +25,145 @@
 					</div>
 				</div>
 				<ul class="tab">
-					<li class="tab_item on">
+					<li :class="['tab_item',tabNum==1? 'on':'']" @click="tabHandler('1')">
 						應收
 					</li>
-					<li class="tab_item">
+					<li :class="['tab_item',tabNum==2? 'on':'']" @click="tabHandler('2')">
 						應付
 					</li>
 				</ul>
+				<div class="tbBox">
+					<div class="tb_head"></div>
+				</div>
 			</div>
 		</div>
 	</div>
+
+
+	<script src="./js/libs/axios.js"></script>
+	<script src="./js/libs/vue_2_6_9.js"></script>
+	<script src="./js/libs/vue-router.js"></script>
+	<script src="./js/libs/http-vue-loader.js"></script>
+	<script src="./js/libs/vuex_3_0_1.js"></script>
+	<script src="./js/libs/lottie.min.js"></script>
+	<script src="./js/icon_all.js"></script>
+	<script src="./store/store.js"></script>
+	<script>
+		const routes = [
+			// {
+			// 	path: "/",
+			// 	component: httpVueLoader("./page/home.vue"),
+			// },
+			// {
+			// 	path: "/home",
+			// 	component: httpVueLoader("./page/home.vue"),
+			// },
+			// {
+			// 	path: "/detail",
+			// 	component: httpVueLoader("./page/detail.vue"),
+			// },
+			// {
+			// 	path: "/collect",
+			// 	component: httpVueLoader("./page/collect.vue"),
+			// },
+			// {
+			// 	path: "/theme",
+			// 	component: httpVueLoader("./page/theme.vue"),
+			// },
+
+			// {
+			// 	path: "/adoption",
+			// 	component: httpVueLoader("./page/adoption.vue"),
+			// },
+			// {
+			// 	path: "/emergency",
+			// 	component: httpVueLoader("./page/emergency.vue"),
+			// },
+			// {
+			// 	path: "/test",
+			// 	component: httpVueLoader("./page/test.vue"),
+			// },
+			// {
+			// 	path: "/",
+			// 	component: httpVueLoader("./page/test.vue"),
+			// },
+			// {
+			// 	path: "/test",
+			// 	component: httpVueLoader("./page/test.vue"),
+			// },
+
+			// {
+			// 	path: "/attractions",
+			// 	component: httpVueLoader("./page/attractions.vue"),
+			// 	children: [
+			// 		{
+			// 			path: "",
+			// 			component: httpVueLoader(
+			// 				"./components/ClassType.vue"
+			// 			),
+			// 		},
+			// 		{
+			// 			path: ":class",
+			// 			component: httpVueLoader(
+			// 				"./components/SearchGroup.vue"
+			// 			),
+			// 		},
+			// 		{
+			// 			path: ":city/:search",
+			// 			component: httpVueLoader(
+			// 				"./components/SearchGroup.vue"
+			// 			),
+			// 		},
+			// 		{
+			// 			path: ":city/:search/:id",
+			// 			component: httpVueLoader(
+			// 				"./components/ShowDetail.vue"
+			// 			),
+			// 		},
+			// 	],
+			// },
+		];
+		const router = new VueRouter({
+			// mode: 'history',
+			routes: routes, // (缩写) 相当于 routes: routes
+		});
+
+		var vue = new Vue({
+			el: "#app",
+			data() {
+				return {
+					nowPage: "",
+					tabNum: 1,
+				};
+			},
+			components: {
+				// htitle: httpVueLoader("./components/Header.vue"),
+				// loading: httpVueLoader("./components/Loading.vue"),
+			},
+			router,
+			mounted() { },
+			computed: {},
+			watch: {
+				// $route(to, from) {
+				// 	var now = this.$route.path;
+				// 	if (this.$route.path == "/") {
+				// 		this.nowPage = "home";
+				// 		store.dispatch("PAGE", "home");
+				// 	} else {
+				// 		store.dispatch("SET_LOADING", true);
+				// 		this.nowPage = now.split("/")[1];
+				// 		store.dispatch("PAGE", now.split("/")[1]);
+				// 	}
+				// },
+			},
+			methods: {
+				tabHandler(num) {
+					console.log('tabHandler');
+					this.tabNum = num
+				},
+			},
+		});
+	</script>
 </body>
 
 </html>
