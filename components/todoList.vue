@@ -1,17 +1,17 @@
 <style scoped></style>
 
 <template>
-    <div>
-        todolist
-    </div>
+	<div>
+		todolist
+	</div>
 </template>
 
 <script>
 module.exports = {
-    data() {
-        return {}
-    },
-    computed: {},
-    methods: {},
+	data() {
+		return {}
+	},
+	computed: {},
+	methods: {},
 }
 </script>
