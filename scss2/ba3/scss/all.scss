@@ -1,0 +1,24 @@
+@import "share_variable";
+@import "reset";
+@import "mixin";
+
+@import "layout_mixin"; //該站專屬mixin
+@import "share_tool"; //該站專屬共用元件
+
+
+
+// layout
+@import "frame"; //框架
+@import "left_menu"; //左邊menu
+@import "top_menu"; //上面menu
+@import "login"; //登入頁
+@import "agree"; //我同意
+@import "alert"; //全彈出視窗
+@import "lobby"; //大廳
+@import "main_game"; //遊戲室
+@import "detail_road"; //好路詳細
+@import "game_rule"; //遊戲規則
+@import "history"; //投注明細
+@import "custom_chips"; //自選籌碼
+
+

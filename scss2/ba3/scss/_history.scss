@@ -1,0 +1,491 @@
+.history{
+    width: 100%;
+    height: 100%;
+
+    // .history__title
+    &__title{
+        @include d_f(flex, center, center);
+        height: 35px;
+        background: map-get($bg_color, primary_vl);
+        font-size: 20px;
+        font-weight: bold;
+    }
+    // .history__content
+    &__content{
+        @include mw_xs{
+            padding-bottom: 10px;
+        }
+
+        // 搜尋列
+        .search{
+            @include d_f(flex, center, center);
+            padding: 10px 20px;
+            background: map-get($bg_color, black);
+
+            @include mw_xs{
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                padding: 10px 0 0 10px;
+            }
+            .select_style{
+                @include mr_distance;
+                width: auto;
+                min-width: 120px;
+
+                @include mw_xs{
+                    min-width: 100px;
+                    margin-bottom: 10px;
+                }
+                select{
+                    background: map-get($bg_color, darkgray);
+
+                    @include mw_xs{
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+
+        // 功能按鈕
+        .return_btn,
+        .refresh_btn,
+        .cancel_wager_btn{
+            @include btn_set(auto, 30px, map-get($btn_color, lightblue));
+            @include radius_hidden();
+            @include mr_distance;
+            padding: 0 10px;
+            border: 1px solid map-get($bg_color, lightblue);
+
+            @include mw_xs{
+                margin-bottom: 10px;
+            }
+
+            &::before{
+                @include btn_hoverlight03;
+            }
+
+            &::after{
+                @include btn_txt(center, map-get($txt_color, primary), map-get($txt_color, shadow));
+            }
+            .hover_item{
+                @include btn_hoveritem(map-get($btn_color, lightblue_vl));
+                box-shadow: 0 0 1px map-get($bg_color, secondary) inset,
+                    0 0 3px map-get($bg_color, secondary) inset;
+
+                &::before{
+                    @include btn_hoverlight03;
+                }
+            }
+            i{
+                @include btn_i(map-get($bg_color, i_blue));
+            }
+
+            // 手指效果
+            @include btn_hoverHandler(1px, map-get($txt_color, primary));
+        }
+        .refresh_btn{
+            background: map-get($btn_color, orange);
+            border-color: map-get($bg_color, secondary)
+            ;
+            i{
+                @include btn_i(map-get($bg_color, i_gold));
+            }
+            .hover_item{
+                @include btn_hoveritem(map-get($btn_color, lightorange));
+            }
+        }
+        .cancel_wager_btn{
+            background: map-get($btn_color, green);
+            border-color: map-get($bg_color, lightgreen)
+            ;
+            margin-right: 0;
+            i{
+                @include btn_i(map-get($bg_color, i_green));
+            }
+            .hover_item{
+                @include btn_hoveritem(map-get($btn_color, lightgreen));
+            }
+        }
+
+        // 客戶資訊
+        .info{
+            @include border(1px 0, map-get($border_color, secondary));
+            padding: 5px 20px;
+            background: map-get($bg_color, darkblue_vl);
+            text-align: center;
+
+            @include mw_xs{
+                padding: 5px 10px 0;
+                text-align: left;
+            }
+            
+            // .info__box
+            &__box{
+                @include mr_distance;
+                display: inline-block;
+
+                @include mw_xs{
+                    font-size: 14px;
+                    margin-bottom: 5px;
+                }
+            }
+            // .info__title
+            &__title{
+                color: map-get($txt_color, yellow);
+            }
+        }
+    }
+}
+
+// 表格設定
+.table_group{
+    @include mw_sm{
+        width: calc(100% - 20px);
+        margin: auto;
+        
+        &:not(.--total){
+            padding-top: 10px;
+        }
+    }    
+}
+
+
+.normal_table{
+    width: 100%;
+    color: map-get($txt_color, primary);
+    text-align: center;
+    margin: auto;
+
+    @include mw_sm{
+        font-size: 14px;
+    }
+    @include mw_xs{
+        font-size: 16px;
+    }
+
+    // 特殊標題
+    caption {
+        @include border(0 0 1px, map-get($border_color, secondary));
+        padding: 5px 0;
+        background: map-get($bg_color, primary_vl);
+        font-weight: bold;
+        font-size: 16px;
+
+        &.--cancel {
+            background: map-get($btn_color, lightblue_vl);
+        }
+    }
+    
+    thead{
+        @include mw_sm{
+            display: none;
+        }
+    }
+
+    .normal_box{
+        @include mw_sm{
+            display: block;
+            margin-bottom: 10px;
+        }
+    }
+
+    th,
+    td{
+        padding: 15px 5px;
+        border-width: 0 1px 1px 0;
+        border-style: solid;
+        border-color: map-get($bg_color, td_titlegray);
+
+        &:last-child{
+            border-right: none;
+        }
+    }
+    th{
+        background: map-get($bg_color, td_titlegray);
+    }
+    td{
+        background: map-get($bg_color, td_gray);
+
+        @include mw_sm{
+            position: relative;
+            @include d_f(flex, center, space-between);
+            width: 100%;
+            padding-left: 130px;
+            border-width: 0 0 1px 0;
+            &:before{
+                @include pos_a(tbl, 0);
+                @include d_f(flex, center, center);
+                content: attr(data-txt);
+                width: 120px;
+                height: 100%;
+                background: map-get($bg_color, td_titlegray);
+                border-bottom: 1px solid map-get($bg_color, td_titlegray);
+                color: map-get($txt_color, primary);
+            }
+        }
+    }
+
+    // 總計
+    @at-root .--total{
+        @extend %transition;
+
+        @include mw_sm{
+            position: fixed;
+            top: calc(100% - 50px);
+            left: 10px;
+            border: 1px solid map-get($bg_color, secondary);
+            transform: translate3d(0, 0, 0);;
+            z-index: 2;
+
+            &.--on{
+                box-shadow: 0 -3px 10px map-get($bg_color, darkgray);
+                transform: translate3d(0, -100%, 0);;
+            }
+        }
+
+        td{
+            background: map-get($bg_color, td_titlegray);
+
+            @include mw_sm{
+                width: auto !important;
+                background: map-get($bg_color, td_gray);
+
+                &:before{
+                    color: map-get($txt_color , white);
+                }
+
+                // 若內容為空時隱藏
+                &:empty{
+                    display: none;
+                }
+            }
+        }
+        th{
+            color: map-get($txt_color, white);
+
+            @include mw_sm{
+                @include pos_a(bl, 100%, 0);
+                @include d_f(flex, center, center);
+                @include radius_hidden(5px 5px 0 0);
+                min-width: 120px;
+                height: 30px;
+                padding: 0;
+                background: map-get($btn_color, primary);
+                box-shadow: 0 0 0 1px map-get($bg_color, secondary) inset;
+                border: none;
+                color: map-get($txt_color, secondary);
+                cursor: pointer;
+                font-weight: bold;
+
+                &:before{
+                    content: none;
+                }
+                &:after{
+                    @include btn_hoverlight03;
+                }
+
+                // 手指效果
+                @include hoverHandler{
+                    filter: brightness(120%);
+                }
+            }
+        }
+    }
+
+    // 電投細單
+    &.--detail{
+        padding-top: 0;
+        font-size: 14px;
+
+        @include mw_lg {
+            font-size: 12px;
+        }
+        @include mw_sm {
+            font-size: 14px;
+        }
+        @include mw_xs {
+            font-size: 12px;
+        }
+        
+        .normal_box{
+            @include mw_sm{
+                @include d_f(flex, unset, flex-start);
+                padding-top: 35px;
+                flex-wrap: wrap;
+                margin-bottom: 0;
+
+                td{
+                    padding: 10px 0;
+                    justify-content: center;
+
+                    &::before{
+                        width: 100%;
+                        height: 35px;
+                        border: none;
+                        top: auto;
+                        bottom: 100%;
+                    }
+
+                    // 結果改成
+                    &:last-child{
+                        flex-direction: column;
+                    }
+
+                }
+
+                .first_row{
+                    width: calc(100% / 5);
+                    margin-bottom: 35px;
+                    
+                    &::before{
+                        background: map-get($bg_color, darkblue_vl_re);
+                    }
+                }
+                .midd_row{
+                    width: calc(100% / 5);
+                    margin-bottom: 35px;
+                }
+                .last_row{
+                    width: 20%;
+                }
+                .result_row {
+                    width: 60%;
+                }
+            }
+        }
+        .result{
+            @include d_f(flex, center, center);
+            position: relative;
+            width: 25px;
+            height: 25px;
+            border-radius: 25px;
+            color: map-get($txt_color, primary);
+            margin: auto;
+
+            &::before,
+            &::after {
+                content: none;
+                position: absolute;
+                display: block;
+                width: 5px;
+                height: 5px;
+                background: map-get($bg_color, bank);
+                border: 1px solid map-get($bg_color, white);
+                border-radius: 50%;
+                top: -1px;
+                left: -1px;
+            }
+
+            &::after {
+                background: map-get($bg_color, play);
+                top: auto;
+                left: auto;
+                bottom: -1px;
+                right: -1px;
+            }
+            
+            // 有結果
+            //         莊對     莊閒對  莊對閒對
+            // 莊  MH  MH_HP    MH_CP   MH_HPCP
+            // 閒  MC  MC_HP    MC_CP   MC_HPCP
+            // 和  MN  MN_HP    MN_CP   MN_HPCP
+
+            // --MH
+            // --MH_HP
+            // --MH_CP
+            // --MH_HPCP
+            // --MC
+            // --MC_HP
+            // --MC_CP
+            // --MC_HPCP
+            // --MN
+            // --MN_HP
+            // --MN_CP
+            // --MN_HPCP
+            &[class*="--MH"] {
+                background: map-get($bg_color, bank);
+            }
+
+            &[class*="--MC"] {
+                background: map-get($bg_color, play);
+            }
+
+            &[class*="--MN"] {
+                background: map-get($bg_color, tie);
+            }
+
+            &[class$="CP"]:after,
+            &[class$="HPCP"]:after,
+            &[class$="HP"]:before,
+            &[class$="HPCP"]:before{
+                content: '';
+            }
+        }
+
+        .cardItem{
+            @include d_f(flex, center, space-around);
+
+            span{
+                display: block;
+                width: 25px;
+                height: 45px;
+                padding: 2px 0;
+                background: map-get($bg_color, white);
+                border: 1px solid map-get($bg_color, black);
+                border-radius: 3px;
+                color: map-get($txt_color, secondary);
+                font-weight: bold;
+                margin-top: 5px;
+                text-align: center;
+
+                @include mw_lg{
+                    width: 20px;
+                    height: 40px;
+                }
+                @include mw_md {
+                    width: 25px;
+                    height: 45px;
+                }
+
+                // 莊
+                &:nth-child(1){
+                    border-color: map-get($bg_color, bank);
+                    color: map-get($txt_color, bank);
+                }
+                // 閒
+                &:nth-child(5) {
+                    border-color: map-get($bg_color, play);
+                    color: map-get($txt_color, play);
+                }
+
+                // 紅心方塊顏色
+                &.--heart,
+                &.--diamond{
+                    color: map-get($txt_color, red);
+                }
+
+                &::before{
+                    content: attr(data-txt);
+                    display: block;
+                    font-size: 14px;
+                }
+                // 黑桃♠
+                &.--spades::before {
+                    content: '♠';
+                }
+                // 紅心♥
+                &.--heart::before {
+                    content: '♥';
+                }
+                // 梅花♣
+                &.--club::before {
+                    content: '♣';
+                }
+                // 方塊♦
+                &.--diamond::before {
+                    content: '♦';
+                }
+            }
+        }
+    }
+}

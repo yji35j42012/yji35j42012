@@ -1,0 +1,127 @@
+.frame__main__otherinside{
+    &.--game_rule{
+        background: map-get($bg_color, black);
+        padding: 20px;
+        @include mw_xs{
+            padding: 0;
+        }
+    }
+}
+.game_rule{
+    @include radius_hidden(5px);
+    width: 100%;
+    height: 100%;
+    border: 1px solid map-get($bg_color, blue);
+    
+    @include mw_xs{
+        border-radius: 0;
+        border: none;
+    }
+    // .game_rule__title
+    &__title{
+        @include title_diamondBG;
+        @include d_f(flex, center, flex-start);
+
+        
+        .close_btn{
+            @include pos_a(trb, 0, 10px, 0);
+            margin: auto;
+        }
+    }
+    // .game_rule__content
+    &__content{
+        @include scrollbar(hidden, auto);
+        height: calc(100% - 35px);
+        padding: 40px 0;
+        @include mw_xs{
+            padding-top: 10px;
+        }
+        @at-root .directions{
+            max-width: 800px;
+            margin: auto;
+            & + .directions{
+                margin-top: 20px;
+                @include mw_xs{
+                    margin-top: 10px;
+                }
+            }
+            // .directions__title
+            &__title{
+                @include d_f(flex, center, center);
+                @include border(0 0 1px, map-get($border_color, secondary));
+                @include radius_hidden(5px 5px 0 0);
+                padding: 5px;
+                font-size: 20px;
+                letter-spacing: 3px;
+                background: map-get($btn_color, secondary_vl);
+                margin-bottom: 2px;
+
+                @include mw_sm{
+                    border-radius: 0;
+                }
+            }
+            // .directions__content
+            &__content{
+                @include d_f(flex, flex-start, flex-start);
+                @include mw_xs{
+                    flex-wrap: wrap;
+                }
+
+                .content_box{
+                    width: auto;
+                    flex: 1 1 100%;
+                    @include mw_xs{
+                        flex: none;
+                        font-size: 14px;
+                        width: calc(100% - 150px);
+                    }
+                    &.--head{
+                        width: 180px;
+                        flex: none;
+                        @include mw_xs{
+                            width: 150px;
+                        }
+                    }
+                    &.--ph{
+                        display: none;
+                        @include mw-xs{
+                            display: block;
+                        }
+                    }
+                    & + .content_box{
+                        margin-left: 1px;
+                        @include mw_xs{
+                            margin-left: 0;
+                        }
+                    }
+                }
+
+                .content_item{
+                    @include d_f(flex, center, flex-start);
+                    min-height: 50px;
+                    padding: 0 10px;
+                    color: map-get($txt_color, yellow);
+                    background: map-get($bg_color, td_gray);
+
+                    @at-root .--head .content_item{
+                        color: map-get($txt_color, primary);
+                    }
+
+                    @include mw_xs{
+                        min-height: 30px;
+                    }
+                    &:first-child{
+                        background: map-get($bg_color, td_titlegray);
+                        color: map-get($txt_color, primary);
+                        @include mw_xs{
+                            min-height: 40px;
+                        }
+                    }
+                    & + .content_item{
+                        border-top: 1px solid map-get($bg_color, td_titlegray);
+                    }
+                }
+            }
+        }
+    }
+}

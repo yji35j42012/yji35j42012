@@ -1,0 +1,136 @@
+.customBg{
+    @include pos_a(tl, 0);
+    @include d_f(flex, center, center);
+    width: 100%;
+    height: 100%;
+
+    background: map-get($bg_color, black_alpha);
+    z-index: 9;
+}
+
+.custom{
+    width: 350px;
+    padding: 2px;
+    background: map-get($bg_color, secondary_vl);
+    border-radius: 3px;
+
+    &__title{
+        @include border(0 0 1px, map-get($border_color, secondary));
+        position: relative;
+        padding: 5px 0;
+        color: map-get($txt_color, white);
+        background: map-get($bg_color, primary_vl);
+        font-size: 18px;
+        text-align: center;
+
+        .close_btn{
+            @include pos_a(trb, 0, 10px, 0);
+            margin: auto;
+        }
+    }
+    &__content{
+        height: calc(100% - 35px);
+        background: map-get($bg_color, black);
+        padding: 30px 0;
+
+        &__chips {
+            @include d_f(flex, flex-start, flex-start);
+            flex-wrap: wrap;
+            max-width: calc((45px + 20px) * 5);
+            margin: auto auto 30px;
+
+            @include mw_xs{
+                max-width: calc((45px + 20px) * 4);
+            }
+
+            li{
+                position: relative;
+                width: 45px;
+                height: 45px;
+                margin: 10px;
+
+                &::before{
+                    @include pos_a(trbl, 0);
+                    content: attr(data-txt);
+                    height: 18px;
+                    color: map-get($txt_color, yellow);
+                    margin: auto;
+                    font-size: 12px;
+                    text-align: center;
+                }
+                
+                &::after{
+                    @include pos_a(trl, calc(100% + 5px), 0, 0);
+                    content: '';
+                    width: 45px;
+                    height: 2px;
+                    margin: auto;
+                    border-radius: 50%;
+                    background: map-get($bg_color, gray_gradual);
+                }
+
+                // on效果
+                &.--on::after{
+                    background: map-get($bg_color, lightyellow);
+                }
+
+                // 手指效果
+                @include hoverHandler {
+                    transform: scale(1.2);
+                }
+            }
+        }
+
+        // 提示字
+        .chip_txt{
+            color: map-get($txt_color, yellow);
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .func{
+            padding: 30px 0 0;
+
+            &_btn{
+                width: 200px;
+            }
+        }
+        
+        // 自訂數字輸入框
+        .input_popup{
+            @include pos_a(tlr, 130px, 0, 0);
+            @include d_f(flex, center, space-between);
+            @include border(2px, map-get($border_color, primary));
+            width: 200px;
+            height: 50px;
+            padding: 10px;
+            margin: auto;
+            background: map-get($bg_color, black_alpha);
+
+            input{
+                color: map-get($txt_color, primary);
+                width: calc(100% - 70px);
+                background: transparent;
+                font-size: 14px;
+
+                &::placeholder{
+                    color: map-get($txt_color, primary);
+                }
+            }
+
+            .enter_btn{
+                width: 40px;
+                height: 100%;
+                background: map-get($bg_color, play);
+                border-radius: 3px;
+                color: map-get($txt_color, primary);
+                font-weight: bold;
+
+                // 手指效果
+                @include hoverHandler {
+                    background: map-get($bg_color, lightblue);
+                }
+            }
+        }
+    }
+}

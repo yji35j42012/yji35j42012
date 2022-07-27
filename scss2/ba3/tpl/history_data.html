@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html class="notranslate" translate="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="google" content="notranslate">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js' integrity='sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==' crossorigin='anonymous'></script>
+    <title>Welcome</title>
+
+    <link rel="stylesheet" href="../style/all.min.css">
+
+</head>
+
+<body ontouchstart="">
+    
+    <div class="history">
+        <div class="history__title">投注明細</div>
+
+        <div class="history__content">
+
+            <!-- 客戶資訊 -->
+            <div class="info">
+                <div class="info__box">
+                    <span class="info__title">卡號</span>
+                    <span class="info__data">ORT1-1</span>
+                </div>
+                <div class="info__box">
+                    <span class="info__title">額度</span>
+                    <span class="info__data">500,000</span>
+                </div>
+                <div class="info__box">
+                    <span class="info__title">帳戶餘額</span>
+                    <span class="info__data">450,000</span>
+                </div>
+
+                <button class="return_btn" data-txt="返回">
+                    <span class="hover_item"></span>
+                    <i></i>
+                </button>
+            </div>
+            <!-- 客戶資訊 end -->
+
+
+
+            <!-- 表單內容 -->
+            <!-- 可點擊字串加上 .txtlink_style 負數加上 .txt_yellow -->
+            <div id="history_data" class="table_group">
+                <table class="normal_table">
+                    <thead>
+                        <tr>
+                            <th class="w20">日期</th>
+                            <th class="w20">開始時間</th>
+                            <th class="w20">離開時間</th>
+                            <th class="w15">輸贏</th>
+                            <th class="w15">洗碼</th>
+                            <th class="w10">小費</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="normal_box">
+                            <td data-txt="日期">2021-02-25</td>
+                            <td data-txt="開始時間">
+                                2021-02-25 14:54:03
+                            </td>
+                            <td data-txt="離開時間">
+                                2021-02-25 14:54:03
+                            </td>
+                            <td data-txt="輸贏">0</td>
+                            <td data-txt="洗碼">200,000</td>
+                            <td data-txt="小費">0</td>
+                        </tr>
+                        <tr class="normal_box">
+                            <td data-txt="日期">2021-02-25</td>
+                            <td data-txt="開始時間">
+                                2021-02-25 14:54:03
+                            </td>
+                            <td data-txt="離開時間">
+                                2021-02-25 14:54:03
+                            </td>
+                            <td data-txt="輸贏" class="txtlink_style">-1000</td>
+                            <td data-txt="洗碼">200,000</td>
+                            <td data-txt="小費">0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- 表單內容 end -->
+        </div>
+    </div>
+</body>
+
+<script src="../script/tpl.js"></script>
+
+</html>
