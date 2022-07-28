@@ -1,118 +1,65 @@
-$icon: ('firefox.png', 'google.jpg');
 
-@each $name in $icon {
-    $num: str-index(#{$name}, '.'); //點點位置
-    $length: str-length(#{$name});  //文字長度
-    $ext: str-slice(#{$name}, $num, $length);//副檔名
-    $filename: str-slice(#{$name}, 1, $num - 1);//檔案名稱
-    .icon_#{$filename} {
-        display: inline-block;        
-        background: url(../images/icon_#{$filename}#{$ext}) no-repeat center / contain;
-    }
+// RWD相關
+$breakpoints: (
+	pc: 1280px,
+	big_pad: 1180px,
+	pad: 1024px,
+	pad_vl: 996px,
+	ph: 599px
+);
+
+@mixin mw_xl {
+	@media screen and (max-width: map-get($breakpoints, "pc")) {
+		@content;
+	}
 }
 
-// 定位
-@function pos-chtext($data) {
-    $data: to-upper-case($data);
-    @if $data== 'T' {
-        @return top;
-    } @else if $data== 'R' {
-        @return right;
-    } @else if $data== 'B' {
-        @return bottom;
-    } @else if $data== 'L' {
-        @return left;
-    }
+@mixin mw_lg {
+	@media screen and (max-width: map-get($breakpoints, "big_pad")) {
+		@content;
+	}
 }
-@mixin poa($str...) {
-    position: absolute;
-    @for $i from 1 through length($str) {
-        #{pos-chtext(str-slice(nth($str,$i), 1,1))}: str-slice(
-            nth($str, $i),
-            2
-        );
-    }
+
+@mixin mw_md {
+	@media screen and (max-width: map-get($breakpoints, "pad")) {
+		@content;
+	}
 }
-.txt1 {
-    @include poa(t10px, b200px, r20px);
+
+@mixin mw_sm {
+	@media screen and (max-width: map-get($breakpoints, "pad_vl")) {
+		@content;
+	}
 }
-// @for $level from 1 through 5 {
-//     @for $level1 from 1 through $level {
-//         @if ($level1 < 3) {
-//             .lv#{$level} li:nth-child(#{$level1}) {
-//                 background: red;
-//             }
-//         } @else if ($level1 < 5) {
-//             .lv#{$level} li:nth-child(#{$level1}) {
-//                 background: orange;
-//             }
-//         } @else {
-//             .lv#{$level} li:nth-child(#{$level1}) {
-//                 background: black;
-//             }
-//         }
+
+@mixin mw_xs {
+	@media screen and (max-width: map-get($breakpoints, "ph")) {
+		@content;
+	}
+}
+.a{
+	color:#556655;
+}
+// @include mw_sm{
+//     min-height: auto;
+//     padding-top: 0;
+//     background-position: 10% 60%;
+//     background-size: 450px;
+// }
+// $icon: ('firefox.png', 'google.jpg');
+
+// @each $name in $icon {
+//     $num: str-index(#{$name}, '.'); //點點位置
+//     $length: str-length(#{$name});  //文字長度
+//     $ext: str-slice(#{$name}, $num, $length);//副檔名
+//     $filename: str-slice(#{$name}, 1, $num - 1);//檔案名稱
+//     .icon_#{$filename} {
+//         display: inline-block;        
+//         background: url(../images/icon_#{$filename}#{$ext}) no-repeat center / contain;
 //     }
 // }
 
-// $width-small:  400px;
-// $width-medium: 760px;
-// $width-large:  1200px;
-// @mixin responsive($w) {
-//     @if($w == $width-small){
-//         @media screen and (max-width: $width-small) {
-//             @content;
-//         }
-//     }
-// }
-
-// blockquote {
-//     width: 100%;
-//     @include responsive(wide-screens) { width: 80%; }
-// }
-// figure {
-//     margin: 0 0 20px 0;
-//     @include responsive(wide-screens) { margin: 0 0 30px 0; }
-// }
-
-// blockquote {
-//     width: 100%;
-//     flex-wrap: wrap;
-// }
-// figure {
-//     margin: 0 0 20px 0;
-// }
-// // .mediaa{
-// //     @include responsive($width-small){
-// //         display: block;
-// //     }
-// // }
-
-// // .mediab{
-// //     @include responsive($width-small){
-// //         display: none;
-// //     }
-// // }
-
-// @mixin d_f($flex, $ai: stretch, $jc: flex-start) {
-//     display: $flex;
-//     align-items: $ai;
-//     justify-content: $jc;
-// }
-
-// .txt{
-//     @include d_f(flex )
-// }
-
-// .box12 {
-//     border: {
-//         top: 1px solid red;
-//         bottom: 1px solid green;
-
-//         bottom-left-radius: 3px;
-//         bottom-right-radius: 3px;
-//     }
-// }
-
+// // 定位
 // @function pos-chtext($data) {
 //     $data: to-upper-case($data);
 //     @if $data== 'T' {
@@ -137,80 +84,181 @@ $icon: ('firefox.png', 'google.jpg');
 // .txt1 {
 //     @include poa(t10px, b200px, r20px);
 // }
+// // @for $level from 1 through 5 {
+// //     @for $level1 from 1 through $level {
+// //         @if ($level1 < 3) {
+// //             .lv#{$level} li:nth-child(#{$level1}) {
+// //                 background: red;
+// //             }
+// //         } @else if ($level1 < 5) {
+// //             .lv#{$level} li:nth-child(#{$level1}) {
+// //                 background: orange;
+// //             }
+// //         } @else {
+// //             .lv#{$level} li:nth-child(#{$level1}) {
+// //                 background: black;
+// //             }
+// //         }
+// //     }
+// // }
 
-// @mixin pos_a($direction, $val...) {
-//     position: absolute;
-//     $result: ();
-//     $data: to-upper-case($direction);
-//     @for $i from 1 through str-length($data) {
-//         $result: append($result, str-slice($data, $i, $i));
-//         #{pos-chtext(nth($result, $i))}: #{if(
-//                 length($val) ==1,
-//                 $val,
-//                 nth($val, $i)
-//             )};
-//     }
-// }
+// // $width-small:  400px;
+// // $width-medium: 760px;
+// // $width-large:  1200px;
+// // @mixin responsive($w) {
+// //     @if($w == $width-small){
+// //         @media screen and (max-width: $width-small) {
+// //             @content;
+// //         }
+// //     }
+// // }
 
-// .ex01 {
-//     @include pos_a(t, 10px);
-// }
+// // blockquote {
+// //     width: 100%;
+// //     @include responsive(wide-screens) { width: 80%; }
+// // }
+// // figure {
+// //     margin: 0 0 20px 0;
+// //     @include responsive(wide-screens) { margin: 0 0 30px 0; }
+// // }
 
-// .ex02 {
-//     @include pos_a(tb, 10px);
-// }
+// // blockquote {
+// //     width: 100%;
+// //     flex-wrap: wrap;
+// // }
+// // figure {
+// //     margin: 0 0 20px 0;
+// // }
+// // // .mediaa{
+// // //     @include responsive($width-small){
+// // //         display: block;
+// // //     }
+// // // }
 
-// .ex03 {
-//     @include pos_a(trl, 20px);
-// }
+// // // .mediab{
+// // //     @include responsive($width-small){
+// // //         display: none;
+// // //     }
+// // // }
 
-// .ex04 {
-//     @include pos_a(tblr, 0);
-// }
+// // @mixin d_f($flex, $ai: stretch, $jc: flex-start) {
+// //     display: $flex;
+// //     align-items: $ai;
+// //     justify-content: $jc;
+// // }
 
-// .ex_05 {
-//     @include pos_a(tblr, 10px, 15px, 20px, 25px);
-// }
+// // .txt{
+// //     @include d_f(flex )
+// // }
 
-// @mixin triangle($size, $color, $align, $type: 0.8666666) {
-//     height: 0;
-//     width: 0;
-//     @if $align==top {
-//         border-bottom: ($size * $type) solid $color;
-//         border-left: ($size / 2) solid transparent;
-//         border-right: ($size / 2) solid transparent;
-//     } @else if $align==right {
-//         border-left: ($size * $type) solid $color;
-//         border-top: ($size / 2) solid transparent;
-//         border-bottom: ($size / 2) solid transparent;
-//     } @else if $align==bottom {
-//         border-top: ($size * $type) solid $color;
-//         border-left: ($size / 2) solid transparent;
-//         border-right: ($size / 2) solid transparent;
-//     } @else if $align==left {
-//         border-right: ($size * $type) solid $color;
-//         border-top: ($size / 2) solid transparent;
-//         border-bottom: ($size / 2) solid transparent;
-//     } @else if $align==right-top {
-//         border-right: $size solid $color;
-//         border-bottom: $size solid transparent;
-//     } @else if $align==left-top {
-//         border-left: $size solid $color;
-//         border-bottom: $size solid transparent;
-//     } @else if $align==right-bottom {
-//         border-right: $size solid $color;
-//         border-top: $size solid transparent;
-//     } @else if $align==left-bottom {
-//         border-left: $size solid $color;
-//         border-top: $size solid transparent;
-//     }
-// }
+// // .box12 {
+// //     border: {
+// //         top: 1px solid red;
+// //         bottom: 1px solid green;
 
-// .aaa {
-//     @include triangle(20px, #000, left-top, $type: 0.8666666);
-// }
+// //         bottom-left-radius: 3px;
+// //         bottom-right-radius: 3px;
+// //     }
+// // }
 
-// .aaa {
-//     @include rrr();
-//     height: 1px;
-// }
+// // @function pos-chtext($data) {
+// //     $data: to-upper-case($data);
+// //     @if $data== 'T' {
+// //         @return top;
+// //     } @else if $data== 'R' {
+// //         @return right;
+// //     } @else if $data== 'B' {
+// //         @return bottom;
+// //     } @else if $data== 'L' {
+// //         @return left;
+// //     }
+// // }
+// // @mixin poa($str...) {
+// //     position: absolute;
+// //     @for $i from 1 through length($str) {
+// //         #{pos-chtext(str-slice(nth($str,$i), 1,1))}: str-slice(
+// //             nth($str, $i),
+// //             2
+// //         );
+// //     }
+// // }
+// // .txt1 {
+// //     @include poa(t10px, b200px, r20px);
+// // }
+
+// // @mixin pos_a($direction, $val...) {
+// //     position: absolute;
+// //     $result: ();
+// //     $data: to-upper-case($direction);
+// //     @for $i from 1 through str-length($data) {
+// //         $result: append($result, str-slice($data, $i, $i));
+// //         #{pos-chtext(nth($result, $i))}: #{if(
+// //                 length($val) ==1,
+// //                 $val,
+// //                 nth($val, $i)
+// //             )};
+// //     }
+// // }
+
+// // .ex01 {
+// //     @include pos_a(t, 10px);
+// // }
+
+// // .ex02 {
+// //     @include pos_a(tb, 10px);
+// // }
+
+// // .ex03 {
+// //     @include pos_a(trl, 20px);
+// // }
+
+// // .ex04 {
+// //     @include pos_a(tblr, 0);
+// // }
+
+// // .ex_05 {
+// //     @include pos_a(tblr, 10px, 15px, 20px, 25px);
+// // }
+
+// // @mixin triangle($size, $color, $align, $type: 0.8666666) {
+// //     height: 0;
+// //     width: 0;
+// //     @if $align==top {
+// //         border-bottom: ($size * $type) solid $color;
+// //         border-left: ($size / 2) solid transparent;
+// //         border-right: ($size / 2) solid transparent;
+// //     } @else if $align==right {
+// //         border-left: ($size * $type) solid $color;
+// //         border-top: ($size / 2) solid transparent;
+// //         border-bottom: ($size / 2) solid transparent;
+// //     } @else if $align==bottom {
+// //         border-top: ($size * $type) solid $color;
+// //         border-left: ($size / 2) solid transparent;
+// //         border-right: ($size / 2) solid transparent;
+// //     } @else if $align==left {
+// //         border-right: ($size * $type) solid $color;
+// //         border-top: ($size / 2) solid transparent;
+// //         border-bottom: ($size / 2) solid transparent;
+// //     } @else if $align==right-top {
+// //         border-right: $size solid $color;
+// //         border-bottom: $size solid transparent;
+// //     } @else if $align==left-top {
+// //         border-left: $size solid $color;
+// //         border-bottom: $size solid transparent;
+// //     } @else if $align==right-bottom {
+// //         border-right: $size solid $color;
+// //         border-top: $size solid transparent;
+// //     } @else if $align==left-bottom {
+// //         border-left: $size solid $color;
+// //         border-top: $size solid transparent;
+// //     }
+// // }
+
+// // .aaa {
+// //     @include triangle(20px, #000, left-top, $type: 0.8666666);
+// // }
+
+// // .aaa {
+// //     @include rrr();
+// //     height: 1px;
+// // }
