@@ -10,15 +10,20 @@
 		* {
 			margin: 0;
 			padding: 0;
+			box-sizing: border-box;
 		}
-		html,body{
+
+		html,
+		body {
 			width: 100%;
 			height: 100%;
 		}
-		.wrap{
+
+		.wrap {
 			width: 100%;
 		}
-		.header{
+
+		.header {
 			position: fixed;
 			top: 0;
 			left: 0;
@@ -26,22 +31,69 @@
 			height: 50px;
 			background-color: #ccc;
 		}
-		.content{
+
+		.content {
 			width: 100%;
-			height: 1000px;
+			/* height: 1000px; */
 			margin-top: 50px;
 			background-color: pink;
+		}
+
+		.item {
+			width: 100%;
+			height: 200px;
+			border-bottom: 1px solid #000;
 		}
 	</style>
 </head>
 
 <body>
-	<div class="wrap">
-		<div class="header"></div>
+	<div id="wrap" class="wrap">
+		<div class="header">
+			<button id="scrollHandeler">滑捲軸</button>
+		</div>
 		<div class="content">
-			aaa
+			<div class="item itemScrollTop"></div>
+			<div class="item itemScrollTop"></div>
+			<div class="item itemScrollTop"></div>
+			<div class="item itemScrollTop"></div>
+			<div class="item itemScrollTop"></div>
 		</div>
 	</div>
+
+	<script>
+		var urlHeight = document.body;
+		console.log('urlHeight', urlHeight.scrollTop);
+		console.log('urlHeight scrollHeight', urlHeight.scrollHeight);
+
+
+		// document.body.scrollTop = '20px';
+		// document.body.scrollTo(20 ,20);
+		// console.log('urlHeight', urlHeight);
+		var wrap = document.getElementById("wrap");
+		// console.log('wrap', wrap.scrollTop);
+		wrap.scrollTo(100, 100);
+		// console.log('wrap', wrap.scrollTop);
+
+
+
+		var scrollHandeler = document.getElementById('scrollHandeler')
+
+		scrollHandeler.onclick = function () {
+			window.scrollTo(100, 100);
+			console.log('urlHeight', urlHeight.scrollTop);
+		}
+
+
+		var itemScrollTop = document.querySelectorAll('.itemScrollTop');
+		for (let i = 0; i < itemScrollTop.length; i++) {
+			const element = itemScrollTop[i];
+			element.onclick = function () {
+				console.log('element.scrollTop'+i, element.scrollTop);
+			}
+		}
+
+	</script>
 </body>
 
 </html>
