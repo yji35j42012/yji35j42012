@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Canvas版</h2>
+    <div id="qrcode"></div>
+
+    <h2>Table版</h2>
+    <div id="qrcode-table"></div>
+
+    <h2>
+        自訂size (120x120)
+    </h2>
+    <div id="qrcode-size"></div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>`
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+    <script>
+        $('#qrcode').qrcode('https://mail.google.com/mail/u/0/#inbox');
+
+        $('#qrcode-table').qrcode({
+            render: 'table',
+            text: 'https://mail.google.com/mail/u/0/#inbox'
+        });
+
+        $('#qrcode-size').qrcode({
+            width: 120,
+            height: 120,
+            text: 'https://mail.google.com/mail/u/0/#inbox'
+        });
+    </script>
+</body>
+
+</html>

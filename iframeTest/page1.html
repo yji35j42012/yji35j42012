@@ -2,19 +2,53 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-    
-    </style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			box-sizing: border-box;
+		}
+
+		html,
+		body {
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+
+		.moveBox {
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background: pink;
+			border: 1px solid 000;
+		}
+	</style>
 </head>
 
 <body>
-    <div class="container" style="height: 2000px;">
-        page1
-    </div>
+	<div class="container">
+		page1
+		<button id="page1Btn" class="page1Btn">按鈕</button>
+		<div id="moveBox" class="moveBox"></div>
+	</div>
+
+	<script>
+		var page1Btn = document.getElementById('page1Btn');
+		var moveBox = document.getElementById('moveBox');
+		page1Btn.onclick = function () {
+			console.log('page1Btn', page1Btn.offsetTop);
+			console.log('page1Btn', page1Btn.offsetLeft);
+			moveBox.style.top = page1Btn.offsetTop + 'px';
+			moveBox.style.left = page1Btn.offsetLeft + 'px';
+		}
+	</script>
 </body>
 
 </html>

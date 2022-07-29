@@ -40,9 +40,31 @@
 		}
 
 		.item {
+			position: relative;
 			width: 100%;
 			height: 200px;
 			border-bottom: 1px solid #000;
+		}
+
+		/* .item:first-child{
+			position: sticky;
+			top: 0;
+		} */
+		.box{
+			width: 100px;
+			height: 100px;
+			background-color: #ccc;
+			border: 1px solid #000;
+		}
+		.box1{
+			position: relative;
+			top: 50px;
+			left: 50px;
+		}
+		.box2{
+			position: absolute;
+			top: 50px;
+			left: 50px;
 		}
 	</style>
 </head>
@@ -53,8 +75,12 @@
 			<button id="scrollHandeler">滑捲軸</button>
 		</div>
 		<div class="content">
-			<div class="item itemScrollTop"></div>
-			<div class="item itemScrollTop"></div>
+			<div class="item itemScrollTop">
+				<div class="box box1"></div>
+			</div>
+			<div class="item itemScrollTop">
+				<div class="box box2"></div>
+			</div>
 			<div class="item itemScrollTop"></div>
 			<div class="item itemScrollTop"></div>
 			<div class="item itemScrollTop"></div>
@@ -89,7 +115,7 @@
 		for (let i = 0; i < itemScrollTop.length; i++) {
 			const element = itemScrollTop[i];
 			element.onclick = function () {
-				console.log('element.scrollTop'+i, element.scrollTop);
+				console.log('element.scrollTop' + i, element.scrollTop);
 			}
 		}
 
