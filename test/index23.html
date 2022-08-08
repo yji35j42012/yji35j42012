@@ -50,7 +50,6 @@
 		}
 
 		.removeTr {
-
 			animation: removetr .3s ease forwards;
 		}
 
@@ -114,6 +113,10 @@
 				moveTr[num].remove();
 			}, 300);
 			console.log(moveTr[num]);
+		}
+		// onbeforeunload
+		window.onbeforeunload = function () {
+			alert('登出溜');
 		}
 	</script>
 </body>
