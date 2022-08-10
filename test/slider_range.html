@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,23 +8,27 @@
 	<title>Document</title>
 
 	<style>
-		*{
+		* {
 			margin: 0;
 			padding: 0;
 			box-sizing: border-box;
 		}
-		html,body{
+
+		html,
+		body {
 			width: 100%;
 			height: 100%;
 		}
-		.wrap{
+
+		.wrap {
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			width: 100%;
 			height: 100%;
 		}
-		.slider_box{
+
+		.slider_box {
 			position: relative;
 			width: 100%;
 			max-width: 300px;
@@ -31,7 +36,8 @@
 			border: 1px solid #ccc;
 			border-radius: 50px;
 		}
-		.slider_btn{
+
+		.slider_btn {
 			position: absolute;
 			top: 0;
 			bottom: 0;
@@ -43,46 +49,41 @@
 			background: #cdcdcd;
 			cursor: pointer;
 		}
-		.slider_btn._min{
+
+		.slider_btn._min {
 			left: 0;
 		}
-		.slider_btn._max{
+
+		.slider_btn._max {
 			right: 0;
 		}
 	</style>
 </head>
+
 <body>
 	<div class="wrap">
-
 		<div id="slider_box" class="slider_box">
 			<span id="slider_min" class="slider_btn _min"></span>
 			<span id="slider_max" class="slider_btn _max"></span>
 		</div>
 		<iframe src="./" frameborder="0"></iframe>
-
 	</div>
-
-
-
 	<script>
 		var slider_box = document.querySelector('#slider_box');
 		var slider_min = document.querySelector('#slider_min');
 		var slider_max = document.querySelector('#slider_max');
-
 		let startX = 0;
 		var startScroll = 0;
 		let startTime = 0;
 		let moved = false;
-
-		function startDrag(e){
+		function startDrag(e) {
 			slider_min.classList.add('active');
 			startX = e.pageX;
 			// startScroll = slider_min.scrollLeft;
 			// console.log(e);
 			console.log(startScroll);
 		}
-
-		function dragHandler(e){
+		function dragHandler(e) {
 			e.preventDefault();
 			if (slider_min.classList.contains("active")) {
 				moved = true;
@@ -91,23 +92,19 @@
 				// console.log('startScroll' + startScroll);
 				// console.log('move' + move);
 				// console.log(startScroll );
-
 				// slider_min.scrollLeft = startScroll - move;
-				slider_min.style.transform = 'translateX(' + startScroll  + 'px)';
-
+				slider_min.style.transform = 'translateX(' + startScroll + 'px)';
 			}
 		}
-		function stopDrog(){
+		function stopDrog() {
 			slider_min.classList.remove('active');
 			console.log(startScroll);
-
 		}
-
 		slider_min.addEventListener('mousedown', startDrag);
 		slider_min.addEventListener('mousemove', dragHandler);
 		slider_min.addEventListener('mouseup', stopDrog);
 		slider_min.addEventListener('mouseleave', stopDrog);
-
 	</script>
 </body>
+
 </html>

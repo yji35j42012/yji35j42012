@@ -48,7 +48,6 @@
 			justify-content: space-between;
 			align-items: center;
 			padding: 12px 25px;
-
 			border-bottom: 1px solid #e6e6e6;
 		}
 
@@ -125,12 +124,8 @@
 				arrow_back_ios
 			</span>
 			<div class="calendar_head_info">
-				<div id="month" class="month">
-					October
-				</div>
-				<div id="year" class="year">
-					2021
-				</div>
+				<div id="month" class="month">October</div>
+				<div id="year" class="year">2021</div>
 			</div>
 			<span id="next" class="material-icons calendar_head_next">
 				arrow_forward_ios
@@ -152,8 +147,6 @@
 			</table>
 		</div>
 	</div>
-
-
 	<script>
 		var month_olympic = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 		var month_normal = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -162,14 +155,12 @@
 		var my_year = my_date.getFullYear();
 		var my_month = my_date.getMonth();
 		var my_day = my_date.getDate();
-
 		var year = document.getElementById("year");
 		var month = document.getElementById("month");
 		var calendar_body = document.getElementById("calendar_body");
 		var prev = document.getElementById("prev");
 		var next = document.getElementById("next");
 		var chose = null; //當前選擇
-
 		prev.onclick = function (e) {
 			e.preventDefault();
 			my_month--;
@@ -190,7 +181,6 @@
 			refreshDate();
 			addClick();
 		}
-
 		// 取得當年當月的第一天是星期幾
 		function dayStart(month, year) {
 			var tmpDate = new Date(year, month, 1);
@@ -205,7 +195,6 @@
 				return (month_normal[month]);
 			}
 		}
-
 		function refreshDate() {
 			year.innerHTML = my_year;
 			month.innerHTML = month_name[my_month];
@@ -214,12 +203,10 @@
 			var firstDay = dayStart(my_month, my_year); //當月第一天星期
 			var myclass;
 			var m = 0;
-
 			for (var i = 1; i < firstDay; i++) {
 				str += "<td id='" + i + "'></td>"
 				m++;
 			}
-
 			for (var i = 1; i <= totalDay; i++) {
 				if (m == 7) {
 					str += "</tr>" + "\n" + "\n" + "<tr>"
@@ -232,7 +219,6 @@
 				} else {
 					myclass = "name='td' class='darkgrey'"; //今天之後
 				}
-
 				var mon = "data-m='" + my_month + "'"
 				var d = "data-d='" + i + "'"
 				str += "<td " + myclass + mon + d + ">  " + i + "</td> ";
@@ -257,7 +243,6 @@
 				}
 			}
 		}
-
 	</script>
 </body>
 

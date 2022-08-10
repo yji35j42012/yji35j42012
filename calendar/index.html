@@ -67,9 +67,11 @@
 			padding: 15px 10px 10px;
 			color: #bbbbbb;
 		}
-		.calendar_head_next{
+
+		.calendar_head_next {
 			text-align: right;
 		}
+
 		.calendar_body {
 			width: 100%;
 			padding: 0 15px;
@@ -125,16 +127,10 @@
 				arrow_back_ios
 			</span>
 			<div class="calendar_head_info">
-				<div id="month">
-					October
-				</div>
-				<div id="year">
-					2021
-				</div>
+				<div id="month">October</div>
+				<div id="year">2021</div>
 			</div>
-			<span id="next" class="material-icons calendar_head_next">
-				arrow_forward_ios
-			</span>
+			<span id="next" class="material-icons calendar_head_next">arrow_forward_ios</span>
 		</div>
 
 		<div class="calendar_body">
@@ -152,7 +148,7 @@
 			</table>
 		</div>
 	</div>
-	
+
 	<script>
 		var month_olympic = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 		var month_normal = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -239,11 +235,11 @@
 			str += "</tr>"
 			calendar_body.innerHTML = str;
 		}
-		
+
 		refreshDate();
-		
+
 		addClick();
-		
+
 		function addClick() {
 			var tdList = document.querySelectorAll('[name="td"]');
 			for (let i = 0; i < tdList.length; i++) {

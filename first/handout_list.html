@@ -9,9 +9,8 @@
 	<link rel="stylesheet" href="./css/fl_list.css">
 	<link rel="stylesheet" href="./css/fl_share.css">
 	<title>Document</title>
-	
 	<style>
-		.head{
+		.head {
 			position: fixed;
 			top: 0;
 			left: 0;
@@ -36,7 +35,6 @@
 					<li>未回覆_XXX</li>
 					<li>校對中_XXX</li>
 				</ul>
-
 				<select style="display: none">
 					<option>全部_XXX</option>
 					<option>未完成_XXX</option>
@@ -45,7 +43,6 @@
 					<option>校對中_XXX</option>
 				</select>
 			</label>
-
 			<label class="mod_select">
 				<span>查詢項目</span>
 				<ul class="mod_select_menu" style="display: none">
@@ -53,7 +50,6 @@
 					<li>名稱</li>
 					<li>日期</li>
 				</ul>
-
 				<select style="display: none">
 					<option>查詢項目</option>
 					<option>編號</option>
@@ -63,7 +59,6 @@
 			</label>
 			<input type="text" class="mod_inp" placeholder="請輸入查詢內容">
 		</div>
-
 		<div class="mod_tb_box">
 			<div class="mod_tb_head fl_tb_head">
 				<table id="head_tb" class="mod_tb fixed_1024px">
@@ -80,8 +75,8 @@
 				</table>
 			</div>
 			<div id="body_tb" class="mod_tb_body">
-				<table  class="mod_tb fixed_1024px">
-					<tr >
+				<table class="mod_tb fixed_1024px">
+					<tr>
 						<td class="fixedtd_130px">first</td>
 						<td>222</td>
 						<td>333</td>
@@ -91,11 +86,8 @@
 						<td>777</td>
 						<td>888</td>
 					</tr>
-					
 				</table>
 			</div>
-
-
 			<div class="mod_page_box">
 				<ul class="mod_page">
 					<li>1</li>
@@ -104,11 +96,8 @@
 				</ul>
 			</div>
 		</div>
-
 		<div class="fl_nodata"></div>
-
 	</div>
-
 	<script>
 		var move_head_tb = document.querySelector('#head_tb');
 		var move_body_tb = document.querySelector('#body_tb');
@@ -117,14 +106,13 @@
 		let moveX = 0;
 		let scrollLeft;
 		console.log(move_body_tb);
-		move_body_tb.addEventListener('touchstart' , (e) => {
+		move_body_tb.addEventListener('touchstart', (e) => {
 			console.log('mousedown');
 			isDown = true;
 			move_body_tb.classList.add('active');
-			if(startX == 0){
+			if (startX == 0) {
 				move_head_tb.style.marginLeft = startX + "px";
 			}
-			
 			startX = e.touches[0].pageX;
 			console.log('滑鼠按下去的位置' + startX);
 			console.log(e);
@@ -140,25 +128,23 @@
 			move_body_tb.classList.remove('active');
 		});
 		move_body_tb.addEventListener('touchmove', (e) => {
-			if(!isDown) return; //stop the fn running
+			if (!isDown) return; //stop the fn running
 			// console.log('mousemove');
-			
-			let move =  e.touches[0].pageX - startX;
-			startX =  e.touches[0].pageX;
+			let move = e.touches[0].pageX - startX;
+			startX = e.touches[0].pageX;
 			moveX -= move
-			
 			console.log("move" + move);
 			console.log("moveX" + moveX);
-			if(e.view.innerWidth > 1024)  return
+			if (e.view.innerWidth > 1024) return
 			max_move = 1024 - e.view.innerWidth;
-			if(moveX <= 0){
+			if (moveX <= 0) {
 				moveX = 0
 				move_head_tb.style.marginLeft = moveX + "px";
-			}else if(moveX >= max_move){
+			} else if (moveX >= max_move) {
 				moveX = max_move
 				move_head_tb.style.marginLeft = moveX * -1 + "px";
-			}else{
-				move_head_tb.style.marginLeft =  moveX * -1 + "px";
+			} else {
+				move_head_tb.style.marginLeft = moveX * -1 + "px";
 			}
 		});
 	</script>

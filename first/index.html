@@ -72,7 +72,6 @@
             align-items: center;
         }
 
-
         .flyer_txt {
             width: 100%;
             height: 25px;
@@ -178,11 +177,9 @@
                 </ul>
             </div>
         </div>
-
         <div class="banner">
             暫時區塊
         </div>
-
         <div class="new_class">
             <div class="title orange_gradient_bg">
                 最新課程
@@ -210,7 +207,6 @@
                     <button class="flyer_next" @click="flyer_next">右</button>
                 </div>
             </div>
-
         </div>
         <div class="Leaderboard">
             <div class="title brown_gradient_bg">
@@ -309,7 +305,7 @@
                 ],
                 flyer_now_pic: 0,
                 flyer_menu_move: "",
-                flex_moveX: 0 ,
+                flex_moveX: 0,
             }
         }
         let vm = new Vue({
@@ -318,22 +314,20 @@
             mounted() {
                 moveX = this.flyer_data.flyer_menu.length * 50
                 this.flyer_data.flex_moveX = moveX
-                this.flyer_data.flyer_menu_move = "transform: translateX("+ moveX +"px);"
+                this.flyer_data.flyer_menu_move = "transform: translateX(" + moveX + "px);"
             },
             methods: {
-            flyer_next() {
-                // let new_move ;
-                // new_move = this.flyer_data.flyer_now_pic * 110 * -1 + 60 ;
-                
-            },
-            changeHandler(index) {
-                this.flyer_data.flyer_now_pic = index
-                let new_move ;
-                new_move = this.flyer_data.flyer_now_pic * 110 * -1 + this.flyer_data.flex_moveX ;
-                this.flyer_data.flyer_menu_move = "transform: translateX(" + new_move + "px)";
-                
+                flyer_next() {
+                    // let new_move ;
+                    // new_move = this.flyer_data.flyer_now_pic * 110 * -1 + 60 ;
+                },
+                changeHandler(index) {
+                    this.flyer_data.flyer_now_pic = index
+                    let new_move;
+                    new_move = this.flyer_data.flyer_now_pic * 110 * -1 + this.flyer_data.flex_moveX;
+                    this.flyer_data.flyer_menu_move = "transform: translateX(" + new_move + "px)";
+                }
             }
-        }
         })
     </script>
 </body>

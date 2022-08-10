@@ -12,10 +12,14 @@
 			outline: 0;
 			box-sizing: border-box;
 		}
+
 		*:hover,
 		*:focus,
-		*:active{outline: none;-webkit-tap-highlight-color: transparent;}
-		
+		*:active {
+			outline: none;
+			-webkit-tap-highlight-color: transparent;
+		}
+
 		html,
 		body {
 			width: 100%;
@@ -37,7 +41,6 @@
 			flex-direction: column;
 			width: 100%;
 			height: 320px;
-			/* background-color: #eee; */
 			margin-bottom: 50px;
 			padding-bottom: 20px;
 		}
@@ -70,15 +73,18 @@
 		}
 
 		.swiper_item:nth-child(4) {
-			background: cornflowerblue; 
+			background: cornflowerblue;
 		}
+
 		.swiper_item:nth-child(5) {
 			background: aqua;
 		}
+
 		.swiper_item:nth-child(6) {
 			background: aqua;
 		}
-		.swiper_full .swiper_dot{
+
+		.swiper_full .swiper_dot {
 			position: absolute;
 			bottom: -5px;
 			left: 0;
@@ -86,23 +92,28 @@
 			margin: 0 auto;
 			text-align: center;
 		}
-		.swiper_dot > span{
+
+		.swiper_dot>span {
 			display: inline-block;
 			width: 15px;
 			height: 15px;
 			border-radius: 50%;
-			border:1px solid #555;
+			border: 1px solid #555;
 		}
-		.swiper_dot > span:first-child,
-		.swiper_dot > span:last-child{
+
+		.swiper_dot>span:first-child,
+		.swiper_dot>span:last-child {
 			display: none;
 		}
-		.swiper_dot > span.active{
+
+		.swiper_dot>span.active {
 			background: #999;
 		}
-		.swiper_dot > span+span{
+
+		.swiper_dot>span+span {
 			margin-left: 5px;
 		}
+
 		.change_btn {
 			position: absolute;
 			top: 0;
@@ -121,7 +132,7 @@
 		.change_btn:hover {
 			cursor: pointer;
 		}
-		
+
 		.change_btn.next {
 			right: 0;
 			background: url('./images/swiper/icon_next.svg')no-repeat center center/contain;
@@ -163,7 +174,7 @@
 			<button class="change_btn prev" @click="prev"></button>
 			<div class="swiper_box" :style="moveX">
 				<div class="swiper_item" v-for="item in loop_div">{{ item.img_name }}</div>
-				
+
 			</div>
 			<button class="change_btn next" @click="next"></button>
 
@@ -190,78 +201,78 @@
 	<script>
 		let data = {
 			img_txt: [
-				{img_name:'第一張' , active_state:'active'},
-				{img_name:'第二張' , active_state:''},
-				{img_name:'第三張' , active_state:''},
+				{ img_name: '第一張', active_state: 'active' },
+				{ img_name: '第二張', active_state: '' },
+				{ img_name: '第三張', active_state: '' },
 			],
-			moveX:'',
-			turnFirst:'',
-			img_count:1,
-			btn_action:true
+			moveX: '',
+			turnFirst: '',
+			img_count: 1,
+			btn_action: true
 		}
 
-		
+
 		let vm = new Vue({
 			el: "#app",
 			data: data,
-			computed:{
-				loop_div(){
+			computed: {
+				loop_div() {
 					let new_div = this.img_txt
 					new_div.push({
-						img_name:this.img_txt[0].img_name,
-						active_state:''
+						img_name: this.img_txt[0].img_name,
+						active_state: ''
 					})
 					new_div.unshift(this.img_txt[this.img_txt.length - 2])
 					return new_div
 				}
 			},
-			
-			methods:{
-				next(){
-					if( !this.btn_action) return
-					this.img_txt[this.img_count].active_state=''
+
+			methods: {
+				next() {
+					if (!this.btn_action) return
+					this.img_txt[this.img_count].active_state = ''
 					this.img_count += 1
-					if( this.img_count > this.img_txt.length - 2){
+					if (this.img_count > this.img_txt.length - 2) {
 						this.btnHandler()
-						this.moveX = 'transform: translateX(-'+ (this.img_count*100)+'%);'
+						this.moveX = 'transform: translateX(-' + (this.img_count * 100) + '%);'
 						this.img_count = 1
 						this.dotHandler()
-						let loop_first = setTimeout(this.loopHandler , 300)
-					}else{
+						let loop_first = setTimeout(this.loopHandler, 300)
+					} else {
 						this.btnHandler()
 						this.dotHandler()
-						this.moveX = 'transform: translateX(-'+ (this.img_count*100)+'%);'
+						this.moveX = 'transform: translateX(-' + (this.img_count * 100) + '%);'
 					}
 				},
-				prev(){
-					if( !this.btn_action) return
-					this.img_txt[this.img_count].active_state=''
+				prev() {
+					if (!this.btn_action) return
+					this.img_txt[this.img_count].active_state = ''
 					this.img_count -= 1
-					if( this.img_count <= 0){
+					if (this.img_count <= 0) {
 						this.btnHandler()
-						this.moveX = 'transform: translateX(-'+ (this.img_count*100)+'%)'
+						this.moveX = 'transform: translateX(-' + (this.img_count * 100) + '%)'
 						this.img_count = this.img_txt.length - 2
 						this.dotHandler()
-						let loop_first = setTimeout(this.loopHandler , 300)						
-					}else{
+						let loop_first = setTimeout(this.loopHandler, 300)
+					} else {
 						this.btnHandler()
-						this.img_txt[this.img_count].active_state='active'
-						this.moveX = 'transform: translateX(-'+ (this.img_count*100)+'%)'
+						this.img_txt[this.img_count].active_state = 'active'
+						this.moveX = 'transform: translateX(-' + (this.img_count * 100) + '%)'
 					}
 				},
-				loopHandler(){
-					if(this.img_count === 1){
-						this.moveX = 'transition-duration: 0s; transform: translateX(-'+(this.img_count*100)+'%);'
-					}else if(this.img_count == this.img_txt.length - 2){
-						this.moveX = 'transition-duration: 0s; transform: translateX(-'+(this.img_count*100)+'%);'
+				loopHandler() {
+					if (this.img_count === 1) {
+						this.moveX = 'transition-duration: 0s; transform: translateX(-' + (this.img_count * 100) + '%);'
+					} else if (this.img_count == this.img_txt.length - 2) {
+						this.moveX = 'transition-duration: 0s; transform: translateX(-' + (this.img_count * 100) + '%);'
 					}
 				},
-				dotHandler(){
-					this.img_txt[this.img_count].active_state='active'
+				dotHandler() {
+					this.img_txt[this.img_count].active_state = 'active'
 				},
-				btnHandler(){
+				btnHandler() {
 					this.btn_action = false
-					let btn_state = setTimeout(( () => this.btn_action = true) , 500)
+					let btn_state = setTimeout((() => this.btn_action = true), 500)
 				}
 			}
 		})

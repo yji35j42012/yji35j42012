@@ -5,19 +5,27 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Document</title>
+	<title>Alex</title>
 	<link rel="stylesheet" href="./style/css/reset.css">
 	<link rel="stylesheet" href="./style/css/all.css">
-
+	
 </head>
 
 <body>
 	<div id="app" class="wrap">
+		<div class="header">
+			<div class="logo"></div>
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
 		<a class="normal_btn" href="./button">按鈕樣式</a>
 		<ol style="display: block">
 			<li v-for="item in todos">{{item.text}}</li>
 		</ol>
-		<TodoItem />
+		<!-- <TodoItem /> -->
 	</div>
 
 

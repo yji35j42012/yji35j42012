@@ -1,121 +1,146 @@
-body{background: #000;}
-.mod_content{
+body {
+    background: #000;
+}
+.mod_content {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     width: 100%;
     height: 100%;
 }
-.mod_header{
+.mod_header {
     width: 100%;
     min-height: 50px;
-    background: url('../images/learn_lobby/bg_header2.png')no-repeat center/cover;
+    background: url("../images/learn_lobby/bg_header2.png") no-repeat
+        center/cover;
 }
-.mod_banner{
+.mod_banner {
     position: relative;
     width: 100%;
     min-height: 300px;
 }
 .mod_banner::before,
-.mod_banner::after{
-    content:'';
+.mod_banner::after {
+    content: "";
     position: absolute;
     width: 100%;
     height: 2px;
-    background: linear-gradient(to right, rgba(182,124,36,0) 0%,rgba(160,102,42,1) 8%,rgba(244,217,122,1) 26%,rgba(255,255,199,1) 53%,rgba(244,217,122,1) 79%,rgba(160,102,42,1) 92%,rgba(125,185,232,0) 100%);
+    background: linear-gradient(
+        to right,
+        rgba(182, 124, 36, 0) 0%,
+        rgba(160, 102, 42, 1) 8%,
+        rgba(244, 217, 122, 1) 26%,
+        rgba(255, 255, 199, 1) 53%,
+        rgba(244, 217, 122, 1) 79%,
+        rgba(160, 102, 42, 1) 92%,
+        rgba(125, 185, 232, 0) 100%
+    );
     top: 0;
     z-index: 5;
 }
-.mod_banner::after{
+.mod_banner::after {
     top: auto;
     bottom: 0;
 }
 .mod_btn_prev,
-.mod_btn_next{
+.mod_btn_next {
     position: absolute;
     width: 150px;
     height: 55px;
-    background: linear-gradient(to right, rgba(255,255,199,1) 40%,rgba(244,217,122,1) 83%,rgba(182,124,36,1) 100%);
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 199, 1) 40%,
+        rgba(244, 217, 122, 1) 83%,
+        rgba(182, 124, 36, 1) 100%
+    );
     bottom: 30px;
     cursor: pointer;
     color: #242424;
     z-index: 10;
 }
 .mod_btn_prev:active,
-.mod_btn_next:active{
-    background: linear-gradient(to right, rgba(51,51,51,1) 38%,rgba(0,0,0,1) 100%);
+.mod_btn_next:active {
+    background: linear-gradient(
+        to right,
+        rgba(51, 51, 51, 1) 38%,
+        rgba(0, 0, 0, 1) 100%
+    );
     box-shadow: 0px 0px 8px 0px #ffd745;
     color: #ffd745;
 }
-.mod_btn_prev{
-    border-top-right-radius:50px;
+.mod_btn_prev {
+    border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
     left: 0;
 }
-.mod_btn_next{
+.mod_btn_next {
     border-top-left-radius: 50px;
-    border-bottom-left-radius:50px;
-    right:0;
+    border-bottom-left-radius: 50px;
+    right: 0;
 }
 
 .mod_btn_prev tt::before,
-.mod_btn_next tt::before{
+.mod_btn_next tt::before {
     position: absolute;
     content: attr(data-txt);
 }
-.mod_banner_info{
+.mod_banner_info {
     width: 100%;
     height: 100%;
 }
-.mod_banner_info ul{
-    height: 100%;  
+.mod_banner_info ul {
+    height: 100%;
     display: flex;
     transform: translateX(-100%);
-    transition-duration: .3s;
+    transition-duration: 0.3s;
 }
-.mod_banner_info::after{
-    content:'';
+.mod_banner_info::after {
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    transition-duration: .3s;
+    transition-duration: 0.3s;
 }
 
 .mod_btn_prev:hover ~ .mod_banner_info:after,
 .mod_btn_next:hover ~ .mod_banner_info:after,
-.mod_banner_info:hover::after{
-    box-shadow: 0 0 0 1px hsl(52, 89%, 70%) inset, 0 -25px 70px -10px #F3DA38 inset;
+.mod_banner_info:hover::after {
+    box-shadow: 0 0 0 1px hsl(52, 89%, 70%) inset,
+        0 -25px 70px -10px #f3da38 inset;
 }
-.mod_banner_info li{
+.mod_banner_info li {
     flex: 0 0 100%;
     height: 100%;
 }
 
-.mod_banner_info li div{
+.mod_banner_info li div {
     display: block;
     width: 100%;
     height: 100%;
 }
-.mod_banner_info li:nth-child(1) div{
-    background: url('../images/learn_lobby/banner03.jpg')no-repeat top center/contain;}
-.mod_banner_info li:nth-child(2) div{
-    background: url('../images/learn_lobby/banner02.jpg')no-repeat top center/contain;}
+.mod_banner_info li:nth-child(1) div {
+    background: url("../images/learn_lobby/banner03.jpg") no-repeat top
+        center/contain;
+}
+.mod_banner_info li:nth-child(2) div {
+    background: url("../images/learn_lobby/banner02.jpg") no-repeat top
+        center/contain;
+}
 
-
-
-.mod_container{
-    display:flex;
+.mod_container {
+    display: flex;
     width: 100%;
     height: calc(100% - 50px - 300px - 70px);
-    background:url('../images/learn_lobby/bg_content.jpg')no-repeat center/cover;
+    background: url("../images/learn_lobby/bg_content.jpg") no-repeat
+        center/cover;
     align-items: center;
     overflow-x: hidden;
     overflow-y: auto;
 }
 
-.mod_game_menu{
+.mod_game_menu {
     width: 125px;
     height: 100%;
     display: flex;
@@ -123,36 +148,51 @@ body{background: #000;}
     margin-left: 25px;
 }
 
-.mod_game_menu li{
+.mod_game_menu li {
     position: relative;
     width: 120px;
     height: 50px;
     text-align: center;
     line-height: 50px;
     color: #fff;
-    background: linear-gradient(to bottom, #f4d97a 0%,#b67c24 23%,#ffffc7 40%,#b67c24 61%,#ffffc7 100%);
-    padding:2px;
+    background: linear-gradient(
+        to bottom,
+        #f4d97a 0%,
+        #b67c24 23%,
+        #ffffc7 40%,
+        #b67c24 61%,
+        #ffffc7 100%
+    );
+    padding: 2px;
     cursor: pointer;
 }
 
-.mod_game_menu li:before{
-    content:'';
+.mod_game_menu li:before {
+    content: "";
     display: block;
     position: relative;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(51,51,51,1) 0%,rgba(41,41,41,1) 50%,rgba(4,4,4,1) 100%);
+    background: linear-gradient(
+        to bottom,
+        rgba(51, 51, 51, 1) 0%,
+        rgba(41, 41, 41, 1) 50%,
+        rgba(4, 4, 4, 1) 100%
+    );
 }
-.mod_game_menu li+li{
+.mod_game_menu li + li {
     margin-top: 30px;
 }
-.mod_game_menu li span{
+.mod_game_menu li span {
     position: absolute;
-    top: 0;left: 0;bottom: 0;right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     margin: auto;
     font-size: 16px;
 }
-.mod_game_box{
+.mod_game_box {
     width: 100%;
     display: flex;
     padding: 0 20px;
@@ -160,85 +200,96 @@ body{background: #000;}
     align-items: center;
 }
 
-.mod_game_group{
+.mod_game_group {
     width: calc(100% - 26px);
     max-width: 860px;
     padding: 30px 0;
     overflow-x: hidden;
 }
 
-.mod_game_list{
+.mod_game_list {
     max-height: 300px;
     height: 100%;
     display: flex;
 }
 
-
-.mod_game_item{
+.mod_game_item {
     position: relative;
     display: inline-block;
-    flex: 1 0  calc(100% / 2 - 4%);
-    background: linear-gradient(to bottom, #f4d97a 0%,#b67c24 23%,#ffffc7 40%,#b67c24 61%,#ffffc7 100%);
+    flex: 1 0 calc(100% / 2 - 4%);
+    background: linear-gradient(
+        to bottom,
+        #f4d97a 0%,
+        #b67c24 23%,
+        #ffffc7 40%,
+        #b67c24 61%,
+        #ffffc7 100%
+    );
     margin: 0 2%;
     padding: 2px;
     border-radius: 3px;
 }
 
-.mod_game_item tt{ 
+.mod_game_item tt {
     display: block;
     padding: 5px 0;
 }
-.mod_game_item img{
+.mod_game_item img {
     width: 100%;
     height: 100%;
 }
 
 .mod_game_prev,
-.mod_game_next{
+.mod_game_next {
     flex: 0 0 13px;
     width: 13px;
     height: 40px;
-    background: url(../images/learn_lobby/icon_next.png)no-repeat center/contain;
+    background: url(../images/learn_lobby/icon_next.png) no-repeat
+        center/contain;
     margin: 0 20px;
     cursor: pointer;
 }
 
-.mod_game_prev{
+.mod_game_prev {
     transform: rotate(180deg);
 }
 
-.mod_footer{
+.mod_footer {
     width: 100%;
     min-height: 70px;
-    background: url(../images/learn_lobby/bg_footer.png)no-repeat bottom center/contain,linear-gradient(to bottom, rgba(63,33,13,1) 0%,rgba(0,0,0,1) 36%);
+    background: url(../images/learn_lobby/bg_footer.png) no-repeat bottom
+            center/contain,
+        linear-gradient(to bottom, rgba(63, 33, 13, 1) 0%, rgba(0, 0, 0, 1) 36%);
 }
-.word_size_21px{font-size:21px;}
+.word_size_21px {
+    font-size: 21px;
+}
 
-.mod_game_box.mod_multi_game{
+.mod_game_box.mod_multi_game {
     height: 100%;
 }
 
-.mod_multi_game .mod_game_group{
+.mod_multi_game .mod_game_group {
     max-width: 760px;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.mod_multi_game .mod_game_list{
-    display:block;
+.mod_multi_game .mod_game_list {
+    display: block;
     height: auto;
     font-size: 0;
 }
-.mod_multi_game .mod_game_item{
+.mod_multi_game .mod_game_item {
     display: inline-block;
     width: calc(100% / 4 - 20px);
     margin: 10px;
 }
-.mod_game_txt{
+.mod_game_txt {
     position: absolute;
     width: calc(100% - 4px);
-    background: rgba(0,0,0,.8);
+    background: rgba(0, 0, 0, 0.8);
     color: #fff;
     font-size: 22px;
     left: 0;
@@ -247,16 +298,16 @@ body{background: #000;}
     text-align: center;
     margin: 0 auto;
     height: 50px;
-    transition-duration: .3s;
+    transition-duration: 0.3s;
 }
-.mod_multi_game .mod_game_txt{
+.mod_multi_game .mod_game_txt {
     font-size: 18px;
-}   
-.mod_game_mintxt{
+}
+.mod_game_mintxt {
     font-size: 12px;
 }
 
-.mod_game_item:hover .mod_game_txt{
+.mod_game_item:hover .mod_game_txt {
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;

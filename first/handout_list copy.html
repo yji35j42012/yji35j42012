@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,11 @@
 	<title>Document</title>
 	<link rel="stylesheet" href="./css/reset.css">
 	<style>
-		body{background: #eee;}
-		.wrap{
+		body {
+			background: #eee;
+		}
+
+		.wrap {
 			position: relative;
 			width: 100%;
 			height: 100%;
@@ -18,7 +22,8 @@
 			grid-template-rows: 60px 60px 1fr; */
 			/* 使用grid排版 */
 		}
-		.header{
+
+		.header {
 			width: 100%;
 			/* 不使用grid排版 */
 			height: 60px;
@@ -29,7 +34,8 @@
 			justify-content: space-between;
 			align-items: center;
 		}
-		.content{
+
+		.content {
 			width: 100%;
 			/* 不使用grid排版 */
 			height: calc(100% - 120px);
@@ -40,20 +46,21 @@
 			/* 使用grid排版 */
 			overflow: hidden;
 		}
-		.range_box{
+
+		.range_box {
 			width: 100%;
 			height: 60px;
 			background: #F7B66C;
 			padding-left: 20px;
 			display: flex;
-			align-items:center;
+			align-items: center;
 		}
 
-		.range_box *+*{
+		.range_box *+* {
 			margin-left: 20px;
 		}
 
-		.range_select{
+		.range_select {
 			position: relative;
 			min-width: 50px;
 			height: 35px;
@@ -62,7 +69,7 @@
 			border-radius: 3px;
 		}
 
-		.range_select::after{
+		.range_select::after {
 			content: '\25BE';
 			position: absolute;
 			width: 10px;
@@ -74,7 +81,7 @@
 			top: 0;
 		}
 
-		.range_select select{
+		.range_select select {
 			width: 100%;
 			height: 100%;
 			padding: 0 35px 0 10px;
@@ -82,21 +89,21 @@
 			color: #fff;
 		}
 
-		.range_input{
+		.range_input {
 			display: block;
 			width: 100%;
 			height: 30px;
 			flex: 0 1 200px;
 		}
 
-		.range_input input{
+		.range_input input {
 			width: 100%;
 			height: 100%;
 			border-radius: 50px;
 			padding: 0 10px;
 		}
 
-		.range_btn{
+		.range_btn {
 			min-width: 50px;
 			height: 40px;
 			background: #A1B630;
@@ -105,97 +112,117 @@
 			border-radius: 3px;
 		}
 
-		.fr_tb{
+		.fr_tb {
 			width: 100%;
 			table-layout: fixed;
 			text-align: center;
 		}
 
-		.fr_tb td{
+		.fr_tb td {
 			padding: 5px 10px;
 		}
 
-		.fr_tb_header td{
+		.fr_tb_header td {
 			background: #754C24;
 			color: #fff;
 			height: 50px;
 		}
-		.fr_tb_body{
+
+		.fr_tb_body {
 			overflow-x: auto;
 			padding-bottom: 100px;
 		}
 
-		.fr_tb_body td{
+		.fr_tb_body td {
 			height: 60px;
 			color: #737b84;
 			background: #fff;
 		}
 
-		.td_w10{width: 10%;}
-		.td_w20{width: 20%;}
+		.td_w10 {
+			width: 10%;
+		}
 
-		.fixedShadow{
+		.td_w20 {
+			width: 20%;
+		}
+
+		.fixedShadow {
 			position: relative;
 		}
 
-		.fixedShadow::after{
+		.fixedShadow::after {
 			content: '';
 			position: absolute;
 			width: 0;
 			height: 100%;
-			background: linear-gradient(to right, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0) 80%);
+			background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 80%);
 			top: 0;
 			right: -20px;
 			opacity: 0;
 			z-index: 2;
 		}
 
-		@media only screen and (min-width: 1024px){
-			.hide_on_large{display:none!important;}
+		@media only screen and (min-width: 1024px) {
+			.hide_on_large {
+				display: none !important;
+			}
 		}
 
-		@media only screen and (min-width: 768px) and (max-width: 1023px){
-			.hide_on_med{display:none!important; }
-		}
-		@media only screen and (min-width: 600px) and (max-width: 767px){
-			.hide_on_small{display:none!important;}
+		@media only screen and (min-width: 768px) and (max-width: 1023px) {
+			.hide_on_med {
+				display: none !important;
+			}
 		}
 
-		@media only screen and (max-width: 599px){
-			.hide_on_mini{display:none!important;}
+		@media only screen and (min-width: 600px) and (max-width: 767px) {
+			.hide_on_small {
+				display: none !important;
+			}
 		}
-	
+
+		@media only screen and (max-width: 599px) {
+			.hide_on_mini {
+				display: none !important;
+			}
+		}
+
 		@media (max-width: 1023px) {
-			.fixedShadow:after{
+			.fixedShadow:after {
 				opacity: 1;
 				width: 20px;
 			}
-			.fixed_W1024 table{
+
+			.fixed_W1024 table {
 				min-width: 1023px;
 			}
-			
-			.fr_tb_header .fixed_td{line-height: 50px;}
 
-			.fr_tb_body .fixed_td{line-height: 60px;}
+			.fr_tb_header .fixed_td {
+				line-height: 50px;
+			}
 
-			td.fixed_td{
+			.fr_tb_body .fixed_td {
+				line-height: 60px;
+			}
+
+			td.fixed_td {
 				position: absolute;
 				min-width: 120px;
 				padding: 0;
 			}
 		}
 
-		.normal_select{
+		.normal_select {
 			position: relative;
 			background: #00B2CA;
-			color:#fff;
+			color: #fff;
 			height: 30px;
 			line-height: 30px;
 			border-radius: 3px;
 			cursor: pointer;
 		}
 
-		.normal_select::after{
+		.normal_select::after {
 			content: '\25BE';
 			position: absolute;
 			width: 10px;
@@ -207,7 +234,7 @@
 			top: 0;
 		}
 
-		.normal_select_ul{
+		.normal_select_ul {
 			display: none;
 			position: absolute;
 			width: 100%;
@@ -216,31 +243,35 @@
 			background-color: rgba(255, 255, 255, .95);
 			border: 1px solid #00B2CA;
 			border-radius: 3px;
-			color:#737b84;
+			color: #737b84;
 		}
-		.normal_select_ul li:hover{
-			color:#fff;
+
+		.normal_select_ul li:hover {
+			color: #fff;
 			background: #00B2CA;
 		}
-		.header_inf_left{
+
+		.header_inf_left {
 			display: flex;
 			height: 100%;
 			align-items: center;
-			color:#fff;
+			color: #fff;
 		}
-		.back_btn{
+
+		.back_btn {
 			width: 30px;
 			height: 100%;
 			background: url('./images/handout_list/icon_btn_back.svg')no-repeat left/45%;
 		}
 
-		.header_inf_right{
+		.header_inf_right {
 			height: 100%;
 			display: flex;
 			align-items: center;
 			color: #fff;
 		}
-		.menu_btn{
+
+		.menu_btn {
 			position: relative;
 			display: flex;
 			width: 30px;
@@ -249,21 +280,23 @@
 			cursor: pointer;
 			align-items: center;
 		}
-		.menu_btn::before{
+
+		.menu_btn::before {
 			display: block;
-			content:'';
+			content: '';
 			width: 30px;
 			height: 3px;
 			background: #fff;
 			box-shadow: 0px -10px #fff,
-						0px 10px #fff;
+				0px 10px #fff;
 		}
 
-		[class*="_btn"]:not(:disabled){
+		[class*="_btn"]:not(:disabled) {
 			cursor: pointer;
 		}
 	</style>
 </head>
+
 <body>
 	<div class="wrap">
 		<div class="header">
@@ -348,13 +381,8 @@
 				</div>
 			</div>
 		</div>
-
-
-
-
-
 		<style>
-			.menu_content{
+			.menu_content {
 				position: absolute;
 				width: 300px;
 				height: 100%;
@@ -365,19 +393,18 @@
 				transition: transform .3s;
 				padding: 20px;
 			}
-			.menu_content.active{
+			.menu_content.active {
 				transform: translateX(0);
 			}
-			.menu_btn_li{
+			.menu_btn_li {
 				display: flex;
 				justify-content: flex-end;
 				height: 50px;
 			}
-			.menu_content li{
-				
+			.menu_content li {
 				padding-left: 20px;
-				line-height:50px;
-				color:#fff;
+				line-height: 50px;
+				color: #fff;
 			}
 		</style>
 		<div class="menu_content">
@@ -399,4 +426,5 @@
 		</div>
 	</div>
 </body>
+
 </html>

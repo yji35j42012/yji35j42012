@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,11 @@
 	<title>Document</title>
 	<link rel="stylesheet" href="./css/reset.css">
 	<style>
-		body{background: #eee;}
-		.wrap{
+		body {
+			background: #eee;
+		}
+
+		.wrap {
 			position: relative;
 			width: 100%;
 			height: 100%;
@@ -18,80 +22,93 @@
 			grid-template-rows: 60px 1fr;
 			/* 使用grid排版 */
 		}
-		.header{
+
+		.header {
 			width: 100%;
 			/* 不使用grid排版 */
 			/* height: 60px; */
 			/* 不使用grid排版 */
 			background: #F7B66C;
 		}
-		.content{
+
+		.content {
 			width: 100%;
 			/* 不使用grid排版 */
 			/* height: calc(100% - 60px); */
 			/* 不使用grid排版 */
-			
+
 			/* 使用grid排版 */
 			height: 100%;
 			/* 使用grid排版 */
 			padding: 10px;
 		}
-		.ctl_box{
+
+		.ctl_box {
 			width: 100%;
 			max-width: 1280px;
 			height: 100%;
 			margin: auto;
 			display: flex;
-			flex-wrap:wrap;
+			flex-wrap: wrap;
 			align-content: center;
 		}
-		.ctl_item{
+
+		.ctl_item {
 			width: calc(100% / 4);
 			height: 200px;
 			padding: 10px;
 			display: flex;
 		}
-		.pic{
+
+		.pic {
 			flex: 0 0 50%;
 		}
-		.ctl_item:nth-child(odd){
+
+		.ctl_item:nth-child(odd) {
 			background: aqua;
 		}
-		.ctl_item:nth-child(even){
+
+		.ctl_item:nth-child(even) {
 			background: aquamarine;
 		}
 
 		/* 寬度 768 ~ 976 */
 		@media only screen and (min-width: 768px) and (max-width: 976px) {
-			.ctl_item{
+			.ctl_item {
 				flex-direction: column;
 			}
-			.pic{
+
+			.pic {
 				width: 100%;
 			}
 		}
+
 		/* 寬度 768 ~ 976 */
-		@media only screen  and (max-width: 768px) {
-			.ctl_item{
+		@media only screen and (max-width: 768px) {
+			.ctl_item {
 				width: calc(100% / 2);
 			}
 		}
+
 		/* 寬度 768 ~ 976 */
 		@media only screen and (min-width: 360px) and (max-width: 512px) {
-			.ctl_item{
+			.ctl_item {
 				flex-direction: column;
 			}
-			.pic{
+
+			.pic {
 				width: 100%;
 			}
 		}
-		@media only screen  and (max-width: 360px) {
-			.ctl_item{
+
+		@media only screen and (max-width: 360px) {
+			.ctl_item {
 				width: 100%;
 			}
 		}
 	</style>
 </head>
+
 <body>
 	<div class="wrap">
 		<div class="header"></div>
@@ -188,6 +205,7 @@
 			</div>
 		</div>
 	</div>
-  
+
 </body>
+
 </html>

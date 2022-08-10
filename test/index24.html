@@ -68,63 +68,64 @@
 			</div>
 		</div>
 	</div>
-</body>
-<!-- jquery 3.4.1 -->
-<!-- <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script> -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js' integrity='sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==' crossorigin='anonymous'></script>
-<!-- bootstrap 4.4.1 -->
-<!-- <script type="text/javascript" src="js/bootstrap.min.js"></script> -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.js' integrity='sha512-39Q5Yw4jtWPVkYu5Dry3HiRh6DWG4FDODb/rHF+X2Xp0kzhg9VgTyYV209uQ/EsqPDP/4dDvwm1rb8JgnAkHNg==' crossorigin='anonymous'></script>
-<script type="text/javascript">
+	<!-- jquery 3.4.1 -->
+	<!-- <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script> -->
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'
+		integrity='sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=='
+		crossorigin='anonymous'></script>
+	<!-- bootstrap 4.4.1 -->
+	<!-- <script type="text/javascript" src="js/bootstrap.min.js"></script> -->
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.js'
+		integrity='sha512-39Q5Yw4jtWPVkYu5Dry3HiRh6DWG4FDODb/rHF+X2Xp0kzhg9VgTyYV209uQ/EsqPDP/4dDvwm1rb8JgnAkHNg=='
+		crossorigin='anonymous'></script>
+	<script type="text/javascript">
+		var showSecondsNum = document.getElementById('seconds-number');
+		var showDialogTimeNum = document.getElementById('dialog-time');
+		var defaultNum = 6;
+		var maxTime = defaultNum;
+		var intervalId;
 
-	var showSecondsNum = document.getElementById('seconds-number');
-	var showDialogTimeNum = document.getElementById('dialog-time');
-	var defaultNum = 6;
-	var maxTime = defaultNum;
-	var intervalId;
+		showSecondsNum.innerHTML = maxTime;
 
-	showSecondsNum.innerHTML = maxTime;
+		var time = maxTime;
 
-	var time = maxTime;
-
-	$('body').on('keydown mousemove mousedown', function (e) {
-		if (showDialogTimeNum.value == null || showDialogTimeNum.value == '') {
-			maxTime = defaultNum; // Seconds        
-		} else if (showDialogTimeNum.value != null || showDialogTimeNum.value != '') {
-			maxTime = showDialogTimeNum.value;
-		}
-		time = maxTime; // Reset
-	});
-	runSetInterval();
-
-	function runSetInterval() {
-		intervalId = setInterval(function () {
-			time--;
-			showSecondsNum.innerHTML = time;
-			if (time <= 0) {
-				ShowInvalidLoginMessage();
-				clearInterval(intervalId);
+		$('body').on('keydown mousemove mousedown', function (e) {
+			if (showDialogTimeNum.value == null || showDialogTimeNum.value == '') {
+				maxTime = defaultNum; // Seconds        
+			} else if (showDialogTimeNum.value != null || showDialogTimeNum.value != '') {
+				maxTime = showDialogTimeNum.value;
 			}
-		}, 1000)
-	}
-	$('#ad_dialog').on('hide.bs.modal', function () {
-		// alert('Modal Close');
-		dialogTimeclose();
+			time = maxTime; // Reset
+		});
 		runSetInterval();
-	});
 
-	function dialogTimeclose() {
-		if (showDialogTimeNum.value == null || showDialogTimeNum.value == '') {
-			time = maxTime;
-		} else if (showDialogTimeNum.value != null || showDialogTimeNum.value != '') {
-			time = showDialogTimeNum.value;
+		function runSetInterval() {
+			intervalId = setInterval(function () {
+				time--;
+				showSecondsNum.innerHTML = time;
+				if (time <= 0) {
+					ShowInvalidLoginMessage();
+					clearInterval(intervalId);
+				}
+			}, 1000)
 		}
-	}
-
-	function ShowInvalidLoginMessage() {
-		// alert("");
-		$('#ad_dialog').modal('show');
-	}
-</script>
+		$('#ad_dialog').on('hide.bs.modal', function () {
+			// alert('Modal Close');
+			dialogTimeclose();
+			runSetInterval();
+		});
+		function dialogTimeclose() {
+			if (showDialogTimeNum.value == null || showDialogTimeNum.value == '') {
+				time = maxTime;
+			} else if (showDialogTimeNum.value != null || showDialogTimeNum.value != '') {
+				time = showDialogTimeNum.value;
+			}
+		}
+		function ShowInvalidLoginMessage() {
+			// alert("");
+			$('#ad_dialog').modal('show');
+		}
+	</script>
+</body>
 
 </html>

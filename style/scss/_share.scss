@@ -1,7 +1,7 @@
 .wrap {
-	@include d_f(flex, center, center);
 	width: 100%;
 	height: 100%;
+	background-color: #e7dfcf;
 }
 
 .normal_btn {
@@ -17,4 +17,10 @@
 		background-color: #3071a9;
 		border-color: #285e8e;
 	}
+}
+
+.header {
+	width: 100%;
+	height: 50px;
+    // background: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
 }

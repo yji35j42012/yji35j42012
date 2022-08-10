@@ -44,10 +44,12 @@
 			/* padding-top: env(safe-area-inset-top);
 			padding-bottom: env(safe-area-inset-bottom); */
 		}
+
 		.ios15 .wrap {
 			display: grid;
-			grid-template-rows:60px 1fr;
+			grid-template-rows: 60px 1fr;
 		}
+
 		/* 
 		html.ios15 {
 			height: calc(100vh - env(safe-area-inset-top));
@@ -100,15 +102,9 @@
 				item1
 				<input type="text">
 			</div>
-			<div class="item">
-				item2
-			</div>
-			<div class="item">
-				item3
-			</div>
-			<div class="item">
-				item4
-			</div>
+			<div class="item">item2</div>
+			<div class="item">item3</div>
+			<div class="item">item4</div>
 			<div class="item">
 				<span style="position:absolute; bottom: 0; color:red">我有文字</span>
 			</div>
@@ -160,12 +156,12 @@
 			var ua = navigator.userAgent.toLowerCase();
 			var s;
 			(s = ua.match(/edge\/([\d.]+)/)) ? Sys.edge = s[1] :
-			(s = ua.match(/rv:([\d.]+)\) like gecko/)) ? Sys.ie = s[1] :
-			(s = ua.match(/msie ([\d.]+)/)) ? Sys.ie = s[1] :
-			(s = ua.match(/firefox\/([\d.]+)/)) ? Sys.firefox = s[1] :
-			(s = ua.match(/chrome\/([\d.]+)/)) ? Sys.chrome = s[1] :
-			(s = ua.match(/opera.([\d.]+)/)) ? Sys.opera = s[1] :
-			(s = ua.match(/version\/([\d.]+).*safari/)) ? Sys.safari = s[1] : 0;
+				(s = ua.match(/rv:([\d.]+)\) like gecko/)) ? Sys.ie = s[1] :
+					(s = ua.match(/msie ([\d.]+)/)) ? Sys.ie = s[1] :
+						(s = ua.match(/firefox\/([\d.]+)/)) ? Sys.firefox = s[1] :
+							(s = ua.match(/chrome\/([\d.]+)/)) ? Sys.chrome = s[1] :
+								(s = ua.match(/opera.([\d.]+)/)) ? Sys.opera = s[1] :
+									(s = ua.match(/version\/([\d.]+).*safari/)) ? Sys.safari = s[1] : 0;
 
 			if (Sys.edge) return { broswer: "Edge", version: Sys.edge };
 			if (Sys.ie) return { broswer: "IE", version: Sys.ie };
