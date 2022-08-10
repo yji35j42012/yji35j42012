@@ -85,29 +85,19 @@
 
 <body>
 	<div id="app" class="wrap">
-		<div class="pageNum">
-			總頁數：{{page}}
-		</div>
-		<div class="pageNum">
-			現在頁數：{{nowPageNum}}
-		</div>
-		<div class="pageNum">
-			餘數：{{showPage}}
-		</div>
+		<div class="pageNum">總頁數：{{page}}</div>
+		<div class="pageNum">現在頁數：{{nowPageNum}}</div>
+		<div class="pageNum">餘數：{{showPage}}</div>
 		<ul class="page">
 			<li>
-				<span class="material-icons">
-					chevron_left
-				</span>
+				<span class="material-icons">chevron_left</span>
 			</li>
 			<li :class="['page_li' , nowPageNum==item ? 'on' : '']" v-for="(item,index) in showPage" :key="index"
 				@click="chanPage(item)">
 				{{item == 'more' ? '...' : item}}
 			</li>
 			<li>
-				<span class="material-icons">
-					chevron_right
-				</span>
+				<span class="material-icons">chevron_right</span>
 			</li>
 		</ul>
 	</div>

@@ -14,19 +14,15 @@
         <button onclick="start()">start</button>
         <button onclick="stop()">stop</button>
     </div>
-
-
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js'
         integrity='sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=='
         crossorigin='anonymous'></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.6/velocity.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.6/velocity.ui.js"></script>
     <script>
         var img = document.querySelector('img');
         var animationLength = 200;
         var animationTime = 1000;
-
         function velocityHandler() {
             Velocity(img, {
                 left: animationLength,
@@ -52,7 +48,6 @@
                 left: 0,
             }, 0);
             velocityHandler();
-
         }
         function stop() {
             Velocity(img, "stop", true);

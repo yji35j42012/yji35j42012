@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
 	<style>
-		.aa{
+		.aa {
 			justify-content: center;
 		}
 	</style>
@@ -21,32 +21,23 @@
 		<p></p>
 		<img src="https://picsum.photos/200/200?random=3" alt="" style="position: relative">
 		<p></p>
-
-
 		<br>
 		<button onclick="start()">start</button>
 		<br>
 		<button onclick="stop()">stop</button>
-
 	</div>
-
-
-
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js'
 		integrity='sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=='
 		crossorigin='anonymous'></script>
-
 	<script>
 		var img = document.querySelectorAll("img");
 		var p = document.querySelectorAll("p");
 		var animationLength = 200;
 		var animationTime = 1000;
 		var fps = 30;
-
 		var io = new VO(0);
 		var to = new VO(1);
 		var ro = new VO(2);
-
 		function VO(num) {
 			this.num = num;
 			this.target = img[this.num];
@@ -55,50 +46,46 @@
 			this.left = 0;
 			this.timer = 0;
 			this.loop = 0;
-
-			this.change = function(){
+			this.change = function () {
 				this.direct = this.direct + 1 > 4 ? 1 : this.direct + 1;
-				if(this.direct ==1){
-					this.loop ++;
+				if (this.direct == 1) {
+					this.loop++;
 					p[this.num].innerHTML = this.loop;
 				}
 			}
-
-
-			this.handler = function(percent){
-				var top , left;
-				switch(this.direct){
+			this.handler = function (percent) {
+				var top, left;
+				switch (this.direct) {
 					case 1:
 						this.top = 0;
 						this.left += animationLength * percent;
-						if(this.left >= animationLength){
+						if (this.left >= animationLength) {
 							this.change();
 						}
 						break;
 					case 2:
 						this.top += animationLength * percent;
-						this.left = animationLength ;
-						if(this.top >= animationLength * percent){
+						this.left = animationLength;
+						if (this.top >= animationLength * percent) {
 							this.change();
 						}
 						break;
 					case 3:
-						this.top = animationLength ;
+						this.top = animationLength;
 						this.left -= animationLength * percent;
-						if(this.left <= 0){
+						if (this.left <= 0) {
 							this.change();
 						}
 						break;
 					case 4:
 						this.top -= animationLength * percent;
-						this.left = 0 ;
-						if(this.top <= 0){
+						this.left = 0;
+						if (this.top <= 0) {
 							this.change();
 						}
 						break;
 				}
 				// console.log(this.target);
-
 				this.target.style.top = this.top + "px";
 				this.target.style.left = this.left + "px";
 			}
@@ -110,40 +97,31 @@
 		function timeoutHandler() {
 			var percent = 1000 / animationTime / fps;
 			to.handler(percent);
-			to.timer = setTimeout(timeoutHandler , 1000 / fps);
+			to.timer = setTimeout(timeoutHandler, 1000 / fps);
 		}
-
 		function requestHandler(time) {
 			var percent = 1 / animationTime * (time - ro.start);
 			ro.handler(percent);
-			ro.start = time ;
+			ro.start = time;
 			ro.timer = window.requestAnimationFrame(requestHandler);
 		}
-
 		function start() {
-			if(io.timer) clearInterval(io.timer);
-			io.timer = setInterval(intervalHandler , 1000 / fps);
-
-			if(to.timer) clearTimeout(to.timer);
-			to.timer = setTimeout(timeoutHandler , 1000 / fps);
-
-			if(ro.timer) window.cancelAnimationFrame(ro.timer);
+			if (io.timer) clearInterval(io.timer);
+			io.timer = setInterval(intervalHandler, 1000 / fps);
+			if (to.timer) clearTimeout(to.timer);
+			to.timer = setTimeout(timeoutHandler, 1000 / fps);
+			if (ro.timer) window.cancelAnimationFrame(ro.timer);
 			ro.start = window.performance.now();
 			ro.timer = window.requestAnimationFrame(requestHandler);
 		}
-
-		function stop(){
-			if(io.timer) clearInterval(io.timer);
+		function stop() {
+			if (io.timer) clearInterval(io.timer);
 			io.timer = 0;
-
-			if(to.timer) clearTimeout(to.timer)
+			if (to.timer) clearTimeout(to.timer)
 			ro.timer = 0;
-
-			if(ro.timer) window.cancelAnimationFrame(ro.timer);
+			if (ro.timer) window.cancelAnimationFrame(ro.timer);
 			ro.timer = 0;
 		}
-
-
 	</script>
 </body>
 

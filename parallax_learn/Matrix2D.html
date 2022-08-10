@@ -30,13 +30,10 @@
 	<img src="https://picsum.photos/200/200?random=1" alt="">
 	<input type="text">
 	<span></span>
-
 	<script>
 		var img = document.getElementsByTagName("img");
 		var input = document.getElementsByTagName("input");
 		var span = document.getElementsByTagName("span");
-
-
 		function setTransform() {
 			var scaleX = input[0].value,
 				scaleY = input[1].value,
@@ -48,22 +45,18 @@
 
 			img[0].style.transform = "scaleX(" + scaleX + ") scaleY(" + scaleY + ") skewX(" + skewX + "deg) skewY(" + skewY + "deg) rotate(" + rotate + "deg) translateX(" + translateX + "px) translateY(" + translateY + "px)";
 			console.log(scaleX);
-
 			span[0].innerHTML = img[0].style.cssText;
 			skewX *= Math.PI / 180;
 			skewY *= Math.PI / 180;
 			rotate *= Math.PI / 180;
-
 			var a = scaleX * (Math.cos(rotate) + Math.tan(skewX) * Math.sin(rotate));
 			var b = scaleY * (Math.tan(skewY) * Math.cos(rotate) + Math.sin(rotate));
 			var c = scaleX * (-Math.sin(rotate) + Math.tan(skewX) * Math.cos(rotate));
 			var d = scaleY * (Math.tan(skewY) * -Math.sin(rotate) + Math.cos(rotate));
 			var e = a * translateX + c * translateY;
 			var f = b * translateX + d * translateY;
-
 			img[1].style.cssText = "transform:matrix(" + a + "," + b + "," + c + "," + d + "," + e + "," + f + ")";
 			span[1].innerHTML = img[1].style.cssText;
-
 			var ct = "filter:progid:DXImageTransform.Microsoft.Matrix(M11=" + a + ",M12=" + c + ",M21=" + b + ",M22=" + d + ", SizingMethod='auto expand');";
 			img[2].style.cssText = ct;
 			var ml = (100 - img[2].offsetWidth) / 2 + e;
@@ -79,10 +72,8 @@
 			input[4].value = 10;
 			input[5].value = 0;
 			input[6].value = 0;
-
 			setTransform();
 		}
-
 		resetTransform();
 	</script>
 </body>

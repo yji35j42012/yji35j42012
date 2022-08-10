@@ -31,8 +31,6 @@
 
 		<section>
 			<img src="https://picsum.photos/200/200?random=1" alt="" style="position: relative">
-
-
 		</section>
 		<section>
 			<img src="https://picsum.photos/200/200?random=2" alt="" style="position: relative">
@@ -44,16 +42,12 @@
 			<img src="https://picsum.photos/200/200?random=4" alt="" style="position: relative">q
 		</section>
 	</div>
-
-
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js'
 		integrity='sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=='
 		crossorigin='anonymous'></script>
-
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.6/velocity.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.6/velocity.ui.js"></script>
 	<script>
-
 		// YYYYY
 		$(function () {
 			$("nav a").click(function () {
@@ -61,8 +55,6 @@
 				$(this).addClass("active").siblings().removeClass('active');
 				beginHandler();
 			}).eq(0).click();
-
-
 			$('section').mousewheel(function (e, delta) {
 				if (!$(this).has('.slider').length) {
 					var target = $("nav a").eq($(this).index());
@@ -105,7 +97,6 @@
 				}, 250)
 			}
 		})
-
 	</script>
 </body>
 

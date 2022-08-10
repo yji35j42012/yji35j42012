@@ -12,21 +12,15 @@
 	<div class="wrap">
 		<img src="https://picsum.photos/200/200?random=1" alt="" style="position: relative">
 		<button onclick="start()">start</button>
-
 	</div>
-
-
-
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js'
 		integrity='sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=='
 		crossorigin='anonymous'></script>
-
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.compatibility.js"></script>
 	<script>
 		var animationLength = 200;
 		var animationTime = 1000;
-
 		function animateHandler() {
 			$('img').animate({
 				top: animationLength,
@@ -39,24 +33,24 @@
 						'top': 'easeOutCubic'
 					}
 				})
-			.animate({
-				top:0,
-				left:0
-			},{
-				duration:animationTime,
-				easing:'linear',
-				specialEasing:{
-					'top':'easeOutCubic'
-				},
-				// start:startHandler,
-				// progress:progressHandler,
-				// step:stepHandler,
-				complete:completeHandler,
-				// dpme:doneHandler,
-				// fail:failHandler,
-				// always:alwaysHandler,
-			}
-			)
+				.animate({
+					top: 0,
+					left: 0
+				}, {
+						duration: animationTime,
+						easing: 'linear',
+						specialEasing: {
+							'top': 'easeOutCubic'
+						},
+						// start:startHandler,
+						// progress:progressHandler,
+						// step:stepHandler,
+						complete: completeHandler,
+						// dpme:doneHandler,
+						// fail:failHandler,
+						// always:alwaysHandler,
+					}
+				)
 		}
 		function startHandler(obj) {
 			console.log(obj);

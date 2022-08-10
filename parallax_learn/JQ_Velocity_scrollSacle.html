@@ -28,12 +28,8 @@
 			<a>aaaaa</a>
 			<a>bbbbb</a>
 		</nav>
-
 		<section>
 			<img src="https://picsum.photos/200/200?random=1" alt="" style="position: relative">
-
-
-
 		</section>
 		<section>
 			<img src="https://picsum.photos/200/200?random=2" alt="" style="position: relative">
@@ -48,19 +44,14 @@
 		<!-- <button onclick="start()">start</button>
 		<button onclick="stop()">stop</button> -->
 	</div>
-
-
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js'
 		integrity='sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=='
 		crossorigin='anonymous'></script>
-
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.6/velocity.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.6/velocity.ui.js"></script>
 	<script>
-
 		$(function () {
 			$("nav a").click(function () {
-
 				if ($(this).hasClass("active")) return;
 				$(this).addClass("active").siblings().removeClass('active');
 				beginHandler();
@@ -74,40 +65,37 @@
 				}
 			})
 		})
-
-		$("section").swipe(function(e, data){
+		$("section").swipe(function (e, data) {
 			var target = $("nav a").eq($(this).index());
 			// swipe 有４個方向
 			// direction top,down,left,rignt
-
-			if(data.direction == "down"){
+			if (data.direction == "down") {
 				target.prev().click();
-			}else if(data.direction == "up"){
+			} else if (data.direction == "up") {
 				target.next().click();
 			}
 		})
-
-		function beginHandler(index){
-			$("section div").velocity("stop" , true).velocity({
-				scale:0.8
-			},{
-				duration:250,
-				complete:scrollHandler
-			})
+		function beginHandler(index) {
+			$("section div").velocity("stop", true).velocity({
+				scale: 0.8
+			}, {
+					duration: 250,
+					complete: scrollHandler
+				})
 		}
 		// 滾輪動畫
-		function scrollHandler(){
+		function scrollHandler() {
 			var index = $("nav a.active").index();
-			$("section").eq(index).velocity("stop" , true).velocity("scroll",{
-				duration:500,
-				complete:completeHandler
+			$("section").eq(index).velocity("stop", true).velocity("scroll", {
+				duration: 500,
+				complete: completeHandler
 			})
 		}
 		// 放大動畫
-		function completeHandler(){
-			$("section div").velocity("stop" ,true).velocity({
-				scale:1
-			},250)
+		function completeHandler() {
+			$("section div").velocity("stop", true).velocity({
+				scale: 1
+			}, 250)
 		}
 	</script>
 </body>

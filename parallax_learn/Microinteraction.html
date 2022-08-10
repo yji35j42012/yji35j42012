@@ -83,18 +83,19 @@
 			transition: all 300ms 100ms;
 		}
 
-		.btn:nth-of-type(3) span{
+		.btn:nth-of-type(3) span {
 			position: relative;
 			z-index: 1;
 		}
 
-		.btn:nth-of-type(3):hover{
+		.btn:nth-of-type(3):hover {
 			color: #444;
 		}
-		.btn:nth-of-type(3)::before{
+
+		.btn:nth-of-type(3)::before {
 			position: absolute;
 			display: block;
-			content:'';
+			content: '';
 			top: 50%;
 			width: 100%;
 			height: 0;
@@ -102,20 +103,22 @@
 			z-index: 0;
 			transition: all 300ms;
 		}
-		.btn:nth-of-type(3):hover::before{
+
+		.btn:nth-of-type(3):hover::before {
 			top: 0%;
 			width: 100%;
 			height: 100%;
 		}
 
-		.btn:nth-of-type(4) span{
+		.btn:nth-of-type(4) span {
 			position: relative;
 			z-index: 1;
 		}
-		.btn:nth-of-type(4):after{
+
+		.btn:nth-of-type(4):after {
 			position: absolute;
 			z-index: 0;
-			content:'';
+			content: '';
 			width: 0%;
 			height: 120%;
 			top: -10%;
@@ -124,24 +127,28 @@
 			transform: skewX(30deg);
 			transition: all 300ms;
 		}
-		.btn:nth-of-type(4):hover{
+
+		.btn:nth-of-type(4):hover {
 			color: #444;
 		}
-		.btn:nth-of-type(4):hover:after{
+
+		.btn:nth-of-type(4):hover:after {
 			width: 120%;
 			left: -10%;
 			transform: skewX(0deg);
 		}
+
 		.btn:nth-of-type(5),
-		.btn:nth-of-type(6){
+		.btn:nth-of-type(6) {
 			width: 40px;
 		}
+
 		.btn:nth-of-type(5) span,
 		.btn:nth-of-type(6) span,
 		.btn:nth-of-type(5)::before,
 		.btn:nth-of-type(6)::before,
 		.btn:nth-of-type(5)::after,
-		.btn:nth-of-type(6)::after{
+		.btn:nth-of-type(6)::after {
 			display: block;
 			content: '';
 			margin: 7px;
@@ -153,48 +160,58 @@
 			white-space: nowrap;
 			transition: all 300ms;
 		}
+
 		.btn:nth-of-type(6)::before,
-		.btn:nth-of-type(6)::after{
+		.btn:nth-of-type(6)::after {
 			transform-origin: 0% 50%;
 		}
+
 		.btn:nth-of-type(5):hover,
-		.btn:nth-of-type(6):hover{
+		.btn:nth-of-type(6):hover {
 			transform: rotate(180deg);
 			background-color: #fff;
 		}
-		.btn:nth-of-type(5):hover span{
+
+		.btn:nth-of-type(5):hover span {
 			background-color: transparent;
 		}
-		.btn:nth-of-type(6):hover span{
+
+		.btn:nth-of-type(6):hover span {
 			background-color: #444;
 		}
+
 		.btn:nth-of-type(5):hover::before,
 		.btn:nth-of-type(5):hover::after,
 		.btn:nth-of-type(6):hover::before,
-		.btn:nth-of-type(6):hover::after{
+		.btn:nth-of-type(6):hover::after {
 			background-color: #444;
 		}
-		.btn:nth-of-type(5):hover::before{
+
+		.btn:nth-of-type(5):hover::before {
 			transform: translateY(11px) rotate(-45deg);
 		}
-		.btn:nth-of-type(5):hover::after{
+
+		.btn:nth-of-type(5):hover::after {
 			transform: translateY(-11px) rotate(45deg);
 		}
-		.btn:nth-of-type(6):hover::before{
+
+		.btn:nth-of-type(6):hover::before {
 			width: 16px;
 			transform: translateY(12px) rotate(-45deg);
 		}
-		.btn:nth-of-type(6):hover::after{
+
+		.btn:nth-of-type(6):hover::after {
 			width: 16px;
 			transform: translateY(-12px) rotate(45deg);
 		}
 
-		.btn:nth-of-type(7):hover{
+		.btn:nth-of-type(7):hover {
 			color: #444;
 			background-color: #fff;
 			box-shadow: 0 15px 10px -10px rgba(4, 4, 4, .5);
 		}
-		.btn:nth-of-type(7):active{
+
+		.btn:nth-of-type(7):active {
 			box-shadow: 1px 1px 4px rgba(4, 4, 4, .3);
 		}
 	</style>
@@ -220,7 +237,6 @@
 		<button class="btn">
 			<span></span>
 		</button>
-
 	</div>
 
 </body>

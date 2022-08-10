@@ -28,12 +28,8 @@
 			<a>aaaaa</a>
 			<a>bbbbb</a>
 		</nav>
-
 		<section>
 			<img src="https://picsum.photos/200/200?random=1" alt="" style="position: relative">
-
-
-
 		</section>
 		<section>
 			<img src="https://picsum.photos/200/200?random=2" alt="" style="position: relative">
@@ -48,27 +44,21 @@
 		<!-- <button onclick="start()">start</button>
 		<button onclick="stop()">stop</button> -->
 	</div>
-
-
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js'
 		integrity='sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=='
 		crossorigin='anonymous'></script>
-
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.6/velocity.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.6/velocity.ui.js"></script>
 	<script>
-
 		// YYYYY
 		$(function () {
 			var active = 0;
 			$("nav a").click(function () {
 				console.log('aaa');
-
 				if ($(this).hasClass("active")) return;
 				$(this).addClass("active").siblings().removeClass('active');
 				var index = $(this).index();
 				console.log($("section"));
-
 				$("section").eq(index).velocity('stop', true).velocity("scroll", 500);
 			}).eq(0).click();
 			$("section").mousewheel(function (e, delta) {
@@ -85,13 +75,12 @@
 			var active = 0;
 			$("nav a").click(function () {
 				console.log('aaa');
-
 				if ($(this).hasClass("active")) return;
 				$(this).addClass("active").siblings().removeClass('active');
 				var index = $(this).index();
 				$("section").eq(index).velocity('stop', true).velocity("scroll", {
-					axis:'x',
-					duration:500
+					axis: 'x',
+					duration: 500
 				});
 			}).eq(0).click();
 			$("section").mousewheel(function (e, delta) {

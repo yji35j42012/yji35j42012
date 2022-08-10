@@ -85,7 +85,6 @@
 			background: #000;
 		}
 
-
 		@keyframes scroll {
 			from {
 				background-position: 0px;
@@ -203,14 +202,11 @@
 					checkContent($(e));
 				})
 			}).scroll();
-
-
 			$("#goTop").click(function () {
 				$("html,body").stop().animate({
 					scrollTop: 0
 				})
 			})
-
 			function checkContent(element) {
 				var percent;
 				var target = element.offset().top + element.outerHeight(true) / 2;

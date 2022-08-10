@@ -60,7 +60,6 @@
 <body>
 	<div class="wrap">
 		<img src="https://picsum.photos/200/200?random=1" alt="">
-
 		<div class="percent"></div>
 		<button class="animo">animo</button>
 		<button class="chain">chain</button>
@@ -71,13 +70,9 @@
 		<button class="pause">pause</button>
 		<button class="clear">clear</button>
 	</div>
-
-
-
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js'
 		integrity='sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=='
 		crossorigin='anonymous'></script>
-
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/animo.js/1.0.3/animo.min.js"></script>
 	<script>
 		var target = $("img");
@@ -91,7 +86,6 @@
 				keep: false
 			});
 		})
-
 		$(".chain").click(function () {
 			target.animo({
 				animation: ['swing', 'flash', 'shake'],
@@ -108,30 +102,26 @@
 				timing: 'cubic-bezier(0.175,0.885,0.320,1.275)',
 			}, nextAnimo);
 		})
-
 		function nextAnimo(e) {
 			e.element.animo({
 				animation: 'rubberBand',
 				duation: 0.5,
 			}, function () {
 				console.log('next complete');
-
 			});
 		}
-
-
 		$(".blur").click(function () {
-			target.animo('blur',{
-				amout:3,
-				focusAfter:false
+			target.animo('blur', {
+				amout: 3,
+				focusAfter: false
 			})
 		})
 		$(".focus").click(function () {
 			target.animo('focus')
 		})
 		$(".rotate").click(function () {
-			target.animo('rotate',{
-				degrees:45
+			target.animo('rotate', {
+				degrees: 45
 			})
 		})
 		$(".pause").click(function () {

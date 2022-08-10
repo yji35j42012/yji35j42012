@@ -11,18 +11,21 @@
 			margin: 0;
 			padding: 0;
 		}
-		html,body{
+
+		html,
+		body {
 			width: 100%;
 			height: 100%;
 		}
-		section{
+
+		section {
 			display: flex;
 			height: 100%;
 			justify-content: center;
 			align-items: center;
-
 		}
-		section > div {
+
+		section>div {
 			perspective: 1000px;
 			perspective-origin: 50% 50%;
 		}
@@ -101,22 +104,16 @@
 		<span>
 			<a>asasas</a>
 		</span>
-
 	</section>
-
-
 	<script>
 		var cube = document.querySelector("section > div > div");
 		var a = document.querySelectorAll("a");
 		var rx = 0;
 		var ry = 0;
-
 		for (var i = 0; i < a.length; i++) {
 			a[i].onclick = cubeHandler;
 		}
-
 		function cubeHandler() {
-
 			switch (this.innerHTML) {
 				case "Random":
 					change(Math.ceil(Math.random() * 6));
@@ -124,14 +121,9 @@
 				default:
 					change(this.innerHTML * 1);
 			}
-
 			cube.addEventListener("transitionend", endHandler);
 			cube.style.transition = "";
 			cube.style.transform = "rotateX(" + rx + "deg) rotateY(" + ry + "deg)";
-
-
-
-
 		}
 		function change(num) {
 			switch (num) {
@@ -163,8 +155,8 @@
 			rx += 360 * Math.floor(Math.random() * 5);
 			ry += 360 * Math.floor(Math.random() * 5);
 		}
-		function endHandler(){
-			cube.removeEventListener("transitionend" , endHandler);
+		function endHandler() {
+			cube.removeEventListener("transitionend", endHandler);
 			cube.style.transition = "none";
 			rx %= 360;
 			ry %= 360;
