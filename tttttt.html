@@ -12,62 +12,125 @@
 			padding: 0;
 			box-sizing: border-box;
 		}
+
 		html,
 		body {
 			width: 100%;
 			height: 100%;
 		}
+
 		.wrap {
+			display: flex;
+			justify-content: center;
+			align-items: center;
 			width: 100%;
-		}
-		.header {
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 50px;
-			background-color: #ccc;
-		}
-		.content {
-			width: 100%;
-			/* height: 1000px; */
-			margin-top: 50px;
-			background-color: pink;
-		}
-		.item {
-			position: relative;
-			width: 100%;
-			height: 200px;
-			border-bottom: 1px solid #000;
+			height: 100%;
 		}
 
-		/* .item:first-child{
-			position: sticky;
-			top: 0;
-		} */
-		.box {
+		.face {
+			position: relative;
 			width: 100px;
-			height: 100px;
-			background-color: #ccc;
-			border: 1px solid #000;
+			height: 150px;
+			background-color: #f0b697;
+			border-radius: 10% 10% 40% 40%;
 		}
 
-		.box1 {
-			position: relative;
-			top: 50px;
-			left: 50px;
-		}
-
-		.box2 {
+		.eyes {
 			position: absolute;
 			top: 50px;
-			left: 50px;
+			width: 30px;
+			height: 30px;
+			background-color: #000;
+			border-radius: 50%;
 		}
-		</style>
+
+		.eyes::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			display: block;
+			width: 12px;
+			height: 12px;
+			background-color: #fff;
+			border-radius: 50%;
+			margin: auto;
+		}
+
+		.eye_l {
+			left: 10px;
+		}
+
+		.eye_r {
+			right: 10px;
+		}
+
+		.mouse {
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 20px;
+			width: 20px;
+			height: 20px;
+			margin: auto;
+			background-color: #b96666;
+			border-radius: 70% 70% 50% 50%;
+		}
+		.hair{
+			position: relative;
+			width: 100px;
+			height: 30px;
+			background-color: #000;
+			/* border: 10px solid #000; */
+			border-radius: 70% 70% 0 0;
+			border-width: 10px 10px 0 10px;
+		}
+		.hair::after{
+			content:'';
+			position: absolute;
+			top: 1px;
+			display: block;
+			width: 100px;
+			height: 30px;
+			background-color: #f0b697;
+			/* border: 10px solid #000; */
+			border-radius: 70% 70% 0 0;
+			border-width: 10px 10px 0 10px;
+		}
+	</style>
 </head>
 
 <body>
+	<div class="wrap">
+		<div class="face">
+			<div class="hair"></div>
+			<div class="eyes eye_l"></div>
+			<div class="eyes eye_r"></div>
+			<div class="mouse"></div>
+		</div>
+	</div>
 
+
+	<script>
+		// var obj = {
+		// 	name: "alex"
+		// }
+		// localStorage.setItem('myCat', JSON.stringify(obj));
+		// console.log('myCat', localStorage.getItem('myCat'));
+
+		// var arrObj = [
+		// 	{ name: 'alex' },
+		// 	{ name: 'json' }
+		// ]
+		// localStorage.setItem('arrObj', JSON.stringify(arrObj));
+		// var newObj = JSON.parse(localStorage.getItem('arrObj'))
+		// console.log('arrObj', newObj);
+		// for (let i = 0; i < newObj.length; i++) {
+		// 	console.log('newObj', newObj[i].name);
+		// }
+	</script>
 </body>
 
 </html>
