@@ -2193,7 +2193,7 @@ screen and (pointer: fine)and (-webkit-max-device-pixel-ratio: 2),
 }
 
 .bonus_wrap.--ibo {
-    background: url(../images/ibo_bg_d.jpg) center/cover no-repeat
+    background: url(../images/ibo_bg.jpg) center/cover no-repeat
 }
 
 .bonus_wrap.--ibo.--light {
@@ -3107,7 +3107,7 @@ screen and (pointer: fine)and (-webkit-max-device-pixel-ratio: 2),
 }
 
 .--ibo .activity__content {
-    background-image: url(../images/ibo_bg_d.jpg)
+    background-image: url(../images/ibo_bg.jpg)
 }
 
 .--ibo.--light .activity__content {
