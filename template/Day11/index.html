@@ -5,7 +5,7 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-	<title>今午你想來點？</title>
+	<title></title>
 	<link rel="stylesheet" href="./css/all.css" />
 	<style>
 		.wrap {
@@ -77,13 +77,13 @@
 			computed: {
 				show() {
 					console.log('???');
-					if(this.showData == null) return
+					if (this.showData == null) return
 					let showObj = [];
 					let dataNum = 5
 					let showNum = this.showNum
 					for (let i = showNum * dataNum; i < dataNum * showNum + dataNum; i++) {
 						console.log(this.showData[i]);
-						// showObj.push()
+						showObj.push(this.showData[i])
 					}
 					return showObj
 				}
