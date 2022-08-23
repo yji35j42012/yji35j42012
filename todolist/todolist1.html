@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		html,
+		body {
+			width: 100%;
+			height: 100%;
+		}
+
+		.wrap {
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="app" class="wrap" style="background: #eee">
+		<!-- <router-link to="/todo" replace>All</router-link> |
+		<router-link to="/todo?filter=active" replace>Active</router-link> |
+		<router-link :to="{name:'/todo' , query:{filter:'done'}}" replace>Done</router-link> | -->
+		<div class="loading" v-if="loading">
+			loading．．．
+		</div>
+		<div class="todolist" v-else>
+			<ul class="tab">
+				<li class="on">
+					<router-link to="/todo" replace>All</router-link>
+				</li>
+				<li>
+					<router-link to="/todo?filter=active" replace>Active</router-link>
+				</li>
+				<li>
+					<router-link :to="{name:'/todo' , query:{filter:'done'}}" replace>Done</router-link>
+				</li>
+			</ul>
+			<div class="todolist_box">
+				<table class="todolist_tb">
+					<!-- <todoitem v-for="item of list" :key="item.tId" :todo="item.todo" :edit="item.tId === edit">
+					</todoitem> -->
+					<tr></tr>
+					<!-- <tr v-for="(item, index) in filterList" :key="item.tId">
+						<td width="10%">
+							<label class="todolist_chk">
+								<input type="checkbox" v-model="item.todo.done" :checked="item.todo.done">
+								<span></span>
+							</label>
+						</td>
+						<td width="20%">2020.03.26</td>
+						<td width="50%">
+							<span v-if="!edit">
+								{{ item.todo.content}}
+							</span>
+							<span v-else>
+								<input type="text" v-model="item.todo.content">
+							</span>
+						</td>
+						<td width="20%">
+							<button class="icon _delete"></button>
+						</td>
+					</tr> -->
+				</table>
+			</div>
+			<div class="function_box"></div>
+		</div>
+
+	</div>
+	<script src="./js/libs/vue_2_6_9.js"></script>
+
+
+	<script>
+		let data = {}
+		let vm = new Vue({
+			el: '#app',
+			data: data,
+			mounted() { },
+			computed: {},
+			methods: {}
+		})
+
+
+	</script>
+</body>
+
+</html>

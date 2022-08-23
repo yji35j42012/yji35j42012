@@ -1,0 +1,26 @@
+<style scoped></style>
+
+<template>
+    <div id="tbBox" class="tbBox">
+        <button @click="add">按我啊</button>
+        {{ count }}
+    </div>
+</template>
+
+<script>
+module.exports = {
+    data() {
+        return {};
+    },
+    computed: {
+        count() {
+            return store.state.count;
+        },
+    },
+    methods: {
+        add() {
+            store.commit('increment')
+        },
+    },
+};
+</script>
