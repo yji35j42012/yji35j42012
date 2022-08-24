@@ -10,6 +10,7 @@
 		* {
 			margin: 0;
 			padding: 0;
+			box-sizing: border-box;
 			list-style: none;
 		}
 
@@ -20,73 +21,103 @@
 		}
 
 		.wrap {
+			display: flex;
 			width: 100%;
 			height: 100%;
+			background: transparent linear-gradient(180deg, #000000CC 0%, #000000 100%) 0% 0% no-repeat padding-box;
+		}
+
+		.menu {
+			width: 118px;
+			height: 100%;
+			padding-top: 25px;
+			background-color: #000000;
+		}
+
+		.menu_item {
+			flex: none;
+			width: 60px;
+			margin: auto;
+			padding: 10px;
+			fill: #C4C4C4;
+			cursor: pointer;
+		}
+
+		.menu_item.on {
+			fill: #F38484;
+		}
+		.main{
+			width: 100%;
+			padding: 47px 55px 57px 40px;
+		}
+		.btn{
+			display: block;
+			width: 490px;
+			height: 95px;
+			margin: 0 0 0 auto;
+			background-color: #F46161;
+			color: #ffffff;
+			border-radius: 50px;
+			border: none;
+			font-size: 30px;
+			
 		}
 	</style>
 </head>
 
 <body>
-	<div id="app" class="wrap" style="background: #eee">
-		<!-- <router-link to="/todo" replace>All</router-link> |
-		<router-link to="/todo?filter=active" replace>Active</router-link> |
-		<router-link :to="{name:'/todo' , query:{filter:'done'}}" replace>Done</router-link> | -->
-		<div class="loading" v-if="loading">
-			loading．．．
+	<div id="app" class="wrap">
+		<ul class="menu">
+			<li class="menu_item on">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+					<path :d="icon_all.list" />
+				</svg>
+			</li>
+			<li class="menu_item">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+					<path :d="icon_all.equalizer" />
+				</svg>
+			</li>
+			<li class="menu_item">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+					<path :d="icon_all.nightlife" />
+				</svg>
+			</li>
+		</ul>
+		<div class="main">
+			<button class="btn _add">ADD A TOMATO</button>
 		</div>
-		<div class="todolist" v-else>
-			<ul class="tab">
-				<li class="on">
-					<router-link to="/todo" replace>All</router-link>
-				</li>
-				<li>
-					<router-link to="/todo?filter=active" replace>Active</router-link>
-				</li>
-				<li>
-					<router-link :to="{name:'/todo' , query:{filter:'done'}}" replace>Done</router-link>
-				</li>
-			</ul>
-			<div class="todolist_box">
-				<table class="todolist_tb">
-					<!-- <todoitem v-for="item of list" :key="item.tId" :todo="item.todo" :edit="item.tId === edit">
-					</todoitem> -->
-					<tr></tr>
-					<!-- <tr v-for="(item, index) in filterList" :key="item.tId">
-						<td width="10%">
-							<label class="todolist_chk">
-								<input type="checkbox" v-model="item.todo.done" :checked="item.todo.done">
-								<span></span>
-							</label>
-						</td>
-						<td width="20%">2020.03.26</td>
-						<td width="50%">
-							<span v-if="!edit">
-								{{ item.todo.content}}
-							</span>
-							<span v-else>
-								<input type="text" v-model="item.todo.content">
-							</span>
-						</td>
-						<td width="20%">
-							<button class="icon _delete"></button>
-						</td>
-					</tr> -->
-				</table>
-			</div>
-			<div class="function_box"></div>
-		</div>
-
 	</div>
 	<script src="./js/libs/vue_2_6_9.js"></script>
+	<script src="./js/icon_all.js"></script>
+	<!-- <script src="./js/libs/vue-router.js"></script> -->
 
 
 	<script>
-		let data = {}
+		// const routes = [
+		// 	{
+		// 		path: "",
+		// 		components: {
+		// 			// default: httpVueLoader("./page/index.vue"),
+		// 		},
+		// 	},
+		// 	{
+		// 		path: "/score",
+		// 		components: {
+		// 			// default: httpVueLoader("./page/score.vue"),
+		// 		},
+		// 	},
+		// ];
+		let data = {
+			icon_all: icon_all,
+		}
 		let vm = new Vue({
 			el: '#app',
 			data: data,
 			mounted() { },
-			computed: {},
+			computed: {
+
+			},
 			methods: {}
 		})
 
