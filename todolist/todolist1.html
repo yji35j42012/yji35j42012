@@ -64,8 +64,8 @@
 			font-size: 30px;
 		}
 
-		.todo_title,
-		.finished_title {
+		.todoGroup_item_title,
+		.todoGroup_item_title {
 			position: relative;
 			display: flex;
 			align-items: center;
@@ -77,8 +77,8 @@
 			border-radius: 4px;
 		}
 
-		.todo_title::before,
-		.finished_title::before {
+		.todoGroup_item_title::before,
+		.todoGroup_item_title::before {
 			content: "";
 			position: absolute;
 			right: 25px;
@@ -87,6 +87,77 @@
 			border-style: solid;
 			border-width: 10px 10px 0 10px;
 			border-color: #ffffff transparent transparent transparent;
+		}
+
+		.todoGroup_item {
+			position: relative;
+			display: flex;
+			align-items: center;
+			padding: 32px 22px 18px;
+			color: #F38484;
+		}
+
+		.todoGroup_item::before {
+			content: '';
+			position: absolute;
+			right: 22px;
+			display: block;
+			width: 30px;
+			height: 30px;
+			border: 3px solid #F38484;
+			border-radius: 50%;
+		}
+
+		.todoGroup_item::after {
+			content: "";
+			position: absolute;
+			right: 30px;
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 8px 0 8px 8px;
+			border-color: transparent transparent transparent #F38484;
+		}
+
+		.todoGroup_item+.todoGroup_item {
+			border-top: 1px solid #535353;
+		}
+
+		.todoGroup_item_checkbox {
+			position: relative;
+			display: block;
+			width: 30px;
+			height: 30px;
+			margin-right: 40px;
+			background-color: #000000;
+			border: 2px solid #F38484;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		.todoGroup_item_checkbox input {
+			position: absolute;
+			display: none;
+		}
+
+		.todoGroup_item_checkbox input:checked~span {
+			display: block;
+		}
+
+		.todoGroup_item_checkbox span {
+			content: '';
+			position: absolute;
+			top: 2px;
+			left: 0;
+			right: 0;
+			display: none;
+			width: 8px;
+			height: 16px;
+			margin: auto;
+			border-width: 0 2px 2px 0;
+			border-style: solid;
+			border-color: #F38484;
+			transform: rotate(45deg);
 		}
 	</style>
 </head>
@@ -112,15 +183,20 @@
 		</ul>
 		<div class="main">
 			<button class="btn _add">ADD A TOMATO</button>
-			<div class="todo">
-				<div class="todo_title">TO DO(3)</div>
-				<ul class="todo_info">
-					<li></li>
-				</ul>
+			<div class="todoGroup">
+				<div class="todoGroup_item_title">TO DO(3)</div>
+				<div class="todoGroup_item">
+					<label class="todoGroup_item_checkbox">
+						<input type="checkbox">
+						<span></span>
+					</label>
+					<div class="todoGroup_item_txt">Reading a book</div>
+					<div class="todoGroup_item_icon"></div>
+				</div>
 			</div>
-			<div class="finished">
-				<div class="finished_title">FINISHED (2)</div>
-				<ul class="finished_info"></ul>
+			<div class="todoGroup">
+				<div class="todoGroup_item_title">FINISHED (2)</div>
+				<div class="todoGroup_item"></div>
 			</div>
 		</div>
 	</div>
