@@ -15,7 +15,6 @@
 			<div class="username">
 				<span class="material-icons"> account_circle </span>{{username}}
 			</div>
-
 			<ul class="header_menu">
 				<li :class="menu.now == 'wh' ? 'on' : ''" @click="menuHandler('wh')">
 					<router-link to="/">今天甲蝦密</router-link>
@@ -79,7 +78,6 @@
 									{{actionList[editList.evaluate_action]}}
 								</span>
 								<i class="material-icons icon">arrow_drop_down</i>
-
 								<ul id="sel_ul" class="normal_sel_ul">
 									<li v-for="(item,index) in actionList" @click="selLi(index)">
 										{{item}}
@@ -175,15 +173,10 @@
 						<!-- 新增成功 -->
 					</div>
 					<div class="alert_fun">
-						<button class="normal_btn _danger" @click="checkHandler" v-if="msgShow.msgState == 'del'">
-							確認
-						</button>
-						<button class="normal_btn _cancel" v-if="msgShow.msgState == 'del'" @click="cancel">
-							取消
-						</button>
-						<button class="normal_btn _cancel" @click="cancel" v-if="msgShow.msgState !== 'del'">
-							關閉
-						</button>
+						<button class="normal_btn _danger" @click="checkHandler"
+							v-if="msgShow.msgState == 'del'">確認</button>
+						<button class="normal_btn _cancel" @click="cancel" v-if="msgShow.msgState == 'del'">取消</button>
+						<button class="normal_btn _cancel" @click="cancel" v-if="msgShow.msgState !== 'del'">關閉</button>
 					</div>
 				</div>
 			</div>

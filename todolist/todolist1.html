@@ -56,12 +56,37 @@
 			display: block;
 			width: 490px;
 			height: 95px;
-			margin: 0 0 0 auto;
+			margin: 0 0 40px auto;
 			background-color: #F46161;
 			color: #ffffff;
 			border-radius: 50px;
 			border: none;
 			font-size: 30px;
+		}
+
+		.todo_title,
+		.finished_title {
+			position: relative;
+			display: flex;
+			align-items: center;
+			width: 100%;
+			height: 60px;
+			padding: 0 25px;
+			background-color: #000;
+			color: #ffffff;
+			border-radius: 4px;
+		}
+
+		.todo_title::before,
+		.finished_title::before {
+			content: "";
+			position: absolute;
+			right: 25px;
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 10px 10px 0 10px;
+			border-color: #ffffff transparent transparent transparent;
 		}
 	</style>
 </head>
@@ -87,6 +112,16 @@
 		</ul>
 		<div class="main">
 			<button class="btn _add">ADD A TOMATO</button>
+			<div class="todo">
+				<div class="todo_title">TO DO(3)</div>
+				<ul class="todo_info">
+					<li></li>
+				</ul>
+			</div>
+			<div class="finished">
+				<div class="finished_title">FINISHED (2)</div>
+				<ul class="finished_info"></ul>
+			</div>
 		</div>
 	</div>
 	<script src="./js/libs/vue_2_6_9.js"></script>
