@@ -2,27 +2,108 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-body{
-    height: 1000px;
-}
-        .title {
-            text-align: center;
-        }
-    </style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			box-sizing: border-box;
+		}
+
+		body {
+			height: 1000px;
+		}
+
+		.title {
+			text-align: center;
+		}
+
+		ul {
+			width: 500px;
+			display: flex;
+			flex-wrap: wrap;
+			/* flex-wrap: wrap-reverse; */
+			border: 1px solid #000;
+			/* transform: rotate(180deg); */
+		}
+
+		li {
+			/* flex: 1 1 50%; */
+			width: 50%;
+			height: 200px;
+			background-color: #ccc;
+			border: 1px solid #000;
+		}
+
+		li:only-child {
+			width: 100%;
+			background-color: blue;
+		}
+
+		li:first-child {
+			width: 100%;
+			background-color: #aaa;
+		}
+
+		li:nth-last-of-type(2n):nth-child(odd) {
+			width: 50%;
+			background-color: #ccc;
+		}
+
+		/* 如果元素數為奇數，第一個 child  w100%；
+		   如果元素數為偶數，全部 child w50% 。 */
+
+
+		/* 如果元素數為奇數，則需要選擇最後一個 child ；
+		   如果元素數為偶數，則需要選擇最後2個 child 。 */
+		.wrap div:first-child,
+		.wrap div:nth-last-of-type(2n):not(:nth-child(even)) {
+			color: red;
+		}
+	</style>
 </head>
 
 <body>
-    <div class="title">虹膜辨識</div>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+	<ul>
+		<li>1</li>
+	</ul>
+	<div class="wrap">
+		<div>Odd</div>
+		<div>Even</div>
+		<div>Odd</div>
+		<div>Even</div>
+		<div>Odd</div>
+		<div>Even</div>
+		<div>Odd</div>
+		<div>Even</div>
+	</div>
+
+	<hr>
+
+	<div class="wrap">
+		<div>Odd</div>
+		<div>Even</div>
+		<div>Odd</div>
+		<div>Even</div>
+		<div>Odd</div>
+	</div>
 </body>
 
 </html>
