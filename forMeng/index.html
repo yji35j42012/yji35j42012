@@ -18,16 +18,48 @@
 				<img src="./images/films1.jpg" alt="">
 			</div>
 			<div class="films_list">
-				<div class="films_list_group">
+				<ul id="films_list_group" class="films_list_group">
 					<li class="films_list_item">first</li>
 					<li class="films_list_item">second</li>
 					<li class="films_list_item">third</li>
 					<li class="films_list_item">forth</li>
 					<li class="films_list_item">fifth</li>
-				</div>
+				</ul>
 			</div>
 		</div>
 	</div>
+
+
+	<script>
+		var films_list_group = document.querySelector('#films_list_group');
+		var moveBoo = false;
+		var starY = 0;
+		function starHandler(e) {
+			moveBoo = true;
+			console.log('starHandler');
+			starY = e.offsetY * -1;
+			console.log('starY', starY);
+		}
+		function endHandler(e) {
+			moveBoo = false;
+			console.log('mouseup');
+		}
+		function moveHandler(e) {
+			if (!moveBoo) return;
+			console.log('mousemove');
+
+			if (!e.touches) {  //相容移動端
+				var y = e.clientY;
+			} else {   //相容PC端
+				var y = e.touches[0].pageY;
+			}
+			console.log('y', y);
+		}
+
+		films_list_group.addEventListener('mousedown', starHandler)
+		films_list_group.addEventListener('mouseup', endHandler)
+		films_list_group.addEventListener('mousemove', moveHandler)
+	</script>
 </body>
 
 </html>
