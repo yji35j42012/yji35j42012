@@ -29,16 +29,22 @@
 		</div>
 	</div>
 
-
 	<script>
 		var films_list_group = document.querySelector('#films_list_group');
 		var moveBoo = false;
-		var starY = 0;
+		var startY = 0;
 		function starHandler(e) {
 			moveBoo = true;
 			console.log('starHandler');
-			starY = e.offsetY * -1;
-			console.log('starY', starY);
+			if (!e.touches) {
+				//相容移動端
+				startY = e.clientY;
+			} else {
+				//相容PC端
+				startY = e.touches[0].pageY;
+			}
+			console.log('startY', startY);
+			console.log('films_list_group style', films_list_group.style.transform);
 		}
 		function endHandler(e) {
 			moveBoo = false;
@@ -47,14 +53,15 @@
 		function moveHandler(e) {
 			if (!moveBoo) return;
 			console.log('mousemove');
-
 			if (!e.touches) {
 				//相容移動端
 				var y = e.clientY;
 			} else {   //相容PC端
 				var y = e.touches[0].pageY;
 			}
+			console.log('startY', startY);
 			console.log('y', y);
+			console.log('y - startY', y - startY);
 		}
 
 		films_list_group.addEventListener('mousedown', starHandler);
