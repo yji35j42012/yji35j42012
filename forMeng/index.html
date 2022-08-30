@@ -48,7 +48,8 @@
 			if (!moveBoo) return;
 			console.log('mousemove');
 
-			if (!e.touches) {  //相容移動端
+			if (!e.touches) {
+				//相容移動端
 				var y = e.clientY;
 			} else {   //相容PC端
 				var y = e.touches[0].pageY;
@@ -56,9 +57,9 @@
 			console.log('y', y);
 		}
 
-		films_list_group.addEventListener('mousedown', starHandler)
-		films_list_group.addEventListener('mouseup', endHandler)
-		films_list_group.addEventListener('mousemove', moveHandler)
+		films_list_group.addEventListener('mousedown', starHandler);
+		films_list_group.addEventListener('mouseup', endHandler);
+		films_list_group.addEventListener('mousemove', moveHandler);
 	</script>
 </body>
 

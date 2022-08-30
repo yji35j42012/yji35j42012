@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		.box {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 400px;
+			height: 300px;
+			background-color: #6592CF;
+			border: 1px solid #000;
+		}
+
+		.fork,
+		.fork1 {
+			position: relative;
+			width: 140px;
+			height: 190px;
+			background-color: #060F55;
+			border-radius: 0 0 50px 50px;
+			margin-right: 20px;
+		}
+
+		/* .fork1::before,
+		.fork1::after{
+			content:'';
+			position: absolute;
+			left: 20px;
+			display: inline-block;
+			height: 100px;
+			border: 10px solid #6592CF;
+			border-radius: 0 0 50px 50px;
+		} */
+		.fork1 span {
+			position: absolute;
+			left: 20px;
+			display: inline-block;
+			width: 20px;
+			height: 100px;
+			background: #6592CF;
+			border-radius: 0 0 50px 50px;
+		}
+
+		.fork1 span::before,
+		.fork1 span::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 40px;
+			display: inline-block;
+			width: 20px;
+			height: 100px;
+			background: #6592CF;
+			border-radius: 0 0 50px 50px;
+			/* transform: translateY(-10px); */
+		}
+
+		.fork1 span::before {
+			left: 80px;
+		}
+
+		.fork1 i {
+			position: absolute;
+			left: 0;
+			top: -10px;
+			display: inline-block;
+			width: 20px;
+			height: 100px;
+			background-color: #060F55;
+			border-radius: 50px 50px 0 0;
+		}
+
+		.fork1 i::before,
+		.fork1 i::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 40px;
+			display: inline-block;
+			width: 20px;
+			height: 100px;
+			background-color: #060F55;
+			border-radius: 50px 50px 0 0;
+		}
+
+		.fork1 i::after {
+			left: 80px;
+		}
+
+		.fork1:after {
+			content: '';
+			position: absolute;
+			top: -10px;
+			right: 0px;
+			display: inline-block;
+			width: 20px;
+			height: 100px;
+			background-color: #060F55;
+			border-radius: 50px 50px 0 0;
+		}
+		.fork span {
+			display: inline-block;
+			height: 100px;
+			background-color: #6592CF;
+			border: 10px solid #6592CF;
+			border-radius: 0 0 50px 50px;
+			box-shadow: 40px 0 0 #6592CF, 80px 0 0 #6592CF;
+			transform: translate(20px, 0);
+		}
+
+		.fork i {
+			position: absolute;
+			left: 0;
+			top: 0;
+			display: inline-block;
+			height: 100px;
+			background-color: #060F55;
+			border: 10px solid #060F55;
+			border-radius: 50px 50px 0 0;
+			transform: translate(0, -10px);
+			box-shadow: 40px 0 0 #060F55, 80px 0 0 #060F55, 120px 0 0 #060F55;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="box">
+		<div class="fork">
+			<span></span>
+			<i></i>
+		</div>
+
+		<div class="fork1">
+			<span></span>
+			<i></i>
+		</div>
+	</div>
+</body>
+
+</html>
