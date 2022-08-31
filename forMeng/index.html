@@ -7,6 +7,18 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
 	<link rel="stylesheet" href="./index.css">
+	<style>
+		.map {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.map_iframe,
+		#map {
+			width: 45%;
+			height: 450px;
+		}
+	</style>
 </head>
 
 <body>
@@ -27,12 +39,48 @@
 				</ul>
 			</div>
 		</div>
-	</div>
 
+
+		<div class="map">
+			<div class="map_iframe">
+				<iframe
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.9813561017013!2d120.68473105019294!3d24.137292879727145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d1438fb3d3f%3A0xb7b4ebd02f1906b6!2z6Ie65Lit54Gr6LuK56uZ!5e0!3m2!1szh-TW!2stw!4v1661922105892!5m2!1szh-TW!2stw"
+					width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade"></iframe>
+			</div>
+			<div id="map"></div>
+		</div>
+	</div>
+	<script>
+		function initMap() {
+			var Station_latlng = { lat: 24.1372929, lng: 120.6847311 };
+			var map = new google.maps.Map(document.getElementById('map'), {
+				zoom: 17, //放大的倍率
+				center: Station_latlng, //初始化的地圖中心位置
+			});
+			//--------下面是呼叫一個新marker------
+			var marker = new google.maps.Marker({
+				position: Station_latlng, //marker的放置位置
+				map: map, //這邊的map指的是第四行的map變數
+				icon: './images/ll.svg'
+			});
+		}
+	</script>
+	<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHooZ2OWiwDJRjsjiaM-5dZUtVQCL0rcQ&callback=initMap">
+		</script>
 	<script>
 		var films_list_group = document.querySelector('#films_list_group');
+		var films_list_items = document.querySelectorAll('#films_list_group > li');
+		var films_list_itemHeight = films_list_items[0].offsetHeight
+		var films_list_maxMove = films_list_items.length * films_list_itemHeight - films_list_itemHeight;
 		var moveBoo = false;
 		var startY = 0;
+		var nowY;
+		var moveY;
+		console.log('films_list_maxMove', films_list_maxMove);
+		console.log('films_list_itemHeight', films_list_itemHeight);
+
 		function starHandler(e) {
 			moveBoo = true;
 			console.log('starHandler');
@@ -44,11 +92,30 @@
 				startY = e.touches[0].pageY;
 			}
 			console.log('startY', startY);
-			console.log('films_list_group style', films_list_group.style.transform);
+			if (films_list_group.style.transform !== '') {
+				nowY = parseInt(films_list_group.style.transform.split(' ')[2].split('px')[0]);
+			} else {
+				nowY = 0;
+			}
+			window.addEventListener('mouseup', endHandler);
+			window.addEventListener('mousemove', moveHandler);
 		}
 		function endHandler(e) {
 			moveBoo = false;
 			console.log('mouseup');
+			var moveInt = parseInt(moveY / films_list_itemHeight); //整數
+			var moveFloat = moveY / films_list_itemHeight - parseInt(moveY / films_list_itemHeight);//小數
+			moveY = moveInt * films_list_itemHeight
+			if (moveFloat >= -0.5) {
+				moveY = moveInt * films_list_itemHeight
+				moveHamdler(moveY, 0.5)
+				// films_list_group.style = `transform:translateY(calc(50% + ${moveY}px));`;
+			} else {
+				moveY = moveInt * films_list_itemHeight - films_list_itemHeight
+				moveHamdler(moveY, 0.5)
+				// films_list_group.style = `transform:translateY(calc(50% + ${moveY}px));`;
+			}
+			// console.log('整數', moveY % films_list_itemHeight);
 		}
 		function moveHandler(e) {
 			if (!moveBoo) return;
@@ -56,17 +123,29 @@
 			if (!e.touches) {
 				//相容移動端
 				var y = e.clientY;
-			} else {   //相容PC端
+			} else {
+				//相容PC端
 				var y = e.touches[0].pageY;
 			}
-			console.log('startY', startY);
-			console.log('y', y);
-			console.log('y - startY', y - startY);
+			moveY = y - startY + nowY;
+			// console.log('moveY', moveY);
+			// console.log('films_list_maxMove', -films_list_maxMove);
+
+			if (moveY > 0) { moveY = 0 } else if (moveY <= -films_list_maxMove) {
+				moveY = -films_list_maxMove;
+			}
+			moveHamdler(moveY, 0);
+			// films_list_group.style = `transform:translateY(calc(50% + ${moveY}px));`;
+			// startY = y;
+			// scrollitem.style = `transform: translate3d(${x}px ,${y}px , 0) rotate(${rotate}deg); transition-duration: ${time}s;`;
 		}
 
 		films_list_group.addEventListener('mousedown', starHandler);
-		films_list_group.addEventListener('mouseup', endHandler);
-		films_list_group.addEventListener('mousemove', moveHandler);
+
+
+		function moveHamdler(moveY, time) {
+			films_list_group.style = `transform:translateY(calc(50% + ${moveY}px));transition-duration: ${time}s;`;
+		}
 	</script>
 </body>
 
