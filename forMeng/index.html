@@ -11,12 +11,31 @@
 		.map {
 			display: flex;
 			justify-content: space-between;
+			flex-wrap: wrap;
+			height: 450px;
 		}
 
 		.map_iframe,
 		#map {
+			display: flex;
+			flex-direction: column;
 			width: 45%;
-			height: 450px;
+			height: 100%;
+			max-height: 450px;
+		}
+
+		.map_iframe::before {
+			content: '';
+
+		}
+
+		#map::before {
+			content: '';
+
+		}
+		.map_txt{
+			width: 50%;
+			font-size: 24px;
 		}
 	</style>
 </head>
@@ -42,6 +61,8 @@
 
 
 		<div class="map">
+			<div class="map_txt">坎入方式</div>
+			<div class="map_txt">API方式</div>
 			<div class="map_iframe">
 				<iframe
 					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.9813561017013!2d120.68473105019294!3d24.137292879727145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d1438fb3d3f%3A0xb7b4ebd02f1906b6!2z6Ie65Lit54Gr6LuK56uZ!5e0!3m2!1szh-TW!2stw!4v1661922105892!5m2!1szh-TW!2stw"
