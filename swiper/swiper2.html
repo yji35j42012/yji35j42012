@@ -12,10 +12,14 @@
 			outline: 0;
 			box-sizing: border-box;
 		}
+
 		*:hover,
 		*:focus,
-		*:active{outline: none;-webkit-tap-highlight-color: transparent;}
-		
+		*:active {
+			outline: none;
+			-webkit-tap-highlight-color: transparent;
+		}
+
 		html,
 		body {
 			width: 100%;
@@ -28,8 +32,6 @@
 			margin: auto;
 			touch-action: manipulation;
 		}
-		
-
 	</style>
 </head>
 
@@ -52,78 +54,77 @@
 	<script>
 		let data = {
 			img_txt: [
-				{img_name:'第一張' , active_state:'active'},
-				{img_name:'第二張' , active_state:''},
-				{img_name:'第三張' , active_state:''},
+				{ img_name: '第一張', active_state: 'active' },
+				{ img_name: '第二張', active_state: '' },
+				{ img_name: '第三張', active_state: '' },
 			],
-			moveX:'',
-			turnFirst:'',
-			img_count:1,
-			btn_action:true
+			moveX: '',
+			turnFirst: '',
+			img_count: 1,
+			btn_action: true
 		}
 
-		
 		let vm = new Vue({
 			el: "#app",
 			data: data,
-			computed:{
-				loop_div(){
+			computed: {
+				loop_div() {
 					let new_div = this.img_txt
 					new_div.push({
-						img_name:this.img_txt[0].img_name,
-						active_state:''
+						img_name: this.img_txt[0].img_name,
+						active_state: ''
 					})
 					new_div.unshift(this.img_txt[this.img_txt.length - 2])
 					return new_div
 				}
 			},
-			
-			methods:{
-				next(){
-					if( !this.btn_action) return
-					this.img_txt[this.img_count].active_state=''
+
+			methods: {
+				next() {
+					if (!this.btn_action) return
+					this.img_txt[this.img_count].active_state = ''
 					this.img_count += 1
-					if( this.img_count > this.img_txt.length - 2){
+					if (this.img_count > this.img_txt.length - 2) {
 						this.btnHandler()
-						this.moveX = 'transform: translateX(-'+ (this.img_count*100)+'%);'
+						this.moveX = 'transform: translateX(-' + (this.img_count * 100) + '%);'
 						this.img_count = 1
 						this.dotHandler()
-						let loop_first = setTimeout(this.loopHandler , 300)
-					}else{
+						let loop_first = setTimeout(this.loopHandler, 300)
+					} else {
 						this.btnHandler()
 						this.dotHandler()
-						this.moveX = 'transform: translateX(-'+ (this.img_count*100)+'%);'
+						this.moveX = 'transform: translateX(-' + (this.img_count * 100) + '%);'
 					}
 				},
-				prev(){
-					if( !this.btn_action) return
-					this.img_txt[this.img_count].active_state=''
+				prev() {
+					if (!this.btn_action) return
+					this.img_txt[this.img_count].active_state = ''
 					this.img_count -= 1
-					if( this.img_count <= 0){
+					if (this.img_count <= 0) {
 						this.btnHandler()
-						this.moveX = 'transform: translateX(-'+ (this.img_count*100)+'%)'
+						this.moveX = 'transform: translateX(-' + (this.img_count * 100) + '%)'
 						this.img_count = this.img_txt.length - 2
 						this.dotHandler()
-						let loop_first = setTimeout(this.loopHandler , 300)						
-					}else{
+						let loop_first = setTimeout(this.loopHandler, 300)
+					} else {
 						this.btnHandler()
-						this.img_txt[this.img_count].active_state='active'
-						this.moveX = 'transform: translateX(-'+ (this.img_count*100)+'%)'
+						this.img_txt[this.img_count].active_state = 'active'
+						this.moveX = 'transform: translateX(-' + (this.img_count * 100) + '%)'
 					}
 				},
-				loopHandler(){
-					if(this.img_count === 1){
-						this.moveX = 'transition-duration: 0s; transform: translateX(-'+(this.img_count*100)+'%);'
-					}else if(this.img_count == this.img_txt.length - 2){
-						this.moveX = 'transition-duration: 0s; transform: translateX(-'+(this.img_count*100)+'%);'
+				loopHandler() {
+					if (this.img_count === 1) {
+						this.moveX = 'transition-duration: 0s; transform: translateX(-' + (this.img_count * 100) + '%);'
+					} else if (this.img_count == this.img_txt.length - 2) {
+						this.moveX = 'transition-duration: 0s; transform: translateX(-' + (this.img_count * 100) + '%);'
 					}
 				},
-				dotHandler(){
-					this.img_txt[this.img_count].active_state='active'
+				dotHandler() {
+					this.img_txt[this.img_count].active_state = 'active'
 				},
-				btnHandler(){
+				btnHandler() {
 					this.btn_action = false
-					let btn_state = setTimeout(( () => this.btn_action = true) , 500)
+					let btn_state = setTimeout((() => this.btn_action = true), 500)
 				}
 			}
 		})

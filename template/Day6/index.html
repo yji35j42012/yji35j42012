@@ -158,9 +158,7 @@
 						<input type="text" class="normal_inp" v-model="username" />
 					</div>
 					<div class="alert_fun">
-						<button class="normal_btn _submit" @click="submit('user')">
-							送出
-						</button>
+						<button class="normal_btn _submit" @click="submit('user')">送出</button>
 					</div>
 				</div>
 			</div>
@@ -173,8 +171,7 @@
 						<!-- 新增成功 -->
 					</div>
 					<div class="alert_fun">
-						<button class="normal_btn _danger" @click="checkHandler"
-							v-if="msgShow.msgState == 'del'">確認</button>
+						<button class="normal_btn _danger" @click="checkHandler" v-if="msgShow.msgState == 'del'">確認</button>
 						<button class="normal_btn _cancel" @click="cancel" v-if="msgShow.msgState == 'del'">取消</button>
 						<button class="normal_btn _cancel" @click="cancel" v-if="msgShow.msgState !== 'del'">關閉</button>
 					</div>

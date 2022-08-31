@@ -174,15 +174,12 @@
 			<button class="change_btn prev" @click="prev"></button>
 			<div class="swiper_box" :style="moveX">
 				<div class="swiper_item" v-for="item in loop_div">{{ item.img_name }}</div>
-
 			</div>
 			<button class="change_btn next" @click="next"></button>
-
 			<div class="swiper_dot">
 				<span :class="['dot_span' , items.active_state] " v-for="items in img_txt"></span>
 			</div>
 		</div>
-
 
 		<div class="swiper_thred">
 			<button class="change_btn prev"></button>
@@ -194,7 +191,6 @@
 			</div>
 			<button class="change_btn next"></button>
 		</div>
-
 	</div>
 
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js'></script>

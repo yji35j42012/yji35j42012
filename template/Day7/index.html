@@ -1,98 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>Document</title>
-        <link rel="stylesheet" href="./css/all.css" />
-    </head>
 
-    <body>
-        <div id="app" :class="['wrap' , nowPath]">
-            <header :class="showMenu ? 'showMenu' : ''">
-                <div class="logo">
-                    <router-link to="/">
-                        <img src="./images/logo.png" alt="FUN ROOM"
-                    /></router-link>
-                </div>
-                <button class="menu_btn" @click="menuHandler()">
-                    <span class="menu_btn_line"></span>
-                </button>
-                <ul class="menu">
-                    <li>
-                        <router-link to="/room">單人房</router-link>
-                    </li>
-                    <li>
-                        <router-link to="/room">豪華單人房</router-link>
-                    </li>
-                    <li>
-                        <router-link to="/room">雙人房</router-link>
-                    </li>
-                    <li>
-                        <router-link to="/room">豪華雙人房</router-link>
-                    </li>
-                    <li>
-                        <router-link to="/room">雙床房</router-link>
-                    </li>
-                    <li>
-                        <router-link to="/room">豪華雙床房</router-link>
-                    </li>
-                </ul>
-            </header>
-            <router-view></router-view>
-        </div>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+	<link rel="stylesheet" href="./css/all.css" />
+</head>
 
-        <script src="./js/libs/vue_2_6_9.js"></script>
-        <script src="./js/libs/vue-router.js"></script>
-        <script src="./js/libs/http-vue-loader.js"></script>
-        <script src="./js/libs/vuex_3_0_1.js"></script>
-        <script>
-            const routes = [
-                {
-                    path: "",
-                    components: {
-                        default: httpVueLoader("./page/index.vue"),
-                    },
-                },
-                {
-                    path: "/room",
-                    components: {
-                        default: httpVueLoader("./page/room.vue"),
-                    },
-                },
-            ];
-            const router = new VueRouter({
-                // mode: 'history',
-                routes: routes, // (缩写) 相当于 routes: routes
-            });
+<body>
+	<div id="app" :class="['wrap' , nowPath]">
+		<header :class="showMenu ? 'showMenu' : ''">
+			<div class="logo">
+				<router-link to="/">
+					<img src="./images/logo.png" alt="FUN ROOM" />
+				</router-link>
+			</div>
+			<button class="menu_btn" @click="menuHandler()">
+				<span class="menu_btn_line"></span>
+			</button>
+			<ul class="menu">
+				<li>
+					<router-link to="/room">單人房</router-link>
+				</li>
+				<li>
+					<router-link to="/room">豪華單人房</router-link>
+				</li>
+				<li>
+					<router-link to="/room">雙人房</router-link>
+				</li>
+				<li>
+					<router-link to="/room">豪華雙人房</router-link>
+				</li>
+				<li>
+					<router-link to="/room">雙床房</router-link>
+				</li>
+				<li>
+					<router-link to="/room">豪華雙床房</router-link>
+				</li>
+			</ul>
+		</header>
+		<router-view></router-view>
+	</div>
 
-            var vue = new Vue({
-                el: "#app",
-                router,
-                data() {
-                    return {
-                        showMenu: false,
-                        nowPath: "index",
-                    };
-                },
-                watch: {
-                    $route(to, from) {
-                        var now = this.$route.path;
-                        if (this.$route.path == "/") {
-                            this.nowPath = 'index';
-                        } else {
-                            this.nowPath = now.split('/')[1]
-                        }
-                        this.showMenu = false;                       
-                    },
-                },
-                methods: {
-                    menuHandler() {
-                        this.showMenu = !this.showMenu;
-                    },
-                },
-            });
-        </script>
-    </body>
+	<script src="./js/libs/vue_2_6_9.js"></script>
+	<script src="./js/libs/vue-router.js"></script>
+	<script src="./js/libs/http-vue-loader.js"></script>
+	<script src="./js/libs/vuex_3_0_1.js"></script>
+	<script>
+		const routes = [
+			{
+				path: "",
+				components: {
+					default: httpVueLoader("./page/index.vue"),
+				},
+			},
+			{
+				path: "/room",
+				components: {
+					default: httpVueLoader("./page/room.vue"),
+				},
+			},
+		];
+		const router = new VueRouter({
+			// mode: 'history',
+			routes: routes, // (缩写) 相当于 routes: routes
+		});
+
+		var vue = new Vue({
+			el: "#app",
+			router,
+			data() {
+				return {
+					showMenu: false,
+					nowPath: "index",
+				};
+			},
+			watch: {
+				$route(to, from) {
+					var now = this.$route.path;
+					if (this.$route.path == "/") {
+						this.nowPath = 'index';
+					} else {
+						this.nowPath = now.split('/')[1]
+					}
+					this.showMenu = false;
+				},
+			},
+			methods: {
+				menuHandler() {
+					this.showMenu = !this.showMenu;
+				},
+			},
+		});
+	</script>
+</body>
+
 </html>
