@@ -23,17 +23,7 @@
 			height: 100%;
 			max-height: 450px;
 		}
-
-		.map_iframe::before {
-			content: '';
-
-		}
-
-		#map::before {
-			content: '';
-
-		}
-		.map_txt{
+		.map_txt {
 			width: 50%;
 			font-size: 24px;
 		}
@@ -58,8 +48,7 @@
 				</ul>
 			</div>
 		</div>
-
-
+		
 		<div class="map">
 			<div class="map_txt">坎入方式</div>
 			<div class="map_txt">API方式</div>
@@ -124,19 +113,20 @@
 		function endHandler(e) {
 			moveBoo = false;
 			console.log('mouseup');
+			window.removeEventListener("mousemove", moveHandler);
+			window.removeEventListener("mouseup", endHandler);
+			window.removeEventListener("touchmove", moveHandler);
+			window.removeEventListener("touchend", endHandler);
 			var moveInt = parseInt(moveY / films_list_itemHeight); //整數
 			var moveFloat = moveY / films_list_itemHeight - parseInt(moveY / films_list_itemHeight);//小數
 			moveY = moveInt * films_list_itemHeight
 			if (moveFloat >= -0.5) {
-				moveY = moveInt * films_list_itemHeight
-				moveHamdler(moveY, 0.5)
-				// films_list_group.style = `transform:translateY(calc(50% + ${moveY}px));`;
+				moveY = moveInt * films_list_itemHeight;
+				moveHamdler(moveY, 0.5);
 			} else {
-				moveY = moveInt * films_list_itemHeight - films_list_itemHeight
-				moveHamdler(moveY, 0.5)
-				// films_list_group.style = `transform:translateY(calc(50% + ${moveY}px));`;
+				moveY = moveInt * films_list_itemHeight - films_list_itemHeight;
+				moveHamdler(moveY, 0.5);
 			}
-			// console.log('整數', moveY % films_list_itemHeight);
 		}
 		function moveHandler(e) {
 			if (!moveBoo) return;
@@ -149,20 +139,13 @@
 				var y = e.touches[0].pageY;
 			}
 			moveY = y - startY + nowY;
-			// console.log('moveY', moveY);
-			// console.log('films_list_maxMove', -films_list_maxMove);
-
 			if (moveY > 0) { moveY = 0 } else if (moveY <= -films_list_maxMove) {
 				moveY = -films_list_maxMove;
 			}
 			moveHamdler(moveY, 0);
-			// films_list_group.style = `transform:translateY(calc(50% + ${moveY}px));`;
-			// startY = y;
-			// scrollitem.style = `transform: translate3d(${x}px ,${y}px , 0) rotate(${rotate}deg); transition-duration: ${time}s;`;
 		}
 
 		films_list_group.addEventListener('mousedown', starHandler);
-
 
 		function moveHamdler(moveY, time) {
 			films_list_group.style = `transform:translateY(calc(50% + ${moveY}px));transition-duration: ${time}s;`;
