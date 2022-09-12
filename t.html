@@ -104,6 +104,7 @@
 			background-color: #060F55;
 			border-radius: 50px 50px 0 0;
 		}
+
 		.fork span {
 			display: inline-block;
 			height: 100px;
@@ -140,7 +141,31 @@
 			<span></span>
 			<i></i>
 		</div>
+
+		<input type="text" id="inp">
+		<button id="checkBtn">檢查</button>
 	</div>
+
+
+	<script>
+		var inp = document.querySelector('#inp');
+		var checkBtn = document.querySelector('#checkBtn');
+		checkBtn.onclick = function () {
+			console.log('check', checkTest(inp.value));
+		}
+		function checkTest(value) {
+			if (value == '') {
+				return false
+			} else {
+				return true
+			}
+			// if (inp.value == '') {
+			// 	console.log('checkTest 空', value);
+			// } else {
+			// 	console.log('checkTest 不空', value);
+			// }
+		}
+	</script>
 </body>
 
 </html>
