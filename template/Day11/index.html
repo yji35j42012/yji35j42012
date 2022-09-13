@@ -79,25 +79,25 @@
 					console.log('???');
 					if (this.showData == null) return
 					let showObj = [];
-					let dataNum = 5
+					let dataNum = 5;
 					let showNum = this.showNum
 					for (let i = showNum * dataNum; i < dataNum * showNum + dataNum; i++) {
 						console.log(this.showData[i]);
-						showObj.push(this.showData[i])
+						showObj.push(this.showData[i]);
 					}
-					return showObj
+					return showObj;
 				}
 			},
 			methods: {
 				showHandler(num) {
 					if (num == -1) {
 						if (this.showNum <= 0) {
-							this.showNum = 0
+							this.showNum = 0;
 						} else {
-							this.showNum--
+							this.showNum--;
 						}
 					} else {
-						this.showNum++
+						this.showNum++;
 					}
 				}
 			},
