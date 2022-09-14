@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: "Noto Sans TC", sans-serif;
+    font-family: 'Noto Sans TC', sans-serif;
     box-sizing: border-box;
 }
 
@@ -10,7 +10,7 @@ body {
     width: 100%;
     height: 100%;
     background: url(/all_bg.png) no-repeat center center / cover fixed;
-    background-color: #6dd0cd;
+    background-color: #6DD0CD;
 }
 
 /* logo */
@@ -27,96 +27,9 @@ body {
     width: 120px;
 }
 
-.course_wrap {
-    position: absolute;
-    display: flex;
-    width: 100%;
-}
-.nav_right {
-    position: sticky;
-    top: 32px;
-    z-index: 999;
-    /* margin-right: 30px; */
-    width: 150px;
-    height: 10px;
-    border-radius: 100px;
-    border: 2px solid #fff6e9;
-    background-color: #005f5f;
-    overflow: hidden;
-    /* position: relative; */
-}
-
-.nav_right ul {
-    padding: 0px;
-    margin: 0px;
-    height: 400px;
-}
-
-.nav_right li {
-    list-style-type: none;
-    color: #fff6e9;
-    text-align: center;
-    padding: 15px 0px;
-    transition: 0.5s;
-    border-bottom: 2px dashed #fff6e9;
-    font-size: 1.25rem;
-    font-weight: 500;
-}
-
-.nav_right .li_top {
-    padding-top: 35px;
-}
-
-.nav_right li:hover {
-    color: #005f5f;
-    background-color: #fff6e9;
-}
-
-.nav_right a:hover {
-    text-decoration: none;
-}
-
-.nav_right .icon a {
-    color: #fff6e9;
-    transition: 0.5s;
-}
-
-.nav_right .icon a:hover {
-    transform: scale(1.2);
-}
-
-/* .nav_right {
-    display: inline-block;
-    position: absolute;
-    right: 95px;
-    top: 32px;
-    /* margin: 48px 95px; */
-/* background-color: #005F5F;
-    border-radius: 200px;
-    border: 2px solid #FFF6E9;
-    width: 150px;
-    height: 400px;
-    z-index: 999;
-} */
-
-/* .nav_right li {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 24px;
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: #FFF6E9;
-    border-bottom: 2px dashed #FFF6E9;
-}
-.nav_right li+li{
-    border-top: 1px dashed #333333;
-}
-
 .member_wrap {
-    padding: 108px;
-} */
+    padding: 108 0 0 px;
+}
 
 /* 主標 */
 .member_info {
@@ -126,19 +39,23 @@ body {
 }
 
 .course_title {
-    display: flex;
-    justify-content: space-between;
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 48px;
+    margin-bottom: 48px; */
 }
 
 .course_title h1 {
     font-size: 30px;
-    color: #005f5f;
+    color: #005F5F;
     /* display: flex;
     justify-content: center;
     margin-right: 48px; */
     padding-bottom: 48px;
     font-weight: 700;
     line-height: 36px;
+
 }
 
 .container1 {
@@ -152,12 +69,12 @@ body {
     width: 150px;
     height: 150px;
     margin: auto;
-    background: #eeeeee;
+    background: #EEEEEE;
     /* padding: 0 19px; */
 }
 
 .headnew {
-    color: #005f5f;
+    color: #005F5F;
     padding: 12px;
     margin-top: 12px;
     display: block;
@@ -166,7 +83,7 @@ body {
 
 .share {
     margin-top: 48px;
-    color: #005f5f;
+    color: #005F5F;
     font-size: 20px;
     font-weight: 600;
     line-height: 160%;
@@ -182,7 +99,7 @@ body {
     padding: 0px;
     width: 188px;
     /* height: 384px; */
-    background: #fff6e9;
+    background: #FFF6E9;
     border: 2px solid #333333;
     box-shadow: 4px 4px 0px #333333;
     border-radius: 20px;
@@ -204,16 +121,16 @@ body {
     list-style: none;
 }
 
-.navmember_item + .navmember_item {
+.navmember_item+.navmember_item {
     border-top: 1px solid #333333;
 }
 
 .navmember_item.on {
-    background-color: #005f5f;
+    background-color: #005F5F;
 }
 
 .navmember_item.on a {
-    color: #fff6e9;
+    color: #FFF6E9;
 }
 
 .navmember_item a {
@@ -227,12 +144,13 @@ body {
 
 /* 會員資料卡 */
 .member_box {
-    background: #fff6e9;
+    background: #FFF6E9;
     overflow: hidden;
     box-sizing: border-box;
     border: 2px solid #333333;
     box-shadow: 4px 4px 0px #333333;
     border-radius: 20px;
+   
 }
 
 .member1_box {
@@ -269,8 +187,37 @@ body {
     letter-spacing: 38px;
 }
 
-footer {
-    background-color: #005f5f;
+/* 性別 */
+.member_box1b {
+    display: flex;
+
+}
+
+.select_month {
+    text-align: center;
+}
+
+/* 男 */
+.member_box1b .boxradio1 {
+    margin-right: 24px;
+    width: 22px;
+
+}
+
+/* 女 */
+.member_box1b .boxradio2 {
+    margin: 0 24px 0 50px;
+    width: 22px;
+
+}
+
+.boxradio1 {
+
+
+}
+
+.footer {
+    background-color: #005F5F;
     box-shadow: 0px -3px 0px #333333;
     padding: 11px 0px;
     margin-top: 48px;
@@ -281,38 +228,50 @@ footer {
     width: 422px;
 }
 
+/* 生日 */
+.select_month {
+    box-sizing: border-box;
+    background-color: #FFF6E9;
+    width: 95px;
+    height: 36px;
+    border-radius: 8px;
+    border: 2px solid #333333;
+    color: #005F5F;
+}
+
 /* 修改會員資料按鈕 */
-.chang_member {
-    background: #005f5f;
+.changgg {
+    background: #005F5F;
     border-radius: 5px;
-    width: 162px;
-    height: 41px;
+    width: 146px;
+    height: 58px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 48px auto 0  ;
+   
 }
-
-.chang_member p {
+.changgg p{
+    color: #FFF6E9;
+    font-size: 20px;
+    font-weight: 500;
     margin: 0;
-    font-size: 16px;
-    font-weight: 600;
-    color: #fff6e9;
+   
 }
-
-.fa-solid {
-    margin-right: 7px;
-
-    color: #fff6e9;
+footer {
+    background-color: #005F5F;
+    box-shadow: 0px -3px 0px #333333;
+    padding: 11px 0px;
+    margin-top: 48px;
 }
-
 footer p {
-    color: #fff6e9;
+    color: #FFF6E9;
     font-size: 1rem;
     margin-bottom: 0px;
     text-align: center;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width:768px) {
     .member_wrap {
         padding: 0 25px;
     }
