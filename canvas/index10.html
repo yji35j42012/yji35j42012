@@ -1,0 +1,129 @@
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Highcharts 教程 | 菜鸟教程(runoob.com)</title>
+	<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<style>
+		.highcharts-background,
+		.highcharts-point,
+		.highcharts-credits,
+		.highcharts-legend {
+			display: none;
+		}
+
+		.box {
+			overflow-x: auto;
+			overflow-y: hidden;
+			height: 300px;
+			width: 476px;
+			border: 1px solid #000;
+			padding-bottom: 20px;
+		}
+
+		.highcharts-series-group,
+		.highcharts-plot-background {
+			width: 100% !important;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="box">
+		<div id="container" style="width: 1500px;height: 300px;margin: 0 auto"></div>
+	</div>
+
+	<script language="JavaScript">
+
+		var year = 2022;
+		var olympic = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+		var normal = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+		var showData = [];
+		// var xData = ["2022-1", "2022-2", "2022-3", "2022-4", "2022-5", "2022-6", "2022-7", "2022-8", "2022-9", "2022-10", "2022-11", "2022-12",];
+		var xData = []
+		function daysTotal(month, year) {
+			var tmp = year % 4
+			if (tmp == 0) {
+				return olympic[month]
+			} else {
+				return normal[month]
+			}
+		}
+		console.log('tttttt', daysTotal(0, 2022));
+		for (let i = 1; i < 13; i++) {
+			for (let j = 1; j < 31; j++) {
+				if (j == 1) {
+					xData.push(year + "-" + i)
+				} else {
+					xData.push(year + "-" + i + "-" + j)
+				}
+			}
+		}
+
+		for (let i = 0; i < xData.length; i++) {
+			showData.push(Math.floor(Math.random() * 2 + 30))
+		}
+		console.log('xData', xData);
+		console.log('showData', showData);
+		$(document).ready(function () {
+			var title = {};
+			var subtitle = {};
+			var xAxis = {
+				type: 'Number',
+				// minRange: 24 * 3600 * 1000,
+				scrollbar: {
+					enabled: true
+				},
+				tickPositions: [0, 30],
+				categories: xData
+			};
+			var yAxis = {
+				// minRange: 0,
+				scrollbar: {
+					enabled: true
+				},
+				title: {
+					text: ''
+				},
+				plotLines: [{
+					value: 0,
+					width: 1,
+					color: '#808080'
+				}]
+			};
+
+			var tooltip = {
+				// valueSuffix: '\xB0C'
+			}
+
+			var legend = {
+				layout: 'vertical',
+				align: 'right',
+				verticalAlign: 'middle',
+				borderWidth: 0
+			};
+
+			var series = [
+				{
+					name: '',
+					data: showData
+				},
+			];
+
+			var json = {};
+
+			json.title = title;
+			json.subtitle = subtitle;
+			json.xAxis = xAxis;
+			json.yAxis = yAxis;
+			json.tooltip = tooltip;
+			json.legend = legend;
+			json.series = series;
+
+			$('#container').highcharts(json);
+		});
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            background-color: #eee;
+        }
+
+        .box {
+            width: 480px;
+            height: 300px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <canvas id="myCanvas"></canvas>
+    </div>
+
+
+    <script>
+        // //這一行去抓取canvas的標籤
+        let canvas = document.getElementById("myCanvas");
+        // //接著指定繪圖方式
+        let ctx = canvas.getContext("2d");
+        // //讓canvas的高度和寬度等於整個畫面，讓整個視窗都是你的畫布
+        canvas.width = '480px';
+        canvas.height = '300px';
+        // // dabeac
+        // // 臉
+        // ctx.beginPath()
+        // ctx.fillStyle = "#dabeac"
+        // ctx.arc(120, 80, 60, Math.PI / 20, Math.PI * 0.8)
+        // ctx.fill()
+        // ctx.stroke()
+        // // 臉
+        // // 眼睛
+        // ctx.beginPath()
+        // ctx.lineWidth = 6;
+        // ctx.strokeStyle = "#000000"
+        // ctx.fillStyle = "#ffffff"
+		// /*使用arc(x,y,r,s,e)畫一個圓
+		// x,y是圓心的座標，r是半徑，s和e是起點和終點的角度*/
+        // ctx.arc(100, 100, 8, 0, Math.PI * 2)
+        // ctx.fill()
+        // ctx.stroke()
+        // ctx.beginPath()
+        // ctx.arc(140, 100, 8, 0, Math.PI * 2)
+        // ctx.fill()
+        // ctx.stroke()
+		// 眼睛
+		// //使用lineWidth指定線條寬度
+		// ctx.lineWidth = 3;
+		// //使用strokeStyle指定線條顏色
+		// ctx.strokeStyle = "#0000FF";
+		// //用fillStyle指定填滿色彩
+		// ctx.fillStyle = "#FF0000";
+		// //在繪製任何東西之前，我們都要來個開始，像全天下所有的故事一樣
+		// ctx.beginPath();
+		// //我們用moveTo(x,y)來指定線的起點座標
+		// // ctx.moveTo(50, 50);
+		// // //之後使用lineTo(x,y)來指定與前一個座標相連的點
+		// // ctx.lineTo(100, 50);
+		// // ctx.lineTo(100, 100);
+		// // ctx.lineTo(50, 100)
+		// //在用lineTo()把線連回原點的位置，圍成三角形
+		// /*使用rect(x,y,w,h)繪製四角形
+		// x,y一樣是座標，w和h是四邊形的寬和高*/
+		// ctx.rect(50, 50, 80, 100);
+		// // ctx.lineTo(50, 50)
+		// ctx.closePath();
+		// //用stroke()來繪製相連點的線
+		// //用fill()填滿圍起來的範圍
+		// ctx.fill();
+		// ctx.stroke();
+		// ctx.beginPath()
+		//沿用寬度及色彩設定
+		// ctx.lineWidth = 3;
+		// ctx.strokeStyle = "#0000FF"
+		// ctx.fillStyle = "#FF0000"
+		// /*使用arc(x,y,r,s,e)畫一個圓
+		// x,y是圓心的座標，r是半徑，s和e是起點和終點的角度*/
+		// ctx.arc(250, 100, 25, Math.PI / 1, Math.PI * 2)
+		// ctx.fill()
+		// ctx.stroke()
+    </script>
+</body>
+
+</html>
