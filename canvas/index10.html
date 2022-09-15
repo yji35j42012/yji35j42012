@@ -31,7 +31,7 @@
 
 <body>
 	<div class="box">
-		<div id="container" style="width: 1500px;height: 300px;margin: 0 auto"></div>
+		<div id="container" style="width: 2500px;height: 300px;margin: 0 auto"></div>
 	</div>
 
 	<script language="JavaScript">
@@ -62,7 +62,7 @@
 		}
 
 		for (let i = 0; i < xData.length; i++) {
-			showData.push(Math.floor(Math.random() * 2 + 30))
+			showData.push(Math.floor(Math.random() * 3 + 28))
 		}
 		console.log('xData', xData);
 		console.log('showData', showData);
@@ -80,6 +80,7 @@
 			};
 			var yAxis = {
 				// minRange: 0,
+				min: 28, max: 32,
 				scrollbar: {
 					enabled: true
 				},
