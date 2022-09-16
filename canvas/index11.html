@@ -35,14 +35,14 @@
 		<div id="container" style="width: 1300px;height: 300px;margin: 0 auto"></div>
 	</div>
 
-	<script>
+	<script language="JavaScript">
+
 		var year = 2022;
 		var olympic = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 		var normal = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+		var showData = [];
 		var showXM = [0];
-		var xData = []
-		var showData = [];//趨勢圖資料
-		// 判斷月份天數
+		var xData = ['2021-1', '2021-2', '2021-3', '2021-4', '2021-5', '2021-6', '2021-7', '2021-8', '2021-9', '2021-10', '2021-11', '2021-12',]
 		function daysTotal(month, year) {
 			var tmp = year % 4
 			if (tmp == 0) {
@@ -51,25 +51,12 @@
 				return normal[month]
 			}
 		}
-		// 篩入x軸月份
-		for (let i = 1; i < 13; i++) {
-			var getDayTotal = daysTotal(i - 1, year);
-			for (let j = 1; j < getDayTotal + 1; j++) {
-				if (j == 1) {
-					xData.push(year + "-" + i)
-				} else {
-					xData.push(year + "-" + i + "-" + j)
-				}
-			}
-			var pd = showXM[showXM.length - 1] + daysTotal(i - 1, year)
-			showXM.push(pd)
-		}
-		// 假資料篩值
 		for (let i = 0; i < xData.length; i++) {
 			var ran = Math.floor(Math.random() * 9) * 0.1 + Math.floor(Math.random() * 2) + 28
 			showData.push(ran)
 		}
-
+		console.log('showData',showData);
+		
 		$(document).ready(function () {
 			var title = {};
 			var subtitle = {};
@@ -78,9 +65,10 @@
 			};
 			var xAxis = {
 				scrollbar: {
-					enabled: true
+					enabled: true,
+
 				},
-				tickPositions: showXM,
+				// tickPositions: showXM,
 				categories: xData,
 				plotBands: [
 					{
@@ -88,18 +76,21 @@
 					}
 				],
 				gridLineWidth: 1,
-
+				legend: {
+					align: 'right',
+				},
+				tickmarkPlacement:'on'
 			};
 			var yAxis = {
 				min: 28,
 				max: 32,
 				scrollbar: {
-					enabled: true
+					enabled: true,
+
 				},
 				title: {
 					text: ''
-				},
-				tickmarkPlacement:'on'
+				},	
 			};
 
 			var tooltip = {}
