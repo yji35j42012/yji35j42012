@@ -3,8 +3,6 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>Highcharts 教程 | 菜鸟教程(runoob.com)</title>
-	<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-	<script src="https://code.highcharts.com/highcharts.js"></script>
 	<style>
 		.box {
 			overflow-x: auto;
@@ -35,6 +33,36 @@
 		<div id="container" style="width: 1300px;height: 300px;margin: 0 auto"></div>
 	</div>
 
+	<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.js"></script>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script>
+
+		// https://www.taifex.com.tw/data_gov/taifex_open_data.asp?data_name=DailyForeignExchangeRates
+		// const endpoint = '';
+		axios.get('https://www.taifex.com.tw/data_gov/taifex_open_data.asp?data_name=DailyForeignExchangeRates')
+			.then(function (response) {
+				let data = response.data;
+				console.log('data', data);
+
+				// console.log(arguments)
+			})
+			.catch(function (error) {
+				console.log(error);
+			})
+			.finally(function () {
+				console.log('finally');
+			});
+		// axios({
+		// 	url: 'https://www.taifex.com.tw/data_gov/taifex_open_data.asp?data_name=DailyForeignExchangeRates',
+		// 	method: 'get',
+		// 	adapter: jsonpAdapter,
+
+		// }).then((res) => {
+		// 	console.log(res)
+		// }).catch((error) => { console.error(error) });
+	</script>
 	<script>
 		var year = 2022;
 		var olympic = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -99,7 +127,7 @@
 				title: {
 					text: ''
 				},
-				tickmarkPlacement:'on'
+				tickmarkPlacement: 'on'
 			};
 
 			var tooltip = {}
