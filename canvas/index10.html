@@ -38,10 +38,10 @@
 	<script src="https://code.highcharts.com/highcharts.js"></script>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script>
-
+// https://tw.rter.info/capi.php
 		// https://www.taifex.com.tw/data_gov/taifex_open_data.asp?data_name=DailyForeignExchangeRates
 		// const endpoint = '';
-		axios.get('https://www.taifex.com.tw/data_gov/taifex_open_data.asp?data_name=DailyForeignExchangeRates')
+		axios.get('http://tw.rter.info/capi.php')
 			.then(function (response) {
 				let data = response.data;
 				console.log('data', data);
