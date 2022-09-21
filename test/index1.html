@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.js"></script>
+    <script>
+        axios
+            .post("/index1.php")
+            .then((res) => {
+                console.log(res.data);
+            })
+            .catch((error) => {
+                console.error("error", error);
+            });
+        // axios.get('https://www.taifex.com.tw/cht/3/dailyFXRateDown/?queryStartDate=2022/07/01&queryEndDate=2022/08/01')
+        //     .then(function (response) {
+        //         let data = response.data;
+        //         console.log('data', data);
+
+        //         // console.log(arguments)
+        //     })
+        //     .catch(function (error) {
+        //         console.log(error);
+        //     })
+        //     .finally(function () {
+        //         console.log('finally');
+        //     });
+    </script>
+
+    <!-- https://www.taifex.com.tw/cht/3/dailyFXRateDown/?queryStartDate=2022/07/01&queryEndDate=2022/08/01 -->
+</body>
+
+</html>
