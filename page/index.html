@@ -122,69 +122,59 @@
 					let nowPageNum = this.nowPageNum
 					let evePage = Math.floor(halfPage)
 					let eveupPage = Math.ceil(halfPage)
-					// console.log('總頁數', page);
-					// console.log('總頁數一半', halfPage);
-					// console.log('現在頁數', nowPageNum);
-					// console.log('下整數', evePage);
-					// console.log('上整數', eveupPage);
 					// .on代表當前頁數要加上class
 					if (page > 6) {
 						if (nowPageNum == 1) {
 							// 第一頁顯示前三號碼＋...跟後二號碼，.on在第一個
-							show.push(nowPageNum)
-							show.push(nowPageNum + 1)
-							show.push(nowPageNum + 2)
-							show.push('more')
-							show.push(page - 1)
-							show.push(page)
+							show.push(nowPageNum);
+							show.push(nowPageNum + 1);
+							show.push(nowPageNum + 2);
+							show.push('more');
+							show.push(page - 1);
+							show.push(page);
 						} else if (nowPageNum == page) {
 							// 最後一頁顯示前二號碼＋...跟後三號碼，.on在最後一個
-							show.push(1)
-							show.push(2)
-							show.push('more')
-							show.push(page - 2)
-							show.push(page - 1)
-							show.push(page)
+							show.push(1);
+							show.push(2);
+							show.push('more');
+							show.push(page - 2);
+							show.push(page - 1);
+							show.push(page);
 						} else if (halfPage == nowPageNum && nowPageNum + 4 == page) {
 							// 總頁數的一半等於現在的頁數而且現在的頁數加４等於總頁數
 							// 此判斷發生於總頁數＝８現在頁數＝４
 							// 如果沒有此判斷再第４頁的時候會變成 1,2,...,3,4,5
-							show.push(nowPageNum - 1)
-							show.push(nowPageNum)
-							show.push(nowPageNum + 1)
-							show.push(nowPageNum + 2)
-							show.push(nowPageNum + 3)
-							show.push(nowPageNum + 4)
+							show.push(nowPageNum - 1); show.push(nowPageNum); show.push(nowPageNum + 1); show.push(nowPageNum + 2); show.push(nowPageNum + 3); show.push(nowPageNum + 4);
 						} else if (nowPageNum > 1 && nowPageNum < eveupPage) {
 							// 總頁數的一半大於現在的頁數，前面顯示三個頁碼，後面顯示兩個頁碼，
 							// .on在前面三個的中間
-							show.push(nowPageNum - 1)
-							show.push(nowPageNum)
-							show.push(nowPageNum + 1)
-							show.push('more')
-							show.push(page - 1)
-							show.push(page)
+							show.push(nowPageNum - 1);
+							show.push(nowPageNum);
+							show.push(nowPageNum + 1);
+							show.push('more');
+							show.push(page - 1);
+							show.push(page);
 						} else if (nowPageNum * 2 > page && eveupPage == nowPageNum && nowPageNum + 3 == page) {
 							// 2被的現在頁數大於總頁數而且總頁數的一半等於現在的頁數而且現在頁數加三等於限在頁數
-							show.push(nowPageNum - 2)
-							show.push(nowPageNum - 1)
-							show.push(nowPageNum)
-							show.push(nowPageNum + 1)
-							show.push(nowPageNum + 2)
-							show.push(nowPageNum + 3)
+							show.push(nowPageNum - 2);
+							show.push(nowPageNum - 1);
+							show.push(nowPageNum);
+							show.push(nowPageNum + 1);
+							show.push(nowPageNum + 2);
+							show.push(nowPageNum + 3);
 						} else {
 							// 總頁數的一半大於現在的頁數，前面顯示兩個頁碼，後面顯示三個頁碼，
 							// .on在後面三個的中間
-							show.push(1)
-							show.push(2)
-							show.push('more')
-							show.push(nowPageNum - 1)
-							show.push(nowPageNum)
-							show.push(nowPageNum + 1)
+							show.push(1);
+							show.push(2);
+							show.push('more');
+							show.push(nowPageNum - 1);
+							show.push(nowPageNum);
+							show.push(nowPageNum + 1);
 						}
 					} else {
 						for (let i = 0; i < page; i++) {
-							show.push(i + 1)
+							show.push(i + 1);
 						}
 					}
 					return show;
