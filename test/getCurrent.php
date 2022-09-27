@@ -17,7 +17,7 @@
     ];
     try {
         $pdo = new PDO($dsn, $db_user, $db_pass, $pdo_options);
-        echo 'suss';
+        // echo 'suss';
     } catch(PDOException $ex) {
         echo 'Connection failed:'. $ex->getMessage();
     }
