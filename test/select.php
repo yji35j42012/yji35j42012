@@ -9,9 +9,27 @@
 </head>
 
 <body>
+	<select id="sort">
+		<option value="全素" <?php if(isset($_GET['sort']) && $_GET['sort']=='全素'){{echo 'selected' ;}} ?>>全素</option>
+		<option value="奶素" <?php if(isset($_GET['sort']) && $_GET['sort']=='奶素'){{echo 'selected' ;}} ?>>奶素</option>
+		<option value="蛋素" <?php if(isset($_GET['sort']) && $_GET['sort']=='蛋素'){{echo 'selected' ;}} ?>>蛋素</option>
+	</select>
+
+
+
+	<script>
+		var sort = document.querySelector("#sort");
+
+		function sortHander() {
+			console.log('sortHander');
+			location.href = "select.php?sort=" + sort.value;
+		}
+		sort.addEventListener('change', sortHander);
+	</script>
+
+
 	<select id="monSel">
 		<?php
-
 		$bir = "2022-09-16";
 		if (!empty($bir)) {
 			$birM = mb_split("-", $bir)[1];
