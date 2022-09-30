@@ -2,974 +2,974 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/loading1.css">
-    <link rel="stylesheet" href="./css/loading2.css">
-    <link rel="stylesheet" href="./css/loading3.css">
-    <link rel="stylesheet" href="./css/loading4.css">
-    <link rel="stylesheet" href="./css/loading5.css">
-    <link rel="stylesheet" href="./css/loading6.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="./css/reset.css">
+	<link rel="stylesheet" href="./css/loading1.css">
+	<link rel="stylesheet" href="./css/loading2.css">
+	<link rel="stylesheet" href="./css/loading3.css">
+	<link rel="stylesheet" href="./css/loading4.css">
+	<link rel="stylesheet" href="./css/loading5.css">
+	<link rel="stylesheet" href="./css/loading6.css">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            font-size: 18px !important;
-        }
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			font-size: 18px !important;
+		}
 
-        .wrap,
-        .wrap1 {
-            width: 100%;
-            height: 100%;
-        }
+		.wrap,
+		.wrap1 {
+			width: 100%;
+			height: 100%;
+		}
 
-        .wrap1 {
-            display: flex;
-            flex-wrap: wrap;
-        }
+		.wrap1 {
+			display: flex;
+			flex-wrap: wrap;
+		}
 
-        .top,
-        .bottom {
-            display: flex;
-            flex-wrap: wrap;
-        }
+		.top,
+		.bottom {
+			display: flex;
+			flex-wrap: wrap;
+		}
 
-        .loading_box {
-            position: relative;
-            width: calc(100% / 3 - 20px);
-            height: 300px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 1px solid #ccc;
-            margin: 5px;
-        }
+		.loading_box {
+			position: relative;
+			width: calc(100% / 3 - 20px);
+			height: 300px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border: 1px solid #ccc;
+			margin: 5px;
+		}
 
-        .wrap1 .loading_box {
-            flex-wrap: wrap;
-        }
+		.wrap1 .loading_box {
+			flex-wrap: wrap;
+		}
 
-        .first,
-        .sec {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-        }
+		.first,
+		.sec {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+		}
 
-        .first .box,
-        .first .loader--dot,
-        .first .loader::before,
-        .first .loader::after,
-        .first .bounceball:before,
-        .first .loader6 {
-            background-color: #3999f8;
-        }
+		.first .box,
+		.first .loader--dot,
+		.first .loader::before,
+		.first .loader::after,
+		.first .bounceball:before,
+		.first .loader6 {
+			background-color: #3999f8;
+		}
 
-        .first span,
-        .first .loader--text:after,
-        .first .loading-text,
-        .first .loader,
-        .first .text,
-        .first h5 {
-            color: #3999f8;
-        }
+		.first span,
+		.first .loader--text:after,
+		.first .loading-text,
+		.first .loader,
+		.first .text,
+		.first h5 {
+			color: #3999f8;
+		}
 
-        .sec .box,
-        .sec .loader--dot,
-        .sec .loader::before,
-        .sec .loader::after,
-        .sec .bounceball:before,
-        .sec .loader6 {
-            background-color: #aaa;
-        }
+		.sec .box,
+		.sec .loader--dot,
+		.sec .loader::before,
+		.sec .loader::after,
+		.sec .bounceball:before,
+		.sec .loader6 {
+			background-color: #aaa;
+		}
 
-        .sec span,
-        .sec .loader--text:after,
-        .sec .loading-text,
-        .sec .loader,
-        .sec .text,
-        .sec h5 {
-            color: #aaa;
-        }
+		.sec span,
+		.sec .loader--text:after,
+		.sec .loading-text,
+		.sec .loader,
+		.sec .text,
+		.sec h5 {
+			color: #aaa;
+		}
 
-        .first .loading {
-            border-color: transparent #3999f8 transparent #3999f8;
-        }
+		.first .loading {
+			border-color: transparent #3999f8 transparent #3999f8;
+		}
 
-        .sec .loading {
-            border-color: transparent #aaa transparent #aaa;
-        }
-    </style>
+		.sec .loading {
+			border-color: transparent #aaa transparent #aaa;
+		}
+	</style>
 </head>
 
 <body>
-    <div class="wrap1">
-
-        <div class="loading_box loading1" style="display: ">
-            <div class="first">
-                <div class="box"></div>
-                <span>L</span>
-                <span>o</span>
-                <span>a</span>
-                <span>d</span>
-                <span>i</span>
-                <span>n</span>
-                <span>g</span>
-            </div>
-            <div class="sec">
-                <div class="box"></div>
-                <span>L</span>
-                <span>o</span>
-                <span>a</span>
-                <span>d</span>
-                <span>i</span>
-                <span>n</span>
-                <span>g</span>
-            </div>
-        </div>
-        <div class="loading_box" style="display: ">
-            <div class="first">
-                <div class="loading2">
-                    <div class='loader--dot'></div>
-                    <div class='loader--dot'></div>
-                    <div class='loader--dot'></div>
-                    <div class='loader--dot'></div>
-                    <div class='loader--dot'></div>
-                    <div class='loader--dot'></div>
-                    <div class='loader--text'></div>
-                </div>
-            </div>
-            <div class="sec">
-                <div class="loading2">
-                    <div class='loader--dot'></div>
-                    <div class='loader--dot'></div>
-                    <div class='loader--dot'></div>
-                    <div class='loader--dot'></div>
-                    <div class='loader--dot'></div>
-                    <div class='loader--dot'></div>
-                    <div class='loader--text'></div>
-                </div>
-            </div>
-        </div>
-        <div class="loading_box" style="display: ">
-            <div class="first" style="width: auto; margin-right: 50px;">
-                <div class="loading-container">
-                    <div class="loading"></div>
-                    <div class="loading-text">loading</div>
-                </div>
-            </div>
-            <div class="sec" style="width: auto">
-                <div class="loading-container">
-                    <div class="loading"></div>
-                    <div class="loading-text">loading</div>
-                </div>
-            </div>
-        </div>
-        <div class="loading_box" style="display: ">
-            <div class="first">
-                <div class="loader">Loading...</div>
-            </div>
-            <div class="sec">
-                <div class="loader">Loading...</div>
-            </div>
-        </div>
-        <div class="loading_box" style="display: ">
-            <div class="first">
-                <div class="loading5">
-                    <div class="bounceball"></div>
-                    <div class="text">NOW LOADING</div>
-                </div>
-            </div>
-            <div class="sec">
-                <div class="loading5">
-                    <div class="bounceball"></div>
-                    <div class="text">NOW LOADING</div>
-                </div>
-            </div>
-
-        </div>
-        <div class="loading_box" style="display: ">
-            <div class="first">
-                <div class="loader6"></div>
-                <span>L</span>
-                <span>o</span>
-                <span>a</span>
-                <span>d</span>
-                <span>i</span>
-                <span>n</span>
-                <span>g</span>
-            </div>
-            <div class="sec">
-                <div class="loader6"></div>
-                <span>L</span>
-                <span>o</span>
-                <span>a</span>
-                <span>d</span>
-                <span>i</span>
-                <span>n</span>
-                <span>g</span>
-            </div>
-        </div>
-
-
-        <style>
-            .blue_bg {
-                background-color: #4285F4
-            }
-
-            .loading7 {
-                display: flex;
-                align-items: flex-end;
-            }
-
-            .loading7>span+span {
-                margin-left: 5px;
-            }
-
-            .loading7>span:not(.ball) {
-                width: 10px;
-                height: 50px;
-                background-color: #fff;
-                transform-origin: center bottom;
-            }
-
-            .loading7>span:nth-child(1) {
-                transform: scale(1, 0.2);
-                animation: loading7_block1 5s infinite linear;
-            }
-
-            .loading7>span:nth-child(2) {
-                transform: scale(1, 0.4);
-                animation: loading7_block2 5s infinite linear;
-            }
-
-            .loading7>span:nth-child(3) {
-                transform: scale(1, 0.6);
-            }
-
-            .loading7>span:nth-child(4) {
-                transform: scale(1, 0.8);
-                animation: loading7_block4 5s infinite linear;
-            }
-
-            .loading7>span:nth-child(5) {
-                transform: scale(1, 1);
-                animation: loading7_block5 5s infinite linear;
-            }
-
-            @keyframes loading7_block1 {
-                0% {
-                    transform: scale(1, 0.2);
-                }
-
-                40% {
-                    transform: scale(1, 0.2);
-                }
-
-                50% {
-                    transform: scale(1, 1);
-                }
-
-                90% {
-                    transform: scale(1, 1);
-                }
-
-                100% {
-                    transform: scale(1, 0.2);
-                }
-            }
-
-            @keyframes loading7_block2 {
-                0% {
-                    transform: scale(1, 0.4);
-                }
-
-                40% {
-                    transform: scale(1, 0.4);
-                }
-
-                50% {
-                    transform: scale(1, 0.8);
-                }
-
-                90% {
-                    transform: scale(1, 0.8);
-                }
-
-                100% {
-                    transform: scale(1, 0.4);
-                }
-            }
-
-            @keyframes loading7_block4 {
-                0% {
-                    transform: scale(1, 0.8);
-                }
-
-                40% {
-                    transform: scale(1, 0.8);
-                }
-
-                50% {
-                    transform: scale(1, 0.4);
-                }
-
-                90% {
-                    transform: scale(1, 0.4);
-                }
-
-                100% {
-                    transform: scale(1, 0.8);
-                }
-            }
-
-            @keyframes loading7_block5 {
-                0% {
-                    transform: scale(1, );
-                }
-
-                40% {
-                    transform: scale(1, 1);
-                }
-
-                50% {
-                    transform: scale(1, 0.2);
-                }
-
-                90% {
-                    transform: scale(1, 0.2);
-                }
-
-                100% {
-                    transform: scale(1, 1);
-                }
-            }
-
-            .ball {
-                position: absolute;
-                display: block;
-                width: 10px;
-                height: 10px;
-                background-color: #fff;
-                border-radius: 100%;
-                transition-duration: .3s;
-                animation: loading7_ball 5s infinite linear;
-            }
-
-            @keyframes loading7_ball {
-                0% {
-                    transform: translate(0, -12px);
-                }
-
-                5% {
-                    transform: translate(7px, -26px);
-                }
-
-                10% {
-                    transform: translate(15px, -22px);
-                }
-
-                17% {
-                    transform: translate(22px, -36px);
-                }
-
-                20% {
-                    transform: translate(30px, -32px);
-                }
-
-                27% {
-                    transform: translate(37px, -46px);
-                }
-
-                30% {
-                    transform: translate(45px, -42px);
-                }
-
-                37% {
-                    transform: translate(52px, -56px);
-                }
-
-                40% {
-                    transform: translate(60px, -52px);
-                }
-
-                50% {
-                    transform: translate(60px, -12px);
-                }
-
-                57% {
-                    transform: translate(52px, -26px);
-                }
-
-                60% {
-                    transform: translate(45px, -22px);
-                }
-
-                67% {
-                    transform: translate(37px, -36px);
-                }
-
-                70% {
-                    transform: translate(30px, -32px);
-                }
-
-                77% {
-                    transform: translate(22px, -46px);
-                }
-
-                80% {
-                    transform: translate(15px, -42px);
-                }
-
-                87% {
-                    transform: translate(7px, -56px);
-                }
-
-                90% {
-                    transform: translate(0, -52px);
-                }
-
-                100% {
-                    transform: translate(0, -12px);
-                }
-            }
-        </style>
-
-        <div class="loading_box blue_bg" style="display:none ">
-            <div class="loading7">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <spna class="ball"></spna>
-            </div>
-        </div>
-
-
-
-        <style>
-            .sp {
-                width: 32px;
-                height: 32px;
-                clear: both;
-                margin: 20px auto;
-            }
-
-            .sp-circle {
-                border: 4px rgba(0, 0, 0, 0.25) solid;
-                border-top: 4px black solid;
-                border-radius: 50%;
-                -webkit-animation: spCircRot 0.6s infinite linear;
-                animation: spCircRot 0.6s infinite linear;
-            }
-
-            .first .sp-circle {
-                border-top-color: #3999f8;
-            }
-
-            /* .sec .sp-circle {
-                border-top-color: #aaa;
-            } */
-
-            @keyframes spCircRot {
-                0% {
-                    transform: rotate(0deg);
-                }
-
-                100% {
-                    transform: rotate(359deg);
-                }
-            }
-        </style>
-        <div class="loading_box">
-            <div class="first" style="flex-wrap: wrap;">
-                <div class="sp sp-circle"></div>
-                <h5 style="width:100%; text-align: center;">Circle</h5>
-            </div>
-            <div class="sec" style="flex-wrap: wrap;">
-                <div class="sp sp-circle"></div>
-                <h5 style="width:100%; text-align: center;">Circle</h5>
-            </div>
-        </div>
-        <style>
-            .sp.sp-slices {
-                border-radius: 50%;
-                border-top: 16px #3999f8 solid;
-                border-left: 16px #DDF1F9 solid;
-                border-bottom: 16px #DDF1F9 solid;
-                border-right: 16px #DDF1F9 solid;
-                -webkit-animation: spSlices 1s infinite linear;
-                animation: spSlices1 1s infinite linear;
-            }
-
-            .sec .sp.sp-slices {
-                animation: spSlices2 1s infinite linear;
-            }
-
-            @keyframes spSlices1 {
-                0% {
-                    border-top: 16px #3999f8 solid;
-                    border-right: 16px #DDF1F9 solid;
-                    border-bottom: 16px #DDF1F9 solid;
-                    border-left: 16px #DDF1F9 solid;
-                }
-
-                25% {
-                    border-top: 16px #DDF1F9 solid;
-                    border-right: 16px #3999f8 solid;
-                    border-bottom: 16px #DDF1F9 solid;
-                    border-left: 16px #DDF1F9 solid;
-                }
-
-                50% {
-                    border-top: 16px #DDF1F9 solid;
-                    border-right: 16px #DDF1F9 solid;
-                    border-bottom: 16px #3999f8 solid;
-                    border-left: 16px #DDF1F9 solid;
-                }
-
-                75% {
-                    border-top: 16px #DDF1F9 solid;
-                    border-right: 16px #DDF1F9 solid;
-                    border-bottom: 16px #DDF1F9 solid;
-                    border-left: 16px #3999f8 solid;
-                }
+	<div class="wrap1">
+
+		<div class="loading_box loading1" style="display: ">
+			<div class="first">
+				<div class="box"></div>
+				<span>L</span>
+				<span>o</span>
+				<span>a</span>
+				<span>d</span>
+				<span>i</span>
+				<span>n</span>
+				<span>g</span>
+			</div>
+			<div class="sec">
+				<div class="box"></div>
+				<span>L</span>
+				<span>o</span>
+				<span>a</span>
+				<span>d</span>
+				<span>i</span>
+				<span>n</span>
+				<span>g</span>
+			</div>
+		</div>
+		<div class="loading_box" style="display: ">
+			<div class="first">
+				<div class="loading2">
+					<div class='loader--dot'></div>
+					<div class='loader--dot'></div>
+					<div class='loader--dot'></div>
+					<div class='loader--dot'></div>
+					<div class='loader--dot'></div>
+					<div class='loader--dot'></div>
+					<div class='loader--text'></div>
+				</div>
+			</div>
+			<div class="sec">
+				<div class="loading2">
+					<div class='loader--dot'></div>
+					<div class='loader--dot'></div>
+					<div class='loader--dot'></div>
+					<div class='loader--dot'></div>
+					<div class='loader--dot'></div>
+					<div class='loader--dot'></div>
+					<div class='loader--text'></div>
+				</div>
+			</div>
+		</div>
+		<div class="loading_box" style="display: ">
+			<div class="first" style="width: auto; margin-right: 50px;">
+				<div class="loading-container">
+					<div class="loading"></div>
+					<div class="loading-text">loading</div>
+				</div>
+			</div>
+			<div class="sec" style="width: auto">
+				<div class="loading-container">
+					<div class="loading"></div>
+					<div class="loading-text">loading</div>
+				</div>
+			</div>
+		</div>
+		<div class="loading_box" style="display: ">
+			<div class="first">
+				<div class="loader">Loading...</div>
+			</div>
+			<div class="sec">
+				<div class="loader">Loading...</div>
+			</div>
+		</div>
+		<div class="loading_box" style="display: ">
+			<div class="first">
+				<div class="loading5">
+					<div class="bounceball"></div>
+					<div class="text">NOW LOADING</div>
+				</div>
+			</div>
+			<div class="sec">
+				<div class="loading5">
+					<div class="bounceball"></div>
+					<div class="text">NOW LOADING</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="loading_box" style="display: ">
+			<div class="first">
+				<div class="loader6"></div>
+				<span>L</span>
+				<span>o</span>
+				<span>a</span>
+				<span>d</span>
+				<span>i</span>
+				<span>n</span>
+				<span>g</span>
+			</div>
+			<div class="sec">
+				<div class="loader6"></div>
+				<span>L</span>
+				<span>o</span>
+				<span>a</span>
+				<span>d</span>
+				<span>i</span>
+				<span>n</span>
+				<span>g</span>
+			</div>
+		</div>
+
+
+		<style>
+			.blue_bg {
+				background-color: #4285F4
+			}
+
+			.loading7 {
+				display: flex;
+				align-items: flex-end;
+			}
+
+			.loading7>span+span {
+				margin-left: 5px;
+			}
+
+			.loading7>span:not(.ball) {
+				width: 10px;
+				height: 50px;
+				background-color: #fff;
+				transform-origin: center bottom;
+			}
+
+			.loading7>span:nth-child(1) {
+				transform: scale(1, 0.2);
+				animation: loading7_block1 5s infinite linear;
+			}
+
+			.loading7>span:nth-child(2) {
+				transform: scale(1, 0.4);
+				animation: loading7_block2 5s infinite linear;
+			}
+
+			.loading7>span:nth-child(3) {
+				transform: scale(1, 0.6);
+			}
+
+			.loading7>span:nth-child(4) {
+				transform: scale(1, 0.8);
+				animation: loading7_block4 5s infinite linear;
+			}
+
+			.loading7>span:nth-child(5) {
+				transform: scale(1, 1);
+				animation: loading7_block5 5s infinite linear;
+			}
+
+			@keyframes loading7_block1 {
+				0% {
+					transform: scale(1, 0.2);
+				}
+
+				40% {
+					transform: scale(1, 0.2);
+				}
+
+				50% {
+					transform: scale(1, 1);
+				}
+
+				90% {
+					transform: scale(1, 1);
+				}
+
+				100% {
+					transform: scale(1, 0.2);
+				}
+			}
+
+			@keyframes loading7_block2 {
+				0% {
+					transform: scale(1, 0.4);
+				}
+
+				40% {
+					transform: scale(1, 0.4);
+				}
+
+				50% {
+					transform: scale(1, 0.8);
+				}
+
+				90% {
+					transform: scale(1, 0.8);
+				}
+
+				100% {
+					transform: scale(1, 0.4);
+				}
+			}
+
+			@keyframes loading7_block4 {
+				0% {
+					transform: scale(1, 0.8);
+				}
+
+				40% {
+					transform: scale(1, 0.8);
+				}
+
+				50% {
+					transform: scale(1, 0.4);
+				}
+
+				90% {
+					transform: scale(1, 0.4);
+				}
+
+				100% {
+					transform: scale(1, 0.8);
+				}
+			}
+
+			@keyframes loading7_block5 {
+				0% {
+					transform: scale(1, );
+				}
+
+				40% {
+					transform: scale(1, 1);
+				}
+
+				50% {
+					transform: scale(1, 0.2);
+				}
+
+				90% {
+					transform: scale(1, 0.2);
+				}
+
+				100% {
+					transform: scale(1, 1);
+				}
+			}
+
+			.ball {
+				position: absolute;
+				display: block;
+				width: 10px;
+				height: 10px;
+				background-color: #fff;
+				border-radius: 100%;
+				transition-duration: .3s;
+				animation: loading7_ball 5s infinite linear;
+			}
+
+			@keyframes loading7_ball {
+				0% {
+					transform: translate(0, -12px);
+				}
+
+				5% {
+					transform: translate(7px, -26px);
+				}
+
+				10% {
+					transform: translate(15px, -22px);
+				}
+
+				17% {
+					transform: translate(22px, -36px);
+				}
+
+				20% {
+					transform: translate(30px, -32px);
+				}
+
+				27% {
+					transform: translate(37px, -46px);
+				}
+
+				30% {
+					transform: translate(45px, -42px);
+				}
+
+				37% {
+					transform: translate(52px, -56px);
+				}
+
+				40% {
+					transform: translate(60px, -52px);
+				}
+
+				50% {
+					transform: translate(60px, -12px);
+				}
+
+				57% {
+					transform: translate(52px, -26px);
+				}
+
+				60% {
+					transform: translate(45px, -22px);
+				}
+
+				67% {
+					transform: translate(37px, -36px);
+				}
+
+				70% {
+					transform: translate(30px, -32px);
+				}
+
+				77% {
+					transform: translate(22px, -46px);
+				}
+
+				80% {
+					transform: translate(15px, -42px);
+				}
+
+				87% {
+					transform: translate(7px, -56px);
+				}
+
+				90% {
+					transform: translate(0, -52px);
+				}
+
+				100% {
+					transform: translate(0, -12px);
+				}
+			}
+		</style>
+
+		<div class="loading_box blue_bg" style="display:none ">
+			<div class="loading7">
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<spna class="ball"></spna>
+			</div>
+		</div>
+
+
+
+		<style>
+			.sp {
+				width: 32px;
+				height: 32px;
+				clear: both;
+				margin: 20px auto;
+			}
+
+			.sp-circle {
+				border: 4px rgba(0, 0, 0, 0.25) solid;
+				border-top: 4px black solid;
+				border-radius: 50%;
+				-webkit-animation: spCircRot 0.6s infinite linear;
+				animation: spCircRot 0.6s infinite linear;
+			}
+
+			.first .sp-circle {
+				border-top-color: #3999f8;
+			}
+
+			/* .sec .sp-circle {
+				border-top-color: #aaa;
+			} */
+
+			@keyframes spCircRot {
+				0% {
+					transform: rotate(0deg);
+				}
+
+				100% {
+					transform: rotate(359deg);
+				}
+			}
+		</style>
+		<div class="loading_box">
+			<div class="first" style="flex-wrap: wrap;">
+				<div class="sp sp-circle"></div>
+				<h5 style="width:100%; text-align: center;">Circle</h5>
+			</div>
+			<div class="sec" style="flex-wrap: wrap;">
+				<div class="sp sp-circle"></div>
+				<h5 style="width:100%; text-align: center;">Circle</h5>
+			</div>
+		</div>
+		<style>
+			.sp.sp-slices {
+				border-radius: 50%;
+				border-top: 16px #3999f8 solid;
+				border-left: 16px #DDF1F9 solid;
+				border-bottom: 16px #DDF1F9 solid;
+				border-right: 16px #DDF1F9 solid;
+				-webkit-animation: spSlices 1s infinite linear;
+				animation: spSlices1 1s infinite linear;
+			}
+
+			.sec .sp.sp-slices {
+				animation: spSlices2 1s infinite linear;
+			}
+
+			@keyframes spSlices1 {
+				0% {
+					border-top: 16px #3999f8 solid;
+					border-right: 16px #DDF1F9 solid;
+					border-bottom: 16px #DDF1F9 solid;
+					border-left: 16px #DDF1F9 solid;
+				}
+
+				25% {
+					border-top: 16px #DDF1F9 solid;
+					border-right: 16px #3999f8 solid;
+					border-bottom: 16px #DDF1F9 solid;
+					border-left: 16px #DDF1F9 solid;
+				}
+
+				50% {
+					border-top: 16px #DDF1F9 solid;
+					border-right: 16px #DDF1F9 solid;
+					border-bottom: 16px #3999f8 solid;
+					border-left: 16px #DDF1F9 solid;
+				}
+
+				75% {
+					border-top: 16px #DDF1F9 solid;
+					border-right: 16px #DDF1F9 solid;
+					border-bottom: 16px #DDF1F9 solid;
+					border-left: 16px #3999f8 solid;
+				}
 
-                100% {
-                    border-top: 16px #3999f8 solid;
-                    border-right: 16px #DDF1F9 solid;
-                    border-bottom: 16px #DDF1F9 solid;
-                    border-left: 16px #DDF1F9 solid;
-                }
-            }
+				100% {
+					border-top: 16px #3999f8 solid;
+					border-right: 16px #DDF1F9 solid;
+					border-bottom: 16px #DDF1F9 solid;
+					border-left: 16px #DDF1F9 solid;
+				}
+			}
 
-            @keyframes spSlices2 {
-                0% {
-                    border-top: 16px rgba(0, 0, 0, 0.75) solid;
-                    border-right: 16px rgba(0, 0, 0, 0.25) solid;
-                    border-bottom: 16px rgba(0, 0, 0, 0.25) solid;
-                    border-left: 16px rgba(0, 0, 0, 0.25) solid;
-                }
+			@keyframes spSlices2 {
+				0% {
+					border-top: 16px rgba(0, 0, 0, 0.75) solid;
+					border-right: 16px rgba(0, 0, 0, 0.25) solid;
+					border-bottom: 16px rgba(0, 0, 0, 0.25) solid;
+					border-left: 16px rgba(0, 0, 0, 0.25) solid;
+				}
 
-                25% {
-                    border-top: 16px rgba(0, 0, 0, 0.25) solid;
-                    border-right: 16px rgba(0, 0, 0, 0.75) solid;
-                    border-bottom: 16px rgba(0, 0, 0, 0.25) solid;
-                    border-left: 16px rgba(0, 0, 0, 0.25) solid;
-                }
-
-                50% {
-                    border-top: 16px rgba(0, 0, 0, 0.25) solid;
-                    border-right: 16px rgba(0, 0, 0, 0.25) solid;
-                    border-bottom: 16px rgba(0, 0, 0, 0.75) solid;
-                    border-left: 16px rgba(0, 0, 0, 0.25) solid;
-                }
-
-                75% {
-                    border-top: 16px rgba(0, 0, 0, 0.25) solid;
-                    border-right: 16px rgba(0, 0, 0, 0.25) solid;
-                    border-bottom: 16px rgba(0, 0, 0, 0.25) solid;
-                    border-left: 16px rgba(0, 0, 0, 0.75) solid;
-                }
-
-                100% {
-                    border-top: 16px rgba(0, 0, 0, 0.75) solid;
-                    border-right: 16px rgba(0, 0, 0, 0.25) solid;
-                    border-bottom: 16px rgba(0, 0, 0, 0.25) solid;
-                    border-left: 16px rgba(0, 0, 0, 0.25) solid;
-                }
-            }
-        </style>
-        <div class="loading_box">
-            <div class="first" style="flex-wrap: wrap;">
-                <div class="sp sp-slices"></div>
-                <h5 style="width:100%; text-align: center;">Slices</h5>
-            </div>
-            <div class="sec" style="flex-wrap: wrap;">
-                <div class="sp sp-slices"></div>
-                <h5 style="width:100%; text-align: center;">Slices</h5>
-            </div>
-        </div>
-
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="wrap" style="display: none">
-
-        <div class="loading_box loading1" style="display: none">
-            <div class="box"></div>
-            <span>L</span>
-            <span>o</span>
-            <span>a</span>
-            <span>d</span>
-            <span>i</span>
-            <span>n</span>
-            <span>g</span>
-        </div>
-        <div class="loading_box" style="display: none">
-            <div class="loading2">
-                <div class='loader--dot'></div>
-                <div class='loader--dot'></div>
-                <div class='loader--dot'></div>
-                <div class='loader--dot'></div>
-                <div class='loader--dot'></div>
-                <div class='loader--dot'></div>
-                <div class='loader--text'></div>
-            </div>
-        </div>
-        <div class="loading_box" style="display: none">
-            <div class="loading-container">
-                <div class="loading"></div>
-                <div class="loading-text">loading</div>
-            </div>
-
-        </div>
-        <div class="loading_box" style="display: none">
-            <div class="loader">Loading...</div>
-        </div>
-        <div class="loading_box" style="display: none">
-            <div class="loading5">
-                <div class="bounceball"></div>
-                <div class="text">NOW LOADING</div>
-            </div>
-
-        </div>
-        <div class="loading_box" style="display: none">
-            <div class="loader6"></div>
-            <span>L</span>
-            <span>o</span>
-            <span>a</span>
-            <span>d</span>
-            <span>i</span>
-            <span>n</span>
-            <span>g</span>
-        </div>
-
-
-        <style>
-            .blue_bg {
-                background-color: #4285F4
-            }
-
-            .loading7 {
-                display: flex;
-                align-items: flex-end;
-            }
-
-            .loading7>span+span {
-                margin-left: 5px;
-            }
-
-            .loading7>span:not(.ball) {
-                width: 10px;
-                height: 50px;
-                background-color: #fff;
-                transform-origin: center bottom;
-            }
-
-            .loading7>span:nth-child(1) {
-                transform: scale(1, 0.2);
-                animation: loading7_block1 5s infinite linear;
-            }
-
-            .loading7>span:nth-child(2) {
-                transform: scale(1, 0.4);
-                animation: loading7_block2 5s infinite linear;
-            }
-
-            .loading7>span:nth-child(3) {
-                transform: scale(1, 0.6);
-            }
-
-            .loading7>span:nth-child(4) {
-                transform: scale(1, 0.8);
-                animation: loading7_block4 5s infinite linear;
-            }
-
-            .loading7>span:nth-child(5) {
-                transform: scale(1, 1);
-                animation: loading7_block5 5s infinite linear;
-            }
-
-            @keyframes loading7_block1 {
-                0% {
-                    transform: scale(1, 0.2);
-                }
-
-                40% {
-                    transform: scale(1, 0.2);
-                }
-
-                50% {
-                    transform: scale(1, 1);
-                }
-
-                90% {
-                    transform: scale(1, 1);
-                }
-
-                100% {
-                    transform: scale(1, 0.2);
-                }
-            }
-
-            @keyframes loading7_block2 {
-                0% {
-                    transform: scale(1, 0.4);
-                }
-
-                40% {
-                    transform: scale(1, 0.4);
-                }
-
-                50% {
-                    transform: scale(1, 0.8);
-                }
-
-                90% {
-                    transform: scale(1, 0.8);
-                }
-
-                100% {
-                    transform: scale(1, 0.4);
-                }
-            }
-
-            @keyframes loading7_block4 {
-                0% {
-                    transform: scale(1, 0.8);
-                }
-
-                40% {
-                    transform: scale(1, 0.8);
-                }
-
-                50% {
-                    transform: scale(1, 0.4);
-                }
-
-                90% {
-                    transform: scale(1, 0.4);
-                }
-
-                100% {
-                    transform: scale(1, 0.8);
-                }
-            }
-
-            @keyframes loading7_block5 {
-                0% {
-                    transform: scale(1, );
-                }
-
-                40% {
-                    transform: scale(1, 1);
-                }
-
-                50% {
-                    transform: scale(1, 0.2);
-                }
-
-                90% {
-                    transform: scale(1, 0.2);
-                }
-
-                100% {
-                    transform: scale(1, 1);
-                }
-            }
-
-            .ball {
-                position: absolute;
-                display: block;
-                width: 10px;
-                height: 10px;
-                background-color: #fff;
-                border-radius: 100%;
-                transition-duration: .3s;
-                animation: loading7_ball 5s infinite linear;
-            }
-
-            @keyframes loading7_ball {
-                0% {
-                    transform: translate(0, -12px);
-                }
-
-                5% {
-                    transform: translate(7px, -26px);
-                }
-
-                10% {
-                    transform: translate(15px, -22px);
-                }
-
-                17% {
-                    transform: translate(22px, -36px);
-                }
-
-                20% {
-                    transform: translate(30px, -32px);
-                }
-
-                27% {
-                    transform: translate(37px, -46px);
-                }
-
-                30% {
-                    transform: translate(45px, -42px);
-                }
-
-                37% {
-                    transform: translate(52px, -56px);
-                }
-
-                40% {
-                    transform: translate(60px, -52px);
-                }
-
-                50% {
-                    transform: translate(60px, -12px);
-                }
-
-                57% {
-                    transform: translate(52px, -26px);
-                }
-
-                60% {
-                    transform: translate(45px, -22px);
-                }
-
-                67% {
-                    transform: translate(37px, -36px);
-                }
-
-                70% {
-                    transform: translate(30px, -32px);
-                }
-
-                77% {
-                    transform: translate(22px, -46px);
-                }
-
-                80% {
-                    transform: translate(15px, -42px);
-                }
-
-                87% {
-                    transform: translate(7px, -56px);
-                }
-
-                90% {
-                    transform: translate(0, -52px);
-                }
-
-                100% {
-                    transform: translate(0, -12px);
-                }
-            }
-        </style>
-
-        <div class="loading_box blue_bg" style="display: none">
-            <div class="loading7">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <spna class="ball"></spna>
-            </div>
-        </div>
-
-        <style>
-            .loading_box.l5 {
-                /* background-color: #252851; */
-
-            }
-
-            ul {
-                position: relative;
-                width: 50px;
-                height: 50px;
-                padding: 0;
-                margin: 0;
-                box-sizing: border-box;
-                list-style: none;
-            }
-
-            li {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                /* border: 1px solid #000; */
-                transform: rotate(45deg);
-            }
-
-            li:after {
-                content: '';
-                position: absolute;
-                top: -10px;
-                left: -10px;
-                display: block;
-                width: 20px;
-                height: 20px;
-                border-radius: 50%;
-                background-color: #ccc;
-            }
-        </style>
-        <div class="loading_box l5">
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div>
-    </div>
+				25% {
+					border-top: 16px rgba(0, 0, 0, 0.25) solid;
+					border-right: 16px rgba(0, 0, 0, 0.75) solid;
+					border-bottom: 16px rgba(0, 0, 0, 0.25) solid;
+					border-left: 16px rgba(0, 0, 0, 0.25) solid;
+				}
+
+				50% {
+					border-top: 16px rgba(0, 0, 0, 0.25) solid;
+					border-right: 16px rgba(0, 0, 0, 0.25) solid;
+					border-bottom: 16px rgba(0, 0, 0, 0.75) solid;
+					border-left: 16px rgba(0, 0, 0, 0.25) solid;
+				}
+
+				75% {
+					border-top: 16px rgba(0, 0, 0, 0.25) solid;
+					border-right: 16px rgba(0, 0, 0, 0.25) solid;
+					border-bottom: 16px rgba(0, 0, 0, 0.25) solid;
+					border-left: 16px rgba(0, 0, 0, 0.75) solid;
+				}
+
+				100% {
+					border-top: 16px rgba(0, 0, 0, 0.75) solid;
+					border-right: 16px rgba(0, 0, 0, 0.25) solid;
+					border-bottom: 16px rgba(0, 0, 0, 0.25) solid;
+					border-left: 16px rgba(0, 0, 0, 0.25) solid;
+				}
+			}
+		</style>
+		<div class="loading_box">
+			<div class="first" style="flex-wrap: wrap;">
+				<div class="sp sp-slices"></div>
+				<h5 style="width:100%; text-align: center;">Slices</h5>
+			</div>
+			<div class="sec" style="flex-wrap: wrap;">
+				<div class="sp sp-slices"></div>
+				<h5 style="width:100%; text-align: center;">Slices</h5>
+			</div>
+		</div>
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div class="wrap" style="display: none">
+
+		<div class="loading_box loading1" style="display: none">
+			<div class="box"></div>
+			<span>L</span>
+			<span>o</span>
+			<span>a</span>
+			<span>d</span>
+			<span>i</span>
+			<span>n</span>
+			<span>g</span>
+		</div>
+		<div class="loading_box" style="display: none">
+			<div class="loading2">
+				<div class='loader--dot'></div>
+				<div class='loader--dot'></div>
+				<div class='loader--dot'></div>
+				<div class='loader--dot'></div>
+				<div class='loader--dot'></div>
+				<div class='loader--dot'></div>
+				<div class='loader--text'></div>
+			</div>
+		</div>
+		<div class="loading_box" style="display: none">
+			<div class="loading-container">
+				<div class="loading"></div>
+				<div class="loading-text">loading</div>
+			</div>
+
+		</div>
+		<div class="loading_box" style="display: none">
+			<div class="loader">Loading...</div>
+		</div>
+		<div class="loading_box" style="display: none">
+			<div class="loading5">
+				<div class="bounceball"></div>
+				<div class="text">NOW LOADING</div>
+			</div>
+
+		</div>
+		<div class="loading_box" style="display: none">
+			<div class="loader6"></div>
+			<span>L</span>
+			<span>o</span>
+			<span>a</span>
+			<span>d</span>
+			<span>i</span>
+			<span>n</span>
+			<span>g</span>
+		</div>
+
+
+		<style>
+			.blue_bg {
+				background-color: #4285F4
+			}
+
+			.loading7 {
+				display: flex;
+				align-items: flex-end;
+			}
+
+			.loading7>span+span {
+				margin-left: 5px;
+			}
+
+			.loading7>span:not(.ball) {
+				width: 10px;
+				height: 50px;
+				background-color: #fff;
+				transform-origin: center bottom;
+			}
+
+			.loading7>span:nth-child(1) {
+				transform: scale(1, 0.2);
+				animation: loading7_block1 5s infinite linear;
+			}
+
+			.loading7>span:nth-child(2) {
+				transform: scale(1, 0.4);
+				animation: loading7_block2 5s infinite linear;
+			}
+
+			.loading7>span:nth-child(3) {
+				transform: scale(1, 0.6);
+			}
+
+			.loading7>span:nth-child(4) {
+				transform: scale(1, 0.8);
+				animation: loading7_block4 5s infinite linear;
+			}
+
+			.loading7>span:nth-child(5) {
+				transform: scale(1, 1);
+				animation: loading7_block5 5s infinite linear;
+			}
+
+			@keyframes loading7_block1 {
+				0% {
+					transform: scale(1, 0.2);
+				}
+
+				40% {
+					transform: scale(1, 0.2);
+				}
+
+				50% {
+					transform: scale(1, 1);
+				}
+
+				90% {
+					transform: scale(1, 1);
+				}
+
+				100% {
+					transform: scale(1, 0.2);
+				}
+			}
+
+			@keyframes loading7_block2 {
+				0% {
+					transform: scale(1, 0.4);
+				}
+
+				40% {
+					transform: scale(1, 0.4);
+				}
+
+				50% {
+					transform: scale(1, 0.8);
+				}
+
+				90% {
+					transform: scale(1, 0.8);
+				}
+
+				100% {
+					transform: scale(1, 0.4);
+				}
+			}
+
+			@keyframes loading7_block4 {
+				0% {
+					transform: scale(1, 0.8);
+				}
+
+				40% {
+					transform: scale(1, 0.8);
+				}
+
+				50% {
+					transform: scale(1, 0.4);
+				}
+
+				90% {
+					transform: scale(1, 0.4);
+				}
+
+				100% {
+					transform: scale(1, 0.8);
+				}
+			}
+
+			@keyframes loading7_block5 {
+				0% {
+					transform: scale(1, );
+				}
+
+				40% {
+					transform: scale(1, 1);
+				}
+
+				50% {
+					transform: scale(1, 0.2);
+				}
+
+				90% {
+					transform: scale(1, 0.2);
+				}
+
+				100% {
+					transform: scale(1, 1);
+				}
+			}
+
+			.ball {
+				position: absolute;
+				display: block;
+				width: 10px;
+				height: 10px;
+				background-color: #fff;
+				border-radius: 100%;
+				transition-duration: .3s;
+				animation: loading7_ball 5s infinite linear;
+			}
+
+			@keyframes loading7_ball {
+				0% {
+					transform: translate(0, -12px);
+				}
+
+				5% {
+					transform: translate(7px, -26px);
+				}
+
+				10% {
+					transform: translate(15px, -22px);
+				}
+
+				17% {
+					transform: translate(22px, -36px);
+				}
+
+				20% {
+					transform: translate(30px, -32px);
+				}
+
+				27% {
+					transform: translate(37px, -46px);
+				}
+
+				30% {
+					transform: translate(45px, -42px);
+				}
+
+				37% {
+					transform: translate(52px, -56px);
+				}
+
+				40% {
+					transform: translate(60px, -52px);
+				}
+
+				50% {
+					transform: translate(60px, -12px);
+				}
+
+				57% {
+					transform: translate(52px, -26px);
+				}
+
+				60% {
+					transform: translate(45px, -22px);
+				}
+
+				67% {
+					transform: translate(37px, -36px);
+				}
+
+				70% {
+					transform: translate(30px, -32px);
+				}
+
+				77% {
+					transform: translate(22px, -46px);
+				}
+
+				80% {
+					transform: translate(15px, -42px);
+				}
+
+				87% {
+					transform: translate(7px, -56px);
+				}
+
+				90% {
+					transform: translate(0, -52px);
+				}
+
+				100% {
+					transform: translate(0, -12px);
+				}
+			}
+		</style>
+
+		<div class="loading_box blue_bg" style="display: none">
+			<div class="loading7">
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<spna class="ball"></spna>
+			</div>
+		</div>
+
+		<style>
+			.loading_box.l5 {
+				/* background-color: #252851; */
+
+			}
+
+			ul {
+				position: relative;
+				width: 50px;
+				height: 50px;
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+				list-style: none;
+			}
+
+			li {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				/* border: 1px solid #000; */
+				transform: rotate(45deg);
+			}
+
+			li:after {
+				content: '';
+				position: absolute;
+				top: -10px;
+				left: -10px;
+				display: block;
+				width: 20px;
+				height: 20px;
+				border-radius: 50%;
+				background-color: #ccc;
+			}
+		</style>
+		<div class="loading_box l5">
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</div>
 </body>
 
 </html>
