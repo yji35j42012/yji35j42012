@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>IRIS Plus ATM</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <!-- <link
         href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="./style/reset.css">
-    <link rel="stylesheet" href="./style/index.css">
+    <link rel="stylesheet" href="./style/index.css"> -->
 </head>
 
 <body>
@@ -22,22 +22,7 @@
 
 
             <div class="report_group" style="display: none">
-                <div class="report_list _w300px">
-                    <div class="report_list_title">個人資料</div>
-                    <div class="report_list_face">
-                        <img src="./images/face.png" alt="">
-                    </div>
-                    <div class="report_list_eyes report_list_botBorder">
-                        <img src="./images/eye2.png" alt="">
-                        <img src="./images/eye3.png" alt="">
-                    </div>
-                    <ul class="report_list_ul">
-                        <li class="report_list_li _msgl" data-msgl="信貸額度：">$10萬</li>
-                        <li class="report_list_li _msgl" data-msgl="信用卡額度：">$10萬</li>
-                        <li class="report_list_li _msgl" data-msgl="房貸利率：">1.5%</li>
-                    </ul>
 
-                </div>
                 <div class="report_list _w448px">
                     <div class="report_list_title">資產配置</div>
                     <div class="report_list_statistics report_list_botBorder">
@@ -137,6 +122,14 @@
     </div>
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
+
+
+    <style>
+        .highcharts-credits,
+        .highcharts-title {
+            display: none !important;
+        }
+    </style>
     <script>
         var year = 2022;
         var olympic = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -241,21 +234,22 @@
             $('#container').highcharts(json);
         });
 
+
+        // 圓餅圖
+        var circleData = {
+            color: ['#000000', '#aaaaaa', '#bbbbbb', '#cccccc', '#dddddd', '#64E572', '#FF9655', '#FFF263', '#6AF9C4'],
+            data: [
+                { y: 30 },
+                { y: 20 },
+                { y: 10 },
+                { y: 15 },
+                { y: 12 },
+                { y: 13 }
+            ]
+        }
         $(document).ready(function () {
             Highcharts.setOptions({
-                colors: Highcharts.map(Highcharts.getOptions().colors, function (color) {
-                    return {
-                        radialGradient: {
-                            cx: 0.5,
-                            cy: 0.3,
-                            r: 0.7
-                        },
-                        stops: [
-                            [0, color],
-                            [1, Highcharts.color(color).brighten(-0.3).get('rgb')] // darken
-                        ]
-                    };
-                })
+                colors: circleData.color
             });
 
 
@@ -265,12 +259,7 @@
                 plotShadow: false,
                 type: 'pie'
             }
-            var title = {
-                text: 'Browser market shares in April, 2022'
-            }
-            var tooltip = {
-                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-            }
+
             var accessibility = {
                 point: {
                     valueSuffix: '%'
@@ -282,64 +271,17 @@
                     cursor: 'pointer',
                     dataLabels: {
                         enabled: true,
-                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        format: '{point.percentage:.1f} %',
                         connectorColor: 'silver'
                     }
                 }
             }
             var series = [{
-                name: 'Share', chart: {
-                    plotBackgroundColor: null,
-                    plotBorderWidth: null,
-                    plotShadow: false,
-                    type: 'pie'
-                },
-                title: {
-                    text: 'Browser market shares in April, 2022'
-                },
-                tooltip: {
-                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-                },
-                accessibility: {
-                    point: {
-                        valueSuffix: '%'
-                    }
-                },
-                plotOptions: {
-                    pie: {
-                        allowPointSelect: true,
-                        cursor: 'pointer',
-                        dataLabels: {
-                            enabled: true,
-                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                            connectorColor: 'silver'
-                        }
-                    }
-                },
-                series: [{
-                    name: 'Share',
-                    data: [
-                        { name: 'Chrome', y: 73.24 },
-                        { name: 'Edge', y: 12.93 },
-                        { name: 'Firefox', y: 4.73 },
-                        { name: 'Safari', y: 2.50 },
-                        { name: 'Internet Explorer', y: 1.65 },
-                        { name: 'Other', y: 4.93 }
-                    ]
-                }]
-                    data: [
-                    { name: 'Chrome', y: 73.24 },
-                    { name: 'Edge', y: 12.93 },
-                    { name: 'Firefox', y: 4.73 },
-                    { name: 'Safari', y: 2.50 },
-                    { name: 'Internet Explorer', y: 1.65 },
-                    { name: 'Other', y: 4.93 }
-                ]
+                data: circleData.data
             }]
 
+            var json = {};
             json.chart = chart;
-            json.title = title;
-            json.tooltip = tooltip;
             json.accessibility = accessibility;
             json.plotOptions = plotOptions;
             json.series = series;
