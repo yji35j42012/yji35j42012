@@ -130,6 +130,14 @@
         .highcharts-data-label-connector {
             display: none !important;
         }
+
+        #circleContainer {
+            width: 422px;
+        }
+
+        /* .highcharts-series-group {
+            width: 240px !important;
+        } */
     </style>
     <script>
         var year = 2022;
@@ -238,7 +246,7 @@
 
         // 圓餅圖
         var circleData = {
-            color: ['#000000', '#aaaaaa', '#bbbbbb', '#cccccc', '#dddddd', '#64E572'],
+            color: ['#3971e4', '#45c794', '#4b618a', '#f0bb1d', '#d75b3f', '#56b7de'],
             data: [
                 { y: 30 },
                 { y: 20 },
@@ -272,8 +280,14 @@
                     cursor: 'pointer',
                     dataLabels: {
                         enabled: true,
-                        format: '{point.percentage:.1f} %',
-                        connectorColor: 'silver'
+                        format: '{point.percentage:f} %',
+                        // format: '{point.percentage:.1f} %', //會出現小數點
+                        connectorColor: 'silver',
+                        style: {
+                            fontSize: '20px',
+                            color: '#5e5e5e',
+                            fontFamily: 'MicrosoftJhengHei',
+                        }
                     }
                 }
             }
