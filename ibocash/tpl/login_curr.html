@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="../../style/reset.css">
+	<link rel="stylesheet" href="../../style/login_curr.css">
+</head>
+
+<body>
+	<div class="login_container">
+		<div class="login_box">
+			<div class="login_info">
+				<div class="login_box_title">SIGN IN</div>
+				<!-- 幣別下拉 打開class加on-->
+				<label class="normal_select">
+					<span class="select_showPC">人民幣</span>
+					<!-- 電腦用自製下拉 當前幣值在class加on-->
+					<ul class="normal_select_ul select_showPC">
+						<li>人民幣</li>
+						<li class="on">港幣</li>
+						<li>新台幣</li>
+						<li>新台幣</li>
+					</ul>
+					<!-- 手機用內建下拉 -->
+					<select name="select" id="langx" class="select_showPH">
+						<option value="zh-tw">人民幣</option>
+						<option value="zh-cn">港幣</option>
+					</select>
+				</label>
+				<label class="login_input _acc">
+					<input type="text" name="text" autocapitalize="off" placeholder="Username">
+				</label>
+				<label class="login_input _pass">
+					<input type="password" name="text" placeholder="Password">
+				</label>
+				<button name="button" class="login_btn">Login</button>
+			</div>
+		</div>
+	</div>
+	<script>
+		var normal_select = document.querySelector('.normal_select');
+		var normal_select_btn = document.querySelector('.normal_select span');
+		normal_select_btn.onclick = function () {
+			if (normal_select.classList.contains('on')) {
+				normal_select.classList.remove('on');
+			} else {
+				normal_select.classList.add('on');
+			}
+		}
+	</script>
+</body>
+
+</html>
