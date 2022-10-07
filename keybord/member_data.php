@@ -79,9 +79,16 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
                             </td>
                             <td class="">
                                 <div class="member_box1b">
-                                    <input value="男" name="gender" class="boxradio1" type="radio" <?php if ($data['gender'] == '男') { echo 'checked'; } ?>>
+                                    <input value="男" name="gender" class="boxradio1" type="radio" <?php
+
+                                                                                                    if ($data['gender'] == '男') {
+                                                                                                        echo 'checked';
+                                                                                                    }
+                                                                                                    ?>>
                                     <h3>男</h3>
-                                    <input value="女" name="gender" class="boxradio2" type="radio" <?php if ($data['gender'] == '女') { echo 'checked'; } ?>>
+                                    <input value="女" name="gender" class="boxradio2" type="radio" <?php if ($data['gender'] == '女') {
+                                                                                                        echo 'checked';
+                                                                                                    } ?>>
                                     <h3>女</h3>
                                 </div>
                             <td>
