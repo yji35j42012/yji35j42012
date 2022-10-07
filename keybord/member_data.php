@@ -9,18 +9,18 @@ $pageName = 'member'; // 頁面名稱
 
 <link rel="stylesheet" href="./mengParts/css/mamber_data.css">
 <?php
-    // 在還沒做login時候的測試
-    // $acc = 'retaerg@gmail.com';
-    // $acc = 'vzdvg@gmail.com';
-    $acc = $_SESSION['user']['email'];
-    // $acc 代表帳號的變數，因為帳號是隨機的，所以無法固定寫在sql裡面
-    $sql = "SELECT * FROM `members` WHERE `email`='$acc';";
-    // 把sql指令丟到資料庫
-    $stmt = $pdo->query($sql);
-    // 接收資料庫回傳的資料
-    $data = $stmt->fetch(PDO::FETCH_ASSOC);
+// 在還沒做login時候的測試
+// $acc = 'retaerg@gmail.com';
+// $acc = 'vzdvg@gmail.com';
+$acc = $_SESSION['user']['email'];
+// $acc 代表帳號的變數，因為帳號是隨機的，所以無法固定寫在sql裡面
+$sql = "SELECT * FROM `members` WHERE `email`='$acc';";
+// 把sql指令丟到資料庫
+$stmt = $pdo->query($sql);
+// 接收資料庫回傳的資料
+$data = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    
+
 
 ?>
 
@@ -29,7 +29,7 @@ $pageName = 'member'; // 頁面名稱
         <div class="row">
             <div class="member_main col-md-2 p-0  text-center">
                 <div class="head">
-                    <img src="./images/mascot_12.png"alt="" >
+                    <img src="./images/mascot_12.png" alt="">
                 </div>
                 <span class="headnew">更新頭像</span>
                 <div class="share">
@@ -79,13 +79,9 @@ $pageName = 'member'; // 頁面名稱
                             </td>
                             <td class="">
                                 <div class="member_box1b">
-                                    <input value="男" name="gender" class="boxradio1" type="radio" <?php if ($data['gender'] == '男') {
-                                                                                                        echo 'checked';
-                                                                                                    } ?>>
+                                    <input value="男" name="gender" class="boxradio1" type="radio" <?php if ($data['gender'] == '男') { echo 'checked'; } ?>>
                                     <h3>男</h3>
-                                    <input value="女" name="gender" class="boxradio2" type="radio" <?php if ($data['gender'] == '女') {
-                                                                                                        echo 'checked';
-                                                                                                    } ?>>
+                                    <input value="女" name="gender" class="boxradio2" type="radio" <?php if ($data['gender'] == '女') { echo 'checked'; } ?>>
                                     <h3>女</h3>
                                 </div>
                             <td>

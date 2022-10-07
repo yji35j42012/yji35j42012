@@ -67,7 +67,14 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
                                 <h2>性別</h2>
                             </td>
                             <td>
-                                <h3><?php echo $data['gender']; ?>
+                                <h3>
+                                    <?php
+                                    if (!empty($data['gender'])) {
+                                        echo $data['gender'];
+                                    } else {
+                                        echo "";
+                                    }
+                                    ?>
                                 </h3>
                             <td>
                         </tr>
@@ -80,7 +87,7 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
                                     <?php
                                     if (!empty($data['birthday'])) {
                                         echo mb_split("-", $data['birthday'])[1] . "月" . mb_split("-", $data['birthday'])[2] . "日";
-                                    }else{
+                                    } else {
                                         echo "1月1日";
                                     }
 
@@ -93,7 +100,16 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
                                 <h2>手機</h2>
                             </td>
                             <td>
-                                <h3 class="bottom_bd"><?php echo $data['mobile']; ?></h3>
+                                <h3 class="bottom_bd">
+                                    <?php
+                                    if (!empty($data['mobile'])) {
+                                        echo $data['mobile'];
+                                    } else {
+                                        echo "";
+                                    }
+
+                                    ?>
+                                </h3>
                             </td>
                         </tr>
                         <tr class="member_box1">
@@ -101,7 +117,15 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
                                 <h2>地址</h2>
                             </td>
                             <td>
-                                <h3 class="bottom_bd"><?php echo $data['address']; ?></h3>
+                                <h3 class="bottom_bd">
+                                    <?php
+                                    if (!empty($data['address'])) {
+                                        echo $data['address'];
+                                    } else {
+                                        echo "";
+                                    }
+
+                                    ?>
                             </td>
                         </tr>
                         <tr class="member_box1">
