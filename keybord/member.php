@@ -72,7 +72,7 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
                                     if (!empty($data['gender'])) {
                                         echo $data['gender'];
                                     } else {
-                                        echo "";
+                                        echo "男";
                                     }
                                     ?>
                                 </h3>

@@ -56,9 +56,14 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
                                 <h2>姓名</h2>
                             </td>
                             <td>
-
                                 <h3 class="bottom_bd23">
-                                    <?php echo $data['name']; ?>
+                                    <?php
+                                    if (!empty($data['name'])) {
+                                        echo $data['name'];
+                                    } else {
+                                        echo '';
+                                    }
+                                    ?>
                                 </h3>
                             </td>
 
@@ -69,7 +74,13 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
                             </td>
                             <td>
                                 <h3>
-                                    <?php echo $data['nickname']; ?>
+                                    <?php
+                                    if (!empty($data['nickname'])) {
+                                        echo $data['nickname'];
+                                    } else {
+                                        echo '';
+                                    }
+                                    ?>
                                 </h3>
                             <td>
                         </tr>
@@ -80,15 +91,26 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
                             <td class="">
                                 <div class="member_box1b">
                                     <input value="男" name="gender" class="boxradio1" type="radio" <?php
+                                    if (!empty($data['gender'])) {
+                                        if ($data['gender'] == '男') {
+                                            echo 'checked';
+                                        }
+                                    } else {
+                                        echo 'checked';
+                                    }
+                                    ?>>
 
-                                                                                                    if ($data['gender'] == '男') {
-                                                                                                        echo 'checked';
+
+                                    <h3>男</h3>
+                                    <input value="女" name="gender" class="boxradio2" type="radio" <?php
+                                                                                                    if (!empty($data['gender'])) {
+                                                                                                        if ($data['gender'] == '女') {
+                                                                                                            echo 'checked';
+                                                                                                        }
+                                                                                                    } else {
+                                                                                                        echo '';
                                                                                                     }
                                                                                                     ?>>
-                                    <h3>男</h3>
-                                    <input value="女" name="gender" class="boxradio2" type="radio" <?php if ($data['gender'] == '女') {
-                                                                                                        echo 'checked';
-                                                                                                    } ?>>
                                     <h3>女</h3>
                                 </div>
                             <td>
@@ -200,7 +222,7 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
                             </td>
                             <td>
                                 <h3 class="bottom_bd">
-                                    <input id="mobile" type="text" name="name" placeholder="" value="<?php echo $data['mobile']; ?>">
+                                    <input id="mobile" type="text" name="name" placeholder="" value="<?php if (!empty($data['mobile'])) { echo trim($data['mobile']); } else { echo ''; } ?>">
                                 </h3>
                             </td>
                         </tr>
@@ -211,7 +233,8 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
                             </td>
                             <td>
                                 <h3 class="bottom_bd">
-                                    <input id="addresss" type="text" name="name" placeholder="" value="<?php echo $data['address']; ?> ">
+                                    <input id="addresss" type="text" name="name" placeholder="" value="<?php if (!empty($data['address'])) { echo trim($data['address']); } else { echo ''; }
+                                    ?>">
                                 </h3>
                             </td>
                         </tr>
@@ -220,9 +243,12 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
                                 <h2>Email</h2>
                             </td>
                             <td>
-
                                 <h3 class="bottom_bd">
-                                    <input id="email" type="text" name="name" placeholder="" value="<?php echo $data['email']; ?>">
+                                    <input id="email" type="text" name="name" placeholder="" value="
+                                    <?php if (!empty($data['email'])) { echo trim($data['email']); } else { echo ''; }
+                                    ?>
+                                    
+                                    ">
                                 </h3>
                             </td>
                         </tr>
@@ -230,9 +256,7 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
                             <td>
                                 <h2>修改密碼</h2>
                             </td>
-                            <td>
-
-                            </td>
+                            <td></td>
                         </tr>
                         <tr class="member_box1">
                             <td>
@@ -361,10 +385,11 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
                 if (data.success) {
                     // 修改成功後可顯示資料或把畫面導向別對地方
                     alert('修改成功');
+                    alert(data.sql);
                     location.href = './member.php';
                 } else {
                     // 輸入失敗會顯示的東西
-                    alert(data.error);
+                    alert(data.sql);
                 }
             },
             'json'
