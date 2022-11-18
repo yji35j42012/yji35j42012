@@ -1,0 +1,60 @@
+var artjson = {
+	"zh-tw": {
+		"ART_lang": "TW",
+		"ART_chgid_title": "創建帳號",
+
+		"ART_chgid_text1": "請輸入一個容易記住的帳號以便日後登入。",
+		"ART_chgid_text2": "規則：",
+		"ART_chgid_text3": "您的登錄帳號必須介於6到12個字母數字字符之間，且至少包含2個大寫字母（A-Z）或小寫字母（a-z）以及至少1個數字字符（0-9）。",
+		"ART_chgid_text4": "您的登錄帳號不得包含任何空格。",
+
+		"ART_chgid_inp_id": "登入帳號",
+		"ART_chgid_btn_check": "檢查",
+
+		"ART_chgid_text5": "提示：",
+		"ART_chgid_text6": "成功創建後將無法修改帳號。請在下次登錄時使用新創建的帳號。原本的登入帳號僅用於識別目的。",
+
+		"ART_chgid_btn_cancel": "取消",
+		"ART_chgid_btn_submit": "確認",
+        "ART_chgid_btn_hello": "您好 ",
+	},
+	"zh-cn": {
+		"ART_lang": "TW",
+		"ART_chgid_title": "创建帐号",
+
+		"ART_chgid_text1": "请输入一个容易记住的帐号以便日后登入。",
+		"ART_chgid_text2": "规则：",
+		"ART_chgid_text3": "1. 您的登录帐号必须介于6到12个字母数字字符之间，且至少包含2个大写字母（A-Z）或小写字母（a-z）以及至少1个数字字符（0-9）。",
+		"ART_chgid_text4": "2. 您的登录帐号不得包含任何空格。",
+
+		"ART_chgid_inp_id": "登入帐号",
+		"ART_chgid_btn_check": "检查",
+
+		"ART_chgid_text5": "提示：",
+		"ART_chgid_text6": "成功创建后将无法修改帐号。请在下次登录时使用新创建的帐号。原本的登入帐号仅用于识别目的。",
+
+		"ART_chgid_btn_cancel": "取消",
+		"ART_chgid_btn_submit": "确认",
+        "ART_chgid_btn_hello": "您好 ",
+	},
+	"zh-cn": {
+		"ART_lang": "EN",
+		"ART_chgid_title": "CREATE LOGIN ID",
+
+		"ART_chgid_text1": "Please create a Login ID that you can easily remember.",
+		"ART_chgid_text2": "Rules:",
+		"ART_chgid_text3": "1. Your Login ID must be between 6 to 12 alphanumeric characters with at least 2 capital (A-Z) or lowercase letters (a-z) and at least 1 numeric character (0-9).",
+		"ART_chgid_text4": "2. Your Login ID must not contain any spaces.",
+
+		"ART_chgid_inp_id": "Login ID",
+		"ART_chgid_btn_check": "CHECK",
+
+		"ART_chgid_text5": "NOTE:",
+		"ART_chgid_text6": "Once succesfully created, the Login ID cannot be modified. Please use the new created Login ID on your next log in. The original member user code will only be used for identification purposes.",
+
+		"ART_chgid_btn_cancel": "CANCEL",
+		"ART_chgid_btn_submit": "SUBMIT",
+        "ART_chgid_btn_hello": "Hi ",
+	}
+
+}

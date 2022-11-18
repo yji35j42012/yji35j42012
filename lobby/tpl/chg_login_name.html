@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../style/reset.css">
+    <link rel="stylesheet" href="../../style/overcss.css">
+    <link rel="stylesheet" href="../../style/login.css">
+    <script type="text/javascript" src="../../js/lib/LangString<?php echo MINJS; ?>.js?version=<?php echo VERSION; ?>"></script>
+	<script type="text/javascript" src="../../js/lib/ListenEvent<?php echo MINJS; ?>.js?version=<?php echo VERSION; ?>"></script>
+	<script type="text/javascript" src="../../js/lib/Util<?php echo MINJS; ?>.js?version=<?php echo VERSION; ?>"></script>
+	<script type="text/javascript" src="../../js/login/chg_login_name<?php echo MINJS; ?>.js?version=<?php echo VERSION; ?>"></script>
+	<script type="text/javascript">
+		var uid = '<?php echo $uid; ?>';
+		var langx = '<?php echo $langx; ?>';
+        var type = '<?php echo $type; ?>';
+
+		var username = '<?php echo $MEM_DATA["username"]; ?>';
+        //使用json物件更換語系 預設語系帶中文(如果語系是空值)
+        function load_art(doc, artjson, langx) {
+            if (langx == '') langx = "zh-cn";
+            var json = artjson[langx];
+            var bod = doc.body.innerHTML;
+            for (var key in json) {
+                bod = bod.replace(new RegExp('\\\*' + key + '\\\*', 'gi'), json[key]);
+            }
+            doc.body.innerHTML = bod;
+            doc.body.style.display = "";
+        }
+	</script>
+</head>
+
+<body onload="init();">
+    <div class="login_container">
+        <!-- 打開在class加上on -->
+        <div class="alert _firstLogin on">
+            <div class="alert_box">
+                <div class="alert_title">
+                    *ART_chgid_title*
+                    <!-- <button class="alert_close"></button> -->
+                </div>
+                <div class="alert_content">
+                    <div class="alert_msg">*ART_chgid_btn_hello*<span id="username"></span>,</div>
+                    <div class="alert_msg">*ART_chgid_text1*</div>
+                    <div class="alert_msg _rule">*ART_chgid_text2*</div>
+                    <ul class="alert_count">
+                        <li>*ART_chgid_text3*</li>
+                        <li>*ART_chgid_text4*</li>
+                    </ul>
+                    <div class="check_input">
+                        <label class="alert_input _acc">
+                            <input type="text" name="data" id="login_name" placeholder="*ART_chgid_inp_id*">
+                        </label>
+                        <!-- 可以點擊的話把 unclick拿掉 -->
+                        <button name="button" class="btn_submit unclick" id="chk_login_name">*ART_chgid_btn_check*</button>
+                    </div>
+
+                    <ul class="alert_prompt">
+                        <li>*ART_chgid_text5*</li>
+                        <li>*ART_chgid_text6*</li>
+                    </ul>
+
+                </div>
+                <div class="alert_btnbox">
+                    <button name="button" class="btn_cancel" id="modify_cxl">*ART_chgid_btn_cancel*</button>
+                    <button name="button" class="btn_submit" id="modify_chk">*ART_chgid_btn_submit*</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+    <!-- 替換語系 -->
+    <script type="text/javascript" src="../../tpljson/chg_login_name.json?<?php echo IMAGES_VER; ?>"></script>
+    <script>load_art(document, artjson, langx);</script>
+</html>

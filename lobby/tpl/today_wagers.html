@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html class="oddTxt1 dark">
+
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<link rel="stylesheet" href="../../style/reset.css">
+	<link rel="stylesheet" href="../../style/order.css">
+	<link rel="stylesheet" href="../../style/share_tool.css">
+	<script type="text/javascript" src="../../js/member/today_wagers<?php echo MINJS; ?>.js?version=<?php echo VERSION; ?>"></script>
+	<script type="text/javascript">
+		var uid = '<?php echo $uid; ?>';
+		var langx = '<?php echo $langx; ?>';
+		var site_path = '<?php echo SITE_PATH; ?>';
+		var now_time = '<?php echo $now_time; ?>';
+		var night_time = '<?php echo $night_time; ?>';
+		var light_time = '<?php echo $light_time; ?>';
+	</script>
+
+</head>
+
+<body onload="init();" style="display: none;">
+
+	<div class="all_outside scrollY" id="scroll_div">
+
+		<!-- 選擇按鈕 -->
+		<ul class="tool_category big">
+			<li class="active">*ART_today_titlebtn01*</li>
+			<li id="title_history">*ART_today_titlebtn02*</li>
+			<!-- <li id="title_creditlogs">*ART_today_titlebtn03*</li> -->
+		</ul>
+		<!-- 選擇按鈕 end -->
+
+
+		<!-- title -->
+		<div class="tool_title48">
+			<button id="backpage" class="btn_tool_back minimouse_hover">
+				<i><svg>
+						<use xlink:href="#icon_backbtn" />
+					</svg></i>
+			</button>
+			<span class="tool_title_txt">*ART_today_titlebtn01*</span>
+		</div>
+		<!-- title end -->
+
+
+		<!-- 下拉選單 -->
+		<div class="tool_selectbox full">
+			<!-- 大螢幕 打開選單在class="tool_select"後加上class .active 球類當前選項加上 .on -->
+			<div id="pc_gtype_sel_div" class="tool_select full pc_select">
+				<i class="icon_arr"><svg>
+						<use xlink:href="#icon_toparr"></use>
+					</svg></i>
+				<span id="gtypeTxt">*ART_today_allsports*</span>
+				<ul id="pc_gtype_sel_ul" class="use_animate">
+					<li id="searchType_ALL"  name="li_link" >*ART_today_allsports*</li>
+					<li id="searchType_FT" name="li_link" >*ART_today_ft*</li>
+					<li id="searchType_BK" name="li_link" >*ART_today_bk*</li>
+					<li id="searchType_TN" name="li_link" >*ART_today_tn*</li>
+					<!-- <li id="searchType_VB" name="li_link" >*ART_today_vb*</li> -->
+					<!-- <li id="searchType_BM" name="li_link" >*ART_today_bm*</li> -->
+					<!-- <li id="searchType_TT" name="li_link" >*ART_today_tt*</li> -->
+					<li id="searchType_BS" name="li_link" >*ART_today_bs*</li>
+					<li id="searchType_SK" name="li_link" >*ART_today_sk*</li>
+					<li id="searchType_OP" name="li_link" >*ART_today_op*</li>
+					<!-- <li id="searchType_MT" {SHOW_MT} name="li_link" >*ART_today_mt*</li> -->
+					<li id="searchType_FS" name="li_link" >*ART_today_fs*</li>
+				</ul>
+			</div>
+
+
+
+			<!-- 小螢幕 -->
+			<div class="tool_select full ph_select">
+				<i class="icon_arr"><svg>
+						<use xlink:href="#icon_toparr"></use>
+					</svg></i>
+				<select id="gtype_sel">
+					<option value="ALL"  >*ART_today_allsports*</option>
+					<option value="FT" >*ART_today_ft*</option>
+					<option value="BK" >*ART_today_bk*</option>
+					<option value="TN" >*ART_today_tn*</option>
+					<!-- <option value="VB" >*ART_today_vb*</option> -->
+					<!-- <option value="BM" >*ART_today_bm*</option> -->
+					<!-- <option value="TT" >*ART_today_tt*</option> -->
+					<option value="BS" >*ART_today_bs*</option>
+					<option value="SK" >*ART_today_sk*</option>
+					<option value="OP" >*ART_today_op*</option>
+					<!-- <option value="MT" >*ART_today_mt*</option> -->
+					<option value="FS" >*ART_today_fs*</option>
+				</select>
+			</div>
+		</div>
+		<!-- 下拉選單 end -->
+
+
+		<!-- loading -->
+		<div id="load" class="ord_loading" style="display:none;">
+			<i class="icon_load"></i>
+		</div>
+		<!-- loading end -->
+
+
+		<div id="div_show" name="div_show" class="ord_outside_box"></div>
+
+
+
+		<!-- 無資料 -->
+		<div id="noTodayWagers" class="his_noinfo" style="display: none;">*ART_today_nodata*</div>
+		<!-- 無資料 end -->
+
+
+		<!-- 顯示更多 -->
+		<div id="allsports" class="btn_showmore" style="display: none;">
+			*ART_today_more*
+			<i>
+				<svg>
+					<use xlink:href="#icon_arrdown" />
+				</svg>
+			</i>
+		</div>
+		<!-- 顯示更多 end -->
+
+
+
+		<!-- 回到頂部 -->
+		<div id="tool_backtop" class="tool_backtop" style="display: none;">
+			<button id="backtop" type="button" class="btn_goTop">*ART_today_backtop*</button>
+		</div>
+		<!-- 回到頂部 end -->
+
+		<!-- 單開此頁icon_all不載入時 svg暫時放置處 -->
+		<div style="display: none!important;">
+			<svg>
+				<symbol viewBox="0 0 9 16" id="icon_backbtn" class="icon_backbtn">
+					<path
+						d="M7.50669 15.9999C7.31458 16.0005 7.12476 15.9628 6.95118 15.8897C6.77761 15.8165 6.62469 15.7097 6.50366 15.5771L0.292537 8.72061C0.103398 8.51613 0 8.25965 0 7.99496C0 7.73027 0.103398 7.47379 0.292537 7.26932L6.72227 0.412821C6.94054 0.179452 7.2542 0.0326955 7.59423 0.00483554C7.93427 -0.0230244 8.27284 0.0702947 8.53545 0.264263C8.79806 0.458232 8.96321 0.736962 8.99456 1.03913C9.02591 1.34131 8.9209 1.64217 8.70262 1.87554L2.95444 8.00068L8.50973 14.1258C8.66698 14.2936 8.76687 14.4978 8.79758 14.7144C8.82828 14.931 8.78853 15.1509 8.68301 15.3481C8.57749 15.5452 8.41062 15.7114 8.20216 15.8269C7.99369 15.9424 7.75235 16.0025 7.50669 15.9999Z" />
+				</symbol>
+				<symbol viewBox="0 0 16 16" id="icon_toparr" class="icon_toparr">
+					<path id="collapse" class="st0"
+						d="M2.7,11L2.7,11c-0.4-0.4-0.4-1,0-1.4L7.3,5c0.4-0.4,1-0.4,1.4,0l4.6,4.6c0.4,0.4,0.4,1,0,1.4l0,0c-0.4,0.4-1,0.4-1.4,0c0,0,0,0,0,0L8.1,7.2c-0.1-0.1-0.2-0.1-0.3,0c0,0,0,0,0,0L4.1,11C3.7,11.4,3.1,11.4,2.7,11C2.7,11,2.7,11,2.7,11z" />
+				</symbol>
+				<symbol viewBox="0 0 32 32" id="icon_link" class="icon_link">
+					<path
+						d="M7.91889 24.0811C8.40086 24.5637 8.97345 24.9463 9.60377 25.207C10.2341 25.4677 10.9097 25.6012 11.5918 25.6C12.274 25.6012 12.9498 25.4676 13.5803 25.207C14.2108 24.9463 14.7836 24.5637 15.2657 24.0811L18.2041 21.1418L16.7349 19.6727L13.7966 22.612C13.2111 23.1948 12.4185 23.5221 11.5923 23.5221C10.7661 23.5221 9.97357 23.1948 9.38805 22.612C8.80465 22.0267 8.47705 21.2341 8.47705 20.4078C8.47705 19.5815 8.80465 18.7889 9.38805 18.2036L12.3274 15.2654L10.8583 13.7964L7.91889 16.7345C6.94617 17.7096 6.3999 19.0306 6.3999 20.4078C6.3999 21.785 6.94617 23.106 7.91889 24.0811V24.0811ZM24.0818 15.2654C25.054 14.2902 25.5999 12.9693 25.5999 11.5922C25.5999 10.2151 25.054 8.89423 24.0818 7.91894C23.1067 6.94627 21.7856 6.40002 20.4083 6.40002C19.031 6.40002 17.71 6.94627 16.7349 7.91894L13.7966 10.8582L15.2657 12.3273L18.2041 9.38803C18.7896 8.80516 19.5821 8.47793 20.4083 8.47793C21.2345 8.47793 22.0271 8.80516 22.6126 9.38803C23.196 9.97325 23.5236 10.7659 23.5236 11.5922C23.5236 12.4185 23.196 13.2111 22.6126 13.7964L19.6732 16.7345L21.1424 18.2036L24.0818 15.2654Z M13.1054 20.2667L11.7334 18.8955L19.9624 10.6667L21.3334 12.0388L13.1054 20.2667Z" />
+				</symbol>
+				<symbol viewBox="0 0 16 14" id="icon_wageri">
+					<path fill-rule="evenodd" clip-rule="evenodd"
+						d="M6.25685 1.099C7.02185 -0.260998 8.97885 -0.260998 9.74285 1.099L15.3229 11.019C16.0729 12.353 15.1099 13.999 13.5809 13.999H2.41985C0.889849 13.999 -0.0731517 12.353 0.676848 11.019L6.25685 1.099ZM8.99985 11C8.99985 11.2652 8.89449 11.5196 8.70696 11.7071C8.51942 11.8946 8.26507 12 7.99985 12C7.73463 12 7.48028 11.8946 7.29274 11.7071C7.10521 11.5196 6.99985 11.2652 6.99985 11C6.99985 10.7348 7.10521 10.4804 7.29274 10.2929C7.48028 10.1054 7.73463 10 7.99985 10C8.26507 10 8.51942 10.1054 8.70696 10.2929C8.89449 10.4804 8.99985 10.7348 8.99985 11V11ZM7.99985 3C7.73463 3 7.48028 3.10536 7.29274 3.2929C7.10521 3.48043 6.99985 3.73479 6.99985 4V7C6.99985 7.26522 7.10521 7.51957 7.29274 7.70711C7.48028 7.89465 7.73463 8 7.99985 8C8.26507 8 8.51942 7.89465 8.70696 7.70711C8.89449 7.51957 8.99985 7.26522 8.99985 7V4C8.99985 3.73479 8.89449 3.48043 8.70696 3.2929C8.51942 3.10536 8.26507 3 7.99985 3Z" />
+				</symbol>
+				<symbol viewBox="0 0 12 12" id="icon_i" class="icon_i">
+					<path
+						d="M6 0C2.6864 0 0 2.6864 0 6C0 9.3136 2.6864 12 6 12C9.3136 12 12 9.3136 12 6C12 2.6864 9.3136 0 6 0ZM7 9.95H5V5.15H7V9.95ZM6 4.05C5.73478 4.05 5.48043 3.94464 5.29289 3.75711C5.10536 3.56957 5 3.31522 5 3.05C5 2.78478 5.10536 2.53043 5.29289 2.34289C5.48043 2.15536 5.73478 2.05 6 2.05C6.26522 2.05 6.51957 2.15536 6.70711 2.34289C6.89464 2.53043 7 2.78478 7 3.05C7 3.31522 6.89464 3.56957 6.70711 3.75711C6.51957 3.94464 6.26522 4.05 6 4.05Z" />
+				</symbol>
+				<symbol viewBox="0 0 25 26" id="icon_set">
+					<path
+						d="M22.875 13.825C22.6746 13.5969 22.5641 13.3036 22.5641 13C22.5641 12.6964 22.6746 12.4031 22.875 12.175L24.475 10.375C24.6513 10.1783 24.7608 9.93088 24.7877 9.66813C24.8147 9.40539 24.7577 9.14086 24.625 8.9125L22.125 4.5875C21.9936 4.3594 21.7936 4.17859 21.5534 4.07086C21.3133 3.96312 21.0452 3.93395 20.7875 3.9875L18.4375 4.4625C18.1385 4.52428 17.8272 4.47448 17.5624 4.3225C17.2975 4.17051 17.0975 3.92685 17 3.6375L16.2375 1.35C16.1536 1.10172 15.9939 0.88608 15.7808 0.733551C15.5677 0.581022 15.312 0.499322 15.05 0.499999H10.05C9.77741 0.485771 9.50766 0.561157 9.28195 0.714641C9.05624 0.868126 8.88697 1.09127 8.79999 1.35L8.09999 3.6375C8.00249 3.92685 7.80246 4.17051 7.53763 4.3225C7.27281 4.47448 6.96151 4.52428 6.66249 4.4625L4.24999 3.9875C4.00568 3.95297 3.75662 3.99153 3.53418 4.0983C3.31174 4.20507 3.12587 4.37528 2.99999 4.5875L0.499992 8.9125C0.363942 9.13831 0.30277 9.40136 0.325221 9.66403C0.347671 9.9267 0.452595 10.1755 0.624992 10.375L2.21249 12.175C2.41289 12.4031 2.52341 12.6964 2.52341 13C2.52341 13.3036 2.41289 13.5969 2.21249 13.825L0.624992 15.625C0.452595 15.8244 0.347671 16.0733 0.325221 16.336C0.30277 16.5986 0.363942 16.8617 0.499992 17.0875L2.99999 21.4125C3.13136 21.6406 3.33139 21.8214 3.57156 21.9291C3.81172 22.0369 4.07977 22.066 4.33749 22.0125L6.68749 21.5375C6.98651 21.4757 7.29781 21.5255 7.56263 21.6775C7.82746 21.8295 8.02749 22.0731 8.12499 22.3625L8.88749 24.65C8.97447 24.9087 9.14374 25.1319 9.36945 25.2854C9.59516 25.4388 9.86491 25.5142 10.1375 25.5H15.1375C15.3995 25.5007 15.6552 25.419 15.8683 25.2664C16.0814 25.1139 16.2411 24.8983 16.325 24.65L17.0875 22.3625C17.185 22.0731 17.385 21.8295 17.6499 21.6775C17.9147 21.5255 18.226 21.4757 18.525 21.5375L20.875 22.0125C21.1327 22.066 21.4008 22.0369 21.6409 21.9291C21.8811 21.8214 22.0811 21.6406 22.2125 21.4125L24.7125 17.0875C24.8452 16.8591 24.9022 16.5946 24.8752 16.3319C24.8483 16.0691 24.7388 15.8217 24.5625 15.625L22.875 13.825ZM21.0125 15.5L22.0125 16.625L20.4125 19.4L18.9375 19.1C18.0372 18.916 17.1007 19.0689 16.3057 19.5297C15.5108 19.9906 14.9127 20.7273 14.625 21.6L14.15 23H10.95L10.5 21.575C10.2123 20.7023 9.61422 19.9656 8.81925 19.5048C8.02428 19.0439 7.08777 18.891 6.18749 19.075L4.71249 19.375L3.08749 16.6125L4.08749 15.4875C4.70244 14.8 5.04241 13.9099 5.04241 12.9875C5.04241 12.0651 4.70244 11.175 4.08749 10.4875L3.08749 9.3625L4.68749 6.6125L6.16249 6.9125C7.06277 7.09653 7.99928 6.9436 8.79425 6.48275C9.58922 6.02189 10.1873 5.2852 10.475 4.4125L10.95 3H14.15L14.625 4.425C14.9127 5.2977 15.5108 6.03439 16.3057 6.49525C17.1007 6.9561 18.0372 7.10903 18.9375 6.925L20.4125 6.625L22.0125 9.4L21.0125 10.525C20.4044 11.2109 20.0687 12.0959 20.0687 13.0125C20.0687 13.9291 20.4044 14.814 21.0125 15.5ZM12.55 8C11.5611 8 10.5944 8.29324 9.77214 8.84265C8.94989 9.39206 8.30903 10.173 7.93059 11.0866C7.55216 12.0002 7.45314 13.0055 7.64607 13.9755C7.83899 14.9454 8.3152 15.8363 9.01446 16.5355C9.71372 17.2348 10.6046 17.711 11.5745 17.9039C12.5444 18.0969 13.5498 17.9978 14.4634 17.6194C15.377 17.241 16.1579 16.6001 16.7073 15.7778C17.2567 14.9556 17.55 13.9889 17.55 13C17.55 11.6739 17.0232 10.4021 16.0855 9.46446C15.1478 8.52678 13.8761 8 12.55 8ZM12.55 15.5C12.0555 15.5 11.5722 15.3534 11.1611 15.0787C10.7499 14.804 10.4295 14.4135 10.2403 13.9567C10.0511 13.4999 10.0016 12.9972 10.098 12.5123C10.1945 12.0273 10.4326 11.5819 10.7822 11.2322C11.1319 10.8826 11.5773 10.6445 12.0623 10.548C12.5472 10.4516 13.0499 10.5011 13.5067 10.6903C13.9635 10.8795 14.354 11.2 14.6287 11.6111C14.9034 12.0222 15.05 12.5055 15.05 13C15.05 13.663 14.7866 14.2989 14.3178 14.7678C13.8489 15.2366 13.213 15.5 12.55 15.5Z" />
+				</symbol>
+				<symbol viewBox="0 0 14 14" id="icon_close" class="icon_close">
+					<path
+						d="M7,6.2l6-6c0.2-0.2,0.6-0.2,0.8,0s0.2,0.6,0,0.8l-6,6l6,6c0.2,0.2,0.2,0.6,0,0.8s-0.6,0.2-0.8,0l-6-6l-6,6c-0.2,0.2-0.6,0.2-0.8,0s-0.2-0.6,0-0.8l6-6l-6-6C0,0.8,0,0.4,0.1,0.2s0.6-0.2,0.8,0L7,6.2z" />
+				</symbol>
+				<symbol viewBox="0 0 16 16" id="icon_arrdown" class="icon_arrdown">
+					<path
+						d="M2.708 5l.002-.002A.999.999 0 0 1 4.122 5l3.736 3.756a.2.2 0 0 0 .284 0L11.878 5 11.88 5a.999.999 0 0 1 1.412 0V5a1 1 0 0 1 0 1.414L8.708 11a1 1 0 0 1-1.414 0L2.707 6.414a1 1 0 0 1 0-1.414h.001z" />
+				</symbol>
+			</svg>
+		</div>
+		<!--资料呈现框架Header-->
+		<xmp id="xmp_content" style="display:none">
+			<div class="ord_outside_item">
+				<!-- 標題 -->
+				<div class="ope_info_title">
+					<span class="ope_info_link" id="url_*GAMEWID*" name="url">*ART_today_detail*(*GAMEWID*)</span>
+				</div>
+				<!-- 內容 -->
+				<div class="ope_info_normal">
+					<ul class="ope_info_txt">
+						<li class="ope_txt_team">
+							<span>*GWTYPENAME*</span>
+						</li>
+						<li class="ope_txt_win">
+							<span>*ART_today_bet*: <tt class="*ANNOUCEMENT*">*GOLD* *DEGOLD*</tt></span>
+						</li>
+						<li class="ope_txt_time">
+							<span>*ID*</span>
+							<span>*ADDTIME*</span>
+						</li>
+						<li class="load_inorder" style="display:*CANCELDISPLAY*">
+							<span class="word_lightred">*CANCELNAME*</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</xmp>
+		<xmp id="xmp_footer" style="display:none">
+			<div class="ope_info_foot">
+				<span class="ope_total_tx">*ART_today_total*</span>
+				<span id="amount_gold">*TOTALGOLD* *TOTALDEGOLD*</span>
+			</div>
+		</xmp>
+	</div>
+
+</body>
+	<!-- 替換語系 -->
+	<script type="text/javascript" src="../../tpljson/today_wagers.json?<?php echo IMAGES_VER; ?>"></script>
+	<script>parent.load_art(document, artjson, langx);</script>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../style/reset.css">
+    <link rel="stylesheet" href="../../style/overcss.css">
+    <link rel="stylesheet" href="../../style/login.css">
+    <script type="text/javascript" src="../../js/lib/LangString<?php echo MINJS; ?>.js?version=<?php echo VERSION; ?>"></script>
+	<script type="text/javascript" src="../../js/lib/ListenEvent<?php echo MINJS; ?>.js?version=<?php echo VERSION; ?>"></script>
+	<script type="text/javascript" src="../../js/lib/Util<?php echo MINJS; ?>.js?version=<?php echo VERSION; ?>"></script>
+	<script type="text/javascript" src="../../js/login/chg_chk_name<?php echo MINJS; ?>.js?version=<?php echo VERSION; ?>"></script>
+	<script type="text/javascript">
+		var uid = '<?php echo $uid; ?>';
+		var langx = '<?php echo $langx; ?>';
+
+		var username = '<?php echo $MEM_DATA["username"]; ?>';
+	</script>
+</head>
+
+<body onload="init();">
+    <div class="login_container">
+        <!-- 打開在class加上on -->
+        <div class="alert _firstLogin on">
+            <div class="alert_box">
+                <div class="alert_title">
+                    創建帳號
+                    <!-- <button class="alert_close"></button> -->
+                </div>
+                <div class="alert_content">
+                    <div class="alert_msg">您好<span id="username"></span>,</div>
+                    <div class="alert_msg">請輸入一個容易記住的帳號以便以便日後登入</div>
+                    <div class="alert_msg _rule">規則：</div>
+                    <ul class="alert_count">
+                        <li>您的登錄帳號必須介於6到12個字母數字字符之間，且至少包含2個大寫字母（A-Z）或小寫字母（a-z）以及至少1個數字字符（0-9）。</li>
+                        <li>您的登錄帳號不得包含任何空格。</li>
+                    </ul>
+                    <div class="check_input">
+                        <label class="alert_input _acc">
+                            <input type="text" name="data" id="chk_name" placeholder="登入帳號">
+                        </label>
+                        <!-- 可以點擊的話把 unclick拿掉 -->
+                        <button class="btn_submit unclick">檢查</button>
+                    </div>
+
+                    <ul class="alert_prompt">
+                        <li>提示：</li>
+                        <li>成功創建後將無法修改帳號。請在下次登錄時使用新創建的帳號。原本的登入帳號僅用於識別目的。</li>
+                    </ul>
+
+                </div>
+                <div class="alert_btnbox">
+                    <button name="button" class="btn_cancel" id="modify_cxl">取消</button>
+                    <button name="button" class="btn_submit" id="modify_chk">確認</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

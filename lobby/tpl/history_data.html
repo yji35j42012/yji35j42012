@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html class="oddTxt1 light">
+
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<link rel="stylesheet" href="../../style/reset.css">
+	<link rel="stylesheet" href="../../style/order.css">
+	<link rel="stylesheet" href="../../style/share_tool.css">
+	<script type="text/javascript"src="../../js/member/history_data<?php echo MINJS; ?>.js?version=<?php echo VERSION; ?>"></script>
+	<script type="text/javascript">
+		var uid = '<?php echo $uid; ?>';
+		var langx = '<?php echo $langx; ?>';
+		var site_path = '<?php echo SITE_PATH; ?>';
+		var now_time = '<?php echo $now_time; ?>';
+		var night_time = '<?php echo $night_time; ?>';
+		var light_time = '<?php echo $light_time; ?>';
+	</script>
+</head>
+
+<body onload="init();" style="display: none;">
+
+	<div class="all_outside scrollY" id="scroll_div">
+		<!-- 選擇按鈕 -->
+		<ul class="tool_category big">
+			<li id="title_todaywagers">*ART_hisdata_titlebtn01*</li>
+			<li class="active">*ART_hisdata_titlebtn02*</li>
+			<!-- <li id="title_creditlogs">*ART_hisdata_titlebtn03*</li> -->
+		</ul>
+		<!-- 選擇按鈕 end -->
+
+		<!-- title -->
+		<div class="tool_title48">
+			<button id="backpage" class="btn_tool_back minimouse_hover">
+				<i>
+					<svg>
+						<use xlink:href="#icon_backbtn" />
+					</svg>
+				</i>
+			</button>
+			<span class="tool_title_txt">*ART_hisdata_title*</span>
+			<button id="more_date" class="btn_tool_cal minimouse_hover">
+				<i class="show_more"><svg>
+						<use xlink:href="#icon_adddate" />
+					</svg></i>
+				<i class="show_less"><svg>
+						<use xlink:href="#icon_addminus" />
+					</svg></i>
+			</button>
+		</div>
+		<!-- title end -->
+
+		<!-- 下拉選單 -->
+		<div class="tool_selectbox full">
+			<!-- 大螢幕 打開選單在class="tool_select"後加上class .active 球類當前選項加上 .on -->
+			<div id="pc_gtype_sel_div" class="tool_select full pc_select">
+				<i class="icon_arr"><svg>
+						<use xlink:href="#icon_toparr"></use>
+					</svg></i>
+				<span id="gtypeTxt">*ART_hisdata_allsports*</span>
+				<ul id="pc_gtype_sel_ul" class="use_animate">
+					<li id="searchType_ALL" name="li_link">*ART_hisdata_allsports*</li>
+					<li id="searchType_FT" name="li_link">*ART_hisdata_ft*</li>
+					<li id="searchType_BK" name="li_link">*ART_hisdata_bk*</li>
+					<li id="searchType_TN" name="li_link">*ART_hisdata_tn*</li>
+					<li id="searchType_VB" name="li_link">*ART_hisdata_vb*</li>
+					<!-- <li id="searchType_BM" name="li_link">*ART_hisdata_bm*</li> -->
+					<!-- <li id="searchType_TT" name="li_link">*ART_hisdata_tt*</li> -->
+					<li id="searchType_BS" name="li_link">*ART_hisdata_bs*</li>
+					<li id="searchType_SK" name="li_link">*ART_hisdata_sk*</li>
+					<li id="searchType_OP" name="li_link">*ART_hisdata_op*</li>
+					<!-- <li id="searchType_MT" >*ART_hisdata_mt*</li> -->
+					<li id="searchType_FS" name="li_link">*ART_hisdata_fs*</li>
+				</ul>
+			</div>
+
+			<!-- 小螢幕 -->
+			<div class="tool_select full ph_select">
+				<i class="icon_arr"><svg>
+						<use xlink:href="#icon_toparr"></use>
+					</svg></i>
+				<select id="gtype_sel">
+					<option value="ALL">*ART_hisdata_allsports*</option>
+					<option value="FT">*ART_hisdata_ft*</option>
+					<option value="BK">*ART_hisdata_bk*</option>
+					<option value="TN">*ART_hisdata_tn*</option>
+					<option value="VB">*ART_hisdata_vb*</option>
+					<!-- <option value="BM">*ART_hisdata_bm*</option> -->
+					<!-- <option value="TT">*ART_hisdata_tt*</option> -->
+					<option value="BS">*ART_hisdata_bs*</option>
+					<option value="SK">*ART_hisdata_sk*</option>
+					<option value="OP">*ART_hisdata_op*</option>
+					<!-- <option value="MT">*ART_hisdata_mt*</option> -->
+					<option value="FS">*ART_hisdata_fs*</option>
+				</select>
+			</div>
+		</div>
+		<!-- 下拉選單 end -->
+
+		<!-- loading -->
+		<div id="load" class="ord_loading" style="display:none;">
+			<i class="icon_load"></i>
+		</div>
+		<!-- loading end -->
+
+
+
+		<div id="div_show" name="div_show"></div>
+		<!-- 資料 -->
+
+
+		</div>
+		<!-- 資料 end -->
+
+		<!-- 無資料 -->
+		<div id="noHistoryData" class="his_noinfo" style="display: none;">*ART_hisdata_nodata*</div>
+		<!-- 無資料 end -->
+
+		<!-- 顯示更多 -->
+		<div id="allsports" class="btn_showmore" style="display: none;">
+			*ART_hisdata_more*
+			<i>
+				<svg>
+					<use xlink:href="#icon_arrdown" />
+				</svg>
+			</i>
+		</div>
+		<!-- 顯示更多 end -->
+
+
+		<!-- 回到頂部 -->
+		<div id="tool_backtop" class="tool_backtop" style="display:none;">
+			<button id="backtop" type="button" class="btn_goTop">*ART_hisdata_backtop*</button>
+		</div>
+		<!-- 回到頂部 end -->
+
+		<!-- 單開此頁icon_all不載入時 svg暫時放置處 -->
+		<div style="display: none!important;">
+			<svg>
+				<symbol viewBox="0 0 9 16" id="icon_backbtn" class="icon_backbtn">
+					<path
+						d="M7.50669 15.9999C7.31458 16.0005 7.12476 15.9628 6.95118 15.8897C6.77761 15.8165 6.62469 15.7097 6.50366 15.5771L0.292537 8.72061C0.103398 8.51613 0 8.25965 0 7.99496C0 7.73027 0.103398 7.47379 0.292537 7.26932L6.72227 0.412821C6.94054 0.179452 7.2542 0.0326955 7.59423 0.00483554C7.93427 -0.0230244 8.27284 0.0702947 8.53545 0.264263C8.79806 0.458232 8.96321 0.736962 8.99456 1.03913C9.02591 1.34131 8.9209 1.64217 8.70262 1.87554L2.95444 8.00068L8.50973 14.1258C8.66698 14.2936 8.76687 14.4978 8.79758 14.7144C8.82828 14.931 8.78853 15.1509 8.68301 15.3481C8.57749 15.5452 8.41062 15.7114 8.20216 15.8269C7.99369 15.9424 7.75235 16.0025 7.50669 15.9999Z" />
+				</symbol>
+				<symbol viewBox="0 0 16 16" id="icon_toparr" class="icon_toparr">
+					<path id="collapse" class="st0"
+						d="M2.7,11L2.7,11c-0.4-0.4-0.4-1,0-1.4L7.3,5c0.4-0.4,1-0.4,1.4,0l4.6,4.6c0.4,0.4,0.4,1,0,1.4l0,0c-0.4,0.4-1,0.4-1.4,0c0,0,0,0,0,0L8.1,7.2c-0.1-0.1-0.2-0.1-0.3,0c0,0,0,0,0,0L4.1,11C3.7,11.4,3.1,11.4,2.7,11C2.7,11,2.7,11,2.7,11z" />
+				</symbol>
+				<symbol viewBox="0 0 16 16" id="icon_arrdown" class="icon_arrdown">
+					<path
+						d="M2.708 5l.002-.002A.999.999 0 0 1 4.122 5l3.736 3.756a.2.2 0 0 0 .284 0L11.878 5 11.88 5a.999.999 0 0 1 1.412 0V5a1 1 0 0 1 0 1.414L8.708 11a1 1 0 0 1-1.414 0L2.707 6.414a1 1 0 0 1 0-1.414h.001z" />
+				</symbol>
+				<symbol viewBox="0 0 16 16" id="icon_search" class="icon_search">
+					<path
+						d="M15.6643357,14.2222701 L11.4871795,10.0304431 C12.2331002,8.98248635 12.6806527,7.70994788 12.6806527,6.36257493 C12.6806527,2.84441487 9.84615385,0 6.34034584,0 C2.83453784,0 0,2.84445401 0,6.36257493 C0,9.88069585 2.83449883,12.7251499 6.34030684,12.7251499 C7.68296418,12.7251499 8.95104895,12.2760255 9.995338,11.527485 L14.1724942,15.719312 C14.545435,16.0935627 15.2167832,16.0935627 15.6643357,15.719312 L15.6643357,15.719312 C16.1118881,15.2702268 16.1118881,14.6713552 15.6643357,14.2222701 Z M6.34030684,11.2281079 C3.65499215,11.2281079 1.49184149,9.05732084 1.49184149,6.36261407 C1.49184149,3.66786816 3.65499215,1.4971202 6.34030684,1.4971202 C9.02562152,1.4971202 11.1887722,3.66786816 11.1887722,6.36261407 C11.1887722,9.05732084 9.02562152,11.2281079 6.34030684,11.2281079 Z" />
+				</symbol>
+			</svg>
+		</div>
+
+	</div>
+		<!--资料呈现框架Header-->
+		<xmp id="xmp_header" style="display:none">
+			<!-- 負數.word_red 正數.word_green 可點擊粗體.word_bold -->
+				<div class="his_info_box">
+					<table cellpadding="0" cellspacing="0" class="his_info_tb">
+						<tr class="dark_head">
+							<th width="34%" class="date">*ART_hisdata_date*</th>
+							<th width="22%">*ART_hisdata_bet*</th>
+							<th width="22%">*ART_hisdata_stake*</th>
+							<th width="22%">*ART_hisdata_winloss*</th>
+						</tr>
+		</xmp>
+		<xmp id="xmp_content" style="display:none">
+								<!-- START DYNAMIC BLOCK: tr -->
+								<tr id="tr_*DATE_NAME*" name="*LINK*" data-date="*DATE_NAME*" >
+									<td class="date *DATECLASS*">
+										*DATE_NAME*<br>*WEEK_NAME*
+									</td>
+									<td>
+										<tt>*GOLD* *DEGOLD*</tt>
+									</td>
+
+									<td>
+										<tt>*VGOLD*</tt>
+									</td>
+
+									<td>
+										<tt class="*WINLOSS_CLASS*" >*WINLOSS*</tt>
+									</td>
+								</tr>
+								<!-- END DYNAMIC BLOCK: tr -->
+		</xmp>
+		<xmp id="xmp_footer" style="display:none">
+						<!-- 負數.word_lightred 正數.word_lightgreen 可點擊粗體.word_bold 總計白字.word_white -->
+						<tr class="dark_head word_bold">
+							<th class="date">
+								<tt class="his_total_tx">*ART_hisdata_total*</tt>
+							</th>
+							<th>
+								*TOTAL_GOLD* *TOTAL_DEGOLD*
+							</th>
+
+							<th>
+								*TOTAL_VGOLD*
+							</th>
+
+							<th>
+								<tt id="TOTAL_WINLOSS" class="*TOTAL_WINLOSS_CLASS*">*TOTAL_WINLOSS*</tt>
+							</th>
+						</tr>
+					</table>
+				</div>
+		</xmp>
+</body>
+<!-- 替換語系 -->
+<script type="text/javascript" src="../../tpljson/history_data.json?<?php echo IMAGES_VER; ?>"></script>
+<script>parent.load_art(document, artjson, langx);</script>
+</html>

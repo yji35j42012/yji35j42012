@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="../style/reset.css">
+	<link rel="stylesheet" href="../style/overcss.css">
+	<link rel="stylesheet" href="../style/lobby.css">
+	<script type="text/javascript" src="js/lib/Util<?php echo MINJS; ?>.js?<?php echo VERSION; ?>"></script>
+	<script type="text/javascript" src="js/lib/LangString<?php echo MINJS; ?>.js?<?php echo VERSION; ?>"></script>
+	<script type="text/javascript" src="js/lib/ListenEvent<?php echo MINJS; ?>.js?<?php echo VERSION; ?>"></script>
+	<script type="text/javascript" src="./index_new<?php echo MINJS; ?>.js?version=<?php echo VERSION; ?>"></script>
+	<script>
+		var uid = '<?php echo $uid; ?>';
+		var sitepath = '<?php echo SITE_PATH; ?>';
+		var langx = '<?php echo $langx; ?>';
+		var now_time = '<?php echo $now_time; ?>';
+		var night_time = '<?php echo $night_time; ?>';
+		var light_time = '<?php echo $light_time; ?>';
+	</script>
+</head>
+
+<body onload="init();">
+	<div class="lobby_wrap">
+        <div class="lobby_menu">
+            <div class="memberInfo">
+                <span class="memberName">WeiWei01</span>
+                <div class="member_amount">
+                    <span>5,000,000</span>
+                    <span class="current">(RMB)</span>
+                    <button class="refresh_btn"></button>
+                </div>
+            </div>
+            <div class="btn_group" >
+                <button class="lobby_btn wager" data-btntxt="投注紀錄">
+					<span class="lobby_btn_mask"></span>
+				</button>
+                <button class="lobby_btn changepwd" data-btntxt="修改密碼">
+					<span class="lobby_btn_mask"></span>
+				</button>
+            </div>
+        </div>
+        <div class="lobby_content">
+			<div id="" name="btn" class="marquee">
+				<span id="marquee" style="animation: marquee_move 50s linear infinite;">跑！跑！跑！向前跑！！！</span>
+			</div>
+			<button class="lobby_start_btn" data-btntxt="開始投注">
+				<span class="lobby_btn_mask"></span>
+			</button>
+        </div>
+	</div>
+</body>
+	<!-- 替換語系 -->
+	<script type="text/javascript" src="./tpljson/lobby.json?<?php echo IMAGES_VER; ?>"></script>
+	<script>load_art(document, artjson, langx);</script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="../style/reset.css">
+	<link rel="stylesheet" href="../style/overcss.css">
+	<link rel="stylesheet" href="../style/login.css">
+</head>
+
+<body class="first_change_pwd">
+	<div class="login_container">
+		<!-- 打開在class加上on -->
+		<div class="alert _change_pwd on">
+			<div class="alert_box">
+				<div class="alert_title">
+					修改密碼
+					<!-- <button class="alert_close"></button> -->
+				</div>
+				<div class="alert_content">
+					<div class="alert_msg">您的密碼必須根據以下規則以下規則：</div>
+					<ul class="alert_count">
+						<li>至少要有兩個大或小寫英文字母和數字(0-9)組合，字數最少6至12個</li>
+						<li>三個不同字母數字</li>
+						<li>不准許有空格</li>
+					</ul>
+					<label class="alert_input _acc old_pwd">
+						<input type="text" name="text" placeholder="當前密碼">
+					</label>
+					<label class="alert_input _acc">
+						<input type="text" name="text" placeholder="新密碼">
+					</label>
+					<label class="alert_input _acc">
+						<input type="text" name="text" placeholder="確認密碼">
+					</label>
+				</div>
+				<div class="alert_btnbox">
+					<button class="btn_cancel">取消</button>
+					<button class="btn_submit">確認</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
