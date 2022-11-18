@@ -150,6 +150,7 @@
     background: -webkit-linear-gradient(left, rgba(255, 153, 8, 1) 0%, rgba(255, 72, 121, 1) 100%);
     background: linear-gradient(to right, rgba(255, 153, 8, 1) 0%, rgba(255, 72, 121, 1) 100%);
     cursor: pointer;
+    transition-duration: .3s;
 }
 
 .lobby_start_btn .lobby_btn_mask {
@@ -162,7 +163,8 @@
     border-radius: 6px;
     background: -webkit-linear-gradient(left, rgba(255, 153, 8, 1) 0%, rgba(255, 72, 121, 0) 100%);
     background: linear-gradient(to right, rgba(255, 153, 8, 1) 0%, rgba(255, 72, 121, 0) 100%);
-    opacity: 0.5;
+    opacity: 0.9;
+ 
 }
 
 .lobby_start_btn .lobby_btn_mask::before {
@@ -172,10 +174,10 @@
     display: block;
     width: 100%;
     height: 100%;
-    border-radius: 50px;
     background: rgb(255, 153, 8);
     background: -webkit-linear-gradient(left, rgba(255, 153, 8, 1) 0%, rgba(255, 72, 121, 1) 100%);
     background: linear-gradient(to right, rgba(255, 153, 8, 1) 0%, rgba(255, 72, 121, 1) 100%);
+    filter: brightness(.91);
 }
 
 .lobby_start_btn .lobby_btn_mask::after {
@@ -255,9 +257,11 @@
 screen and (-ms-high-contrast: active),
 (-ms-high-contrast: none) {
 
-    .lobby_btn:hover .lobby_btn_mask::after,
-    .lobby_start_btn:hover .lobby_btn_mask::after {
+    .lobby_btn:hover .lobby_btn_mask::after {
         opacity: 1;
+    }
+    .lobby_start_btn:hover{
+        filter: brightness(1.2);
     }
 
     .refresh_btn:hover {
@@ -272,9 +276,11 @@ screen and (-ms-high-contrast: active),
 
 }
 
-.lobby_btn:active .lobby_btn_mask::after,
-.lobby_start_btn:active .lobby_btn_mask::after {
+.lobby_btn:active .lobby_btn_mask::after{
     opacity: 1;
+}
+.lobby_start_btn:active{
+    filter: brightness(1.2);
 }
 
 .refresh_btn:active {
