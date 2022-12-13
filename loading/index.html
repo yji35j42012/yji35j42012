@@ -1,121 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <style>
-            .loading {
-                display: table;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                /* background-color: #fff; */
-                z-index: 5;
-            }
-            .loading .progress {
-                display: table-cell;
-                vertical-align: middle;
-                text-align: center;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="loading" id="loading">
-            <div class="progress" id="progress">0%</div>
-        </div>
-        <div class="wrap">
-            <img
-                class="img"
-                src="https://picsum.photos/300/100?random=1"
-                alt=""
-            />
-            <img
-                class="img"
-                src="https://picsum.photos/300/100?random=2"
-                alt=""
-            />
-            <img
-                class="img"
-                src="https://picsum.photos/300/100?random=3"
-                alt=""
-            />
-            <img
-                class="img"
-                src="https://picsum.photos/300/100?random=4"
-                alt=""
-            />
-            <img
-                class="img"
-                src="https://picsum.photos/300/100?random=5"
-                alt=""
-            />
-            <img
-                class="img"
-                src="https://picsum.photos/300/100?random=6"
-                alt=""
-            />
-            <img
-                class="img"
-                src="https://picsum.photos/300/100?random=7"
-                alt=""
-            />
-        </div>
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-            crossorigin="anonymous"
-        ></script>
-        <script>
-            var $loading = $("#loading");
-            var $progress = $("#progress");
-            var prg = 0; // 初始化進度
-            // var timer = window.setInterval(() => {
-            //     if (prg >= 80) {
-            //         window.clearInterval(timer);
-            //         prg = 80;
-            //     } else {
-            //         prg++;
-            //     }
-            //     $progress.html(prg + "%");
-            //     // console.log("prg1" + prg);
-            // }, 100);
 
-            window.onload = () => {
-                $progress.html('100');
-                // window.clearInterval(timer);
-                // var timer = window.setInterval(() => {
-                //     if (prg >= 100) {
-                //         window.clearInterval(timer);
-                //         prg = 100;
-                //         $loading.hide();
-                //     } else {
-                //         prg++;
-                //     }
-                //     $progress.html(prg + "%");
-                //     // console.log("prg2" + prg);
-                // }, 10);
-            };
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+	<style>
+		.loading {
+			display: table;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			/* background-color: #fff; */
+			z-index: 5;
+		}
 
-            const imgID = document.querySelectorAll(".img");
-            console.log(imgID);
-            imgID.forEach((item, index) => {
-                const img = new Image();
-                img.src = item.src;
-                img.addEventListener("load", () =>
-                    console.log(`圖片載入完成${index}`)
-                );
-            });
-            // imgID.forEach((item, index) => {
-            //     const img = new Image();
-            //     img.src = item.src;
-            //     img.addEventListener("load", () =>
-            //         console.log(`圖片載入完成${index}`)
-            //     );
-            // });
-        </script>
-    </body>
+		.loading .progress {
+			display: table-cell;
+			display: none;
+			vertical-align: middle;
+			text-align: center;
+		}
+
+		.wrap {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		.img_item {
+			width: 300px;
+			height: 100px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="loading" id="loading">
+		<div class="progress" id="progress">0%</div>
+	</div>
+	<div class="wrap">
+		<div class="img_item">
+			<img class="img" src="https://picsum.photos/300/100?random=1" alt="" />
+		</div>
+		<div class="img_item">
+			<img class="img" src="https://picsum.photos/300/100?random=2" alt="" />
+		</div>
+		<div class="img_item">
+			<img class="img" src="https://picsum.photos/300/100?random=3" alt="" />
+		</div>
+		<div class="img_item">
+			<img class="img" src="https://picsum.photos/300/100?random=4" alt="" />
+		</div>
+		<div class="img_item">
+			<img class="img" src="https://picsum.photos/300/100?random=5" alt="" />
+		</div>
+		<div class="img_item">
+			<img class="img" src="https://picsum.photos/300/100?random=6" alt="" />
+		</div>
+		<div class="img_item">
+			<img class="img" src="https://picsum.photos/300/100?random=7" alt="" />
+		</div>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+		integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+		crossorigin="anonymous"></script>
+	<script>
+		var $loading = $("#loading");
+		var $progress = $("#progress");
+		var prg = 0; // 初始化進度
+		// var timer = window.setInterval(() => {
+		//     if (prg >= 80) {
+		//         window.clearInterval(timer);
+		//         prg = 80;
+		//     } else {
+		//         prg++;
+		//     }
+		//     $progress.html(prg + "%");
+		//     // console.log("prg1" + prg);
+		// }, 100);
+
+		window.onload = () => {
+			$progress.html('100');
+		};
+
+		const imgID = document.querySelectorAll(".img");
+		console.log(imgID);
+		imgID.forEach((item, index) => {
+			const img = new Image();
+			img.src = item.src;
+			img.addEventListener("load", () =>
+				console.log(`圖片載入完成${index}`)
+			);
+		});
+	</script>
+</body>
+
 </html>
