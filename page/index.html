@@ -92,8 +92,8 @@
 			<li>
 				<span class="material-icons">chevron_left</span>
 			</li>
-			<li :class="['page_li' , nowPageNum==item ? 'on' : '']" v-for="(item,index) in showPage" :key="index"
-				@click="chanPage(item)">
+			<li :class="['page_li' , nowPageNum==item ? 'on' : '']" v-for="(item,index) in showPage"
+				@click="chanPage(item)" :key="index">
 				{{item == 'more' ? '...' : item}}
 			</li>
 			<li>

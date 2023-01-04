@@ -68,10 +68,10 @@
 
         .line-chart.tooltip {
             position: absolute;
-            text-align: center;
             width: 80px;
             height: 45px;
             padding: 5px;
+            text-align: center;
             font-size: 14px;
             background: white;
             border: solid;
@@ -84,8 +84,8 @@
         }
 
         .line-chart.tooltip span {
-            color: #135ACA;
             display: block;
+            color: #135ACA;
             font-weight: 500;
             font-family: helvetica, arial, sans-serif;
 
@@ -102,9 +102,9 @@
             position: absolute;
             top: 50%;
             right: 100%;
-            margin-top: -12px;
             width: 0;
             height: 0;
+            margin-top: -12px;
             border-right: 12px solid #135ACA;
             border-top: 12px solid transparent;
             border-bottom: 12px solid transparent;
@@ -116,9 +116,9 @@
             position: absolute;
             top: 50%;
             right: 100%;
-            margin-top: -8px;
             width: 0;
             height: 0;
+            margin-top: -8px;
             border-right: 8px solid white;
             border-top: 8px solid transparent;
             border-bottom: 8px solid transparent;
@@ -161,7 +161,7 @@
             }
         };
 
-       
+
         /*
         * @param {Array} this.state.data - Arrar of arrays. ex. [["01/31/2016", 200], ["02/07/2016", 350]]
         */
@@ -189,7 +189,7 @@
 
             // define the y axis
             var yAxis = d3.svg.axis().scale(y).orient('left').ticks(5).tickSize(0).tickFormat(round).tickPadding(10);
-            
+
             // graph line definition
             var line = d3.svg.line().x(function (d) {
                 return x(new Date(d[0]));
