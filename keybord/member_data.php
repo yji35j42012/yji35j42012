@@ -19,9 +19,6 @@ $sql = "SELECT * FROM `members` WHERE `email`='$acc';";
 $stmt = $pdo->query($sql);
 // 接收資料庫回傳的資料
 $data = $stmt->fetch(PDO::FETCH_ASSOC);
-
-
-
 ?>
 
 <div class="my_wrap">
@@ -91,14 +88,14 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
                             <td class="">
                                 <div class="member_box1b">
                                     <input value="男" name="gender" class="boxradio1" type="radio" <?php
-                                    if (!empty($data['gender'])) {
-                                        if ($data['gender'] == '男') {
-                                            echo 'checked';
-                                        }
-                                    } else {
-                                        echo 'checked';
-                                    }
-                                    ?>>
+                                                                                                    if (!empty($data['gender'])) {
+                                                                                                        if ($data['gender'] == '男') {
+                                                                                                            echo 'checked';
+                                                                                                        }
+                                                                                                    } else {
+                                                                                                        echo 'checked';
+                                                                                                    }
+                                                                                                    ?>>
 
 
                                     <h3>男</h3>
@@ -222,7 +219,11 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
                             </td>
                             <td>
                                 <h3 class="bottom_bd">
-                                    <input id="mobile" type="text" name="name" placeholder="" value="<?php if (!empty($data['mobile'])) { echo trim($data['mobile']); } else { echo ''; } ?>">
+                                    <input id="mobile" type="text" name="name" placeholder="" value="<?php if (!empty($data['mobile'])) {
+                                                                                                            echo trim($data['mobile']);
+                                                                                                        } else {
+                                                                                                            echo '';
+                                                                                                        } ?>">
                                 </h3>
                             </td>
                         </tr>
@@ -233,8 +234,12 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
                             </td>
                             <td>
                                 <h3 class="bottom_bd">
-                                    <input id="addresss" type="text" name="name" placeholder="" value="<?php if (!empty($data['address'])) { echo trim($data['address']); } else { echo ''; }
-                                    ?>">
+                                    <input id="addresss" type="text" name="name" placeholder="" value="<?php if (!empty($data['address'])) {
+                                                                                                            echo trim($data['address']);
+                                                                                                        } else {
+                                                                                                            echo '';
+                                                                                                        }
+                                                                                                        ?>">
                                 </h3>
                             </td>
                         </tr>
@@ -245,7 +250,11 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
                             <td>
                                 <h3 class="bottom_bd">
                                     <input id="email" type="text" name="name" placeholder="" value="
-                                    <?php if (!empty($data['email'])) { echo trim($data['email']); } else { echo ''; }
+                                    <?php if (!empty($data['email'])) {
+                                        echo trim($data['email']);
+                                    } else {
+                                        echo '';
+                                    }
                                     ?>
                                     
                                     ">
