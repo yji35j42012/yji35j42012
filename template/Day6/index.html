@@ -98,10 +98,7 @@
 							<p>幾號吃得勒？</p>
 							<div id="calendar" class="calendar" v-if="calendar.show">
 								<div class="calendar_head">
-									<span id="prev" class="
-												material-icons
-												calendar_head_prev
-											" @click="calendar_prev">
+									<span id="prev" class="material-icons calendar_head_prev" @click="calendar_prev">
 										arrow_back_ios
 									</span>
 									<div class="calendar_head_info">
@@ -171,7 +168,8 @@
 						<!-- 新增成功 -->
 					</div>
 					<div class="alert_fun">
-						<button class="normal_btn _danger" @click="checkHandler" v-if="msgShow.msgState == 'del'">確認</button>
+						<button class="normal_btn _danger" @click="checkHandler"
+							v-if="msgShow.msgState == 'del'">確認</button>
 						<button class="normal_btn _cancel" @click="cancel" v-if="msgShow.msgState == 'del'">取消</button>
 						<button class="normal_btn _cancel" @click="cancel" v-if="msgShow.msgState !== 'del'">關閉</button>
 					</div>

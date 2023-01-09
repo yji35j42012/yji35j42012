@@ -313,10 +313,10 @@
 <script>
 module.exports = {
     data() {
-        return {}
+        return {};
     },
     mounted() {},
     computed: {},
     methods: {},
-}
+};
 </script>
