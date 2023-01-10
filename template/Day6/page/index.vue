@@ -1,275 +1,379 @@
-<style scoped>
-</style>
+<style scoped></style>
 
 <template>
-	<div id="tbBox" class="tbBox">
-		<div class="tbBox_function">
-			<button class="normal_btn _add" @click="addHandler('addedit')">
-				新增
-			</button>
-			<!-- <button class="normal_btn _add" @click="storage('get')">
+    <div id="tbBox" class="tbBox">
+        <div class="tbBox_function">
+            <button class="normal_btn _add" @click="addHandler('addedit')">
+                新增
+            </button>
+            <!-- <button class="normal_btn _add" @click="storage('get')">
 						顯示storage
 					</button> -->
-			<button class="normal_btn _add" @click="storage('del')">
-				刪除storage
-			</button>
-			<input type="text" class="normal_inp" v-model="filiterInp" placeholder="隨便搜" />
-		</div>
-		<div id="scroll_y" class="scroll_y">
-			<div class="tbBox_head">
-				<table id="tbHead" class="min_1280">
-					<tr>
-						<th width="10%">店名</th>
-						<th width="10%">今天點什麼</th>
-						<th width="10%">好吃嗎</th>
-						<th width="10%">動作快速嗎</th>
-						<th width="10%">夠吃嗎</th>
-						<th width="20%">心得</th>
-						<th width="10%">填寫人</th>
-						<th width="10%">日期</th>
-						<th width="10%">功能</th>
-					</tr>
-				</table>
-			</div>
-			<div class="tbBox_body" id="tbBody">
-				<table class="min_1280" @touchstart="slipMouseDown()">
-					<tr v-for="(item, index) in evaluate_list" :key="index">
-						<td width="10%">{{ item.evaluate_store }}</td>
-						<td width="10%">{{ item.evaluate_menu }}</td>
-						<td width="10%">{{ item.evaluate_eat }}</td>
-						<td width="10%">
-							{{ actionList[item.evaluate_action] }}
-						</td>
-						<td width="10%">
-							{{ item.evaluate_amount }}
-						</td>
-						<td width="20%">
-							{{ item.evaluate_experience }}
-						</td>
-						<td width="10%">{{ item.evaluate_user }}</td>
-						<td width="10%">{{ item.evaluate_date }}</td>
-						<td width="10%">
-							<button v-if="item.evaluate_user == username" class="icon_btn material-icons"
-								@click="editHandler('addedit', item.evaluate_id, index)">
-								edit
-							</button>
-							<!-- <i class="far fa-trash-alt ms-text-danger"></i> -->
-							<button v-if="item.evaluate_user == username" class="icon_btn material-icons"
-								@click="delHandler(item.evaluate_id, index)">
-								delete
-							</button>
-						</td>
-					</tr>
-				</table>
-			</div>
-		</div>
-	</div>
+            <button class="normal_btn _add" @click="storage('del')">
+                刪除storage
+            </button>
+            <button class="normal_icon _excel" @click="excelOut"></button>
+            <input
+                type="text"
+                class="normal_inp"
+                v-model="filiterInp"
+                placeholder="隨便搜"
+            />
+        </div>
+        <div id="scroll_y" class="scroll_y">
+            <div class="tbBox_head">
+                <table id="tbHead" class="min_1280">
+                    <tr>
+                        <th width="10%">店名</th>
+                        <th width="10%">今天點什麼</th>
+                        <th width="10%">好吃嗎</th>
+                        <th width="10%">動作快速嗎</th>
+                        <th width="10%">夠吃嗎</th>
+                        <th width="20%">心得</th>
+                        <th width="10%">填寫人</th>
+                        <th width="10%">日期</th>
+                        <th width="10%">功能</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="tbBox_body" id="tbBody">
+                <table class="min_1280" @touchstart="slipMouseDown()">
+                    <tr v-for="(item, index) in evaluate_list" :key="index">
+                        <td width="10%">{{ item.evaluate_store }}</td>
+                        <td width="10%">{{ item.evaluate_menu }}</td>
+                        <td width="10%">{{ item.evaluate_eat }}</td>
+                        <td width="10%">
+                            {{ actionList[item.evaluate_action] }}
+                        </td>
+                        <td width="10%">
+                            {{ item.evaluate_amount }}
+                        </td>
+                        <td width="20%">
+                            {{ item.evaluate_experience }}
+                        </td>
+                        <td width="10%">{{ item.evaluate_user }}</td>
+                        <td width="10%">{{ item.evaluate_date }}</td>
+                        <td width="10%">
+                            <button
+                                v-if="item.evaluate_user == username"
+                                class="icon_btn material-icons"
+                                @click="
+                                    editHandler(
+                                        'addedit',
+                                        item.evaluate_id,
+                                        index
+                                    )
+                                "
+                            >
+                                edit
+                            </button>
+                            <!-- <i class="far fa-trash-alt ms-text-danger"></i> -->
+                            <button
+                                v-if="item.evaluate_user == username"
+                                class="icon_btn material-icons"
+                                @click="delHandler(item.evaluate_id, index)"
+                            >
+                                delete
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <table id="excelEx" style="display: none">
+            <tr>
+                <th width="10%">店名</th>
+                <th width="10%">今天點什麼</th>
+                <th width="10%">好吃嗎</th>
+                <th width="10%">動作快速嗎</th>
+                <th width="10%">夠吃嗎</th>
+                <th width="20%">心得</th>
+                <th width="10%">填寫人</th>
+                <th width="10%">日期</th>
+            </tr>
+            <tr v-for="(item, index) in evaluate_list" :key="index">
+                <td width="10%">{{ item.evaluate_store }}</td>
+                <td width="10%">{{ item.evaluate_menu }}</td>
+                <td width="10%">{{ item.evaluate_eat }}</td>
+                <td width="10%">
+                    {{ actionList[item.evaluate_action] }}
+                </td>
+                <td width="10%">
+                    {{ item.evaluate_amount }}
+                </td>
+                <td width="20%">
+                    {{ item.evaluate_experience }}
+                </td>
+                <td width="10%">{{ item.evaluate_user }}</td>
+                <td width="10%">{{ item.evaluate_date }}</td>
+            </tr>
+        </table>
+    </div>
 </template>
 
 <script>
 module.exports = {
-	data() {
-		return {
-			menu: {
-				now: "wh",
-			},
-			actionList: [
-				"請選擇",
-				"5-10分送達",
-				"10-20分送達",
-				"20-30分送達",
-				"30分以上送達",
-				"預定 - 有準時送達",
-				"預定 - 沒有準時",
-			],
-			evaluateIn: [],
-			alertShow: false,
-			alertTitle: "",
-			msgShow: false,
-			msgState: "",
-			msgInfo: [],
-			index: null,
-			num: null,
-			filiterInp: "",
-			calendar: {
-				func: null,
-				show: false,
-				olympic: [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
-				normal: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
-				monthName: [
-					"January",
-					"Febrary",
-					"March",
-					"April",
-					"May",
-					"June",
-					"July",
-					"Auguest",
-					"September",
-					"October",
-					"November",
-					"December",
-				],
-				year: {
-					now: null,
-					search: null,
-				},
-				month: {
-					now: null,
-					search: null,
-					str: null,
-				},
-				day: {
-					search: null,
-				},
-				chose: null,
-				showTd: [],
-				mList: [],
-			},
-			scrollX: 0,
-		};
-	},
-	mounted() {
+    data() {
+        return {
+            menu: {
+                now: "wh",
+            },
+            actionList: [
+                "請選擇",
+                "5-10分送達",
+                "10-20分送達",
+                "20-30分送達",
+                "30分以上送達",
+                "預定 - 有準時送達",
+                "預定 - 沒有準時",
+            ],
+            evaluateIn: [],
+            alertShow: false,
+            alertTitle: "",
+            msgShow: false,
+            msgState: "",
+            msgInfo: [],
+            index: null,
+            num: null,
+            filiterInp: "",
+            calendar: {
+                func: null,
+                show: false,
+                olympic: [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
+                normal: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
+                monthName: [
+                    "January",
+                    "Febrary",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "Auguest",
+                    "September",
+                    "October",
+                    "November",
+                    "December",
+                ],
+                year: {
+                    now: null,
+                    search: null,
+                },
+                month: {
+                    now: null,
+                    search: null,
+                    str: null,
+                },
+                day: {
+                    search: null,
+                },
+                chose: null,
+                showTd: [],
+                mList: [],
+            },
+            scrollX: 0,
+        };
+    },
+    mounted() {
+        // 使用者名稱
+        // var storage = localStorage.getItem('experience')
+        // if (storage == null) {
+        //     this.alertShow = true;
+        //     this.addClassHandler("inp");
+        // } else {
+        //     this.username = storage;
+        // }
+        // 使用者名稱
 
-		// 使用者名稱
-		// var storage = localStorage.getItem('experience')
-		// if (storage == null) {
-		//     this.alertShow = true;
-		//     this.addClassHandler("inp");
-		// } else {
-		//     this.username = storage;
-		// }
-		// 使用者名稱
-
-		// 日期初始化
-		var my_date = new Date();
-		this.calendar.year = {
-			now: my_date.getFullYear(),
-			search: my_date.getFullYear(),
-		};
-		this.calendar.month = {
-			now: my_date.getMonth(),
-			search: my_date.getMonth(),
-			str: this.calendar.monthName[my_date.getMonth()],
-		};
-		this.calendar.day = {
-			now: null,
-			search: my_date.getDate(),
-		};
-		this.calendar.chose = {
-			year: null,
-			mon: null,
-			day: null,
-		};
-		// 日期初始化
-		// this.username = store.state.username;
-		store.dispatch("READ_EVALUATE");
-	},
-	computed: {
-		evaluate_list() {
-			return store.state.evaluate.filter((item) => {
-				return (
-					item.evaluate_menu.indexOf(this.filiterInp) !== -1 ||
-					item.evaluate_store.indexOf(this.filiterInp) !== -1
-				);
-			});
-		},
-		username() {
-			return store.state.username;
-		},
-		// calendar_list() {
-		//     return this.calendar.showTd;
-		// },
-	},
-	methods: {
-		moveTBhead() {
-			var tbHead = document.getElementById('tbHead');
-			var tbBody = document.getElementById('tbBody');
-			this.scrollX = tbBody.scrollLeft
-			tbHead.style.marginLeft = this.scrollX * -1 + "px";
-		},
-		// 鬆開卡片
-		slipMouseUp() {
-			// console.log("鬆開卡片");
-			// tbHead.style.marginLeft = * -1 + "px";
-			let setT = setInterval(() => {
-
-				if (tbBody.scrollLeft !== this.scrollX) {
-					this.moveTBhead();
-				}else{
-					clearInterval(setT)
-				}
-			}, 20);
-
-		},
-		// 卡片滑動
-		slipMouseMove($event) {
-			this.moveTBhead();
-		},
-		// 按下卡片
-		slipMouseDown($event) {
-			// console.log("按下表格");
-			var tbBody = document.getElementById('tbBody');
-			this.scrollX = tbBody.scrollLeft
-			window.addEventListener("mousemove", this.slipMouseMove);
-			window.addEventListener("mouseup", this.slipMouseUp);
-			window.addEventListener("touchmove", this.slipMouseMove);
-			window.addEventListener("touchend", this.slipMouseUp);
-		},
-		addHandler(str) {
-			store.dispatch("ALERT", {
-				title: "新增",
-				show: "add",
-			});
-			this.addClassHandler(str);
-		},
-		editHandler(str, num, i) {
-			store.dispatch("ALERT", {
-				title: "修改",
-				show: "edit",
-				id: num,
-				index: i,
-			});
-			this.addClassHandler(str);
-		},
-		delHandler(num, index) {
-			console.log(num);
-			store.dispatch("MSG", {
-				msgTxt: ["確認刪除嗎？"],
-				msgState: "del",
-				delId: num,
-			});
-			// this.msgInfo.push("確認刪除嗎？");
-			// this.msgShow = true;
-			// this.addClassHandler("msg");
-			// this.msgState = "del";
-			// this.index = index;
-			// this.num = num;
-		},
-		addClassHandler(str) {
-			setTimeout(() => {
-				var addClass = document.getElementById(str);
-				if (addClass.classList.contains("show")) {
-					addClass.classList.remove("show");
-					setTimeout(() => {
-						addClass.classList.add("show");
-					}, 10);
-				} else {
-					addClass.style.display = "block";
-					setTimeout(() => {
-						addClass.classList.add("show");
-					}, 10);
-				}
-			}, 0);
-		},
-		storage(str) {
-			if (str == "del") {
-				localStorage.removeItem("experience");
-			} else if (str == "get") {
-				console.log(localStorage.getItem("experience"));
-			}
-		},
-		/*
+        // 日期初始化
+        var my_date = new Date();
+        this.calendar.year = {
+            now: my_date.getFullYear(),
+            search: my_date.getFullYear(),
+        };
+        this.calendar.month = {
+            now: my_date.getMonth(),
+            search: my_date.getMonth(),
+            str: this.calendar.monthName[my_date.getMonth()],
+        };
+        this.calendar.day = {
+            now: null,
+            search: my_date.getDate(),
+        };
+        this.calendar.chose = {
+            year: null,
+            mon: null,
+            day: null,
+        };
+        // 日期初始化
+        // this.username = store.state.username;
+        store.dispatch("READ_EVALUATE");
+    },
+    computed: {
+        evaluate_list() {
+            return store.state.evaluate.filter((item) => {
+                return (
+                    item.evaluate_menu.indexOf(this.filiterInp) !== -1 ||
+                    item.evaluate_store.indexOf(this.filiterInp) !== -1
+                );
+            });
+        },
+        username() {
+            return store.state.username;
+        },
+        // calendar_list() {
+        //     return this.calendar.showTd;
+        // },
+    },
+    methods: {
+        moveTBhead() {
+            var tbHead = document.getElementById("tbHead");
+            var tbBody = document.getElementById("tbBody");
+            this.scrollX = tbBody.scrollLeft;
+            tbHead.style.marginLeft = this.scrollX * -1 + "px";
+        },
+        // 鬆開卡片
+        slipMouseUp() {
+            // console.log("鬆開卡片");
+            // tbHead.style.marginLeft = * -1 + "px";
+            let setT = setInterval(() => {
+                if (tbBody.scrollLeft !== this.scrollX) {
+                    this.moveTBhead();
+                } else {
+                    clearInterval(setT);
+                }
+            }, 20);
+        },
+        // 卡片滑動
+        slipMouseMove($event) {
+            this.moveTBhead();
+        },
+        // 按下卡片
+        slipMouseDown($event) {
+            // console.log("按下表格");
+            var tbBody = document.getElementById("tbBody");
+            this.scrollX = tbBody.scrollLeft;
+            window.addEventListener("mousemove", this.slipMouseMove);
+            window.addEventListener("mouseup", this.slipMouseUp);
+            window.addEventListener("touchmove", this.slipMouseMove);
+            window.addEventListener("touchend", this.slipMouseUp);
+        },
+        addHandler(str) {
+            store.dispatch("ALERT", {
+                title: "新增",
+                show: "add",
+            });
+            this.addClassHandler(str);
+        },
+        editHandler(str, num, i) {
+            store.dispatch("ALERT", {
+                title: "修改",
+                show: "edit",
+                id: num,
+                index: i,
+            });
+            this.addClassHandler(str);
+        },
+        delHandler(num, index) {
+            console.log(num);
+            store.dispatch("MSG", {
+                msgTxt: ["確認刪除嗎？"],
+                msgState: "del",
+                delId: num,
+            });
+            // this.msgInfo.push("確認刪除嗎？");
+            // this.msgShow = true;
+            // this.addClassHandler("msg");
+            // this.msgState = "del";
+            // this.index = index;
+            // this.num = num;
+        },
+        addClassHandler(str) {
+            setTimeout(() => {
+                var addClass = document.getElementById(str);
+                if (addClass.classList.contains("show")) {
+                    addClass.classList.remove("show");
+                    setTimeout(() => {
+                        addClass.classList.add("show");
+                    }, 10);
+                } else {
+                    addClass.style.display = "block";
+                    setTimeout(() => {
+                        addClass.classList.add("show");
+                    }, 10);
+                }
+            }, 0);
+        },
+        storage(str) {
+            if (str == "del") {
+                localStorage.removeItem("experience");
+            } else if (str == "get") {
+                console.log(localStorage.getItem("experience"));
+            }
+        },
+        excelOut() {
+            console.log("aaa");
+            var elt = document.getElementById("excelEx");
+            var wb = XLSX.utils.table_to_book(elt, {
+                sheet: "Sheet JS",
+                raw: true,
+            });
+            let range = XLSX.utils.decode_range(wb.Sheets["Sheet JS"]["!ref"]);
+            // 欄位寬度
+            wb.Sheets["Sheet JS"]["!cols"] = [
+                { wch: 12 },
+                { wch: 12 },
+                { wch: 12 },
+                { wch: 12 },
+                { wch: 12 },
+                { wch: 20 },
+                { wch: 12 },
+                { wch: 12 },
+                { wch: 12 },
+            ];
+            // range.s.c 行數
+            // range.s.r 列數
+            for (let i = range.s.c; i <= range.e.c; i++) {
+                for (let j = range.s.r; j <= range.e.r; j++) {
+                    let cell = { c: i, r: j };
+                    let cell_ref = XLSX.utils.encode_cell(cell);
+                    if (j == 0) {
+                        wb.Sheets["Sheet JS"][cell_ref].s = {
+                            fill: {
+                                fgColor: {
+                                    rgb: "eeeeee",
+                                },
+                            },
+                            alignment: {
+                                horizontal: "center",
+                            },
+                        };
+                    } else {
+                        wb.Sheets["Sheet JS"][cell_ref].s = {
+                            alignment: {
+                                horizontal: "center",
+                            },
+                        };
+                    }
+                }
+            }
+            var wopts = {
+                bookType: "xlsx",
+                bookSST: false,
+                type: "binary",
+            };
+            var wbout = XLSXX.write(wb, wopts); // 使用xlsx-style 写入
+            saveAs(new Blob([this.s2ab(wbout)], { type: "" }), "會員資料.xlsx");
+        },
+        s2ab(s) {
+            var buf = new ArrayBuffer(s.length);
+            var view = new Uint8Array(buf);
+            for (var i = 0; i != s.length; ++i)
+                view[i] = s.charCodeAt(i) & 0xff;
+            return buf;
+        },
+        /*
 					cancel() {
 						if (this.msgState == 'back') {
 							this.msgState = ''
@@ -366,7 +470,6 @@ module.exports = {
 						}
 						return year + '-' + mounth + '-' + date
 					},
-			 
 					star(str, num) {
 						var addClass = document.querySelectorAll("[name='" + str + "']")
 						for (let i = 0; i < 5; i++) {
@@ -399,8 +502,6 @@ module.exports = {
 					selLi(num) {
 						this.newList.evaluate_action = num
 					},
-				   
-			
 					checkHandler() {
 						axios
 							.post('/api/delData.php', this.num)
@@ -577,6 +678,6 @@ module.exports = {
 					},
 			
 					*/
-	},
+    },
 };
 </script>

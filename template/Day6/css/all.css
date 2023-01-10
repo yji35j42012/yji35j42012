@@ -86,7 +86,7 @@ img {
           transition-duration: 0.3s;
 }
 
-.normal_btn, .star_item, .normal_sel, .icon_btn, .calendar_head_prev, .calendar_head_next, .calendar_body td, .header_menu li {
+.normal_btn, .normal_icon, .star_item, .normal_sel, .icon_btn, .calendar_head_prev, .calendar_head_next, .calendar_body td, .header_menu li {
   cursor: pointer;
 }
 
@@ -247,6 +247,19 @@ img {
 .normal_btn._danger:active {
   background-color: #db3c36;
   border-color: #db3c36;
+}
+
+.normal_icon {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.normal_icon._excel {
+  background-image: url("../images/excel.png");
 }
 
 .alert {

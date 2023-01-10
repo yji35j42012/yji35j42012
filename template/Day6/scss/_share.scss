@@ -1,5 +1,5 @@
 /* fallback */
-.disclaimer{
+.disclaimer {
     display: none !important;
 }
 @font-face {
@@ -130,7 +130,18 @@
         }
     }
 }
-
+.normal_icon {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    @extend %hand;
+    &._excel {
+        background-image: url("../images/excel.png");
+    }
+}
 .alert {
     position: absolute;
     top: 0;
@@ -437,7 +448,7 @@
     bottom: 50px;
     padding: 10px 20px;
     background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;;
+    color: #fff;
     transform: translateX(-50%);
     border-radius: 50px;
     font-size: 12px;
