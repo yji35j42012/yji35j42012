@@ -373,311 +373,308 @@ module.exports = {
                 view[i] = s.charCodeAt(i) & 0xff;
             return buf;
         },
-        /*
-					cancel() {
-						if (this.msgState == 'back') {
-							this.msgState = ''
-						} else if (this.msgState == 'del') {
-							this.msgState = ''
-							this.index = null
-							this.num = null
-						} else {
-							this.alertShow = false
-						}
-						this.msgShow = false
-						this.msgInfo = []
-					},
-					submit(str) {
-						if (str == 'addItem') {
-							console.log(this.msgInfo)
-							if (this.newList.evaluate_store == '') {
-								this.msgInfo.push('請填寫店名')
-							}
-							if (this.newList.evaluate_menu == '') {
-								this.msgInfo.push('請填寫點什麼')
-							}
-							if (this.newList.evaluate_eat == '') {
-								this.msgInfo.push('好不好粗請給分～')
-							}
-							if (this.newList.evaluate_amount == '') {
-								this.msgInfo.push('吃的飽不飽請給分～')
-							}
-							if (this.newList.evaluate_user == '') {
-								this.msgInfo.push('請告訴我你是誰')
-							}
-							if (this.newList.evaluate_user == '') {
-								this.msgInfo.push('請寫一下日期')
-							}
-							if (this.msgInfo.length !== 0) {
-								console.log(this.msgInfo.length)
-								this.msgShow = true
-								this.addClassHandler('msg')
-								this.msgState = 'back'
-							} else {
-								if (this.alertShow == 'add') {
-									console.log('新增送出')
-									this.newList.id = this.evaluate.length
-									this.evaluate.push(this.newList)
-									this.msgInfo.push('新增成功')
-									this.msgShow = true
-									this.addClassHandler('msg')
-									this.msgState = 'ok'
-									this.newList
-									axios
-										.post('/api/setData.php', this.newList)
-										.then((res) => {
-											console.table(res.data)
-										})
-										.catch((error) => {
-											console.error(error)
-										})
-								} else if (this.alertShow == 'edit') {
-									console.log('修改送出')
-									this.evaluate.splice(this.index, 1, this.newList)
-									this.msgInfo.push('修改成功')
-									this.msgShow = true
-									this.addClassHandler('msg')
-									this.msgState = 'ok'
-									this.newList
-									console.log(this.newList)
-			
-									axios
-										.post('/api/updateData.php', this.newList)
-										.then((res) => {
-											console.table(res.data)
-										})
-										.catch((error) => {
-											console.error(error)
-										})
-								}
-			
-								this.setNewlist()
-							}
-						} else if (str == 'user' && this.username !== '') {
-							this.alertShow = false
-							localStorage.setItem('experience', this.username)
-						}
-					},
-					getDate() {
-						let year = new Date().getFullYear()
-						let mounth = new Date().getMonth() + 1
-						if (mounth < 9) {
-							mounth = '0' + mounth
-						}
-						let date = new Date().getDate()
-						if (date < 9) {
-							date = '0' + date
-						}
-						return year + '-' + mounth + '-' + date
-					},
-					star(str, num) {
-						var addClass = document.querySelectorAll("[name='" + str + "']")
-						for (let i = 0; i < 5; i++) {
-							addClass[i].classList.remove('on')
-						}
-						for (var i = 0; i <= 5 - num; i++) {
-							addClass[5 - i - 1].classList.add('on')
-						}
-						if (str == 'eat') {
-							this.newList.evaluate_eat = 6 - num
-						} else if (str == 'amount') {
-							this.newList.evaluate_amount = 6 - num
-						}
-					},
-					selHandler(str) {
-						var addClass = document.getElementById(str)
-						if (addClass.classList.contains('show')) {
-							addClass.classList.remove('show')
-						} else {
-							this.addClassHandler(str)
-						}
-					},
-					removeClassHandler(str) {
-						var removeClass = document.getElementById(str)
-						removeClass.classList.remove('show')
-						setTimeout(() => {
-							this.calendar.show = false
-						}, 350)
-					},
-					selLi(num) {
-						this.newList.evaluate_action = num
-					},
-					checkHandler() {
-						axios
-							.post('/api/delData.php', this.num)
-							.then((res) => {
-								console.table(res.data)
-							})
-							.catch((error) => {
-								console.error(error)
-							})
-						this.evaluate.splice(this.index, 1)
-						this.cancel()
-						this.addClassHandler('msg')
-						setTimeout(() => {
-							this.msgInfo.push('刪除成功')
-							this.msgShow = true
-							this.addClassHandler('msg')
-							this.msgState = 'back'
-						}, 10)
-					},
-					dateHandler() {
-						this.calendar.show = true
-						this.calendar.showTd = []
-						if (this.calendar.chose == null) {
-							this.createDate()
-						}
-			
-						this.refreshDate(
-							this.calendar.year.search,
-							this.calendar.month.search
-						)
-						this.addClassHandler('calendar')
-					},
-					refreshDate(searchY, searchM) {
-						var my_date = new Date()
-						var my_day = my_date.getDate()
-						var lastTotalDay //上月總天數
-			
-						var lastTotalDay = this.daysTotal(
-							searchM - 1 < 0 ? 0 : searchM - 1,
-							searchY
-						)
-						var totalDay = this.daysTotal(searchM, searchY) //當月總天數
-						var firstDay = this.dayStart(searchM, searchY) //當月第一天星期
-			
-						var m = 0
-						if (this.calendar.chose.day == null) {
-							this.calendar.chose = {
-								year: this.calendar.year.now,
-								mon: this.calendar.month.now,
-								day: my_date.getDate(),
-							}
-						}
-						// 第一天前
-						for (var i = 1; i < firstDay; i++) {
-							m++
-							this.calendar.mList.push({
-								year: searchM == 0 ? searchY - 1 : searchY,
-								mon: searchM - 1 < 0 ? 11 : searchM - 1,
-								day: lastTotalDay - firstDay + i + 1,
-							})
-						}
-						// 本月份
-						for (var i = 1; i <= totalDay; i++) {
-							if (m == 7) {
-								m = 0
-								this.calendar.showTd.push(this.calendar.mList)
-								this.calendar.mList = []
-							}
-							m++
-							this.calendar.mList.push({
-								year: searchY,
-								mon: searchM,
-								day: i,
-							})
-						}
-						var l = m
-						// 補齊後面天數
-						if (m <= 7) {
-							for (let i = 1; i < 8 - l; i++) {
-								this.calendar.mList.push({
-									year: searchM == 11 ? searchY + 1 : searchY,
-									mon: searchM + 1 == 12 ? '0' : searchM + 1,
-									day: i,
-								})
-								m++
-							}
-						}
-						this.calendar.showTd.push(this.calendar.mList)
-						this.calendar.mList = []
-			
-						if (
-							this.calendar.chose.year == searchY &&
-							this.calendar.chose.mon == searchM
-						) {
-							setTimeout(() => {
-								var chose = document.querySelectorAll(
-									'[name="calendar_td"]'
-								)
-			
-								chose[this.calendar.chose.day - 1].classList.add('chose')
-								this.calendar.mList = []
-							}, 10)
-						} else {
-							var chose = document.querySelectorAll('[name="calendar_td"]')
-							for (let i = 0; i < chose.length; i++) {
-								chose[i].classList.remove('chose')
-							}
-						}
-					},
-					calendarHandler(y, m, d) {
-						console.log(y, m, d)
-						this.calendar.chose = {
-							year: y,
-							mon: parseInt(m),
-							day: d,
-						}
-						this.calendar.year.search = y
-						this.calendar.month.search = parseInt(m)
-						this.calendar.month.str = this.calendar.monthName[m]
-			
-						m = parseInt(m) + 1
-						this.newList.evaluate_date = y + '-' + m + '-' + d
-			
-						this.removeClassHandler('calendar')
-					},
-					daysTotal(month, year) {
-						var tmp = year % 4
-						if (tmp == 0) {
-							return this.calendar.olympic[month]
-						} else {
-							return this.calendar.normal[month]
-						}
-					},
-					dayStart(month, year) {
-						var tmpDate = new Date(year, month, 1)
-						return tmpDate.getDay()
-					},
-					calendar_prev() {
-						console.log('prev')
-						this.calendar.showTd = []
-						this.calendar.func = 'pn'
-						var searchY = this.calendar.year
-						var searchM = this.calendar.month
-						if (searchM.search == 0) {
-							searchY.search--
-							searchM.search = 11
-						} else {
-							searchM.search--
-						}
-						searchM.str = this.calendar.monthName[searchM.search]
-						this.refreshDate(searchY.search, searchM.search)
-					},
-					calendar_next() {
-						console.log('next')
-						this.calendar.showTd = []
-						this.calendar.func = 'pn'
-						var searchY = this.calendar.year
-						var searchM = this.calendar.month
-						if (searchM.search == 11) {
-							searchY.search++
-							searchM.search = 0
-						} else {
-							searchM.search++
-						}
-						searchM.str = this.calendar.monthName[searchM.search]
-						this.refreshDate(searchY.search, searchM.search)
-					},
-					createDate() {
-						this.calendar.showTd = []
-					},
-					menuHandler(str) {
-						if (this.menu.now == str) return
-						this.menu.now = str
-					},
-			
-					*/
+        // cancel() {
+        //     if (this.msgState == "back") {
+        //         this.msgState = "";
+        //     } else if (this.msgState == "del") {
+        //         this.msgState = "";
+        //         this.index = null;
+        //         this.num = null;
+        //     } else {
+        //         this.alertShow = false;
+        //     }
+        //     this.msgShow = false;
+        //     this.msgInfo = [];
+        // },
+        // submit(str) {
+        //     if (str == "addItem") {
+        //         console.log(this.msgInfo);
+        //         if (this.newList.evaluate_store == "") {
+        //             this.msgInfo.push("請填寫店名");
+        //         }
+        //         if (this.newList.evaluate_menu == "") {
+        //             this.msgInfo.push("請填寫點什麼");
+        //         }
+        //         if (this.newList.evaluate_eat == "") {
+        //             this.msgInfo.push("好不好粗請給分～");
+        //         }
+        //         if (this.newList.evaluate_amount == "") {
+        //             this.msgInfo.push("吃的飽不飽請給分～");
+        //         }
+        //         if (this.newList.evaluate_user == "") {
+        //             this.msgInfo.push("請告訴我你是誰");
+        //         }
+        //         if (this.newList.evaluate_user == "") {
+        //             this.msgInfo.push("請寫一下日期");
+        //         }
+        //         if (this.msgInfo.length !== 0) {
+        //             console.log(this.msgInfo.length);
+        //             this.msgShow = true;
+        //             this.addClassHandler("msg");
+        //             this.msgState = "back";
+        //         } else {
+        //             if (this.alertShow == "add") {
+        //                 console.log("新增送出");
+        //                 this.newList.id = this.evaluate.length;
+        //                 this.evaluate.push(this.newList);
+        //                 this.msgInfo.push("新增成功");
+        //                 this.msgShow = true;
+        //                 this.addClassHandler("msg");
+        //                 this.msgState = "ok";
+        //                 this.newList;
+        //                 axios
+        //                     .post("/api/setData.php", this.newList)
+        //                     .then((res) => {
+        //                         console.table(res.data);
+        //                     })
+        //                     .catch((error) => {
+        //                         console.error(error);
+        //                     });
+        //             } else if (this.alertShow == "edit") {
+        //                 console.log("修改送出");
+        //                 this.evaluate.splice(this.index, 1, this.newList);
+        //                 this.msgInfo.push("修改成功");
+        //                 this.msgShow = true;
+        //                 this.addClassHandler("msg");
+        //                 this.msgState = "ok";
+        //                 this.newList;
+        //                 console.log(this.newList);
+
+        //                 axios
+        //                     .post("/api/updateData.php", this.newList)
+        //                     .then((res) => {
+        //                         console.table(res.data);
+        //                     })
+        //                     .catch((error) => {
+        //                         console.error(error);
+        //                     });
+        //             }
+
+        //             this.setNewlist();
+        //         }
+        //     } else if (str == "user" && this.username !== "") {
+        //         this.alertShow = false;
+        //         localStorage.setItem("experience", this.username);
+        //     }
+        // },
+        // getDate() {
+        //     let year = new Date().getFullYear();
+        //     let mounth = new Date().getMonth() + 1;
+        //     if (mounth < 9) {
+        //         mounth = "0" + mounth;
+        //     }
+        //     let date = new Date().getDate();
+        //     if (date < 9) {
+        //         date = "0" + date;
+        //     }
+        //     return year + "-" + mounth + "-" + date;
+        // },
+        // star(str, num) {
+        //     var addClass = document.querySelectorAll("[name='" + str + "']");
+        //     for (let i = 0; i < 5; i++) {
+        //         addClass[i].classList.remove("on");
+        //     }
+        //     for (var i = 0; i <= 5 - num; i++) {
+        //         addClass[5 - i - 1].classList.add("on");
+        //     }
+        //     if (str == "eat") {
+        //         this.newList.evaluate_eat = 6 - num;
+        //     } else if (str == "amount") {
+        //         this.newList.evaluate_amount = 6 - num;
+        //     }
+        // },
+        // selHandler(str) {
+        //     var addClass = document.getElementById(str);
+        //     if (addClass.classList.contains("show")) {
+        //         addClass.classList.remove("show");
+        //     } else {
+        //         this.addClassHandler(str);
+        //     }
+        // },
+        // removeClassHandler(str) {
+        //     var removeClass = document.getElementById(str);
+        //     removeClass.classList.remove("show");
+        //     setTimeout(() => {
+        //         this.calendar.show = false;
+        //     }, 350);
+        // },
+        // selLi(num) {
+        //     this.newList.evaluate_action = num;
+        // },
+        // checkHandler() {
+        //     axios
+        //         .post("/api/delData.php", this.num)
+        //         .then((res) => {
+        //             console.table(res.data);
+        //         })
+        //         .catch((error) => {
+        //             console.error(error);
+        //         });
+        //     this.evaluate.splice(this.index, 1);
+        //     this.cancel();
+        //     this.addClassHandler("msg");
+        //     setTimeout(() => {
+        //         this.msgInfo.push("刪除成功");
+        //         this.msgShow = true;
+        //         this.addClassHandler("msg");
+        //         this.msgState = "back";
+        //     }, 10);
+        // },
+        // dateHandler() {
+        //     this.calendar.show = true;
+        //     this.calendar.showTd = [];
+        //     if (this.calendar.chose == null) {
+        //         this.createDate();
+        //     }
+
+        //     this.refreshDate(
+        //         this.calendar.year.search,
+        //         this.calendar.month.search
+        //     );
+        //     this.addClassHandler("calendar");
+        // },
+        // refreshDate(searchY, searchM) {
+        //     var my_date = new Date();
+        //     var my_day = my_date.getDate();
+        //     var lastTotalDay; //上月總天數
+
+        //     var lastTotalDay = this.daysTotal(
+        //         searchM - 1 < 0 ? 0 : searchM - 1,
+        //         searchY
+        //     );
+        //     var totalDay = this.daysTotal(searchM, searchY); //當月總天數
+        //     var firstDay = this.dayStart(searchM, searchY); //當月第一天星期
+
+        //     var m = 0;
+        //     if (this.calendar.chose.day == null) {
+        //         this.calendar.chose = {
+        //             year: this.calendar.year.now,
+        //             mon: this.calendar.month.now,
+        //             day: my_date.getDate(),
+        //         };
+        //     }
+        //     // 第一天前
+        //     for (var i = 1; i < firstDay; i++) {
+        //         m++;
+        //         this.calendar.mList.push({
+        //             year: searchM == 0 ? searchY - 1 : searchY,
+        //             mon: searchM - 1 < 0 ? 11 : searchM - 1,
+        //             day: lastTotalDay - firstDay + i + 1,
+        //         });
+        //     }
+        //     // 本月份
+        //     for (var i = 1; i <= totalDay; i++) {
+        //         if (m == 7) {
+        //             m = 0;
+        //             this.calendar.showTd.push(this.calendar.mList);
+        //             this.calendar.mList = [];
+        //         }
+        //         m++;
+        //         this.calendar.mList.push({
+        //             year: searchY,
+        //             mon: searchM,
+        //             day: i,
+        //         });
+        //     }
+        //     var l = m;
+        //     // 補齊後面天數
+        //     if (m <= 7) {
+        //         for (let i = 1; i < 8 - l; i++) {
+        //             this.calendar.mList.push({
+        //                 year: searchM == 11 ? searchY + 1 : searchY,
+        //                 mon: searchM + 1 == 12 ? "0" : searchM + 1,
+        //                 day: i,
+        //             });
+        //             m++;
+        //         }
+        //     }
+        //     this.calendar.showTd.push(this.calendar.mList);
+        //     this.calendar.mList = [];
+
+        //     if (
+        //         this.calendar.chose.year == searchY &&
+        //         this.calendar.chose.mon == searchM
+        //     ) {
+        //         setTimeout(() => {
+        //             var chose = document.querySelectorAll(
+        //                 '[name="calendar_td"]'
+        //             );
+
+        //             chose[this.calendar.chose.day - 1].classList.add("chose");
+        //             this.calendar.mList = [];
+        //         }, 10);
+        //     } else {
+        //         var chose = document.querySelectorAll('[name="calendar_td"]');
+        //         for (let i = 0; i < chose.length; i++) {
+        //             chose[i].classList.remove("chose");
+        //         }
+        //     }
+        // },
+        // calendarHandler(y, m, d) {
+        //     console.log(y, m, d);
+        //     this.calendar.chose = {
+        //         year: y,
+        //         mon: parseInt(m),
+        //         day: d,
+        //     };
+        //     this.calendar.year.search = y;
+        //     this.calendar.month.search = parseInt(m);
+        //     this.calendar.month.str = this.calendar.monthName[m];
+
+        //     m = parseInt(m) + 1;
+        //     this.newList.evaluate_date = y + "-" + m + "-" + d;
+
+        //     this.removeClassHandler("calendar");
+        // },
+        // daysTotal(month, year) {
+        //     var tmp = year % 4;
+        //     if (tmp == 0) {
+        //         return this.calendar.olympic[month];
+        //     } else {
+        //         return this.calendar.normal[month];
+        //     }
+        // },
+        // dayStart(month, year) {
+        //     var tmpDate = new Date(year, month, 1);
+        //     return tmpDate.getDay();
+        // },
+        // calendar_prev() {
+        //     console.log("prev");
+        //     this.calendar.showTd = [];
+        //     this.calendar.func = "pn";
+        //     var searchY = this.calendar.year;
+        //     var searchM = this.calendar.month;
+        //     if (searchM.search == 0) {
+        //         searchY.search--;
+        //         searchM.search = 11;
+        //     } else {
+        //         searchM.search--;
+        //     }
+        //     searchM.str = this.calendar.monthName[searchM.search];
+        //     this.refreshDate(searchY.search, searchM.search);
+        // },
+        // calendar_next() {
+        //     console.log("next");
+        //     this.calendar.showTd = [];
+        //     this.calendar.func = "pn";
+        //     var searchY = this.calendar.year;
+        //     var searchM = this.calendar.month;
+        //     if (searchM.search == 11) {
+        //         searchY.search++;
+        //         searchM.search = 0;
+        //     } else {
+        //         searchM.search++;
+        //     }
+        //     searchM.str = this.calendar.monthName[searchM.search];
+        //     this.refreshDate(searchY.search, searchM.search);
+        // },
+        // createDate() {
+        //     this.calendar.showTd = [];
+        // },
+        // menuHandler(str) {
+        //     if (this.menu.now == str) return;
+        //     this.menu.now = str;
+        // },
     },
 };
 </script>
