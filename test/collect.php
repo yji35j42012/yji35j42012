@@ -6,7 +6,6 @@ if (!empty($_SESSION['user'])) {
 	// header('Location: ./');
 	// exit;
 } else {
-	// 如果session沒有會員資料
 	echo "	<script> 
 				var setwhere = 'local';
 				var pushArr = [];
