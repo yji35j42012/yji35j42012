@@ -1,0 +1,58 @@
+%transition {
+    transition-duration: 0.3s;
+}
+
+%hand {
+    cursor: pointer;
+}
+@mixin hoverHandler {
+    @media (pointer: fine) and (max-resolution: 2dppx),
+        screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2),
+        (-moz-touch-enabled: 0) {
+        &:hover {
+            @content;
+        }
+    }
+    &:active {
+        @content;
+    }
+}
+
+
+// juc 預設值 flex-start 、 align-items 預設值 stretch
+@mixin d_f($flex, $jc: flex-start, $ai: stretch) {
+    display: $flex;
+    @if ($jc != none) {
+        justify-content: $jc;
+    }
+    @if ($ai != none) {
+        align-items: $ai;
+    }
+}
+
+
+@mixin mw_xxl {
+    @media screen and (max-width: 1620px) {
+        @content;
+    }
+}
+@mixin mw_xl {
+    @media screen and (max-width: 1320px) {
+        @content;
+    }
+}
+@mixin mw_lg2ml {
+    @media screen and (max-width: 1320px) and (min-width: 961px) {
+        @content;
+    }
+}
+@mixin mw_lg {
+    @media screen and (max-width: 960px) {
+        @content;
+    }
+}
+@mixin mw_md {
+    @media screen and (max-width: 730px) {
+        @content;
+    }
+}

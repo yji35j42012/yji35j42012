@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html id="version" lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title></title>
+	<link rel="stylesheet" href="./css/all.css" />
+</head>
+
+<body>
+	<div id="app" :class="['wrap' , nowPage]">
+		<router-view></router-view>
+	</div>
+
+	<script src="./js/libs/vue_2_6_9.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script src="./js/index.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="./js/libs/vue-router.js"></script>
+	<script src="./js/libs/http-vue-loader.js"></script>
+	<script src="./js/libs/vuex_3_0_1.js"></script>
+	<script src="./store/store.js"></script>
+	<script>
+		const routes = [
+			{
+				path: "/",
+				components: {
+					default: httpVueLoader("./page/home.vue"),
+				},
+			},
+		];
+		const router = new VueRouter({
+			// mode: 'history',
+			routes: routes, // (缩写) 相当于 routes: routes
+		});
+		var vue = new Vue({
+			el: "#app",
+			router,
+			data() {
+				return {
+					nowPage: null
+				};
+			},
+			watch: {
+				$route(to, from) {
+					var now = this.$route.path;
+					if (this.$route.path == "/") {
+						this.nowPage = "home";
+						store.dispatch("PAGE", "home");
+					} else {
+						store.dispatch("SET_LOADING", true);
+						this.nowPage = now.split("/")[1];
+						store.dispatch("PAGE", now.split("/")[1]);
+					}
+				},
+			},
+			mounted() {
+
+			},
+			computed: {
+
+			},
+			methods: {
+
+			},
+		});
+	</script>
+</body>
+
+</html>
