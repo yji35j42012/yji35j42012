@@ -14,9 +14,16 @@
 				<i v-html="icon_all.logout"></i>
 			</button>
 			<div class="menu_note">
+				<i v-html="icon_all.bell"></i>
 				Extra cool people meeting
 				<span>10AM</span>
 			</div>
+			<ul class="menu_nav">
+				<li class="menu_li">Weather</li>
+				<li class="menu_li">Food</li>
+				<li class="menu_li">Apps</li>
+				<li class="menu_li">Movies</li>
+			</ul>
 		</div>
 	</div>
 </template>
