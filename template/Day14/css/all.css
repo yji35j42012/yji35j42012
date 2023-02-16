@@ -81,6 +81,10 @@ img {
   vertical-align: middle;
 }
 
+.menu_close {
+  cursor: pointer;
+}
+
 /* fallback */
 .disclaimer {
   display: none !important;
@@ -130,9 +134,9 @@ img {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   color: #fff;
@@ -142,11 +146,36 @@ img {
   font-size: 96px;
   font-weight: 400;
   line-height: 80px;
-  text-shadow: 2px 2px 2px black;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
 }
 
 .menu_temperature {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  margin-left: 20px;
   font-size: 24px;
+}
+
+.menu_temperature:after {
+  position: absolute;
+  top: 8px;
+  left: calc(100% + 5px);
+}
+
+.menu_temperature i {
+  display: block;
+  margin-right: 5px;
+}
+
+.menu_temperature_sun {
+  width: 14px;
+  height: 14px;
+  fill: #fdd835;
 }
 
 .menu_note {
@@ -154,8 +183,57 @@ img {
   margin-top: 10px;
 }
 
-.msg_right {
-  position: relative;
+.menu_note span {
+  color: #1e1e1e;
+}
+
+.menu .dayinfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.menu_close {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  width: 100px;
+  padding: 10px;
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+          box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+  .menu_close:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+}
+
+.menu_close:active {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.menu_close i {
+  display: block;
+  width: 16px;
+  height: 16px;
+  fill: #fff;
 }
 
 .msg_right:after {
