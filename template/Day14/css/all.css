@@ -81,7 +81,7 @@ img {
   vertical-align: middle;
 }
 
-.menu_li, .menu_close {
+.normal_btn {
   cursor: pointer;
 }
 
@@ -211,34 +211,30 @@ img {
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
+  width: 100%;
   margin-top: 20px;
 }
 
-.menu_li {
+.menu_nav_li {
   padding: 10px 20px;
-  -webkit-backdrop-filter: blur(3px);
-          backdrop-filter: blur(3px);
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 100px;
-  -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
-          box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
 }
 
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
-  .menu_li:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-  }
-}
-
-.menu_li:active {
-  background-color: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.menu_li + .menu_li {
+.menu_nav_li + .menu_nav_li {
   margin-left: 10px;
+}
+
+.menu_link {
+  margin-top: 15px;
+}
+
+.menu_link_li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px 20px;
 }
 
 .menu .dayinfo {
@@ -262,25 +258,6 @@ img {
           align-items: stretch;
   width: 100px;
   padding: 10px;
-  -webkit-backdrop-filter: blur(3px);
-          backdrop-filter: blur(3px);
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 100px;
-  -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
-          box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
-}
-
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
-  .menu_close:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-  }
-}
-
-.menu_close:active {
-  background-color: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .menu_close i {
@@ -293,5 +270,84 @@ img {
 .msg_right:after {
   content: attr(data-msgr);
   font-size: 12px;
+}
+
+.normal_btn {
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+          box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+  .normal_btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+}
+
+.normal_btn:active {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.icon {
+  display: block;
+}
+
+.icon._youtube {
+  width: 18px;
+  height: 16px;
+  margin-right: 5px;
+  fill: #ef5350;
+}
+
+.week {
+  margin-top: 60px;
+}
+
+.week_title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff;
+}
+
+.week_title i {
+  display: block;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  fill: #fff;
+}
+
+.week_group {
+  margin-top: 20px;
+}
+
+.week_group_item {
+  position: relative;
+  width: calc(100% / 7);
+  max-height: 160px;
+  min-height: 140px;
+  min-width: 180px;
+  padding: 10px;
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  -webkit-transition: -webkit-transform 250ms;
+  transition: -webkit-transform 250ms;
+  transition: transform 250ms;
+  transition: transform 250ms, -webkit-transform 250ms;
 }
 /*# sourceMappingURL=all.css.map */

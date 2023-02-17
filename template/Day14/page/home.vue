@@ -10,7 +10,7 @@
 					72
 				</div>
 			</div>
-			<button class="menu_close">
+			<button class="normal_btn menu_close">
 				<i v-html="icon_all.logout"></i>
 			</button>
 			<div class="menu_note">
@@ -19,10 +19,29 @@
 				<span>10AM</span>
 			</div>
 			<ul class="menu_nav">
-				<li class="menu_li">Weather</li>
-				<li class="menu_li">Food</li>
-				<li class="menu_li">Apps</li>
-				<li class="menu_li">Movies</li>
+				<li class="normal_btn menu_nav_li">Weather</li>
+				<li class="normal_btn menu_nav_li">Food</li>
+				<li class="normal_btn menu_nav_li">Apps</li>
+				<li class="normal_btn menu_nav_li">Movies</li>
+			</ul>
+			<ul class="menu_link">
+				<li class="normal_btn menu_link_li">
+					<i class="icon _youtube" v-html="icon_all.youtube"></i>
+					Hyperplexed
+				</li>
+			</ul>
+		</div>
+		<div class="week">
+			<div class="week_title">
+				<i v-html="icon_all.sun"></i>
+				How's it look out there?
+			</div>
+			<ul class="week_group">
+				<li class="week_group_item">
+					<div class="temperature msg_right" data-msgr="°F">72</div>
+					<i v-html="icon_all.sun"></i>
+					<div class="day"></div>
+				</li>
 			</ul>
 		</div>
 	</div>
