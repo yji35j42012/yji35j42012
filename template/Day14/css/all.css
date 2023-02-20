@@ -116,7 +116,8 @@ img {
 .wrap {
   width: 100%;
   height: 100%;
-  background: url("../images/photo-1483728642387-6c3bdd6c93e5.avif") no-repeat center/cover;
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#1e1e1e)), url("../images/photo-1483728642387-6c3bdd6c93e5.avif") no-repeat center/cover;
+  background: linear-gradient(to bottom, transparent, #1e1e1e), url("../images/photo-1483728642387-6c3bdd6c93e5.avif") no-repeat center/cover;
 }
 
 .wrap.home {
@@ -306,6 +307,7 @@ img {
 }
 
 .week {
+  width: 100%;
   margin-top: 60px;
 }
 
@@ -328,11 +330,52 @@ img {
 }
 
 .week_group {
+  overflow-x: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
   margin-top: 20px;
+}
+
+.week_group::-webkit-scrollbar-track {
+  display: none;
+  opacity: 0;
+}
+
+.week_group::-webkit-scrollbar {
+  display: none;
+  opacity: 0;
+}
+
+.week_group::-webkit-scrollbar-thumb {
+  display: none;
+  opacity: 0;
 }
 
 .week_group_item {
   position: relative;
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: calc(100% / 7);
   max-height: 160px;
   min-height: 140px;
@@ -349,5 +392,20 @@ img {
   transition: -webkit-transform 250ms;
   transition: transform 250ms;
   transition: transform 250ms, -webkit-transform 250ms;
+  color: #fff;
+}
+
+.week_group_item + .week_group_item {
+  margin-left: 15px;
+}
+
+.week_group_item i {
+  display: block;
+  height: 56px;
+  fill: #fdd835;
+}
+
+.week_group_item i svg {
+  height: 100%;
 }
 /*# sourceMappingURL=all.css.map */

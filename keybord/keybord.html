@@ -64,14 +64,14 @@
 			background-color: #aaa;
 		}
 
-		.input:after {
+		/* .input:after {
 			content: '';
 			position: absolute;
 			top: 0;
 			left: 0;
 			width: 100%;
 			height: 100%;
-		}
+		} */
 
 		.input input {
 			width: 100%;
@@ -85,7 +85,7 @@
 <body>
 	<div class="wrap">
 		<div class="input">
-			<input type="text" placeholder="請輸入身分證字號" readonly>
+			<input type="text" placeholder="請輸入身分證字號">
 		</div>
 		<div class="keybord">
 			<button data-keynum="0">0</button>
@@ -155,7 +155,9 @@
 				inputS.focus();
 			}
 		}
-
+		window.dispatchEvent(new KeyboardEvent('keydown', {
+			'key': 'b'
+		}));
 		function insertInput() {
 			var inputStr = "";
 			for (let i = 0; i < inputData.length; i++) {
