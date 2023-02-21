@@ -440,4 +440,14 @@ img {
 .info_group_item i svg {
   height: 100%;
 }
+
+.scrollX:hover {
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.scrollX:active {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
 /*# sourceMappingURL=all.css.map */

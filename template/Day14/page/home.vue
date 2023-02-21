@@ -37,7 +37,7 @@
                 How's it look out there?
             </div>
             <ul
-                class="info_group"
+                class="info_group scrollX"
                 @mousedown="mousedown('scrollX')"
                 @touchstart="mousedown('scrollX')"
             >
