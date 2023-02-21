@@ -81,6 +81,28 @@ img {
   vertical-align: middle;
 }
 
+@media only screen and (min-device-width: 1025px) {
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: #f1f1f1;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #c1c1c1;
+    border: 1px #f1f1f1 solid;
+    border-radius: 3px;
+    cursor: pointer;
+    -webkit-transition: background 0.5s linear;
+    transition: background 0.5s linear;
+  }
+  *:hover::-webkit-scrollbar-thumb {
+    background-color: #a9a9a9;
+  }
+  ::-webkit-scrollbar-corner {
+    background-color: #f1f1f1;
+  }
+}
+
 .normal_btn {
   cursor: pointer;
 }
@@ -115,7 +137,7 @@ img {
 
 .wrap {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#1e1e1e)), url("../images/photo-1483728642387-6c3bdd6c93e5.avif") no-repeat center/cover;
   background: linear-gradient(to bottom, transparent, #1e1e1e), url("../images/photo-1483728642387-6c3bdd6c93e5.avif") no-repeat center/cover;
 }
@@ -125,7 +147,13 @@ img {
 }
 
 .container {
-  padding: 30px;
+  padding: 80px;
+}
+
+@media screen and (max-width: 1280px) {
+  .container {
+    padding: 30px;
+  }
 }
 
 .menu {
@@ -306,12 +334,16 @@ img {
   fill: #ef5350;
 }
 
-.week {
+.info {
   width: 100%;
   margin-top: 60px;
 }
 
-.week_title {
+.info + .info {
+  margin-top: 60px;
+}
+
+.info_title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -321,7 +353,7 @@ img {
   color: #fff;
 }
 
-.week_title i {
+.info_title i {
   display: block;
   width: 16px;
   height: 16px;
@@ -329,7 +361,7 @@ img {
   fill: #fff;
 }
 
-.week_group {
+.info_group {
   overflow-x: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -343,22 +375,22 @@ img {
   margin-top: 20px;
 }
 
-.week_group::-webkit-scrollbar-track {
+.info_group::-webkit-scrollbar-track {
   display: none;
   opacity: 0;
 }
 
-.week_group::-webkit-scrollbar {
+.info_group::-webkit-scrollbar {
   display: none;
   opacity: 0;
 }
 
-.week_group::-webkit-scrollbar-thumb {
+.info_group::-webkit-scrollbar-thumb {
   display: none;
   opacity: 0;
 }
 
-.week_group_item {
+.info_group_item {
   position: relative;
   -webkit-box-flex: 0;
       -ms-flex: none;
@@ -395,17 +427,17 @@ img {
   color: #fff;
 }
 
-.week_group_item + .week_group_item {
+.info_group_item + .info_group_item {
   margin-left: 15px;
 }
 
-.week_group_item i {
+.info_group_item i {
   display: block;
   height: 56px;
   fill: #fdd835;
 }
 
-.week_group_item i svg {
+.info_group_item i svg {
   height: 100%;
 }
 /*# sourceMappingURL=all.css.map */
