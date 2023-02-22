@@ -41,40 +41,10 @@
                 @mousedown="mousedown('scrollX')"
                 @touchstart="mousedown('scrollX')"
             >
-                <li class="info_group_item">
-                    <div class="temperature msg_right" data-msgr="°F">72</div>
+                <li class="info_group_item" v-for="(weekItem , index) in weekData" :key="index">
+                    <div class="temperature msg_right" data-msgr="°F">{{weekItem.temperature}}</div>
                     <i v-html="icon_all.sun"></i>
-                    <div class="day">MON</div>
-                </li>
-                <li class="info_group_item">
-                    <div class="temperature msg_right" data-msgr="°F">72</div>
-                    <i v-html="icon_all.sun"></i>
-                    <div class="day">TUES</div>
-                </li>
-                <li class="info_group_item">
-                    <div class="temperature msg_right" data-msgr="°F">72</div>
-                    <i v-html="icon_all.sun"></i>
-                    <div class="day">TUES</div>
-                </li>
-                <li class="info_group_item">
-                    <div class="temperature msg_right" data-msgr="°F">72</div>
-                    <i v-html="icon_all.sun"></i>
-                    <div class="day">TUES</div>
-                </li>
-                <li class="info_group_item">
-                    <div class="temperature msg_right" data-msgr="°F">72</div>
-                    <i v-html="icon_all.sun"></i>
-                    <div class="day">TUES</div>
-                </li>
-                <li class="info_group_item">
-                    <div class="temperature msg_right" data-msgr="°F">72</div>
-                    <i v-html="icon_all.sun"></i>
-                    <div class="day">TUES</div>
-                </li>
-                <li class="info_group_item">
-                    <div class="temperature msg_right" data-msgr="°F">72</div>
-                    <i v-html="icon_all.sun"></i>
-                    <div class="day">TUES</div>
+                    <div class="day">{{weekItem.dayName}}</div>
                 </li>
             </ul>
         </div>
@@ -99,7 +69,16 @@ module.exports = {
                 nowX: 0,
                 startX: 0,
                 startY: 0
-            }
+            },
+            weekData: [
+                { temperature: 72, weather: "sun", dayName: "MON" },
+                { temperature: 79, weather: "sun", dayName: "TUES" },
+                { temperature: 71, weather: "cloud", dayName: "WED" },
+                { temperature: 72, weather: "rain", dayName: "THURS" },
+                { temperature: 72, weather: "thunder", dayName: "FRI" },
+                { temperature: 72, weather: "sun", dayName: "SAT" },
+                { temperature: 72, weather: "cloud", dayName: "SUN" }
+            ]
         };
     },
     mounted() {},
