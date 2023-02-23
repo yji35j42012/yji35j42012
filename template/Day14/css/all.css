@@ -361,7 +361,17 @@ img {
   fill: #fff;
 }
 
-.info_group {
+.scrollX:hover {
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.scrollX:active {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+.week_group {
   overflow-x: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -375,22 +385,22 @@ img {
   margin-top: 20px;
 }
 
-.info_group::-webkit-scrollbar-track {
+.week_group::-webkit-scrollbar-track {
   display: none;
   opacity: 0;
 }
 
-.info_group::-webkit-scrollbar {
+.week_group::-webkit-scrollbar {
   display: none;
   opacity: 0;
 }
 
-.info_group::-webkit-scrollbar-thumb {
+.week_group::-webkit-scrollbar-thumb {
   display: none;
   opacity: 0;
 }
 
-.info_group_item {
+.week_group_item {
   position: relative;
   -webkit-box-flex: 0;
       -ms-flex: none;
@@ -409,17 +419,17 @@ img {
       -ms-flex-direction: column;
           flex-direction: column;
   width: calc(100% / 7);
+  min-width: 180px;
   max-height: 160px;
   min-height: 140px;
-  min-width: 180px;
   padding: 10px;
   -webkit-backdrop-filter: blur(3px);
           backdrop-filter: blur(3px);
   background-color: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 10px;
-  -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
-          box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 2px 2px 4px #00000040;
+          box-shadow: 2px 2px 4px #00000040;
   -webkit-transition: -webkit-transform 250ms;
   transition: -webkit-transform 250ms;
   transition: transform 250ms;
@@ -427,27 +437,22 @@ img {
   color: #fff;
 }
 
-.info_group_item + .info_group_item {
+.week_group_item + .week_group_item {
   margin-left: 15px;
 }
 
-.info_group_item i {
+.week_group_item i {
   display: block;
   height: 56px;
   fill: #fdd835;
 }
 
-.info_group_item i svg {
+.week_group_item i svg {
   height: 100%;
 }
 
-.scrollX:hover {
-  cursor: -webkit-grab;
-  cursor: grab;
-}
-
-.scrollX:active {
-  cursor: -webkit-grabbing;
-  cursor: grabbing;
+.food_group_item {
+  width: 25%;
+  height: 14vw;
 }
 /*# sourceMappingURL=all.css.map */
