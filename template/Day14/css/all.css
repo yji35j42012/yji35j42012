@@ -103,7 +103,7 @@ img {
   }
 }
 
-.food_group_item, .food_group_item .txt, .app_group_item {
+.food_group_item, .food_group_item .txt, .app_group_item, .app_group_item::before {
   -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
 }
@@ -343,6 +343,15 @@ img {
   position: relative;
   width: 40px;
   height: 32px;
+  fill: #fff;
+}
+
+.icon._galaxy {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  width: 80px;
+  height: 80px;
   fill: #fff;
 }
 
@@ -606,6 +615,13 @@ img {
   gap: 16px;
 }
 
+@media screen and (max-width: 1280px) {
+  .app_group {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
 .app_group_item {
   overflow: hidden;
   position: relative;
@@ -671,6 +687,45 @@ img {
   background-image: url("../images/chatty.avif");
 }
 
+@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+  .app_group_item:hover {
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px);
+  }
+  .app_group_item:hover::before {
+    -webkit-filter: grayscale(25%);
+            filter: grayscale(25%);
+  }
+}
+
+.app_group_item:active {
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+}
+
+.app_group_item:active::before {
+  -webkit-filter: grayscale(25%);
+          filter: grayscale(25%);
+}
+
+@media screen and (max-width: 1280px) {
+  .app_group_item {
+    width: calc((100% / 3) - (32px / 3));
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .app_group_item {
+    width: calc((100% / 2) - (16px / 2));
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .app_group_item {
+    width: 100%;
+  }
+}
+
 .app_group_item .txt {
   position: relative;
   display: -webkit-box;
@@ -696,5 +751,94 @@ img {
 .app_group_item .txt span:nth-child(2) {
   color: #fff;
   font-size: 20px;
+}
+
+.popcorn_group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  margin-top: 15px;
+  gap: 16px;
+}
+
+.popcorn_group_item {
+  overflow: hidden;
+  position: relative;
+  width: calc(100% / 4);
+  min-width: 260px;
+  height: 40vw;
+  max-height: 600px;
+  min-height: 460px;
+  padding: 30px;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.popcorn_group_item._protectors {
+  background-image: url("../images/protectors.avif");
+}
+
+.popcorn_group_item._protectors::before {
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(57, 73, 171, 0.4)), color-stop(transparent), to(rgba(0, 0, 0, 0.4)));
+  background: linear-gradient(to top, rgba(57, 73, 171, 0.4), transparent, rgba(0, 0, 0, 0.4));
+}
+
+.popcorn_group_item._people {
+  background-image: url("../images/people.avif");
+}
+
+.popcorn_group_item._people::before {
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(103, 58, 183, 0.4)), color-stop(transparent), to(rgba(0, 0, 0, 0.4)));
+  background: linear-gradient(to top, rgba(103, 58, 183, 0.4), transparent, rgba(0, 0, 0, 0.4));
+}
+
+.popcorn_group_item._hair {
+  background-image: url("../images/hair.avif");
+}
+
+.popcorn_group_item._hair::before {
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(239, 83, 80, 0.4)), color-stop(transparent), to(rgba(0, 0, 0, 0.4)));
+  background: linear-gradient(to top, rgba(239, 83, 80, 0.4), transparent, rgba(0, 0, 0, 0.4));
+}
+
+.popcorn_group_item._fight {
+  background-image: url("../images/fight.avif");
+}
+
+.popcorn_group_item._fight::before {
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(42, 252, 152, 0.4)), color-stop(rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.4)));
+  background: linear-gradient(to top, rgba(42, 252, 152, 0.4), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4));
+}
+
+.popcorn_group_item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.popcorn_group_item .title {
+  position: relative;
+  font-size: 32px;
+  color: #f5f5f5;
+}
+
+.popcorn_group_item .txt {
+  position: relative;
+  font-size: 14px;
+  color: #c8c8c8;
 }
 /*# sourceMappingURL=all.css.map */
