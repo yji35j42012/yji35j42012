@@ -179,6 +179,7 @@
         width: 80px;
         height: 80px;
         fill: #fff;
+        @extend %transition;
     }
 }
 
@@ -203,6 +204,21 @@
 }
 
 .scrollX {
+    overflow-x: auto;
+    &::-webkit-scrollbar-track {
+        display: none;
+        opacity: 0;
+    }
+    //捲軸寬度
+    &::-webkit-scrollbar {
+        display: none;
+        opacity: 0;
+    }
+    //捲軸本體顏色
+    &::-webkit-scrollbar-thumb {
+        display: none;
+        opacity: 0;
+    }
     &:hover {
         cursor: grab;
     }
@@ -214,23 +230,9 @@
 .week {
     // week_group
     &_group {
-        overflow-x: auto;
         @include d_f(flex);
         margin-top: 20px;
-        &::-webkit-scrollbar-track {
-            display: none;
-            opacity: 0;
-        }
-        //捲軸寬度
-        &::-webkit-scrollbar {
-            display: none;
-            opacity: 0;
-        }
-        //捲軸本體顏色
-        &::-webkit-scrollbar-thumb {
-            display: none;
-            opacity: 0;
-        }
+
         // info_group_item
         &_item {
             position: relative;
@@ -463,53 +465,8 @@
             background-color: #1e1e1e;
             border-radius: 10px;
             box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-            &._protectors {
-                background-image: url("../images/protectors.avif");
-                &::before {
-                    background: linear-gradient(
-                        to top,
-                        rgba(57, 73, 171, 0.4),
-                        transparent,
-                        rgba(0, 0, 0, 0.4)
-                    );
-                }
-            }
-            &._people {
-                background-image: url("../images/people.avif");
-                &::before {
-                    background: linear-gradient(
-                        to top,
-                        rgba(103, 58, 183, 0.4),
-                        transparent,
-                        rgba(0, 0, 0, 0.4)
-                    );
-                }
-            }
-            &._hair {
-                background-image: url("../images/hair.avif");
-                &::before {
-                    background: linear-gradient(
-                        to top,
-                        rgba(239, 83, 80, 0.4),
-                        transparent,
-                        rgba(0, 0, 0, 0.4)
-                    );
-                }
-            }
-            &._fight {
-                background-image: url("../images/fight.avif");
-                &::before {
-                    background: linear-gradient(
-                        to top,
-                        rgba(42, 252, 152, 0.4),
-                        rgba(0, 0, 0, 0.1),
-                        rgba(0, 0, 0, 0.4)
-                    );
-                }
-            }
+
+            @extend %transition;
             &::before {
                 content: "";
                 position: absolute;
@@ -517,6 +474,57 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                @extend %transition;
+            }
+            &._protectors::before {
+                background-image: linear-gradient(
+                        to top,
+                        rgba(57, 73, 171, 0.4),
+                        transparent,
+                        rgba(0, 0, 0, 0.4)
+                    ),
+                    url("../images/protectors.avif");
+            }
+            &._people::before {
+                background-image: linear-gradient(
+                        to top,
+                        rgba(103, 58, 183, 0.4),
+                        transparent,
+                        rgba(0, 0, 0, 0.4)
+                    ),
+                    url("../images/people.avif");
+            }
+            &._hair::before {
+                background-image: linear-gradient(
+                        to top,
+                        rgba(239, 83, 80, 0.4),
+                        transparent,
+                        rgba(0, 0, 0, 0.4)
+                    ),
+                    url("../images/hair.avif");
+            }
+            &._fight::before {
+                background-image: linear-gradient(
+                        to top,
+                        rgba(42, 252, 152, 0.4),
+                        rgba(0, 0, 0, 0.1),
+                        rgba(0, 0, 0, 0.4)
+                    ),
+                    url("../images/fight.avif");
+            }
+
+            // transform: scale(1.05);
+            @include hoverHandler {
+                transform: translateY(-5px);
+                & > .icon {
+                    transform: translate(-20%, -20%) scale(1.2);
+                }
+                &::before {
+                    transform: scale(1.05);
+                }
             }
             .title {
                 position: relative;

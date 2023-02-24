@@ -135,7 +135,11 @@
                 <i v-html="icon_all.sun"></i>
                 Popcorn time!
             </div>
-            <ul class="popcorn_group">
+            <ul
+                class="popcorn_group scrollX"
+                @mousedown="mousedown('scrollX')"
+                @touchstart="mousedown('scrollX')"
+            >
                 <li class="popcorn_group_item _protectors">
                     <div class="title">Protectors of the Milky Way</div>
                     <div class="txt">A tale of some people watching over a large portion of space.</div>
@@ -205,6 +209,7 @@ module.exports = {
             let scrollX = document.getElementById("scrollX");
             this.move.nowX = scrollX.scrollLeft;
             scrollX.id = "";
+            this.move.nowX = null;
             window.removeEventListener("mousemove", this.mouseMove);
             window.removeEventListener("mouseup", this.mouseUp);
             window.removeEventListener("touchmove", this.mouseMove);
@@ -212,6 +217,9 @@ module.exports = {
         },
         mouseMove($event) {
             let scrollX = document.getElementById("scrollX");
+            if (this.move.nowX == null) {
+                this.move.nowX = scrollX.scrollLeft;
+            }
             if (!event.touches) {
                 //相容移動端
                 $event.preventDefault();
