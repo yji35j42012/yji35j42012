@@ -54,7 +54,50 @@
 				Get it delivered!
 			</div>
 			<ul class="food_group">
-				<li class="food_group_item"></li>
+				<li class="food_group_item _burger">
+					<div class="txt">
+						<span>Burgers</span>
+						<span>The best burgers in town</span>
+					</div>
+				</li>
+				<li class="food_group_item _cream">
+					<div class="txt">
+						<span>Ice Cream</span>
+						<span>The worst ice-cream around</span>
+					</div>
+				</li>
+				<li class="food_group_item _pizza">
+					<div class="txt">
+						<span>Pizza</span>
+						<span>This 'Za be gettin down</span>
+					</div>
+				</li>
+				<li class="food_group_item _bbq">
+					<div class="txt">
+						<span>BBQ</span>
+						<span>BBQ ain't need no rhyme</span>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="info app">
+			<div class="info_title">
+				<i v-html="icon_all.sun"></i>
+				What's Appening?
+			</div>
+			<ul class="app_group">
+				<li class="app_group_item _cloudly">
+					<div class="txt">
+						<span>Weather</span>
+						<span>Cloudly</span>
+					</div>
+					<i class="icon _cloud_sun" v-html="icon_all.cloud_sun"></i>
+				</li>
+				<li class="app_group_item _mathio"></li>
+				<li class="app_group_item _cashy"></li>
+				<li class="app_group_item _fly"></li>
+				<li class="app_group_item _game"></li>
+				<li class="app_group_item _chatty"></li>
 			</ul>
 		</div>
 	</div>

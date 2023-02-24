@@ -26,7 +26,68 @@
 
 <body>
 	<canvas id="myCanvas"></canvas>
+	<canvas id="canvas" width="400" height="400"></canvas>
+	<script>
+		const canvas = document.getElementById("canvas");
+		const ctx = canvas.getContext("2d");
+		var img = new Image();
+		// img.onload = function () {
+		// 	ctx.drawImage(img, 0, 0);
+		// }
+		// img.src = "https://www.ttv.com.tw/drama13/shin/images/role_01.jpg";
+		// 畫頭部
+		ctx.beginPath();
+		ctx.fillStyle = "#F5C5C5";
+		ctx.arc(200, 100, 80, 0, 2 * Math.PI);
+		ctx.fill();
 
+		// 畫眼睛
+		ctx.beginPath();
+		ctx.fillStyle = "#FFFFFF";
+		ctx.arc(160, 80, 20, 0, 2 * Math.PI);
+		ctx.arc(240, 80, 20, 0, 2 * Math.PI);
+		ctx.fill();
+
+		// 畫瞳孔
+		ctx.beginPath();
+		ctx.fillStyle = "#000000";
+		ctx.arc(160, 80, 10, 0, 2 * Math.PI);
+		ctx.arc(240, 80, 10, 0, 2 * Math.PI);
+		ctx.fill();
+
+		// 畫鼻子
+		ctx.beginPath();
+		ctx.fillStyle = "#F5C5C5";
+		ctx.arc(200, 120, 15, 0, 2 * Math.PI);
+		ctx.fill();
+
+		// 畫嘴巴
+		ctx.beginPath();
+		ctx.strokeStyle = "#000000";
+		ctx.moveTo(170, 150);
+		ctx.quadraticCurveTo(200, 170, 230, 150);
+		ctx.stroke();
+
+		// 畫身體
+		ctx.beginPath();
+		ctx.fillStyle = "#F5C5C5";
+		ctx.rect(130, 170, 140, 200);
+		ctx.fill();
+
+		// 畫手臂
+		ctx.beginPath();
+		ctx.fillStyle = "#F5C5C5";
+		ctx.fillRect(40, 170, 100, 50);
+		ctx.fillRect(260, 170, 100, 50);
+
+		// 畫腳
+		ctx.beginPath();
+		ctx.fillStyle = "#F5C5C5";
+		ctx.fillRect(150, 370, 50, 30);
+
+
+
+	</script>
 	<script>
 		//這一行去抓取canvas的標籤
 		let canvas = document.getElementById("myCanvas");

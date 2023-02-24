@@ -164,6 +164,13 @@
         margin-right: 5px;
         fill: #ef5350;
     }
+    // icon_cloud_sun
+    &._cloud_sun {
+        position: relative;
+        width: 40px;
+        height: 32px;
+        fill: #fff;
+    }
 }
 
 .info {
@@ -233,6 +240,7 @@
             box-shadow: 2px 2px 4px #00000040;
             transition: transform 250ms;
             color: #fff;
+
             & + & {
                 margin-left: 15px;
             }
@@ -251,10 +259,173 @@
 .food {
     // food_group
     &_group {
+        @include d_f(flex);
+
+        gap: 16px;
+        margin-top: 15px;
+        @include mw(XL) {
+            flex-wrap: wrap;
+        }
         // food_group_item
         &_item {
+            overflow: hidden;
+            position: relative;
             width: 25%;
             height: 14vw;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            border-radius: 10px;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+            @extend %hand;
+            @extend %transition;
+            @include mw(XL) {
+                width: calc(50% - 8px);
+                height: 30vw;
+                max-height: 300px;
+            }
+            @include mw(S) {
+                width: 100%;
+                height: 40vw;
+            }
+            &._burger {
+                background-image: url("../images/burger.avif");
+            }
+            &._cream {
+                background-image: url("../images/cream.avif");
+            }
+            &._pizza {
+                background-image: url("../images/pizza.avif");
+            }
+            &._bbq {
+                background-image: url("../images/bbq.avif");
+            }
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(
+                    to top,
+                    rgba(0, 0, 0, 0.8),
+                    transparent
+                );
+            }
+
+            @include hoverHandler {
+                transform: translateY(-5px);
+                .txt {
+                    transform: translateY(-10px);
+                }
+            }
+            .txt {
+                position: relative;
+                @include d_f(flex, flex-end, flex-end);
+                flex-direction: column;
+                width: 100%;
+                height: 100%;
+                padding: 20px;
+                text-align: right;
+                @extend %transition;
+                span {
+                    &:first-child {
+                        color: whitesmoke;
+                        font-size: 24px;
+                        font-weight: 400;
+                    }
+                    &:nth-child(2) {
+                        color: #42a5f5;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.app {
+    // app_group
+    &_group {
+        @include d_f(flex);
+        margin-top: 15px;
+        gap: 16px;
+
+        // app_group_item
+        &_item {
+            overflow: hidden;
+            position: relative;
+            @include d_f(flex, space-between);
+            flex-direction: column;
+            width: calc(100% / 6);
+            height: 8vw;
+            max-height: 160px;
+            min-height: 140px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+
+            // filter: grayscale(100%);
+            // opacity: 0.5;
+            @extend %transition;
+            @extend %hand;
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                filter: grayscale(100%);
+                opacity: 0.5;
+            }
+            &._cloudly::before {
+                background-image: url("../images/cloudly.avif");
+            }
+            &._mathio::before {
+                background-image: url("../images/mathio.avif");
+            }
+            &._cashy::before {
+                background-image: url("../images/cashy.avif");
+            }
+            &._fly::before {
+                background-image: url("../images/fly.avif");
+            }
+            &._game::before {
+                background-image: url("../images/game.avif");
+            }
+            &._chatty::before {
+                background-image: url("../images/chatty.avif");
+            }
+            //
+            //
+
+            //     filter: grayscale(100%);
+            //     background: linear-gradient(
+            //         to right,
+            //         rgba(0, 0, 0, 0.4),
+            //         rgba(0, 0, 0, 0.1)
+            //     );
+            // }
+
+            .txt {
+                position: relative;
+                @include d_f(flex);
+                flex-direction: column;
+                // opacity: 1;
+                span:first-child {
+                    color: #42a5f5;
+                    font-size: 12px;
+                }
+                span:nth-child(2) {
+                    color: #fff;
+                    font-size: 20px;
+                }
+            }
         }
     }
 }
