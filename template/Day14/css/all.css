@@ -108,7 +108,7 @@ img {
           transition-duration: 0.3s;
 }
 
-.normal_btn, .food_group_item, .app_group_item {
+.normal_btn, .food_group_item, .app_group_item, .login_btn {
   cursor: pointer;
 }
 
@@ -358,6 +358,11 @@ body {
   width: 80px;
   height: 80px;
   fill: #fff;
+}
+
+.icon._login {
+  width: 16px;
+  margin: auto;
 }
 
 .info {
@@ -880,5 +885,110 @@ body {
   margin-left: 20px;
   margin-bottom: 6px;
   font-size: 24px;
+}
+
+.login_btn {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 40px;
+  width: 100px;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 100px;
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+          box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  fill: #fff;
+  -webkit-animation: btnAin 3s infinite;
+          animation: btnAin 3s infinite;
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
+}
+
+@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+  .login_btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+}
+
+.login_btn:active {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+@-webkit-keyframes btnAin {
+  0%,
+  6.66%,
+  17.66%,
+  33.33% {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+            animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+  13.33%,
+  14.33% {
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+            animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -30px, 0) scaleY(1.1);
+            transform: translate3d(0, -30px, 0) scaleY(1.1);
+  }
+  23.33% {
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+            animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -15px, 0) scaleY(1.05);
+            transform: translate3d(0, -15px, 0) scaleY(1.05);
+  }
+  26.66% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+            transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-transform: translate3d(0, 0, 0) scaleY(0.95);
+            transform: translate3d(0, 0, 0) scaleY(0.95);
+  }
+  30% {
+    -webkit-transform: translate3d(0, -4px, 0) scaleY(1.02);
+            transform: translate3d(0, -4px, 0) scaleY(1.02);
+  }
+}
+
+@keyframes btnAin {
+  0%,
+  6.66%,
+  17.66%,
+  33.33% {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+            animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+  13.33%,
+  14.33% {
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+            animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -30px, 0) scaleY(1.1);
+            transform: translate3d(0, -30px, 0) scaleY(1.1);
+  }
+  23.33% {
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+            animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -15px, 0) scaleY(1.05);
+            transform: translate3d(0, -15px, 0) scaleY(1.05);
+  }
+  26.66% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+            transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-transform: translate3d(0, 0, 0) scaleY(0.95);
+            transform: translate3d(0, 0, 0) scaleY(0.95);
+  }
+  30% {
+    -webkit-transform: translate3d(0, -4px, 0) scaleY(1.02);
+            transform: translate3d(0, -4px, 0) scaleY(1.02);
+  }
 }
 /*# sourceMappingURL=all.css.map */
