@@ -863,4 +863,22 @@ body {
   font-size: 14px;
   color: #c8c8c8;
 }
+
+.login_info {
+  position: absolute;
+  left: 40px;
+  bottom: 40px;
+  color: #fff;
+}
+
+.login_info_time {
+  font-size: 96px;
+  line-height: 1;
+}
+
+.login_info_temperature {
+  margin-left: 20px;
+  margin-bottom: 6px;
+  font-size: 24px;
+}
 /*# sourceMappingURL=all.css.map */
