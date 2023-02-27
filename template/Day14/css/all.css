@@ -108,7 +108,7 @@ img {
           transition-duration: 0.3s;
 }
 
-.normal_btn, .food_group_item, .app_group_item, .login_btn {
+.login .container, .normal_btn, .food_group_item, .app_group_item, .login_btn {
   cursor: pointer;
 }
 
@@ -164,6 +164,11 @@ body {
   .container {
     padding: 30px;
   }
+}
+
+.login .container {
+  width: 100%;
+  height: 100%;
 }
 
 .menu {
@@ -908,6 +913,13 @@ body {
           animation: btnAin 3s infinite;
   -webkit-animation-delay: 3s;
           animation-delay: 3s;
+}
+
+@media screen and (max-width: 1280px) {
+  .login_btn {
+    left: auto;
+    right: 40px;
+  }
 }
 
 @media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
