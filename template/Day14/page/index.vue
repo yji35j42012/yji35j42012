@@ -12,11 +12,12 @@
 
 		<div class="login_input">
 			<div class="login_input_box">
-				<label></label>
+				<label class="focused"></label>
 				<label></label>
 				<label></label>
 				<label></label>
 			</div>
+			<div class="login_input_txt" @click="cancelHandler">Cancel</div>
 		</div>
 	</div>
 </template>
@@ -49,8 +50,18 @@ module.exports = {
 	computed: {},
 	methods: {
 		loginHandler() {
+			console.log("a");
+
+			// this.loginStyle
+			// 	? (this.loginStyle = false)
+			// 	: (this.loginStyle = true);
 			this.loginStyle = true;
 			// this.$router.push("/home");
+		},
+		cancelHandler($event) {
+			console.log("b");
+			$event.preventDefault();
+			this.loginStyle = false;
 		}
 	}
 };

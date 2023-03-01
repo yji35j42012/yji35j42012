@@ -40,9 +40,6 @@ body {
 	@at-root &.home {
 		padding-top: 30vh;
 	}
-	// @at-root &.login {
-	//     overflow: hidden;
-	// }
 }
 
 .container {
@@ -71,9 +68,11 @@ body {
 
 		@extend %hand;
 	}
-	&._login::before {
-		filter: blur(8px);
-		transform: scale(1.2);
+	&._login {
+		&::before {
+			filter: blur(8px);
+			transform: scale(1.2);
+		}
 	}
 }
 
@@ -88,7 +87,7 @@ body {
 		line-height: 80px;
 		text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
 	}
-	//menu_temperature{
+	//menu_temperature
 	&_temperature {
 		position: relative;
 		@include d_f(flex, none);
@@ -631,41 +630,6 @@ body {
 			background-color: rgba(255, 255, 255, 0.2);
 			border: 1px solid rgba(255, 255, 255, 0.3);
 		}
-		@keyframes btnAin {
-			0%,
-			6.66%,
-			17.66%,
-			33.33% {
-				animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-				transform: translate3d(0, 0, 0);
-			}
-			13.33%,
-			14.33% {
-				animation-timing-function: cubic-bezier(
-					0.755,
-					0.05,
-					0.855,
-					0.06
-				);
-				transform: translate3d(0, -30px, 0) scaleY(1.1);
-			}
-			23.33% {
-				animation-timing-function: cubic-bezier(
-					0.755,
-					0.05,
-					0.855,
-					0.06
-				);
-				transform: translate3d(0, -15px, 0) scaleY(1.05);
-			}
-			26.66% {
-				transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-				transform: translate3d(0, 0, 0) scaleY(0.95);
-			}
-			30% {
-				transform: translate3d(0, -4px, 0) scaleY(1.02);
-			}
-		}
 	}
 	// login_input
 	&_input {
@@ -673,6 +637,8 @@ body {
 		top: 0;
 		left: 0;
 		@include d_f(flex, center, center);
+		align-content: center;
+		flex-wrap: wrap;
 		width: 100%;
 		height: 100%;
 		// login_input_box
@@ -691,6 +657,30 @@ body {
 				box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.06);
 				font-size: 48px;
 				transition: background-color 250ms, border-color 250ms;
+
+				&.focused:after {
+					content: "";
+					position: absolute;
+					bottom: 10px;
+					width: 70%;
+					height: 3px;
+					background-color: #fff;
+					border-radius: 10px;
+					animation: blink 2s ease-in-out infinite;
+				}
+			}
+		}
+		// login_input_txt
+		&_txt {
+			position: relative;
+			width: 100%;
+			margin-top: 10px;
+			text-align: center;
+			font-size: 14px;
+			color: #5a5a5a;
+			text-decoration-color: #5a5a5a;
+			@include hoverHandler {
+				text-decoration: underline;
 			}
 		}
 	}
