@@ -1,14 +1,16 @@
 <style scoped></style>
 
 <template>
-	<div :class="['container',loginStyle?'_login':'']" @click="loginHandler">
-		<div class="login_info">
-			<span class="login_info_time">{{time.hour}}:{{time.min}}</span>
-			<span class="login_info_temperature msg_right" data-msgr="°F">82</span>
+	<div :class="['container',loginStyle?'_login':'']">
+		<div class="login_info" @click="loginHandler">
+			<div class="login_info_txt">
+				<span class="time">{{time.hour}}:{{time.min}}</span>
+				<span class="temperature msg_right" data-msgr="°F">82</span>
+			</div>
+			<button class="login_info_btn">
+				<i class="icon _login" v-html="icon_all.login"></i>
+			</button>
 		</div>
-		<button class="login_btn">
-			<i class="icon _login" v-html="icon_all.login"></i>
-		</button>
 
 		<div class="login_input">
 			<div class="login_input_box">
