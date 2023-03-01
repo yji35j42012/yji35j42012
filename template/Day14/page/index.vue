@@ -14,10 +14,10 @@
 
 		<div class="login_input">
 			<div class="login_input_box">
-				<label class="focused"></label>
-				<label></label>
-				<label></label>
-				<label></label>
+				<label :class="login_txt.length==0?'focused':''"></label>
+				<label :class="login_txt.length==1?'focused':''"></label>
+				<label :class="login_txt.length==2?'focused':''"></label>
+				<label :class="login_txt.length==3?'focused':''"></label>
 			</div>
 			<div class="login_input_txt" @click="cancelHandler">Cancel</div>
 		</div>
@@ -33,7 +33,8 @@ module.exports = {
 				hour: 0,
 				min: 0
 			},
-			loginStyle: false
+			loginStyle: false,
+			login_txt: []
 		};
 	},
 	mounted() {
@@ -48,21 +49,16 @@ module.exports = {
 		//     this.time.hour = date.getHours();
 		//     this.time.min = date.getMinutes();
 		// }, 1000 * 60);
+		document.onkeydown = function(e) {
+			console.log("key", e.keyCode);
+		};
 	},
 	computed: {},
 	methods: {
 		loginHandler() {
-			console.log("a");
-
-			// this.loginStyle
-			// 	? (this.loginStyle = false)
-			// 	: (this.loginStyle = true);
 			this.loginStyle = true;
-			// this.$router.push("/home");
 		},
-		cancelHandler($event) {
-			console.log("b");
-			$event.preventDefault();
+		cancelHandler() {
 			this.loginStyle = false;
 		}
 	}
