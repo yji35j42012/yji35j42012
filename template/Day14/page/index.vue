@@ -10,7 +10,14 @@
 			<i class="icon _login" v-html="icon_all.login"></i>
 		</button>
 
-		<div class="login_input"></div>
+		<div class="login_input">
+			<div class="login_input_box">
+				<label></label>
+				<label></label>
+				<label></label>
+				<label></label>
+			</div>
+		</div>
 	</div>
 </template>
 

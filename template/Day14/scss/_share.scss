@@ -40,9 +40,9 @@ body {
     @at-root &.home {
         padding-top: 30vh;
     }
-    @at-root &.login {
-        overflow: hidden;
-    }
+    // @at-root &.login {
+    //     overflow: hidden;
+    // }
 }
 
 .container {
@@ -52,15 +52,27 @@ body {
         padding: 30px;
     }
     @at-root .login & {
+        overflow: hidden;
+        position: relative;
         width: 100%;
         height: 100%;
-        background: linear-gradient(to bottom, transparent, #1e1e1e),
-            url("../images/photo-1483728642387-6c3bdd6c93e5.avif") no-repeat
-                center/cover;
+        &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            content: "";
+            background: 
+                url("../images/photo-1483728642387-6c3bdd6c93e5.avif") no-repeat
+                    center/cover;
+            @extend %transition;
+        }
+
         @extend %hand;
-        @extend %transition;
     }
-    &._login {
+    &._login::before {
         filter: blur(8px);
         transform: scale(1.2);
     }
@@ -653,6 +665,33 @@ body {
             }
             30% {
                 transform: translate3d(0, -4px, 0) scaleY(1.02);
+            }
+        }
+    }
+    // login_input
+    &_input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include d_f(flex, center, center);
+        width: 100%;
+        height: 100%;
+        // login_input_box
+        &_box {
+			@include d_f(flex);
+			gap: 10px;
+            label {
+				flex: none;
+                position: relative;
+                @include d_f(inline-flex, center, center);
+                width: 60px;
+                height: 80px;
+                background-color: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                border-radius: 10px;
+                box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.06);
+                font-size: 48px;
+                transition: background-color 250ms, border-color 250ms;
             }
         }
     }
