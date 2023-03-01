@@ -1,7 +1,7 @@
 <style scoped></style>
 
 <template>
-	<div class="container">
+	<div :class="['container',loginStyle?'_login':'']" @click="loginHandler">
 		<div class="login_info">
 			<span class="login_info_time">{{time.hour}}:{{time.min}}</span>
 			<span class="login_info_temperature msg_right" data-msgr="°F">82</span>
@@ -9,6 +9,8 @@
 		<button class="login_btn">
 			<i class="icon _login" v-html="icon_all.login"></i>
 		</button>
+
+		<div class="login_input"></div>
 	</div>
 </template>
 
@@ -20,7 +22,8 @@ module.exports = {
 			time: {
 				hour: 0,
 				min: 0
-			}
+			},
+			loginStyle: false
 		};
 	},
 	mounted() {
@@ -37,6 +40,11 @@ module.exports = {
 		// }, 1000 * 60);
 	},
 	computed: {},
-	methods: {}
+	methods: {
+		loginHandler() {
+			this.loginStyle = true;
+			// this.$router.push("/home");
+		}
+	}
 };
 </script>

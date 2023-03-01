@@ -103,7 +103,7 @@ img {
   }
 }
 
-.icon._galaxy, .food_group_item, .food_group_item .txt, .app_group_item, .app_group_item::before, .popcorn_group_item, .popcorn_group_item::before {
+.login .container, .icon._galaxy, .food_group_item, .food_group_item .txt, .app_group_item, .app_group_item::before, .popcorn_group_item, .popcorn_group_item::before, .login_info {
   -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
 }
@@ -156,6 +156,10 @@ body {
   padding-top: 30vh;
 }
 
+.wrap.login {
+  overflow: hidden;
+}
+
 .container {
   padding: 80px;
 }
@@ -169,6 +173,15 @@ body {
 .login .container {
   width: 100%;
   height: 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#1e1e1e)), url("../images/photo-1483728642387-6c3bdd6c93e5.avif") no-repeat center/cover;
+  background: linear-gradient(to bottom, transparent, #1e1e1e), url("../images/photo-1483728642387-6c3bdd6c93e5.avif") no-repeat center/cover;
+}
+
+.container._login {
+  -webkit-filter: blur(8px);
+          filter: blur(8px);
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 .menu {
@@ -876,9 +889,13 @@ body {
 
 .login_info {
   position: absolute;
-  left: 40px;
-  bottom: 40px;
+  left: 0;
+  bottom: 0;
+  padding-left: 40px;
+  padding-bottom: 40px;
   color: #fff;
+  -webkit-transform: translateX(0px);
+          transform: translateX(0px);
 }
 
 .login_info_time {
@@ -890,6 +907,11 @@ body {
   margin-left: 20px;
   margin-bottom: 6px;
   font-size: 24px;
+}
+
+.container._login .login_info {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
 }
 
 .login_btn {
