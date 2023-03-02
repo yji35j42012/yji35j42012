@@ -225,7 +225,7 @@ img {
   }
 }
 
-.login .container::before, .icon._galaxy, .food_group_item, .food_group_item .txt, .app_group_item, .app_group_item::before, .popcorn_group_item, .popcorn_group_item::before, .login_info_txt {
+.login .container::before, .icon._galaxy, .food_group_item, .food_group_item .txt, .app_group_item, .app_group_item::before, .popcorn_group_item, .popcorn_group_item::before, .login_info_txt, .login_input_box label::before, .login_input_box label span {
   -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
 }
@@ -1155,6 +1155,7 @@ body {
   font-size: 48px;
   -webkit-transition: background-color 250ms, border-color 250ms;
   transition: background-color 250ms, border-color 250ms;
+  color: #fff;
 }
 
 .login_input_box label.focused:after {
@@ -1169,8 +1170,43 @@ body {
           animation: blink 2s ease-in-out infinite;
 }
 
+.login_input_box label::before {
+  content: attr(data-txt);
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.login_input_box label.un::before {
+  opacity: 0;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
+.login_input_box label span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 50%;
+  opacity: 0;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
+.login_input_box label.un span {
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
 .login_input_txt {
-  pointer-events: all;
   position: relative;
   width: 100%;
   margin-top: 10px;

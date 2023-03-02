@@ -670,7 +670,7 @@ body {
 				box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.06);
 				font-size: 48px;
 				transition: background-color 250ms, border-color 250ms;
-
+				color: #fff;
 				&.focused:after {
 					content: "";
 					position: absolute;
@@ -681,11 +681,41 @@ body {
 					border-radius: 10px;
 					animation: blink 2s ease-in-out infinite;
 				}
+
+				&::before {
+					content: attr(data-txt);
+					opacity: 1;
+					transform: scale(1);
+					@extend %transition;
+				}
+				&.un::before {
+					opacity: 0;
+					transform: scale(0);
+				}
+				span {
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					display: block;
+					width: 20px;
+					height: 20px;
+					margin: auto;
+					background-color: #fff;
+					border-radius: 50%;
+					opacity: 0;
+					transform: scale(0);
+					@extend %transition;
+				}
+				&.un span {
+					opacity: 1;
+					transform: scale(1);
+				}
 			}
 		}
 		// login_input_txt
 		&_txt {
-			pointer-events: all;
 			position: relative;
 			width: 100%;
 			margin-top: 10px;
