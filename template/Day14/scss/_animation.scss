@@ -45,3 +45,16 @@
 		transform: rotate(1440deg);
 	}
 }
+
+
+@keyframes spin1 {
+	from {
+		transform: rotate(45deg);
+	}
+	50% {
+		transform: rotate(765deg);
+	}
+	to {
+		transform: rotate(1485deg);
+	}
+}

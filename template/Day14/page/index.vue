@@ -1,7 +1,7 @@
 <style scoped></style>
 
 <template>
-	<div :class="['container',loginStyle?'_login':'']">
+	<div :class="['container',loginStyle?'_login':'',showLoading?'showLoading':'']">
 		<div class="login_info" @click="loginHandler">
 			<div class="login_info_txt">
 				<span class="time">{{time.hour}}:{{time.min}}</span>
@@ -109,7 +109,8 @@ module.exports = {
 				104: 8,
 				109: 9
 			},
-			loginTimers: {}
+			loginTimers: {},
+			showLoading: false
 		};
 	},
 	mounted() {
@@ -151,6 +152,11 @@ module.exports = {
 			) {
 				this.login_txt.push(this.keycode[$e.keyCode]);
 				this.login_txt_time();
+				if (this.login_txt.length == 4) {
+					this.showLoading = true;
+					store.dispatch("SETLOADING", true);
+					this.checkPass();
+				}
 			}
 		},
 		isAlphaNumeric(char) {
@@ -165,6 +171,36 @@ module.exports = {
 			] = setTimeout(() => {
 				login_label.classList.add("un");
 			}, 1000);
+		},
+		checkPass() {
+			if (
+				String(this.login_txt[0]) +
+					String(this.login_txt[1]) +
+					String(this.login_txt[2]) +
+					String(this.login_txt[3]) ==
+				"1234"
+			) {
+				this.$router.push("/home");
+			} else {
+				let time = setTimeout(() => {
+						for (let i = 0; i < Object.keys(this.loginTimers).length; i++) {
+				clearTimeout(
+					this.loginTimers[Object.keys(this.loginTimers)[i]]
+				);
+			}
+			this.loginTimers = {};
+					var login_label = document.querySelectorAll(
+						".login_input_box label"
+					);
+					for (let i = 0; i < login_label.length; i++) {
+						login_label[i].classList.remove("un");
+					}
+					this.login_txt = [];
+					this.loginTimers = {};
+					this.showLoading = false;
+					store.dispatch("SETLOADING", false);
+				}, 500);
+			}
 		}
 	}
 };

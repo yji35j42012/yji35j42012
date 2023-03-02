@@ -225,6 +225,36 @@ img {
   }
 }
 
+@-webkit-keyframes spin1 {
+  from {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  50% {
+    -webkit-transform: rotate(765deg);
+            transform: rotate(765deg);
+  }
+  to {
+    -webkit-transform: rotate(1485deg);
+            transform: rotate(1485deg);
+  }
+}
+
+@keyframes spin1 {
+  from {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  50% {
+    -webkit-transform: rotate(765deg);
+            transform: rotate(765deg);
+  }
+  to {
+    -webkit-transform: rotate(1485deg);
+            transform: rotate(1485deg);
+  }
+}
+
 .login .container::before, .icon._galaxy, .food_group_item, .food_group_item .txt, .app_group_item, .app_group_item::before, .popcorn_group_item, .popcorn_group_item::before, .login_info_txt, .login_input_box label::before, .login_input_box label span {
   -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
@@ -1111,7 +1141,7 @@ body {
   transition: opacity 250ms, transform 250ms, -webkit-transform 250ms;
 }
 
-._login .login_input {
+._login:not(.showLoading) .login_input {
   opacity: 1;
   pointer-events: all;
   -webkit-transform: translate(-50%, -50%) scale(1);
@@ -1185,14 +1215,9 @@ body {
 
 .login_input_box label span {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   display: block;
   width: 20px;
   height: 20px;
-  margin: auto;
   background-color: #fff;
   border-radius: 50%;
   opacity: 0;
@@ -1225,5 +1250,55 @@ body {
 
 .login_input_txt:active {
   text-decoration: underline;
+}
+
+.loading {
+  left: 50%;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(-50%, 0%);
+          transform: translate(-50%, 0%);
+  -webkit-transition: opacity 250ms, -webkit-transform 250ms;
+  transition: opacity 250ms, -webkit-transform 250ms;
+  transition: opacity 250ms, transform 250ms;
+  transition: opacity 250ms, transform 250ms, -webkit-transform 250ms;
+  z-index: 2;
+}
+
+.showLoading .loading,
+.showLoading + .loading {
+  opacity: 1;
+}
+
+.loading::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  -webkit-animation: 2s spin ease-in-out infinite;
+          animation: 2s spin ease-in-out infinite;
+  color: white;
+  border: 5px solid #fff;
+  border-color: #fff transparent transparent transparent;
+  border-radius: 100%;
+}
+
+.loading::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  -webkit-animation: 2s spin1 ease-in-out infinite;
+          animation: 2s spin1 ease-in-out infinite;
+  color: white;
+  border: 5px solid #fff;
+  border-color: #fff transparent transparent transparent;
+  border-radius: 100%;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 /*# sourceMappingURL=all.css.map */

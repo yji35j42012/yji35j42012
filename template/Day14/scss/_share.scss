@@ -648,7 +648,7 @@ body {
 		pointer-events: none;
 		opacity: 0;
 		transition: opacity 250ms, transform 250ms;
-		@at-root ._login & {
+		@at-root ._login:not(.showLoading) & {
 			opacity: 1;
 			pointer-events: all;
 			transform: translate(-50%, -50%) scale(1);
@@ -694,14 +694,9 @@ body {
 				}
 				span {
 					position: absolute;
-					top: 0;
-					left: 0;
-					right: 0;
-					bottom: 0;
 					display: block;
 					width: 20px;
 					height: 20px;
-					margin: auto;
 					background-color: #fff;
 					border-radius: 50%;
 					opacity: 0;
@@ -727,5 +722,45 @@ body {
 				text-decoration: underline;
 			}
 		}
+	}
+}
+
+.loading {
+	left: 50%;
+	opacity: 0;
+	pointer-events: none;
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, 0%);
+	transition: opacity 250ms, transform 250ms;
+	z-index: 2;
+	@at-root .showLoading &,
+		.showLoading + & {
+		opacity: 1;
+	}
+	&::before {
+		content: "";
+		position: absolute;
+		display: inline-block;
+		width: 32px;
+		height: 32px;
+		animation: 2s spin ease-in-out infinite;
+		color: white;
+		border: 5px solid #fff;
+		border-color: #fff transparent transparent transparent;
+		border-radius: 100%;
+	}
+	&::after {
+		content: "";
+		position: absolute;
+		display: inline-block;
+		width: 32px;
+		height: 32px;
+		animation: 2s spin1 ease-in-out infinite;
+		color: white;
+		border: 5px solid #fff;
+		border-color: #fff transparent transparent transparent;
+		border-radius: 100%;
+		transform: rotate(45deg);
 	}
 }
