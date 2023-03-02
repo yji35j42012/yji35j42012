@@ -81,13 +81,12 @@ body {
 		transform: translateY(-10%);
 		opacity: 0;
 
-		@extend %transition ;
+		@extend %transition;
 		&._show {
 			transform: translateY(0);
 			opacity: 1;
 		}
 	}
-
 }
 .menu {
 	@include d_f(flex, space-between, center);
@@ -614,7 +613,11 @@ body {
 				margin-bottom: 6px;
 				font-size: 24px;
 			}
-			transform: translateX(0px);
+			// transform: translateX(0px);
+			transform: translateX(-100%);
+			@at-root ._show & {
+				transform: translateX(0px);
+			}
 			@extend %transition;
 			@at-root .container._login & {
 				transform: translateX(-100%);
@@ -637,12 +640,21 @@ body {
 			box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
 			fill: #fff;
 			@extend %hand;
-
-			animation: btnAin 3s infinite;
+			@extend %transition;
 			animation-delay: 3s;
+			transform: translateY(100%) + translateY(40px);
+			@at-root ._show & {
+				transform: translateY(0);
+				animation: btnAin 3s 2s infinite;
+			}
 			@include mw(XL) {
 				left: auto;
 				right: 40px;
+				transform: translateX(100%) + translateX(40px);
+				@at-root ._show & {
+					transform: translateX(0);
+					animation: btnAin 3s 2s infinite;
+				}
 			}
 			@include hoverHandler {
 				background-color: rgba(255, 255, 255, 0.2);

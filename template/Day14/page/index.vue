@@ -1,7 +1,7 @@
 <style scoped></style>
 
 <template>
-	<div :class="['container',loginStyle?'_login':'',showLoading?'showLoading':'']">
+	<div :class="['container',loginStyle?'_login':'',showLoading?'showLoading':'',showContainer?'_show':'']">
 		<div class="login_info" @click="loginHandler">
 			<div class="login_info_txt">
 				<span class="time">{{time.hour}}:{{time.min}}</span>
@@ -110,7 +110,8 @@ module.exports = {
 				109: 9
 			},
 			loginTimers: {},
-			showLoading: false
+			showLoading: false,
+			showContainer:false
 		};
 	},
 	mounted() {
@@ -121,15 +122,18 @@ module.exports = {
 			date.getMinutes() < 10
 				? "0" + date.getMinutes()
 				: date.getMinutes();
+				this.showContainer = true
 	},
 	computed: {},
 	methods: {
 		loginHandler() {
 			window.addEventListener("keydown", this.codetokey);
 			this.loginStyle = true;
+			this.showContainer = false
 		},
 		cancelHandler() {
 			this.loginStyle = false;
+			this.showContainer = true
 			this.clearLogin();
 			window.removeEventListener("keydown", this.codetokey);
 		},

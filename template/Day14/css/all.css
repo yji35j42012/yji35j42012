@@ -255,7 +255,7 @@ img {
   }
 }
 
-.login .container::before, .home_container, .icon._galaxy, .food_group_item, .food_group_item .txt, .app_group_item, .app_group_item::before, .popcorn_group_item, .popcorn_group_item::before, .login_info_txt, .login_input_box label::before, .login_input_box label span {
+.login .container::before, .home_container, .icon._galaxy, .food_group_item, .food_group_item .txt, .app_group_item, .app_group_item::before, .popcorn_group_item, .popcorn_group_item::before, .login_info_txt, .login_info_btn, .login_input_box label::before, .login_input_box label span {
   -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
 }
@@ -1077,8 +1077,8 @@ body {
   padding-left: 40px;
   padding-bottom: 40px;
   color: #fff;
-  -webkit-transform: translateX(0px);
-          transform: translateX(0px);
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
 }
 
 .login_info_txt .time {
@@ -1090,6 +1090,11 @@ body {
   margin-left: 20px;
   margin-bottom: 6px;
   font-size: 24px;
+}
+
+._show .login_info_txt {
+  -webkit-transform: translateX(0px);
+          transform: translateX(0px);
 }
 
 .container._login .login_info_txt {
@@ -1114,16 +1119,31 @@ body {
   -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
           box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
   fill: #fff;
-  -webkit-animation: btnAin 3s infinite;
-          animation: btnAin 3s infinite;
   -webkit-animation-delay: 3s;
           animation-delay: 3s;
+  -webkit-transform: translateY(100%)translateY(40px);
+          transform: translateY(100%)translateY(40px);
+}
+
+._show .login_info_btn {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-animation: btnAin 3s 2s infinite;
+          animation: btnAin 3s 2s infinite;
 }
 
 @media screen and (max-width: 1280px) {
   .login_info_btn {
     left: auto;
     right: 40px;
+    -webkit-transform: translateX(100%)translateX(40px);
+            transform: translateX(100%)translateX(40px);
+  }
+  ._show .login_info_btn {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    -webkit-animation: btnAin 3s 2s infinite;
+            animation: btnAin 3s 2s infinite;
   }
 }
 
