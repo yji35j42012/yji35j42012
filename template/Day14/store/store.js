@@ -19,8 +19,8 @@ const store = new Vuex.Store({
 	},
 	getters: {},
 	mutations: {
-		loadingState(boo) {
-			this.state.loadingState = boo;
+		loadingState(state, boo) {
+			state.loadingState = boo;
 		}
 	},
 	actions: {

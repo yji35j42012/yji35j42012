@@ -1,7 +1,7 @@
 <style scoped></style>
 
 <template>
-	<div class="container">
+	<div :class="['container','home_container',showContainer?'_show':''] ">
 		<div class="menu">
 			<div class="dayinfo">
 				<div class="menu_time">1:30</div>
@@ -184,10 +184,16 @@ module.exports = {
 				{ temperature: 72, weather: "thunder", dayName: "FRI" },
 				{ temperature: 72, weather: "sun", dayName: "SAT" },
 				{ temperature: 72, weather: "cloud", dayName: "SUN" }
-			]
+			],
+			showContainer: false
 		};
 	},
-	mounted() {},
+	mounted() {
+		setTimeout(() => {
+			store.dispatch("SETLOADING", false);
+			this.showContainer = true;
+		}, 500);
+	},
 	computed: {},
 	methods: {
 		mousedown(str, $event) {
@@ -234,7 +240,10 @@ module.exports = {
 			scrollX.scrollLeft = this.move.nowX + newl * -1;
 		},
 		logoutHandler() {
-			this.$router.push("/");
+			this.showContainer= false
+		setTimeout(() => {
+				this.$router.push("/");
+		}, 200);
 		}
 	}
 };

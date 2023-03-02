@@ -255,7 +255,7 @@ img {
   }
 }
 
-.login .container::before, .icon._galaxy, .food_group_item, .food_group_item .txt, .app_group_item, .app_group_item::before, .popcorn_group_item, .popcorn_group_item::before, .login_info_txt, .login_input_box label::before, .login_input_box label span {
+.login .container::before, .home_container, .icon._galaxy, .food_group_item, .food_group_item .txt, .app_group_item, .app_group_item::before, .popcorn_group_item, .popcorn_group_item::before, .login_info_txt, .login_input_box label::before, .login_input_box label span {
   -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
 }
@@ -345,6 +345,18 @@ body {
           filter: blur(8px);
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
+}
+
+.home_container {
+  -webkit-transform: translateY(-10%);
+          transform: translateY(-10%);
+  opacity: 0;
+}
+
+.home_container._show {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  opacity: 1;
 }
 
 .menu {
@@ -1267,8 +1279,7 @@ body {
   z-index: 2;
 }
 
-.showLoading .loading,
-.showLoading + .loading {
+.loading._show {
   opacity: 1;
 }
 
