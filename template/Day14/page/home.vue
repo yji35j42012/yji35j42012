@@ -240,10 +240,10 @@ module.exports = {
 			scrollX.scrollLeft = this.move.nowX + newl * -1;
 		},
 		logoutHandler() {
-			this.showContainer= false
-		setTimeout(() => {
+			this.showContainer = false;
+			setTimeout(() => {
 				this.$router.push("/");
-		}, 200);
+			}, 100);
 		}
 	}
 };

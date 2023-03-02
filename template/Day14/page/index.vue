@@ -130,19 +130,7 @@ module.exports = {
 		},
 		cancelHandler() {
 			this.loginStyle = false;
-			var login_label = document.querySelectorAll(
-				".login_input_box label"
-			);
-			for (let i = 0; i < Object.keys(this.loginTimers).length; i++) {
-				clearTimeout(
-					this.loginTimers[Object.keys(this.loginTimers)[i]]
-				);
-			}
-			this.loginTimers = {};
-			for (let i = 0; i < login_label.length; i++) {
-				login_label[i].classList.remove("un");
-			}
-			this.login_txt = [];
+			this.clearLogin();
 			window.removeEventListener("keydown", this.codetokey);
 		},
 		codetokey($e) {
@@ -180,25 +168,31 @@ module.exports = {
 					String(this.login_txt[3]) ==
 				"1234"
 			) {
+				window.removeEventListener("keydown", this.codetokey);
+				this.clearLogin();
 				this.$router.push("/home");
 			} else {
-				for (let i = 0; i < Object.keys(this.loginTimers).length; i++) {
-					clearTimeout(
-						this.loginTimers[Object.keys(this.loginTimers)[i]]
-					);
-				}
-				this.loginTimers = {};
-				var login_label = document.querySelectorAll(
-					".login_input_box label"
-				);
-				for (let i = 0; i < login_label.length; i++) {
-					login_label[i].classList.remove("un");
-				}
-				this.login_txt = [];
-				this.loginTimers = {};
-				this.showLoading = false;
-				store.dispatch("SETLOADING", false);
+				this.clearLogin();
+				let time = setTimeout(() => {
+					this.showLoading = false;
+					store.dispatch("SETLOADING", false);
+				}, 500);
 			}
+		},
+		clearLogin() {
+			var login_label = document.querySelectorAll(
+				".login_input_box label"
+			);
+			for (let i = 0; i < Object.keys(this.loginTimers).length; i++) {
+				clearTimeout(
+					this.loginTimers[Object.keys(this.loginTimers)[i]]
+				);
+			}
+			this.loginTimers = {};
+			for (let i = 0; i < login_label.length; i++) {
+				login_label[i].classList.remove("un");
+			}
+			this.login_txt = [];
 		}
 	}
 };
