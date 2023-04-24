@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AAuCA,AAAA,EAAE,CAAA;EACD,KAAK,EAAC,OAAO;CACb",
+    "mappings": "AAAA,AAAA,aAAa,CAAA;EACZ,KAAK,EAAE,IAAI;CACX",
     "sources": [
         "../scsstest/aaa.scss"
     ],
