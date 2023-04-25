@@ -1,3 +1,11 @@
-.aaallleeexxx{
-    width: 100% / 3;
+.content {
+
+
+    &_m {
+        width: 10%;
+
+		@at-root .--result & {
+			width: 50%;
+		}
+    }
 }
