@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+
+</head>
+
+<body>
+	<div id="person-container"></div>
+
+	<script>
+		// 定義一個函式，接受一個人物的資料物件，並返回這個人物的 HTML 字串
+		function getPersonHTML(personData) {
+			// 讀取 template.html 檔案
+			const xhr = new XMLHttpRequest();
+			xhr.open('GET', './template.html', false);
+			xhr.send();
+
+			// 將 template.html 中的 {{name}} 和 {{age}} 替換為人物資料物件中對應的值
+			const personHTML = xhr.responseText
+				.replace('{{name}}', personData.name)
+				.replace('{{age}}', personData.age);
+
+			// 返回人物的 HTML 字串
+			return personHTML;
+		}
+
+		// 用兩筆資料呈現人物資訊
+		const persons = [
+			{ name: 'John', age: 30 },
+			{ name: 'Alex', age: 35 }
+		];
+
+		// 在 index.html 中插入人物 HTML 字串
+		const container = document.getElementById('person-container');
+		let personsHTML = '';
+		persons.forEach(person => {
+			personsHTML += getPersonHTML(person);
+		});
+		container.innerHTML = personsHTML;
+
+	</script>
+
+</body>
+
+</html>
