@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html id="version" lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>PetNi</title>
+	<link rel="stylesheet" href="./style/css/all.css" />
+</head>
+
+<body>
+	<div id="app" :class="['wrap',nowPage]">
+		<menubar></menubar>
+		<router-view></router-view>
+		<!-- <div class="container" style="display:none;">
+			<div class="emergency_nav">
+				<div class="name showPAD" data-txt="急診">24H</div>
+				<ul class="tab">
+					<li @click="emergency_area('N')" :class="['on','tab_item',area=='M' ? 'on' :'']">北部</li>
+					<li @click="emergency_area('W')" :class="['tab_item',area=='W' ? 'on' :'']">中部</li>
+					<li @click="emergency_area('S')" :class="['tab_item',area=='S' ? 'on' :'']">南部</li>
+					<li @click="emergency_area('E')" :class="['tab_item',area=='E' ? 'on' :'']">東部</li>
+				</ul>
+				<span>*資訊僅供參考，建議先電話聯絡再前往。</span>
+			</div>
+			<ul class="emergency_group">
+				<li class="emergency_group_title">
+					<i v-html="icon_all.address"></i>
+					台北市
+				</li>
+				<li class="emergency_group_card" v-for="item in 20">
+					<div class="detail">
+						<p class="title">展望動物醫院</p>
+						<p>02 2388 0122</p>
+						<p>台北市萬華區中華路2段2號</p>
+					</div>
+					<div class="state">
+						<span class="insideItem.epidemic ? '' : 'hide'">*疫情期間有開</span>
+						<a href v-html="icon_all.phone"></a>
+					</div>
+				</li>
+			</ul>
+		</div> -->
+	</div>
+
+	<script src="./js/libs/axios.js"></script>
+	<script src="./js/libs/vue_2_6_9.js"></script>
+	<script src="./js/libs/vue-router.js"></script>
+	<script src="./js/libs/http-vue-loader.js"></script>
+	<script src="./js/libs/vuex_3_0_1.js"></script>
+	<script src="./js/libs/lottie.min.js"></script>
+
+	<script src="./js/icon_all.js"></script>
+
+	<script src="./store/store.js"></script>
+
+
+	<script src="./js/emergency.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.0/gsap.min.js"></script>
+	<script>
+		const routes = [
+			{
+				path: "/",
+				component: httpVueLoader("./page/home.vue"),
+			},
+			{
+				path: "/home",
+				component: httpVueLoader("./page/home.vue"),
+			},
+			{
+				path: "/home/:id",
+				component: httpVueLoader("./page/detail.vue"),
+			},
+			{
+				path: "/collect",
+				component: httpVueLoader("./page/collect.vue"),
+			},
+			{
+				path: "/emergency",
+				component: httpVueLoader("./page/emergency.vue"),
+			},
+		];
+		const router = new VueRouter({
+			// mode: 'history',
+			routes: routes, // (缩写) 相当于 routes: routes
+		});
+
+		var vue = new Vue({
+			el: "#app",
+			data() {
+				return {
+					nowPage: "",
+					oldpetData: pet,
+					icon_all: icon_all
+				};
+			},
+			components: {
+				menubar: httpVueLoader("./components/Menu.vue"),
+			},
+			router,
+			mounted() {
+				// store.dispatch("SET_PETDATA_ACTION", this.oldpetData)
+			},
+			computed: {},
+			watch: {
+				$route(to, from) {
+					var now = this.$route.path;
+					if ((now.split('home')[0] == 'home' || now.split('home')[0] == '/') && now.split('home')[1] !== '') {
+						this.nowPage = "detail";
+						store.dispatch("PAGE", "detail");
+					} else if (now == "/" || now == 'home') {
+						this.nowPage = "home";
+						store.dispatch("PAGE", "home");
+					} else {
+						store.dispatch("SET_LOADING", true);
+						this.nowPage = now.split("/")[1];
+						store.dispatch("PAGE", now.split("/")[1]);
+					}
+				},
+			},
+			methods: {},
+		});
+	</script>
+</body>
+
+</html>

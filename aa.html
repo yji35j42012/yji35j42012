@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            color: red;
+            /* background-color: #000; */
+            /* padding: calc( constant(safe-area-inset-bottom));*/
+            padding-top: calc(constant(safe-area-inset-top));
+            padding-top: calc(env(safe-area-inset-top));
+            padding-left: calc(constant(safe-area-inset-left));
+            padding-left: calc(env(safe-area-inset-left));
+        }
+
+        header {
+            width: 100%;
+            height: 50px;
+            background-color: #000;
+        }
+
+        /* .wrap{
+            width: 100%;
+            height: 100%;
+            background-color: red;
+        } */
+        li {
+            width: 100%;
+            height: 200px;
+        }
+
+        li:nth-child(odd) {
+            background-color: pink;
+        }
+
+        li:nth-child(even) {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <header></header>
+    <div class="content">
+        <ul>
+            <li>itme1</li>
+            <li>itme2</li>
+            <li>itme3</li>
+            <li>itme4</li>
+            <li>itme5</li>
+        </ul>
+    </div>
+    <footer></footer>
+</body>
+
+</html>
