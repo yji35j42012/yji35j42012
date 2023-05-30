@@ -50,9 +50,7 @@
 						<td data-text="帳號狀況" class="table_w13">
 							<div class="state_select" :class="{ active : item.state_select}"
 								@click="state_select_open(index)">
-								<span>
-									{{ item.user_state }}
-								</span>
+								<span>{{ item.user_state }}</span>
 								<ul>
 									<li @click="change_state(1)">啟用</li>
 									<li @click="change_state(2)">停用</li>
