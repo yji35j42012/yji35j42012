@@ -39,13 +39,15 @@
 
 
             $.ajax({
-                url: "https://script.google.com/macros/s/AKfycbwKMTFTz2sIJV-mFJWaXkZf-IHWxwZd3G17cv6eGg/dev",
+                url: "https://script.google.com/macros/s/AKfycbwdGh1Qg3iY8TnKvfxrBUA6M7sb2BSE0BYUccMD_bmpXbhFQuhBkC3xZ2NuNB0bCoc/exec",
                 data: {
                     "name": name,
                     "phone": phone,
                     "demand": demand
                 },
                 success: function (response) {
+                    console.log('response',response);
+
                     if (response == "成功") {
                         alert("成功");
                     }

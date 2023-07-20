@@ -5,7 +5,7 @@ function send() {
   let phone = document.querySelector('#phoneValue').value;
   let demand = document.querySelector('#demandValue').value;
   $.ajax({
-    url: "https://script.google.com/macros/s/AKfycbxeo7hm7mYMiBl1lQ0Lxj3zV9EZBQ_Ap69ZsqQctoPKd5bAkSO1Mmo_-XljuOyukfE/exec",
+    url: "https://script.google.com/macros/s/AKfycbxUI4SsNBgrOkcLB4zhGhvlpOgLTpZPKSYe7x0p_38GeQhnCpnKw_IVt1NNJapw_Q/exec",
     data: {
         "name": name,
         "phone": phone,
