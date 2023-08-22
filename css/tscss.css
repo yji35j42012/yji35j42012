@@ -1,0 +1,34 @@
+h1 {
+  color: red;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 1000px) {
+  h1 {
+    color: yellow;
+  }
+}
+
+@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+  h1:not(:disabled):not(.--on):not(.--err):hover {
+    color: blue;
+  }
+}
+
+@media screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2) and (max-width: 1280px), screen and (pointer: fine) and (max-resolution: 2dppx) and (max-width: 1280px), screen and (-moz-touch-enabled: 0) and (max-width: 1280px) {
+  h1:not(:disabled):not(.--on):not(.--err):hover {
+    color: green;
+  }
+}
+
+h1:not(:disabled):not(.--on):not(.--err):active {
+  color: blue;
+}
+
+@media screen and (max-width: 1280px) {
+  h1:not(:disabled):not(.--on):not(.--err):active {
+    color: green;
+  }
+}
+/*# sourceMappingURL=tscss.css.map */

@@ -1,0 +1,54 @@
+// extend
+// include
+// 其餘詳細設定
+// RWD相關
+// 手指效果
+
+@mixin handHandler($color) {
+	&:hover {
+		color: $color;
+	}
+}
+// RWD相關
+$breakpoints: (
+	pc: 1280px,
+	big_pad: 1180px,
+	pad: 1024px,
+	pad_vl: 996px,
+	ph: 599px
+);
+
+@mixin hoverHandler {
+	@media (pointer: fine) and (max-resolution: 2dppx),
+		screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2),
+		(-moz-touch-enabled: 0) {
+		&:not(:disabled):not(.--on):not(.--err):hover {
+			@content;
+		}
+	}
+	&:not(:disabled):not(.--on):not(.--err):active {
+		@content;
+	}
+
+	transition: all 0.3s ease-in-out;
+}
+
+@mixin mw_xl {
+	@media screen and (max-width: map-get($breakpoints, "pc")) {
+		@content;
+	}
+}
+h1 {
+	color: red;
+
+	@media (max-width: 1000px) {
+		color: yellow;
+	}
+	@include hoverHandler {
+		color: blue;
+
+		@include mw_xl {
+			color: green;
+		}
+	}
+}

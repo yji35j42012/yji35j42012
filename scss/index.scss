@@ -1,11 +1,28 @@
-.content {
+// RWD相關
+$breakpoints: (
+	pc: 1280px,
+	big_pad: 1180px,
+	pad: 1024px,
+	pad_vl: 996px,
+	ph: 599px
+);
 
+@mixin mw_xl {
+	@media screen and (max-width: map-get($breakpoints, "pc")) {
+		@content;
+	}
+}
 
-    &_m {
-        width: 10%;
+h1 {
+	color: #000;
+	@include mw_xl {
+		color: #fff;
+	}
+}
 
-		@at-root .--result & {
-			width: 50%;
-		}
-    }
+h2 {
+	color: #ff0;
+	@include mw_xl {
+		color: #0ff;
+	}
 }
