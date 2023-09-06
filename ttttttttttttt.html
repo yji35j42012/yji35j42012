@@ -6,32 +6,67 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
-</head>
+	<style>
+		html,
+		body,
+		.wrap {
+			width: 100%;
+			height: 100%;
+		}
 
-<body>
-	<div class="wrap">
-		<span id="showTime"></span>
-	</div>
-	<a href="https://api.whatsapp.com/send?phone=+123456789">點擊聯繫我們</a>
-	<script>
-
-		var showTime = document.querySelector("#showTime");
-		let countdown = 10;
-
-		function tick() {
-			showTime.innerHTML = countdown;
-			countdown--;
-			if (countdown >= 0) {
-				setTimeout(tick, 1000);
-			} else {
-				countdown = 10
-				setTimeout(tick, 1000);
+		/* PC setting */
+		@media (any-pointer: fine) and (hover: hover) {
+			.wrap {
+				background-color: red;
 			}
 		}
 
-		tick();
+		/* MOBILE setting */
+		@media (any-pointer: coarse) and (hover: none) {
+			.wrap {
+				background-color: blue;
 
+			}
+		}
+	</style>
+</head>
 
+<body>
+	<div id="wrap" class="wrap">
+		<!-- <div id="box1"></div>
+		<div id="box2"></div>
+		<div id="box3"></div> -->
+		<!-- <iframe id="box1" src="https://www.google.com.tw/?hl=zh_TW" frameborder="0" style="display: none;"></iframe>
+		<iframe id="box2" src="" frameborder="0" style="display: none;"></iframe>
+		<iframe id="box3" src="" frameborder="0" style="display: none;"></iframe> -->
+	</div>
+
+	<script>
+
+		var wrap = document.querySelector("#wrap");
+		var box1 = document.querySelector("#box1");
+		var box2 = document.querySelector("#box2");
+		var box3 = document.querySelector("#box3");
+
+		var count = 0;
+		var interval = setInterval(() => {
+			console.log('count', count);
+			if (count >= 3) {
+				clearInterval(interval)
+			} else {
+				count++
+			}
+		}, 1000);
+
+		// setTimeout(() => {
+		// 	box1.remove();
+		// }, 1000);
+		// setTimeout(() => {
+		// 	box2.remove();
+		// }, 2000);
+		// setTimeout(() => {
+		// 	box3.remove();
+		// }, 3000);
 	</script>
 </body>
 
