@@ -5,66 +5,67 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-	<link rel="stylesheet" href="./css/all.css">
+	<link rel="stylesheet" href="./all.css">
 </head>
 
 <body>
 	<div class="wrap home">
 		<div class="head">
 			<div class="logo">
-				<a><img src="./assets/logo.svg" alt=""></a>
+				<a><img src="./assets/images/logo.svg" alt=""></a>
 			</div>
-			<div class="user">
-				Darren_KC_Huang
-				<ul class="normal_sel">
-					<li class="normal_sel_item">Logout</li>
+			<button class="icon_btn _home"></button>
+			<div class="user normal_sel" [class.on]="menuShow" (click)="menuHandler()">
+				<span class="normal_sel_title">Darren_KC_Huang</span>
+				<ul class="normal_sel_group">
+					<li class="normal_sel_item" (click)="logoutHandler()">Logout</li>
 				</ul>
 			</div>
 		</div>
 
-		<div class="content">
+		<div class="container">
 			<div class="system_txt">Manufacturing Automation & Reporting System</div>
 			<ul class="home_group">
-				<li class="home_item">
+				<li class="home_item" routerLink="/warroom">
 					<h2>War room</h2>
 					<p class="home_item_txt">戰情平台</p>
 					<div class="home_item_pic">
-						<img src="./assets/icon_warroom.svg" alt="">
+						<img src="./assets/images/icon_warroom.svg" alt="">
 					</div>
 				</li>
 				<li class="home_item">
 					<h2>Digital <br> Performance</h2>
 					<p class="home_item_txt">KPI 指標</p>
 					<div class="home_item_pic">
-						<img src="./assets/icon_kpi.svg" alt="">
+						<img src="./assets/images/icon_kpi.svg" alt="">
 					</div>
 				</li>
 				<li class="home_item">
 					<h2>Alarm Center</h2>
 					<p class="home_item_txt">警報中心</p>
 					<div class="home_item_pic">
-						<img src="./assets/icon_alarm.svg" alt="">
+						<img src="./assets/images/icon_alarm.svg" alt="">
 					</div>
 				</li>
 				<li class="home_item">
 					<h2>Equipment Center</h2>
 					<p class="home_item_txt">機台狀況系統</p>
 					<div class="home_item_pic">
-						<img src="./assets/icon_equipment.svg" alt="">
+						<img src="./assets/images/icon_equipment.svg" alt="">
 					</div>
 				</li>
 				<li class="home_item">
 					<h2>E-ProcessKey</h2>
 					<p class="home_item_txt">重要參數分析系統</p>
 					<div class="home_item_pic">
-						<img src="./assets/icon_processKey.svg" alt="">
+						<img src="./assets/images/icon_processKey.svg" alt="">
 					</div>
 				</li>
 				<li class="home_item">
 					<h2>Option</h2>
 					<p class="home_item_txt">後台控制系統</p>
 					<div class="home_item_pic">
-						<img src="./assets/icon_option.svg" alt="">
+						<img src="./assets/images/icon_option.svg" alt="">
 					</div>
 				</li>
 			</ul>

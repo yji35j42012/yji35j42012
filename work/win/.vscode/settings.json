@@ -4,12 +4,12 @@
 		{
 			"format": "expanded",
 			"extensionName": ".css",
-			"savePath": "~../css/"
+			"savePath": "~../"
 		},
 		{
 			"format": "compressed",
 			"extensionName": ".min.css", //正式版副檔名為min.css
-			"savePath": "~../css/"
+			"savePath": "~../"
 		},
 
 

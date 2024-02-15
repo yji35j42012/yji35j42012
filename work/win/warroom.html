@@ -2,29 +2,69 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/all.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="./all.css">
 </head>
 
 <body>
-    <div class="wrap">
-        <div class="head">
-            <div class="logo">
-                <a><img src="./assets/logo.svg" alt=""></a>
-            </div>
-            <div class="user">
-                Darren_KC_Huang
-                <ul class="normal_sel">
-                    <li class="normal_sel_item">Logout</li>
-                </ul>
-            </div>
-        </div>
-        <div class="content">
-            <div class="content_title"></div>
-        </div>
-    </div>
+	<div class="wrap">
+		<div class="head">
+			<div class="logo">
+				<a><img src="./assets/images/logo.svg" alt=""></a>
+			</div>
+			<button class="icon_btn _home"></button>
+			<div class="user normal_sel" [class.on]="menuShow" (click)="menuHandler()">
+				<span class="normal_sel_title">Darren_KC_Huang</span>
+				<ul class="normal_sel_group">
+					<li class="normal_sel_item" (click)="logoutHandler()">Logout</li>
+				</ul>
+			</div>
+		</div>
+		<div class="container">
+			<div class="container_title" data-tw="戰情平台">War room</div>
+			<div class="warroom">
+				<div class="warroom_all">
+					<div class="warroom_all_title">全廠指標</div>
+					<div class="warroom_all_item _people">
+						<div class="num" data-unit="人">106</div>
+						<div class="txt">作業人數</div>
+					</div>
+					<div class="warroom_all_item _attendance">
+						<div class="num" data-unit="%">100</div>
+						<div class="txt">人員出勤率</div>
+					</div>
+					<div class="warroom_all_item _input">
+						<div class="num">100</div>
+						<div class="txt">Input</div>
+					</div>
+					<div class="warroom_all_item _output">
+						<div class="num">100</div>
+						<div class="txt">Ouput</div>
+					</div>
+					<div class="warroom_all_item _achievement">
+						<div class="num" data-unit="%">100</div>
+						<div class="txt">達成率</div>
+					</div>
+				</div>
+				<div class="warroom_info">
+					<div class="warroom_head">
+						<div class="normal_sel">
+							<span class="normal_sel_title">變更機台顯示名稱</span>
+							<ul class="noraml_sel_group"></ul>
+						</div>
+						<button class="normal_btn _primary _edit">編輯</button>
+					</div>
+					<div class="warroom_body">
+						<div class="warroom_machine">
+							<div class="warroom_machine_head"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>
