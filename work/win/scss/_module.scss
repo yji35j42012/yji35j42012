@@ -60,7 +60,7 @@ h2 {
 	}
 
 	&._edit {
-		@include d_f(flex,center,center);
+		@include d_f(flex, center, center);
 		padding: 0 20px;
 		border-radius: 85px;
 		font-size: 14px;
@@ -98,9 +98,22 @@ h2 {
 		}
 
 		&._home {
+			width: 36px;
+			height: 36px;
 			margin-left: auto;
 			margin-right: 50px;
-			background-image: url('./assets/images/icon_home.svg');
+			border-radius: 100%;
+			background: url('./assets/images/icon_home.svg')no-repeat center/22px 20px, rgba(238, 240, 243, 1);
+			@extend %transition;
+
+			@include hv {
+				background: url('./assets/images/icon_home.svg')no-repeat center/22px 20px, rgba(235, 235, 235, 1);
+			}
+
+			@include ac {
+				background: url('./assets/images/icon_home.svg')no-repeat center/22px 20px, rgba(203, 203, 203, 1);
+				;
+			}
 		}
 	}
 }
@@ -109,36 +122,18 @@ h2 {
 .normal_sel {
 	position: relative;
 	min-width: 180px;
-	padding: 10px 0;
-	background-color: #FFFFFF;
 	border: 1px solid #BCBCBC;
 	border-radius: 8px;
+	@extend %transition;
 
 	&.user {
 		border: none;
-
-		&:after {
-			background-image: url('./assets/images/icon_arrDown_user.svg');
-		}
 	}
 
-	&:after {
-		pointer-events: none;
-		content: "";
-		position: absolute;
-		right: 10px;
-		top: 0;
-		bottom: 0;
-		flex: none;
-		display: block;
-		width: 24px;
-		height: 24px;
-		margin: auto;
-		background-size: contain;
-		background-position: center/center;
-		background-repeat: no-repeat;
-		background-image: url('./assets/images/icon_arrDown_sel.svg');
-		// 
+	@include hoverHandler {
+		&:not(.user) {
+			background-color: #E7F0FF;
+		}
 	}
 
 	// .noraml_sel_title
@@ -146,17 +141,52 @@ h2 {
 		display: block;
 		width: 100%;
 		height: 100%;
-		padding-left: 12px;
-		padding-right: 44px;
+		padding: 10px 44px 10px 12px;
 		color: #464646;
 		font-size: 16px;
 		font-weight: 400;
-		letter-spacing: -0.015em;
 		@extend %hand;
 
-		.user & {
-			color: #565656;
+		&:after {
+			pointer-events: none;
+			content: "";
+			position: absolute;
+			right: 10px;
+			top: 0;
+			bottom: 0;
+			flex: none;
+			display: block;
+			width: 24px;
+			height: 24px;
+			margin: auto;
+			background-size: contain;
+			background-position: center/center;
+			background-repeat: no-repeat;
+			background-image: url('./assets/images/icon_arrDown_sel.svg');
+			@extend %transition;
+			// 
 		}
+
+		&.on:after {
+			transform: rotate(180deg);
+		}
+
+		.user &:after {
+			background-image: url('./assets/images/icon_arrDown_user.svg');
+		}
+
+		.home & {
+			color: #ffffff;
+
+			&:after {
+				background-image: url('./assets/images/icon_arrDown_w.svg');
+			}
+		}
+
+	}
+
+	&.on {
+		background-color: #E7F0FF;
 	}
 
 	// .normal_sel_group
@@ -165,13 +195,14 @@ h2 {
 		right: 0;
 		top: calc(100% + 5px);
 		display: none;
-		width: 180px;
+		width: 100%;
+		min-width: 180px;
 		padding: 10px 0;
 		background-color: #FFFFFF;
 		border: 1px solid #BCBCBC;
 		border-radius: 8px;
 
-		.on & {
+		.on+& {
 			display: block;
 		}
 	}
@@ -180,6 +211,7 @@ h2 {
 	&_item {
 		padding: 8px 15px;
 		background-color: #FFFFFF;
+		color: #565656;
 		font-size: 16px;
 		font-weight: 400;
 		line-height: 24px;
@@ -191,6 +223,31 @@ h2 {
 		}
 	}
 }
+
+.WAIT {
+	background-color: #FA2E2E;
+}
+
+.PM {
+	background-color: #2E90FA;
+}
+
+.PD_RUN {
+	background-color: #29D20D;
+}
+
+.ENG {
+	background-color: #FB9823;
+}
+
+.OFF {
+	background-color: #838383;
+}
+
+.PR_RUN {
+	background-color: #8210B8;
+}
+
 
 .wrap {
 	width: 100%;
@@ -204,9 +261,11 @@ h2 {
 }
 
 .container {
+	overflow: hidden;
 	width: 100%;
 	height: calc(100% - 60px);
 	padding: 20px;
+	background-color: #f6f6f6;
 
 	.home & {
 		padding-top: 60px;
@@ -274,10 +333,6 @@ h2 {
 
 		&::before {
 			background-image: url('./assets/images/icon_user_w.svg');
-		}
-
-		&:after {
-			background-image: url('./assets/images/icon_arrDown_w.svg');
 		}
 	}
 
