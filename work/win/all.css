@@ -230,6 +230,13 @@ h2 {
 .icon_btn._home:active {
   background: url("./assets/images/icon_home.svg") no-repeat center/22px 20px, rgb(203, 203, 203);
 }
+.icon_btn._del {
+  position: absolute;
+  right: 15px;
+  top: 0;
+  transform: translate(30%, -30%);
+  background-image: url("./assets/images/icon_del.svg");
+}
 
 .normal_sel {
   position: relative;
@@ -359,7 +366,7 @@ h2 {
   overflow: hidden;
   width: 100%;
   height: calc(100% - 60px);
-  padding: 20px;
+  padding: 20px 5px 20px 20px;
   background-color: #f6f6f6;
 }
 .home .container {
@@ -662,16 +669,15 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
 }
 .warroom_body {
   overflow-y: auto;
   height: 100%;
+  padding-top: 13px;
 }
 .warroom_machine {
-  overflow: hidden;
-  padding-right: 5px;
-  border-radius: 10px;
+  position: relative;
+  padding-right: 10px;
 }
 .warroom_machine + .warroom_machine {
   margin-top: 10px;
@@ -683,6 +689,11 @@ h2 {
   height: 70px;
   padding: 10px 14px;
   background-color: #8C95A6;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-top: 1px solid rgb(216, 216, 216);
+  border-left: 1px solid rgb(216, 216, 216);
+  border-right: 1px solid rgb(216, 216, 216);
 }
 .warroom_machine_li {
   display: flex;
@@ -788,6 +799,11 @@ h2 {
   height: 136px;
   padding: 0 7px 6px;
   background-color: #fff;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom: 1px solid rgb(216, 216, 216);
+  border-left: 1px solid rgb(216, 216, 216);
+  border-right: 1px solid rgb(216, 216, 216);
 }
 .warroom_machine_outside ::-webkit-scrollbar {
   width: 6px;

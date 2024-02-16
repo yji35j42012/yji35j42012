@@ -100,20 +100,20 @@
         width: 100%;
         height: 40px;
         @include d_f(flex, space-between, center);
-        margin-bottom: 10px;
     }
 
     // .warroom_body
     &_body {
         overflow-y: auto;
         height: 100%;
+        padding-top: 13px;
     }
 
     // .warroom_machine
     &_machine {
-        overflow: hidden;
-        padding-right: 5px;
-        border-radius: 10px;
+        // overflow: hidden;
+        position: relative;
+        padding-right: 10px;
 
         &+& {
             margin-top: 10px;
@@ -126,6 +126,11 @@
             height: 70px;
             padding: 10px 14px;
             background-color: #8C95A6;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+            border-top: 1px solid rgba(216, 216, 216, 1);
+            border-left: 1px solid rgba(216, 216, 216, 1);
+            border-right: 1px solid rgba(216, 216, 216, 1);
         }
 
         // .warroom_machine_li
@@ -253,7 +258,12 @@
             height: 136px;
             padding: 0 7px 6px;
             background-color: #fff;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
 
+            border-bottom: 1px solid rgba(216, 216, 216, 1);
+            border-left: 1px solid rgba(216, 216, 216, 1);
+            border-right: 1px solid rgba(216, 216, 216, 1);
             ::-webkit-scrollbar {
                 width: 6px;
                 height: 6px;
