@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-	<link rel="stylesheet" href="./all.css">
+	<link rel="stylesheet" href="./assets/css/all.css">
 </head>
 
 <body>
@@ -14,7 +14,7 @@
 			<div class="logo">
 				<a><img src="./assets/images/logo.svg" alt=""></a>
 			</div>
-			<button class="icon_btn _home"></button>
+			<button class="icon_btn _home" routerLink="/home"></button>
 			<div class="user normal_sel" [class.on]="menuShow" (click)="menuHandler()">
 				<!-- 點擊在span class裡面加上on -->
 				<span class="normal_sel_title">Darren_KC_Huang</span>
@@ -27,14 +27,14 @@
 		<div class="container">
 			<div class="system_txt">Manufacturing Automation & Reporting System</div>
 			<ul class="home_group">
-				<li class="home_item" routerLink="/warroom">
+				<li class="home_item" routerLink="/home/warroom">
 					<h2>War room</h2>
 					<p class="home_item_txt">戰情平台</p>
 					<div class="home_item_pic">
 						<img src="./assets/images/icon_warroom.svg" alt="">
 					</div>
 				</li>
-				<li class="home_item">
+				<li class="home_item" routerLink="/home/digital-performance">
 					<h2>Digital <br> Performance</h2>
 					<p class="home_item_txt">KPI 指標</p>
 					<div class="home_item_pic">

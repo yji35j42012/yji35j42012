@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-	<link rel="stylesheet" href="./all.css">
+	<link rel="stylesheet" href="./assets/css/all.css">
 </head>
 
 <body>
@@ -14,8 +14,9 @@
 			<div class="logo">
 				<a><img src="./assets/images/logo.svg" alt=""></a>
 			</div>
-			<button class="icon_btn _home"></button>
+			<button class="icon_btn _home" routerLink="/home"></button>
 			<div class="user normal_sel" [class.on]="menuShow" (click)="menuHandler()">
+				<!-- 點擊在span class裡面加上on -->
 				<span class="normal_sel_title">Darren_KC_Huang</span>
 				<ul class="normal_sel_group">
 					<li class="normal_sel_item" (click)="logoutHandler()">Logout</li>
@@ -61,7 +62,7 @@
 						<button class="normal_btn _primary _edit">編輯</button>
 					</div>
 					<!-- 點擊編輯按鈕 在下面class加上edit -->
-					<div class="warroom_body edit">
+					<div class="warroom_body">
 						<div class="warroom_machine">
 							<button class="icon_btn _del"></button>
 							<ul class="warroom_machine_head">
@@ -98,230 +99,23 @@
 								<li class="warroom_machine_li _total" data-l="共" data-r="機台">999</li>
 							</ul>
 							<div class="warroom_machine_outside">
+								<button class="border_btn _add">
+									<i></i>
+									新增機台
+								</button>
 								<ul class="warroom_machine_group">
-									<li class="warroom_machine_item" data-txt="EQ_WAIT">
+									<li id="item0" name="warroom_item" class="warroom_machine_item" data-txt="EQ_WAIT">
 										<div class="state WAIT"></div>
 										<div class="machine"></div>
 										<div class="name">PrintPrintPr123</div>
 									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="warroom_machine">
-							<button class="icon_btn _del"></button>
-							<ul class="warroom_machine_head">
-								<li class="warroom_machine_li _title">
-									<span class="warroom_machine_span">S12345</span>
-									<span class="warroom_machine_span">YV3.5 MP FIO BO1ARD</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">Input</span>
-									<span class="warroom_machine_span" data-unit="(pcs)">200</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">Output</span>
-									<span class="warroom_machine_span" data-unit="(pcs)">100</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">Mo工單</span>
-									<span class="warroom_machine_span">000010091072</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">稼動率 OEE</span>
-									<span class="warroom_machine_span" data-unit="%">65</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">產品達成率</span>
-									<span class="warroom_machine_span" data-unit="%">100</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">產品達成率</span>
-									<span class="warroom_machine_span" data-unit="%">100</span>
-								</li>
-								<li class="warroom_machine_li _payment" data-unit="kwh">33653338</li>
-								<li class="warroom_machine_li _water" data-unit="L">12345556</li>
-								<li class="warroom_machine_li _total" data-l="共" data-r="機台">999</li>
-							</ul>
-							<div class="warroom_machine_outside">
-								<ul class="warroom_machine_group">
-									<li class="warroom_machine_item" data-txt="EQ_WAIT">
-										<div class="state WAIT"></div>
+									<li id="item1" name="warroom_item" class="warroom_machine_item" data-txt="EQ_WAIT">
+										<div class="state PM"></div>
 										<div class="machine"></div>
 										<div class="name">PrintPrintPr123</div>
 									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="warroom_machine">
-							<ul class="warroom_machine_head">
-								<li class="warroom_machine_li _title">
-									<span class="warroom_machine_span">S12345</span>
-									<span class="warroom_machine_span">YV3.5 MP FIO BO1ARD</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">Input</span>
-									<span class="warroom_machine_span" data-unit="(pcs)">200</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">Output</span>
-									<span class="warroom_machine_span" data-unit="(pcs)">100</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">Mo工單</span>
-									<span class="warroom_machine_span">000010091072</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">稼動率 OEE</span>
-									<span class="warroom_machine_span" data-unit="%">65</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">產品達成率</span>
-									<span class="warroom_machine_span" data-unit="%">100</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">產品達成率</span>
-									<span class="warroom_machine_span" data-unit="%">100</span>
-								</li>
-								<li class="warroom_machine_li _payment" data-unit="kwh">33653338</li>
-								<li class="warroom_machine_li _water" data-unit="L">12345556</li>
-								<li class="warroom_machine_li _total" data-l="共" data-r="機台">999</li>
-							</ul>
-							<div class="warroom_machine_outside">
-								<ul class="warroom_machine_group">
-									<li class="warroom_machine_item" data-txt="EQ_WAIT">
-										<div class="state WAIT"></div>
-										<div class="machine"></div>
-										<div class="name">PrintPrintPr123</div>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="warroom_machine">
-							<ul class="warroom_machine_head">
-								<li class="warroom_machine_li _title">
-									<span class="warroom_machine_span">S12345</span>
-									<span class="warroom_machine_span">YV3.5 MP FIO BO1ARD</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">Input</span>
-									<span class="warroom_machine_span" data-unit="(pcs)">200</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">Output</span>
-									<span class="warroom_machine_span" data-unit="(pcs)">100</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">Mo工單</span>
-									<span class="warroom_machine_span">000010091072</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">稼動率 OEE</span>
-									<span class="warroom_machine_span" data-unit="%">65</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">產品達成率</span>
-									<span class="warroom_machine_span" data-unit="%">100</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">產品達成率</span>
-									<span class="warroom_machine_span" data-unit="%">100</span>
-								</li>
-								<li class="warroom_machine_li _payment" data-unit="kwh">33653338</li>
-								<li class="warroom_machine_li _water" data-unit="L">12345556</li>
-								<li class="warroom_machine_li _total" data-l="共" data-r="機台">999</li>
-							</ul>
-							<div class="warroom_machine_outside">
-								<ul class="warroom_machine_group">
-									<li class="warroom_machine_item" data-txt="EQ_WAIT">
-										<div class="state WAIT"></div>
-										<div class="machine"></div>
-										<div class="name">PrintPrintPr123</div>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="warroom_machine">
-							<ul class="warroom_machine_head">
-								<li class="warroom_machine_li _title">
-									<span class="warroom_machine_span">S12345</span>
-									<span class="warroom_machine_span">YV3.5 MP FIO BO1ARD</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">Input</span>
-									<span class="warroom_machine_span" data-unit="(pcs)">200</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">Output</span>
-									<span class="warroom_machine_span" data-unit="(pcs)">100</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">Mo工單</span>
-									<span class="warroom_machine_span">000010091072</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">稼動率 OEE</span>
-									<span class="warroom_machine_span" data-unit="%">65</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">產品達成率</span>
-									<span class="warroom_machine_span" data-unit="%">100</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">產品達成率</span>
-									<span class="warroom_machine_span" data-unit="%">100</span>
-								</li>
-								<li class="warroom_machine_li _payment" data-unit="kwh">33653338</li>
-								<li class="warroom_machine_li _water" data-unit="L">12345556</li>
-								<li class="warroom_machine_li _total" data-l="共" data-r="機台">999</li>
-							</ul>
-							<div class="warroom_machine_outside">
-								<ul class="warroom_machine_group">
-									<li class="warroom_machine_item" data-txt="EQ_WAIT">
-										<div class="state WAIT"></div>
-										<div class="machine"></div>
-										<div class="name">PrintPrintPr123</div>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="warroom_machine">
-							<ul class="warroom_machine_head">
-								<li class="warroom_machine_li _title">
-									<span class="warroom_machine_span">S12345</span>
-									<span class="warroom_machine_span">YV3.5 MP FIO BO1ARD</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">Input</span>
-									<span class="warroom_machine_span" data-unit="(pcs)">200</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">Output</span>
-									<span class="warroom_machine_span" data-unit="(pcs)">100</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">Mo工單</span>
-									<span class="warroom_machine_span">000010091072</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">稼動率 OEE</span>
-									<span class="warroom_machine_span" data-unit="%">65</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">產品達成率</span>
-									<span class="warroom_machine_span" data-unit="%">100</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">產品達成率</span>
-									<span class="warroom_machine_span" data-unit="%">100</span>
-								</li>
-								<li class="warroom_machine_li _payment" data-unit="kwh">33653338</li>
-								<li class="warroom_machine_li _water" data-unit="L">12345556</li>
-								<li class="warroom_machine_li _total" data-l="共" data-r="機台">999</li>
-							</ul>
-							<div class="warroom_machine_outside">
-								<ul class="warroom_machine_group">
-									<li class="warroom_machine_item" data-txt="EQ_WAIT">
-										<div class="state WAIT"></div>
+									<li id="item2" name="warroom_item" class="warroom_machine_item" data-txt="EQ_WAIT">
+										<div class="state PD_RUN"></div>
 										<div class="machine"></div>
 										<div class="name">PrintPrintPr123</div>
 									</li>
@@ -332,7 +126,114 @@
 				</div>
 			</div>
 		</div>
+
+
+
+
+		<div class="alert _newMachine">
+			<div class="alert_box">
+				<div class="alert_title">新増機台</div>
+				<div class="machine_name">S12345</div>
+				<div class="machine_detail">YV3.5 MP FIO BOARD</div>
+				<div class="txt">請選擇要加入線別之機台</div>
+				<ul class="machine_box ">
+					<li class="warroom_machine_item check" data-txt="EQ_WAIT">
+						<div class="state WAIT"></div>
+						<div class="machine"></div>
+						<div class="name">PrintPrintPr123</div>
+					</li>
+					<li class="warroom_machine_item" data-txt="EQ_WAIT">
+						<div class="state WAIT"></div>
+						<div class="machine"></div>
+						<div class="name">PrintPrintPr123</div>
+					</li>
+					<li class="warroom_machine_item" data-txt="EQ_WAIT">
+						<div class="state WAIT"></div>
+						<div class="machine"></div>
+						<div class="name">PrintPrintPr123</div>
+					</li>
+					<li class="warroom_machine_item" data-txt="EQ_WAIT">
+						<div class="state WAIT"></div>
+						<div class="machine"></div>
+						<div class="name">PrintPrintPr123</div>
+					</li>
+					<li class="warroom_machine_item" data-txt="EQ_WAIT">
+						<div class="state WAIT"></div>
+						<div class="machine"></div>
+						<div class="name">PrintPrintPr123</div>
+					</li>
+					<li class="warroom_machine_item" data-txt="EQ_WAIT">
+						<div class="state WAIT"></div>
+						<div class="machine"></div>
+						<div class="name">PrintPrintPr123</div>
+					</li>
+					<li class="warroom_machine_item" data-txt="EQ_WAIT">
+						<div class="state WAIT"></div>
+						<div class="machine"></div>
+						<div class="name">PrintPrintPr123</div>
+					</li>
+					<li class="warroom_machine_item" data-txt="EQ_WAIT">
+						<div class="state WAIT"></div>
+						<div class="machine"></div>
+						<div class="name">PrintPrintPr123</div>
+					</li>
+				</ul>
+				<div class="alert_btnBox">
+					<button class="normal_btn _secondry">取消</button>
+					<button class="normal_btn _primary">確定</button>
+				</div>
+			</div>
+		</div>
 	</div>
+
+
+	<script>
+		var warroom_items=document.querySelectorAll("[name='warroom_item']");
+		var itemX=0
+		var itemMx=0
+		var itemNum=null
+		var itemMoveNum=0
+		var itemLast
+		for (let i=0; i<warroom_items.length; i++) {
+			itemLast=i
+			warroom_items[i].addEventListener("mousedown", itemDown);
+		}
+		function itemDown(e) {
+			this.addEventListener("mousemove", itemMove);
+			window.addEventListener("mouseup", itemUp);
+			this.classList.add("top");
+			itemX=e.clientX;
+			itemNum=parseInt(this.id.split("item")[1]);
+			itemMoveNum=parseInt(itemNum);
+			console.log('itemLast', itemLast);
+		}
+
+		function itemMove(e) {
+			itemMx=e.clientX
+			let newX=itemMx-itemX
+			console.log('itemMoveNum', itemMoveNum);
+
+			if (itemNum==0&&newX>(itemMoveNum+1)*50&&itemMoveNum<itemLast) {
+				changItem(itemMoveNum+1)
+				itemMoveNum++
+			}
+			this.style=`transform:translateX(${ newX }px);transition: all 0s;}`;
+			// console.log('itemMove', newX);
+		}
+		function itemUp() {
+			console.log('itemUp');
+			warroom_items[itemNum].style=`transform:translateX(${ itemMoveNum*100 }%);transition: all 0.3s ease-in-out;}`;
+			setTimeout(() => {
+				warroom_items[itemNum].classList.remove("top")
+			}, 300);
+			warroom_items[itemNum].removeEventListener("mousemove", itemMove)
+			window.removeEventListener("mouseup", itemUp)
+		}
+
+		function changItem(n) {
+			warroom_items[n].style=`transform:translateX(-100%);transition: all 0.3s ease-in-out;}`;
+		}
+	</script>
 </body>
 
 </html>

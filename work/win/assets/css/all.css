@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;200;300;400;500;600;700;800;900&display=swap");
-.warroom_machine_item::after, .warroom_machine_item, .home_item::before, .home_item, .normal_sel_item, .normal_sel_title:after, .normal_sel, .icon_btn._home, .normal_btn {
+.warroom_machine_item::after, .warroom_machine_item::before, .home_item::before, .home_item, .normal_sel_item, .normal_sel_title:after, .normal_sel, .icon_btn._del, .icon_btn._home, .border_btn._add i::before, .border_btn._add i:after, .border_btn._add i, .border_btn._add, .normal_btn {
   transition: all 0.3s ease-in-out;
 }
 
-.login_box_forgot, .home_item, .normal_sel_item, .normal_sel_title, .icon_btn, .normal_btn {
+.login_box_forgot, .home_item, .normal_sel_item, .normal_sel_title, .icon_btn, .border_btn, .normal_btn {
   cursor: pointer;
 }
 
@@ -197,7 +197,69 @@ h2 {
   width: 16px;
   height: 16px;
   margin-right: 6px;
-  background: url("../assets/images/icon_edit_w.svg") no-repeat center/contain;
+  background: url("../images/icon_edit_w.svg") no-repeat center/contain;
+}
+
+.border_btn {
+  min-width: 118px;
+  height: 33px;
+  border: 1px solid #2E7FDF;
+  border-radius: 85px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+.border_btn._add {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #2E7FDF;
+}
+.border_btn._add i {
+  flex: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 13px;
+  height: 13px;
+  margin-right: 6px;
+  border: 1px solid #2E7FDF;
+  border-radius: 100%;
+}
+.border_btn._add i::before, .border_btn._add i:after {
+  content: "";
+  display: block;
+  width: 7px;
+  height: 1px;
+  border-radius: 100%;
+  background-color: #2E7FDF;
+}
+.border_btn._add i:after {
+  position: absolute;
+  transform: rotate(90deg);
+}
+@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+  .border_btn._add:hover {
+    color: #fff;
+    background-color: #2E7FDF;
+  }
+  .border_btn._add:hover i {
+    border-color: #fff;
+  }
+  .border_btn._add:hover i::before, .border_btn._add:hover i:after {
+    background-color: #fff;
+  }
+}
+.border_btn._add:active {
+  color: #fff;
+  background-color: #1D3EB3;
+}
+.border_btn._add:active i {
+  border-color: #fff;
+}
+.border_btn._add:active i::before, .border_btn._add:active i:after {
+  background-color: #fff;
 }
 
 .icon_btn {
@@ -209,10 +271,10 @@ h2 {
   background-position: center;
 }
 .icon_btn._eyeclose {
-  background-image: url("./assets/images/icon_eye_close.svg");
+  background-image: url("../images/icon_eye_close.svg");
 }
 .icon_btn._eyeopen {
-  background-image: url("./assets/images/icon_eye_open.svg");
+  background-image: url("../images/icon_eye_open.svg");
 }
 .icon_btn._home {
   width: 36px;
@@ -220,22 +282,40 @@ h2 {
   margin-left: auto;
   margin-right: 50px;
   border-radius: 100%;
-  background: url("./assets/images/icon_home.svg") no-repeat center/22px 20px, rgb(238, 240, 243);
+  background: url("../images/icon_home.svg") no-repeat center/22px 20px, rgb(238, 240, 243);
 }
 @media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
   .icon_btn._home:hover {
-    background: url("./assets/images/icon_home.svg") no-repeat center/22px 20px, rgb(235, 235, 235);
+    background: url("../images/icon_home.svg") no-repeat center/22px 20px, rgb(235, 235, 235);
   }
 }
 .icon_btn._home:active {
-  background: url("./assets/images/icon_home.svg") no-repeat center/22px 20px, rgb(203, 203, 203);
+  background: url("../images/icon_home.svg") no-repeat center/22px 20px, rgb(203, 203, 203);
 }
 .icon_btn._del {
   position: absolute;
   right: 15px;
   top: 0;
+  width: 24px;
+  height: 24px;
+  background-color: #FA2E2E;
   transform: translate(30%, -30%);
-  background-image: url("./assets/images/icon_del.svg");
+  border-radius: 100%;
+}
+.icon_btn._del:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/icon_del.svg");
+}
+@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+  .icon_btn._del:hover {
+    background-color: #DD1010;
+  }
+}
+.icon_btn._del:active {
+  background-color: #A90000;
 }
 
 .normal_sel {
@@ -279,19 +359,19 @@ h2 {
   background-size: contain;
   background-position: center/center;
   background-repeat: no-repeat;
-  background-image: url("./assets/images/icon_arrDown_sel.svg");
+  background-image: url("../images/icon_arrDown_sel.svg");
 }
 .normal_sel_title.on:after {
   transform: rotate(180deg);
 }
 .user .normal_sel_title:after {
-  background-image: url("./assets/images/icon_arrDown_user.svg");
+  background-image: url("../images/icon_arrDown_user.svg");
 }
 .home .normal_sel_title {
   color: #ffffff;
 }
 .home .normal_sel_title:after {
-  background-image: url("./assets/images/icon_arrDown_w.svg");
+  background-image: url("../images/icon_arrDown_w.svg");
 }
 .normal_sel.on {
   background-color: #E7F0FF;
@@ -359,7 +439,7 @@ h2 {
   background-color: #f6f6f6;
 }
 .wrap.home {
-  background: url("./assets/images/home_bg.jpg") no-repeat center/cover;
+  background: url("../images/home_bg.jpg") no-repeat center/cover;
 }
 
 .container {
@@ -371,6 +451,7 @@ h2 {
 }
 .home .container {
   padding-top: 60px;
+  background-color: transparent;
 }
 .container_title {
   font-size: 20px;
@@ -417,13 +498,13 @@ h2 {
 }
 .user::before {
   margin-right: 4px;
-  background-image: url("./assets/images/icon_user_blue.svg");
+  background-image: url("../images/icon_user_blue.svg");
 }
 .home .user {
   color: #fff;
 }
 .home .user::before {
-  background-image: url("./assets/images/icon_user_w.svg");
+  background-image: url("../images/icon_user_w.svg");
 }
 
 .system_txt {
@@ -491,6 +572,104 @@ h2 {
   bottom: 30px;
 }
 
+.alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.alert_box {
+  display: inline-block;
+  padding: 20px 55px 60px;
+  background-color: rgb(246, 246, 246);
+  border-radius: 20px;
+}
+._newMachine .alert_box {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  height: 100%;
+  max-height: 830px;
+}
+.alert_title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  text-align: center;
+  color: rgb(86, 86, 86);
+}
+.alert_btnBox {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 40px;
+  margin-top: 40px;
+}
+.alert_btnBox .normal_btn {
+  min-width: 100px;
+  height: 40px;
+}
+.alert_btnBox .normal_btn + .normal_btn {
+  margin-left: 200px;
+}
+.alert .machine_name {
+  margin-top: 15px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+.alert .machine_detail {
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  color: rgb(86, 86, 86);
+}
+.alert .txt {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  color: rgb(86, 86, 86);
+}
+.alert .machine_box {
+  overflow-y: auto;
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  margin-top: 17px;
+  padding: 20px 38px;
+  border: 1px solid rgb(213, 216, 242);
+  border-radius: 20px;
+}
+.alert .machine_box .warroom_machine_item {
+  margin-bottom: 20px;
+}
+
+.machine {
+  width: 80px;
+  height: 60px;
+  background: url("../images/machine.svg") no-repeat center/contain;
+}
+.edit .machine {
+  background-image: url("../images/machine_edit.svg");
+}
+.check .machine {
+  background-image: url("../images/machine_check.svg");
+}
+
 .login {
   display: flex;
   align-items: center;
@@ -498,7 +677,7 @@ h2 {
   width: 100%;
   height: 100%;
   padding-top: 90px;
-  background: url("./assets/images/login_bg.jpg") no-repeat center/cover;
+  background: url("../images/login_bg.jpg") no-repeat center/cover;
 }
 .login_txt {
   margin-top: 42px;
@@ -643,19 +822,19 @@ h2 {
   height: 24px;
 }
 .warroom_all_item._people:after {
-  background-image: url("../assets/images/icon_warroom_people.svg");
+  background-image: url("../images/icon_warroom_people.svg");
 }
 .warroom_all_item._attendance:after {
-  background-image: url("../assets/images/icon_warroom_attendance.svg");
+  background-image: url("../images/icon_warroom_attendance.svg");
 }
 .warroom_all_item._input:after {
-  background-image: url("../assets/images/icon_warroom_input.svg");
+  background-image: url("../images/icon_warroom_input.svg");
 }
 .warroom_all_item._output:after {
-  background-image: url("../assets/images/icon_warroom_output.svg");
+  background-image: url("../images/icon_warroom_output.svg");
 }
 .warroom_all_item._achievement:after {
-  background-image: url("../assets/images/icon_warroom_achievement.svg");
+  background-image: url("../images/icon_warroom_achievement.svg");
 }
 .warroom_info {
   overflow: hidden;
@@ -682,7 +861,15 @@ h2 {
 .warroom_machine + .warroom_machine {
   margin-top: 10px;
 }
+.warroom_machine .icon_btn {
+  z-index: 1;
+  display: none;
+}
+.edit .warroom_machine .icon_btn {
+  display: block;
+}
 .warroom_machine_head {
+  position: relative;
   display: flex;
   align-items: center;
   width: 100%;
@@ -728,7 +915,7 @@ h2 {
   width: 16px;
   height: 16px;
   margin-right: 10px;
-  background: url("../assets/images/icon_payment.svg") no-repeat center/contain;
+  background: url("../images/icon_payment.svg") no-repeat center/contain;
 }
 .warroom_machine_li._payment:after {
   content: attr(data-unit);
@@ -746,7 +933,7 @@ h2 {
   width: 16px;
   height: 16px;
   margin-right: 10px;
-  background: url("../assets/images/icon_water.svg") no-repeat center/contain;
+  background: url("../images/icon_water.svg") no-repeat center/contain;
 }
 .warroom_machine_li._water:after {
   content: attr(data-unit);
@@ -796,6 +983,8 @@ h2 {
   line-height: 20px;
 }
 .warroom_machine_outside {
+  display: flex;
+  align-items: center;
   height: 136px;
   padding: 0 7px 6px;
   background-color: #fff;
@@ -824,6 +1013,9 @@ h2 {
 .warroom_machine_outside ::-webkit-scrollbar-corner {
   background-color: #f1f1f1;
 }
+.warroom_machine_outside .border_btn {
+  margin-right: 6px;
+}
 .warroom_machine_group {
   overflow-x: auto;
   display: flex;
@@ -837,16 +1029,42 @@ h2 {
   width: 100px;
   padding: 6px 9px 7px;
   text-align: center;
-  border: 2px solid rgb(255, 255, 255);
+  transform: translateX(0px);
+}
+.warroom_machine_item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  width: calc(100% - 6px);
+  height: 100%;
+  margin: auto;
+  border: 2px solid rgba(59, 149, 255, 0);
   border-radius: 6px;
+  box-sizing: border-box;
+}
+.warroom_machine_item.top {
+  z-index: 999;
+  background-color: #fff;
 }
 @media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
-  .warroom_machine_item:hover {
+  .warroom_machine_item:hover:before {
     border-color: rgb(59, 149, 255);
   }
-  .warroom_machine_item:hover:after {
+  .machine_box .warroom_machine_item:hover::before {
+    border-color: transparent;
+  }
+  .warroom_machine_item:hover:not(._add):after {
     opacity: 1;
   }
+  .edit .warroom_machine_item:hover {
+    cursor: grab;
+  }
+}
+.edit .warroom_machine_item:active {
+  cursor: grabbing;
 }
 .warroom_machine_item::after {
   content: attr(data-txt);
@@ -867,19 +1085,14 @@ h2 {
   opacity: 0;
   box-sizing: border-box;
 }
+.edit .warroom_machine_item::after, .machine_box .warroom_machine_item::after {
+  display: none;
+}
 .warroom_machine_item .state {
   width: 54px;
   height: 12px;
   margin: 0 auto 8px;
   border-radius: 21px;
-}
-.warroom_machine_item .machine {
-  width: 80px;
-  height: 60px;
-  background: url("../assets/images/machine.svg") no-repeat center/contain;
-}
-.edit .warroom_machine_item .machine {
-  background-image: url("../assets/images/machine_edit.svg");
 }
 .warroom_machine_item .name {
   overflow: hidden;
