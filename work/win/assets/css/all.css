@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;200;300;400;500;600;700;800;900&display=swap");
-.warroom_machine_item::after, .warroom_machine_item::before, .home_item::before, .home_item, .normal_sel_item, .normal_sel_title:after, .normal_sel, .icon_btn._del, .icon_btn._home, .border_btn._add i::before, .border_btn._add i:after, .border_btn._add i, .border_btn._add, .normal_btn {
+.warroom_machine_item::after, .warroom_machine_item::before, .home_item::before, .home_item, .normal_sel_item, .normal_sel_title:after, .normal_sel_title, .icon_btn._close, .icon_btn._del, .icon_btn._home, .border_btn._add i::before, .border_btn._add i::after, .border_btn._add i, .border_btn, .normal_btn {
   transition: all 0.3s ease-in-out;
 }
 
-.login_box_forgot, .home_item, .normal_sel_item, .normal_sel_title, .icon_btn, .border_btn, .normal_btn {
+.login_box_forgot, .home_item, .normal_sel_item, .normal_sel_title, .icon_btn, .border_btn, .normal_btn, .wrap .logo {
   cursor: pointer;
 }
 
@@ -150,7 +150,6 @@ h2 {
   width: 300px;
   height: 75px;
 }
-
 .normal_btn {
   height: 30px;
   border-radius: 10px;
@@ -201,64 +200,65 @@ h2 {
 }
 
 .border_btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-width: 118px;
   height: 33px;
   border: 1px solid #2E7FDF;
+  color: #2E7FDF;
   border-radius: 85px;
   font-size: 14px;
   font-weight: 400;
   line-height: 21px;
 }
-.border_btn._add {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #2E7FDF;
-}
 .border_btn._add i {
-  flex: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 13px;
-  height: 13px;
+  position: relative;
+  width: 16px;
+  height: 16px;
   margin-right: 6px;
   border: 1px solid #2E7FDF;
   border-radius: 100%;
 }
-.border_btn._add i::before, .border_btn._add i:after {
+.border_btn._add i::before, .border_btn._add i::after {
   content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
   display: block;
   width: 7px;
   height: 1px;
-  border-radius: 100%;
+  margin: auto;
   background-color: #2E7FDF;
+  transform: translateY(50%);
+  border-radius: 100%;
 }
-.border_btn._add i:after {
-  position: absolute;
-  transform: rotate(90deg);
+.border_btn._add i::after {
+  transform: translate(0, 50%) rotate(90deg);
 }
 @media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
-  .border_btn._add:hover {
+  .border_btn:hover {
     color: #fff;
     background-color: #2E7FDF;
   }
-  .border_btn._add:hover i {
+  .border_btn:hover i {
     border-color: #fff;
   }
-  .border_btn._add:hover i::before, .border_btn._add:hover i:after {
+  .border_btn:hover i::before, .border_btn:hover i::after {
     background-color: #fff;
   }
 }
-.border_btn._add:active {
+.border_btn:active {
   color: #fff;
   background-color: #1D3EB3;
 }
-.border_btn._add:active i {
+.border_btn:active i {
   border-color: #fff;
 }
-.border_btn._add:active i::before, .border_btn._add:active i:after {
+.border_btn:active i::before, .border_btn:active i::after {
   background-color: #fff;
 }
 
@@ -317,25 +317,77 @@ h2 {
 .icon_btn._del:active {
   background-color: #A90000;
 }
+.icon_btn._close {
+  background-color: #E6E6E6;
+  background-image: url("../images/icon_close.svg");
+  border-radius: 100%;
+}
+@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+  .icon_btn._close:hover {
+    background-color: #B8B8B8;
+  }
+}
+.icon_btn._close:active {
+  background-color: #888888;
+}
+.icon_btn._add {
+  background-size: 24px;
+  background-position: top center;
+  background-image: url("../images/icon_add.svg");
+}
+@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+  .icon_btn._add:hover {
+    background-position: center center;
+  }
+}
+.icon_btn._add:active {
+  background-position: bottom center;
+}
+.normal_sel .icon_btn._add {
+  position: absolute;
+  bottom: 9px;
+  right: 0;
+  transform: translateX(calc(100% + 6px));
+}
+.icon_btn._minus {
+  background-size: 24px;
+  background-position: top center;
+  background-image: url("../images/icon_minus.svg");
+}
+@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+  .icon_btn._minus:hover {
+    background-position: center center;
+  }
+}
+.icon_btn._minus:active {
+  background-position: bottom center;
+}
+.normal_sel .icon_btn._minus {
+  position: absolute;
+  bottom: 9px;
+  right: 0;
+  transform: translateX(calc(100% + 6px));
+}
 
 .normal_sel {
+  z-index: 10;
   position: relative;
   min-width: 180px;
-  border: 1px solid #BCBCBC;
-  border-radius: 8px;
 }
 .normal_sel.user {
   border: none;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
-  .normal_sel:hover:not(.user) {
-    background-color: #E7F0FF;
-  }
-}
-.normal_sel:active:not(.user) {
-  background-color: #E7F0FF;
+.normal_sel._hasMsg::before {
+  content: attr(data-msg);
+  display: block;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #565656;
 }
 .normal_sel_title {
+  position: relative;
   display: block;
   width: 100%;
   height: 100%;
@@ -343,6 +395,13 @@ h2 {
   color: #464646;
   font-size: 16px;
   font-weight: 400;
+  border: 1px solid #BCBCBC;
+  border-radius: 8px;
+}
+@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+  .normal_sel_title:hover {
+    background-color: #E7F0FF;
+  }
 }
 .normal_sel_title:after {
   pointer-events: none;
@@ -361,8 +420,22 @@ h2 {
   background-repeat: no-repeat;
   background-image: url("../images/icon_arrDown_sel.svg");
 }
+.normal_sel_title.on {
+  background-color: #E7F0FF;
+}
 .normal_sel_title.on:after {
   transform: rotate(180deg);
+}
+.user .normal_sel_title {
+  border: none;
+}
+@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+  .user .normal_sel_title:hover {
+    background-color: transparent;
+  }
+}
+.user .normal_sel_title.on {
+  background-color: transparent;
 }
 .user .normal_sel_title:after {
   background-image: url("../images/icon_arrDown_user.svg");
@@ -435,7 +508,7 @@ h2 {
 .wrap {
   width: 100%;
   min-width: 1440px;
-  height: 100%;
+  min-height: 100%;
   background-color: #f6f6f6;
 }
 .wrap.home {
@@ -573,6 +646,7 @@ h2 {
 }
 
 .alert {
+  z-index: 20;
   position: fixed;
   top: 0;
   left: 0;
@@ -585,6 +659,7 @@ h2 {
   background-color: rgba(0, 0, 0, 0.7);
 }
 .alert_box {
+  position: relative;
   display: inline-block;
   padding: 20px 55px 60px;
   background-color: rgb(246, 246, 246);
@@ -596,6 +671,31 @@ h2 {
   width: 800px;
   height: 100%;
   max-height: 830px;
+}
+._newLine .alert_box {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  max-height: calc(100% - 40px);
+  min-height: 280px;
+}
+._newLine .alert_box .normal_sel {
+  max-width: 420px;
+  margin: auto;
+}
+._msg .alert_box {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  max-height: calc(100% - 40px);
+  min-height: 290px;
+}
+.alert_box .icon_btn._close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
 }
 .alert_title {
   font-size: 20px;
@@ -618,7 +718,34 @@ h2 {
 .alert_btnBox .normal_btn + .normal_btn {
   margin-left: 200px;
 }
-.alert .machine_name {
+._newLine .alert_btnBox {
+  justify-content: space-between;
+  max-width: 420px;
+  margin: 40px auto 0;
+}
+.alert_info {
+  overflow-y: auto;
+  flex: 1 1 100%;
+  height: 100%;
+  padding-top: 40px;
+}
+.alert_info .normal_sel + .normal_sel {
+  margin-top: 20px;
+}
+.alert_info_txt {
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+}
+.alert_msg {
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+  padding-top: 40px;
+}
+.alert .machineName {
   margin-top: 15px;
   font-size: 20px;
   font-weight: 700;
@@ -626,7 +753,7 @@ h2 {
   text-align: center;
   color: rgb(0, 0, 0);
 }
-.alert .machine_detail {
+.alert .machineDetail {
   margin-top: 15px;
   font-size: 16px;
   font-weight: 400;
@@ -762,7 +889,7 @@ h2 {
   margin-top: 60px;
 }
 
-.warroom {
+.warroom_content {
   overflow: hidden;
   display: flex;
   align-items: flex-start;
@@ -988,11 +1115,11 @@ h2 {
   height: 136px;
   padding: 0 7px 6px;
   background-color: #fff;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
   border-bottom: 1px solid rgb(216, 216, 216);
   border-left: 1px solid rgb(216, 216, 216);
   border-right: 1px solid rgb(216, 216, 216);
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 .warroom_machine_outside ::-webkit-scrollbar {
   width: 6px;
@@ -1104,4 +1231,56 @@ h2 {
   font-size: 14px;
   font-weight: 400;
   line-height: 15px;
+}
+
+.machine_detail {
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 478px;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.6);
+}
+.machine_detail_head {
+  display: flex;
+  padding: 25px 20px 15px;
+  background-color: #3B95FF;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.machine_detail_head .pic {
+  flex: none;
+  overflow: hidden;
+  width: 128px;
+  height: 128px;
+  margin-right: 15px;
+  border-radius: 10px;
+}
+.machine_detail_head .info_item {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 32px;
+  text-align: left;
+  color: #fff;
+}
+.machine_detail_head .info_item._line {
+  font-size: 20px;
+  font-weight: 700;
+}
+.machine_detail_head .info_item::before {
+  content: attr(data-txt);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: right;
+}
+.machine_detail .icon_btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }/*# sourceMappingURL=all.css.map */

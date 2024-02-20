@@ -10,116 +10,122 @@
 
 <body>
 	<div class="wrap">
-		<div class="head">
-			<div class="logo">
-				<a><img src="./assets/images/logo.svg" alt=""></a>
-			</div>
-			<button class="icon_btn _home" routerLink="/home"></button>
-			<div class="user normal_sel" [class.on]="menuShow" (click)="menuHandler()">
-				<!-- 點擊在span class裡面加上on -->
-				<span class="normal_sel_title">Darren_KC_Huang</span>
-				<ul class="normal_sel_group">
-					<li class="normal_sel_item" (click)="logoutHandler()">Logout</li>
-				</ul>
-			</div>
-		</div>
-		<div class="container">
-			<div class="container_title" data-tw="戰情平台">War room</div>
-			<div class="warroom">
-				<div class="warroom_all">
-					<div class="warroom_all_title">全廠指標</div>
-					<div class="warroom_all_item _people">
-						<div class="num" data-unit="人">106</div>
-						<div class="txt">作業人數</div>
-					</div>
-					<div class="warroom_all_item _attendance">
-						<div class="num" data-unit="%">100</div>
-						<div class="txt">人員出勤率</div>
-					</div>
-					<div class="warroom_all_item _input">
-						<div class="num">100</div>
-						<div class="txt">Input</div>
-					</div>
-					<div class="warroom_all_item _output">
-						<div class="num">100</div>
-						<div class="txt">Ouput</div>
-					</div>
-					<div class="warroom_all_item _achievement">
-						<div class="num" data-unit="%">99</div>
-						<div class="txt">達成率</div>
-					</div>
+		<div [class]="['wrap',nowPage]">
+			<div class="head">
+				<div class="logo" routerLink="/home">
+					<a><img src="./assets/images/logo.svg" alt=""></a>
 				</div>
-				<div class="warroom_info">
-					<div class="warroom_head">
-						<div class="normal_sel">
-							<!-- 點擊在span class裡面加上on -->
-							<span class="normal_sel_title">變更機台顯示名稱</span>
-							<ul class="normal_sel_group">
-								<li class="normal_sel_item">機台顯示名稱1</li>
-								<li class="normal_sel_item">機台顯示名稱1</li>
-							</ul>
+				<button class="icon_btn _home" routerLink="/home"></button>
+				<div class="user normal_sel">
+					<!-- 點擊在span class裡面加上on -->
+					<span class="normal_sel_title" [class.on]="menuShow" (click)="menuHandler()">Darren_KC_Huang</span>
+					<ul class="normal_sel_group">
+						<li class="normal_sel_item" (click)="logoutHandler()">Logout</li>
+					</ul>
+				</div>
+			</div>
+			<div class="container">
+				<div class="container_title" data-tw="戰情平台">War room</div>
+				<div class="warroom_content">
+					<div class="warroom_all">
+						<div class="warroom_all_title">全廠指標</div>
+						<div class="warroom_all_item _people">
+							<div class="num" data-unit="人">106</div>
+							<div class="txt">作業人數</div>
 						</div>
-						<button class="normal_btn _primary _edit">編輯</button>
+						<div class="warroom_all_item _attendance">
+							<div class="num" data-unit="%">100</div>
+							<div class="txt">人員出勤率</div>
+						</div>
+						<div class="warroom_all_item _input">
+							<div class="num">100</div>
+							<div class="txt">Input</div>
+						</div>
+						<div class="warroom_all_item _output">
+							<div class="num">100</div>
+							<div class="txt">Ouput</div>
+						</div>
+						<div class="warroom_all_item _achievement">
+							<div class="num" data-unit="%">99</div>
+							<div class="txt">達成率</div>
+						</div>
 					</div>
-					<!-- 點擊編輯按鈕 在下面class加上edit -->
-					<div class="warroom_body">
-						<div class="warroom_machine">
-							<button class="icon_btn _del"></button>
-							<ul class="warroom_machine_head">
-								<li class="warroom_machine_li _title">
-									<span class="warroom_machine_span">S12345</span>
-									<span class="warroom_machine_span">YV3.5 MP FIO BO1ARD</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">Input</span>
-									<span class="warroom_machine_span" data-unit="(pcs)">200</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">Output</span>
-									<span class="warroom_machine_span" data-unit="(pcs)">100</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">Mo工單</span>
-									<span class="warroom_machine_span">000010091072</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">稼動率 OEE</span>
-									<span class="warroom_machine_span" data-unit="%">65</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">產品達成率</span>
-									<span class="warroom_machine_span" data-unit="%">100</span>
-								</li>
-								<li class="warroom_machine_li">
-									<span class="warroom_machine_span">產品達成率</span>
-									<span class="warroom_machine_span" data-unit="%">100</span>
-								</li>
-								<li class="warroom_machine_li _payment" data-unit="kwh">33653338</li>
-								<li class="warroom_machine_li _water" data-unit="L">12345556</li>
-								<li class="warroom_machine_li _total" data-l="共" data-r="機台">999</li>
-							</ul>
-							<div class="warroom_machine_outside">
-								<button class="border_btn _add">
-									<i></i>
-									新增機台
-								</button>
-								<ul class="warroom_machine_group">
-									<li id="item0" name="warroom_item" class="warroom_machine_item" data-txt="EQ_WAIT">
-										<div class="state WAIT"></div>
-										<div class="machine"></div>
-										<div class="name">PrintPrintPr123</div>
-									</li>
-									<li id="item1" name="warroom_item" class="warroom_machine_item" data-txt="EQ_WAIT">
-										<div class="state PM"></div>
-										<div class="machine"></div>
-										<div class="name">PrintPrintPr123</div>
-									</li>
-									<li id="item2" name="warroom_item" class="warroom_machine_item" data-txt="EQ_WAIT">
-										<div class="state PD_RUN"></div>
-										<div class="machine"></div>
-										<div class="name">PrintPrintPr123</div>
-									</li>
+					<div class="warroom_info">
+						<div class="warroom_head">
+							<div class="normal_sel">
+								<!-- 點擊在span class裡面加上on -->
+								<span class="normal_sel_title" [class.on]="selectShow"
+									(click)="selHandler()">{{selectTitle}}</span>
+								<ul class="normal_sel_group">
+									<li class="normal_sel_item" (click)="machineSel('機台顯示名稱1')">機台顯示名稱1</li>
+									<li class="normal_sel_item" (click)="machineSel('機台顯示名稱2')">機台顯示名稱2</li>
 								</ul>
+							</div>
+							<button class="normal_btn _primary _edit" (click)="editHandler()">編輯</button>
+						</div>
+						<!-- 點擊編輯按鈕 在下面class加上edit -->
+						<div class="warroom_body" [class.edit]="isEdit">
+							<div class="warroom_machine">
+								<button class="icon_btn _del"></button>
+								<ul class="warroom_machine_head">
+									<li class="warroom_machine_li _title">
+										<span class="warroom_machine_span">S12345</span>
+										<span class="warroom_machine_span">YV3.5 MP FIO BO1ARD</span>
+									</li>
+									<li class="warroom_machine_li">
+										<span class="warroom_machine_span">Input</span>
+										<span class="warroom_machine_span" data-unit="(pcs)">200</span>
+									</li>
+									<li class="warroom_machine_li">
+										<span class="warroom_machine_span">Output</span>
+										<span class="warroom_machine_span" data-unit="(pcs)">100</span>
+									</li>
+									<li class="warroom_machine_li">
+										<span class="warroom_machine_span">Mo工單</span>
+										<span class="warroom_machine_span">000010091072</span>
+									</li>
+									<li class="warroom_machine_li">
+										<span class="warroom_machine_span">稼動率 OEE</span>
+										<span class="warroom_machine_span" data-unit="%">65</span>
+									</li>
+									<li class="warroom_machine_li">
+										<span class="warroom_machine_span">產品達成率</span>
+										<span class="warroom_machine_span" data-unit="%">100</span>
+									</li>
+									<li class="warroom_machine_li">
+										<span class="warroom_machine_span">產品達成率</span>
+										<span class="warroom_machine_span" data-unit="%">100</span>
+									</li>
+									<li class="warroom_machine_li _payment" data-unit="kwh">33653338</li>
+									<li class="warroom_machine_li _water" data-unit="L">12345556</li>
+									<li class="warroom_machine_li _total" data-l="共" data-r="機台">999</li>
+								</ul>
+								<div class="warroom_machine_outside">
+									<button class="border_btn _add">
+										<i></i>
+										新增機台
+									</button>
+									<ul class="warroom_machine_group">
+										<li id="item0" name="warroom_item" class="warroom_machine_item"
+											data-txt="EQ_WAIT">
+											<div class="state WAIT"></div>
+											<div class="machine"></div>
+											<div class="name">PrintPrintPr123</div>
+										</li>
+										<li id="item1" name="warroom_item" class="warroom_machine_item"
+											data-txt="EQ_WAIT">
+											<div class="state PM"></div>
+											<div class="machine"></div>
+											<div class="name">PrintPrintPr123</div>
+										</li>
+										<li id="item2" name="warroom_item" class="warroom_machine_item"
+											data-txt="EQ_WAIT">
+											<div class="state PD_RUN"></div>
+											<div class="machine"></div>
+											<div class="name">PrintPrintPr123</div>
+										</li>
+									</ul>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -127,14 +133,12 @@
 			</div>
 		</div>
 
-
-
-
-		<div class="alert _newMachine">
+		<div class="alert _newMachine" style="display: none;">
 			<div class="alert_box">
+				<button class="icon_btn _close"></button>
 				<div class="alert_title">新増機台</div>
-				<div class="machine_name">S12345</div>
-				<div class="machine_detail">YV3.5 MP FIO BOARD</div>
+				<div class="machineName">S12345</div>
+				<div class="machineDetail">YV3.5 MP FIO BOARD</div>
 				<div class="txt">請選擇要加入線別之機台</div>
 				<ul class="machine_box ">
 					<li class="warroom_machine_item check" data-txt="EQ_WAIT">
@@ -184,6 +188,72 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="alert _newLine" style="display: none;">
+			<div class="alert_box">
+				<button class="icon_btn _close"></button>
+				<div class="alert_title">新増生產線</div>
+				<div class="alert_info">
+					<div class="normal_sel _hasMsg" data-msg="線別 / 別產品別">
+						<!-- 點擊在span class裡面加上on -->
+						<span class="normal_sel_title" [class.on]="selectShow"
+							(click)="selHandler()">{{selectTitle}}</span>
+						<ul class="normal_sel_group">
+							<li class="normal_sel_item" (click)="machineSel('機台顯示名稱1')">機台顯示名稱1</li>
+							<li class="normal_sel_item" (click)="machineSel('機台顯示名稱2')">機台顯示名稱2</li>
+						</ul>
+						<button class="icon_btn _add"></button>
+					</div>
+
+					<div class="normal_sel _hasMsg" data-msg="線別 / 別產品別">
+						<!-- 點擊在span class裡面加上on -->
+						<span class="normal_sel_title" [class.on]="selectShow"
+							(click)="selHandler()">{{selectTitle}}</span>
+						<ul class="normal_sel_group">
+							<li class="normal_sel_item" (click)="machineSel('機台顯示名稱1')">機台顯示名稱1</li>
+							<li class="normal_sel_item" (click)="machineSel('機台顯示名稱2')">機台顯示名稱2</li>
+						</ul>
+						<button class="icon_btn _minus"></button>
+					</div>
+				</div>
+				<div class="alert_btnBox">
+					<button class="normal_btn _secondry">取消</button>
+					<button class="normal_btn _primary">確定</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="alert _msg" style="display: none;">
+			<div class="alert_box">
+				<button class="icon_btn _close"></button>
+				<div class="alert_title">儲存生產線編輯</div>
+				<div class="alert_info">
+					<span class="alert_info_txt">您確定要儲存變更？</span>
+				</div>
+				<div class="alert_btnBox">
+					<button class="normal_btn _secondry">取消</button>
+					<button class="normal_btn _primary">確定</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="machine_detail">
+			<button class="icon_btn _close"></button>
+			<div class="machine_detail_head">
+				<div class="pic">
+					<img src="./assets/images/machine_pic.jpg" alt="">
+				</div>
+				<ul class="info">
+					<li class="info_item _line" data-txt="線別：">S12345</li>
+					<li class="info_item" data-txt="機台名：">Printer</li>
+					<li class="info_item" data-txt="產品別：">YV3.5 MP FIO BOARD</li>
+					<li class="info_item" data-txt="料號：">B91.04G10.000F</li>
+					<li class="info_item" data-txt="稼動率：">90％</li>
+					<li class="info_item" data-txt="程式名：">21X067-1-TOP</li>
+				</ul>
+			</div>
+		</div>
+
 	</div>
 
 
