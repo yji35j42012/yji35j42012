@@ -13,6 +13,7 @@
 // @extend %hand;
 // @extend %transition;
 @mixin hoverHandler {
+
 	@media (pointer: fine) and (max-resolution: 2dppx),
 	screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2),
 	(-moz-touch-enabled: 0) {
@@ -20,6 +21,7 @@
 			@content;
 		}
 	}
+
 	&:active {
 		@content;
 	}

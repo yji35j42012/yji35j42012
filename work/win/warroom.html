@@ -360,7 +360,7 @@
 					<li class="normal_tab_item">產品達成率</li>
 				</ul>
 			</div>
-			<div class="line_staff">
+			<div class="line_staff" style="display: none;">
 				<ul class="line_staff_group">
 					<li class="line_staff_item" data-txt="Process">SMT</li>
 					<li class="line_staff_item" data-txt="Job">領班</li>
@@ -376,6 +376,33 @@
 				<ul class="line_staff_group">
 					<li class="line_staff_item" data-txt="作業人數">3人</li>
 					<li class="line_staff_txt " data-txt="標準人力：">5人</li>
+				</ul>
+			</div>
+			<div class="line_energy">
+				<ul class="line_energy_group">
+					<li class="line_energy_item">
+						<div class="pic _power"></div>
+						<div class="txt" data-txt="電使用量">
+							<span data-unit="Kwh">3653338</span>
+						</div>
+					</li>
+					<li class="line_energy_item">
+						<div class="pic _gas"></div>
+						<div class="txt" data-txt="氣使用量">
+							<span data-unit="PA">886633</span>
+						</div>
+					</li>
+					<li class="line_energy_item">
+						<div class="pic _water"></div>
+						<div class="txt" data-txt="水使用量">
+							<span data-unit="L">550000</span>
+						</div>
+					</li>
+				</ul>
+				<ul class="normal_tab">
+					<li class="normal_tab_item on">電使用量</li>
+					<li class="normal_tab_item">氣使用量</li>
+					<li class="normal_tab_item">水使用量</li>
 				</ul>
 			</div>
 		</div>
@@ -413,7 +440,6 @@
 				itemMoveNum++
 			}
 			this.style=`transform:translateX(${ newX }px);transition: all 0s;}`;
-			// console.log('itemMove', newX);
 		}
 		function itemUp() {
 			console.log('itemUp');

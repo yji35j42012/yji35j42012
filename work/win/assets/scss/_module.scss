@@ -481,6 +481,7 @@ h2 {
 
 .normal_tab {
 	@include d_f(flex);
+
 	// .normal_tab_item
 	&_item {
 		@include d_f(flex, center, center);
@@ -523,6 +524,10 @@ h2 {
 			background-color: #1D3EB3;
 			color: #fff;
 		}
+	}
+
+	.line_energy_group + &{
+		margin-top: 20px;
 	}
 }
 
@@ -884,7 +889,6 @@ h2 {
 	width: 80px;
 	height: 60px;
 	background: url('../images/machine.svg')no-repeat center/contain;
-
 
 	.edit & {
 		background-image: url('../images/machine_edit.svg');

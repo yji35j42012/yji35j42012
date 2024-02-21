@@ -569,6 +569,9 @@ h2 {
   background-color: #1D3EB3;
   color: #fff;
 }
+.line_energy_group + .normal_tab {
+  margin-top: 20px;
+}
 
 .WAIT {
   background-color: #FA2E2E;
@@ -1557,4 +1560,63 @@ h2 {
 }
 .line_staff_txt::before {
   content: attr(data-txt);
+}
+.line_energy {
+  padding-top: 20px;
+}
+.line_energy_group {
+  display: flex;
+}
+.line_energy_item {
+  display: flex;
+  align-items: center;
+  padding: 12px 24px 12px 20px;
+  background-color: #C0ED5F;
+  border-radius: 20px;
+}
+.line_energy_item + .line_energy_item {
+  margin-left: 20px;
+}
+.line_energy_item .pic {
+  flex: none;
+  width: 76px;
+  height: 76px;
+  margin-right: 10px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.line_energy_item .pic._power {
+  background-image: url("../images/icon_energy_power.svg");
+}
+.line_energy_item .pic._gas {
+  background-image: url("../images/icon_energy_gas.svg");
+}
+.line_energy_item .pic._water {
+  background-image: url("../images/icon_energy_water.svg");
+}
+.line_energy_item .txt {
+  min-width: 127px;
+  text-align: right;
+}
+.line_energy_item .txt:after {
+  content: attr(data-txt);
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #72A10C;
+}
+.line_energy_item .txt span {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #324A00;
+}
+.line_energy_item .txt span:after {
+  content: attr(data-unit);
+  margin-left: 4px;
+  font-family: Noto Sans CJK TC;
+  font-size: 14px;
+  line-height: 20px;
 }/*# sourceMappingURL=all.css.map */
