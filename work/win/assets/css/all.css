@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;200;300;400;500;600;700;800;900&display=swap");
-.warroom_machine_item::after, .warroom_machine_item::before, .home_item::before, .home_item, .normal_sel_item, .normal_sel_title:after, .normal_sel_title, .icon_btn._close, .icon_btn._del, .icon_btn._home, .border_btn._add i::before, .border_btn._add i::after, .border_btn._add i, .border_btn, .normal_btn {
+.warroom_machine_item::after, .warroom_machine_item::before, .home_item::before, .home_item, .normal_sel_item, .normal_sel_title:after, .normal_sel_title, .icon_btn._prev, .icon_btn._next, .icon_btn._close, .icon_btn._del, .icon_btn._home, .border_btn._add i::before, .border_btn._add i::after, .border_btn._add i, .border_btn, .normal_btn {
   transition: all 0.3s ease-in-out;
 }
 
@@ -115,8 +115,8 @@ table {
     background-color: #f1f1f1;
   }
   ::-webkit-scrollbar-thumb {
-    background-color: #c1c1c1;
-    border: 1px #f1f1f1 solid;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 1px transparent solid;
     border-radius: 3px;
     cursor: pointer;
     -webkit-transition: background 0.5s linear;
@@ -368,6 +368,27 @@ h2 {
   right: 0;
   transform: translateX(calc(100% + 6px));
 }
+.icon_btn._prev, .icon_btn._next {
+  width: 44px;
+  height: 44px;
+  background-color: #F6F6F6;
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.2509803922);
+  border-radius: 100%;
+}
+@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+  .icon_btn._prev:hover, .icon_btn._next:hover {
+    background-color: #EBEBEB;
+  }
+}
+.icon_btn._prev:active, .icon_btn._next:active {
+  background-color: #CBCBCB;
+}
+.icon_btn._prev {
+  background-image: url("../images/icon_arr_left.svg");
+}
+.icon_btn._next {
+  background-image: url("../images/icon_arr_right.svg");
+}
 
 .normal_sel {
   z-index: 10;
@@ -478,6 +499,35 @@ h2 {
   }
 }
 .normal_sel_item:active {
+  background-color: #D9DFE9;
+}
+
+.normal_tb {
+  width: 100%;
+}
+.normal_tb th,
+.normal_tb td {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+}
+.normal_tb th {
+  height: 32px;
+  background-color: #8C95A6;
+  color: #D6E0F1;
+}
+.normal_tb th:first-child {
+  padding-left: 20px;
+}
+.normal_tb td {
+  height: 32px;
+  color: #565656;
+  text-align: center;
+}
+.normal_tb td:first-child {
+  padding-left: 20px;
+}
+.normal_tb tr:nth-child(odd) td {
   background-color: #D9DFE9;
 }
 
@@ -1237,7 +1287,9 @@ h2 {
   z-index: 10;
   position: absolute;
   top: 0;
-  left: 0;
+  right: 32px;
+  display: flex;
+  flex-direction: column;
   width: 478px;
   height: 100%;
   background-color: #fff;
@@ -1279,8 +1331,132 @@ h2 {
   line-height: 24px;
   text-align: right;
 }
-.machine_detail .icon_btn {
+.machine_detail_body {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 100%;
+  padding: 15px 10px;
+}
+.machine_detail_result {
+  padding: 20px;
+  border-bottom: 1px solid #E0E0E0;
+}
+.machine_detail_result span {
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+}
+.machine_detail_result span:nth-child(1) {
+  display: flex;
+  align-items: center;
+  line-height: 24px;
+  color: #E60000;
+}
+.machine_detail_result span:nth-child(1)::before {
+  content: "";
+  display: block;
+  width: 6px;
+  height: 6px;
+  margin-right: 6px;
+  background-color: #E60000;
+  border-radius: 100%;
+}
+.machine_detail_result span:nth-child(2) {
+  margin-top: 4px;
+  color: #565656;
+  line-height: 20px;
+}
+.machine_detail_tbBox {
+  overflow-y: auto;
+  flex: 1 1 100%;
+  padding: 15px 0;
+  border-bottom: 1px solid #E0E0E0;
+}
+.machine_detail_tbBox .title {
+  margin-bottom: 10px;
+  padding-left: 20px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #565656;
+}
+.machine_detail_tbBox th:first-child {
+  text-align: left;
+}
+.machine_detail_tbBox td:first-child {
+  text-align: left;
+}
+.machine_detail_state {
+  padding: 15px 20px;
+}
+.machine_detail_state .group {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.machine_detail_state .item {
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(50% - 11px);
+  padding: 0 14px 5px;
+  background-color: #D9DFE9;
+  border-radius: 10px;
+}
+.machine_detail_state .item::before {
+  content: attr(data-name);
+  display: block;
+  width: 100%;
+  margin-bottom: 4px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 32px;
+}
+.machine_detail_state .item:nth-child(even) {
+  margin-left: 22px;
+}
+.machine_detail_state .item span {
+  display: block;
+  width: 50%;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+}
+.machine_detail_state .item span:after {
+  content: attr(data-txt);
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 32px;
+  color: #565656;
+}
+.machine_detail_state .item span.limit {
+  color: #DB0000;
+}
+.machine_detail ._close {
   position: absolute;
   top: 10px;
   right: 10px;
+}
+.machine_detail ._prev,
+.machine_detail ._next {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.machine_detail ._prev {
+  left: 0;
+  transform: translateX(-50%);
+}
+.machine_detail ._next {
+  right: 0;
+  transform: translateX(50%);
+}
+
+.line_detail {
+  position: absolute;
+  width: 100%;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }/*# sourceMappingURL=all.css.map */
