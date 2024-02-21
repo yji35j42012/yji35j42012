@@ -479,6 +479,52 @@ h2 {
 	}
 }
 
+.normal_tab {
+	@include d_f(flex);
+	// .normal_tab_item
+	&_item {
+		@include d_f(flex, center, center);
+		min-width: 100px;
+		height: 28px;
+		font-size: 14px;
+		font-weight: 400;
+		letter-spacing: -0.015em;
+		color: #8C95A6;
+		border: 1px solid #D9DFE9;
+		border-radius: 999px;
+
+		@extend %transition;
+
+		._large & {
+			min-width: 130px;
+			height: 32px;
+			font-weight: 500;
+		}
+
+		&:not(.on) {
+			@extend %hand;
+		}
+
+		&.on {
+			background-color: #2E7FDF;
+			color: #fff;
+		}
+
+		&+& {
+			margin-left: 10px;
+		}
+
+		@include hv {
+			background-color: #2E7FDF;
+			color: #fff;
+		}
+
+		@include ac {
+			background-color: #1D3EB3;
+			color: #fff;
+		}
+	}
+}
 
 .WAIT {
 	background-color: #FA2E2E;
@@ -503,7 +549,6 @@ h2 {
 .PR_RUN {
 	background-color: #8210B8;
 }
-
 
 .wrap {
 	width: 100%;
@@ -835,7 +880,7 @@ h2 {
 	}
 }
 
-.machine {
+.normal_machine {
 	width: 80px;
 	height: 60px;
 	background: url('../images/machine.svg')no-repeat center/contain;

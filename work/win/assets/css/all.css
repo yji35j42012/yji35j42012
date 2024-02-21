@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;200;300;400;500;600;700;800;900&display=swap");
-.warroom_machine_item::after, .warroom_machine_item::before, .home_item::before, .home_item, .normal_sel_item, .normal_sel_title:after, .normal_sel_title, .icon_btn._prev, .icon_btn._next, .icon_btn._close, .icon_btn._del, .icon_btn._home, .border_btn._add i::before, .border_btn._add i::after, .border_btn._add i, .border_btn, .normal_btn {
+.warroom_machine_item::after, .warroom_machine_item::before, .home_item::before, .home_item, .normal_tab_item, .normal_sel_item, .normal_sel_title:after, .normal_sel_title, .icon_btn._prev, .icon_btn._next, .icon_btn._close, .icon_btn._del, .icon_btn._home, .border_btn._add i::before, .border_btn._add i::after, .border_btn._add i, .border_btn, .normal_btn {
   transition: all 0.3s ease-in-out;
 }
 
-.login_box_forgot, .home_item, .normal_sel_item, .normal_sel_title, .icon_btn, .border_btn, .normal_btn, .wrap .logo {
+.login_box_forgot, .home_item, .normal_tab_item:not(.on), .normal_sel_item, .normal_sel_title, .icon_btn, .border_btn, .normal_btn, .wrap .logo {
   cursor: pointer;
 }
 
@@ -531,6 +531,45 @@ h2 {
   background-color: #D9DFE9;
 }
 
+.normal_tab {
+  display: flex;
+}
+.normal_tab_item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100px;
+  height: 28px;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  color: #8C95A6;
+  border: 1px solid #D9DFE9;
+  border-radius: 999px;
+}
+._large .normal_tab_item {
+  min-width: 130px;
+  height: 32px;
+  font-weight: 500;
+}
+.normal_tab_item.on {
+  background-color: #2E7FDF;
+  color: #fff;
+}
+.normal_tab_item + .normal_tab_item {
+  margin-left: 10px;
+}
+@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+  .normal_tab_item:hover {
+    background-color: #2E7FDF;
+    color: #fff;
+  }
+}
+.normal_tab_item:active {
+  background-color: #1D3EB3;
+  color: #fff;
+}
+
 .WAIT {
   background-color: #FA2E2E;
 }
@@ -835,15 +874,15 @@ h2 {
   margin-bottom: 20px;
 }
 
-.machine {
+.normal_machine {
   width: 80px;
   height: 60px;
   background: url("../images/machine.svg") no-repeat center/contain;
 }
-.edit .machine {
+.edit .normal_machine {
   background-image: url("../images/machine_edit.svg");
 }
-.check .machine {
+.check .normal_machine {
   background-image: url("../images/machine_check.svg");
 }
 
@@ -1283,7 +1322,7 @@ h2 {
   line-height: 15px;
 }
 
-.machine_detail {
+.machine {
   z-index: 10;
   position: absolute;
   top: 0;
@@ -1296,14 +1335,14 @@ h2 {
   border-radius: 20px;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.6);
 }
-.machine_detail_head {
+.machine_head {
   display: flex;
   padding: 25px 20px 15px;
   background-color: #3B95FF;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
-.machine_detail_head .pic {
+.machine_head .pic {
   flex: none;
   overflow: hidden;
   width: 128px;
@@ -1311,7 +1350,7 @@ h2 {
   margin-right: 15px;
   border-radius: 10px;
 }
-.machine_detail_head .info_item {
+.machine_head .info_item {
   display: flex;
   align-items: center;
   font-size: 14px;
@@ -1320,40 +1359,40 @@ h2 {
   text-align: left;
   color: #fff;
 }
-.machine_detail_head .info_item._line {
+.machine_head .info_item._line {
   font-size: 20px;
   font-weight: 700;
 }
-.machine_detail_head .info_item::before {
+.machine_head .info_item::before {
   content: attr(data-txt);
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
   text-align: right;
 }
-.machine_detail_body {
+.machine_body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
   flex: 1 1 100%;
   padding: 15px 10px;
 }
-.machine_detail_result {
+.machine_result {
   padding: 20px;
   border-bottom: 1px solid #E0E0E0;
 }
-.machine_detail_result span {
+.machine_result span {
   display: block;
   font-size: 14px;
   font-weight: 400;
 }
-.machine_detail_result span:nth-child(1) {
+.machine_result span:nth-child(1) {
   display: flex;
   align-items: center;
   line-height: 24px;
   color: #E60000;
 }
-.machine_detail_result span:nth-child(1)::before {
+.machine_result span:nth-child(1)::before {
   content: "";
   display: block;
   width: 6px;
@@ -1362,18 +1401,18 @@ h2 {
   background-color: #E60000;
   border-radius: 100%;
 }
-.machine_detail_result span:nth-child(2) {
+.machine_result span:nth-child(2) {
   margin-top: 4px;
   color: #565656;
   line-height: 20px;
 }
-.machine_detail_tbBox {
+.machine_tbBox {
   overflow-y: auto;
   flex: 1 1 100%;
   padding: 15px 0;
   border-bottom: 1px solid #E0E0E0;
 }
-.machine_detail_tbBox .title {
+.machine_tbBox .title {
   margin-bottom: 10px;
   padding-left: 20px;
   font-size: 16px;
@@ -1381,21 +1420,21 @@ h2 {
   line-height: 20px;
   color: #565656;
 }
-.machine_detail_tbBox th:first-child {
+.machine_tbBox th:first-child {
   text-align: left;
 }
-.machine_detail_tbBox td:first-child {
+.machine_tbBox td:first-child {
   text-align: left;
 }
-.machine_detail_state {
+.machine_state {
   padding: 15px 20px;
 }
-.machine_detail_state .group {
+.machine_state .group {
   display: flex;
   flex-wrap: wrap;
   margin-top: 10px;
 }
-.machine_detail_state .item {
+.machine_state .item {
   display: flex;
   flex-wrap: wrap;
   width: calc(50% - 11px);
@@ -1403,7 +1442,7 @@ h2 {
   background-color: #D9DFE9;
   border-radius: 10px;
 }
-.machine_detail_state .item::before {
+.machine_state .item::before {
   content: attr(data-name);
   display: block;
   width: 100%;
@@ -1412,17 +1451,17 @@ h2 {
   font-weight: 400;
   line-height: 32px;
 }
-.machine_detail_state .item:nth-child(even) {
+.machine_state .item:nth-child(even) {
   margin-left: 22px;
 }
-.machine_detail_state .item span {
+.machine_state .item span {
   display: block;
   width: 50%;
   font-size: 24px;
   font-weight: 400;
   line-height: 32px;
 }
-.machine_detail_state .item span:after {
+.machine_state .item span:after {
   content: attr(data-txt);
   display: block;
   font-size: 12px;
@@ -1430,33 +1469,92 @@ h2 {
   line-height: 32px;
   color: #565656;
 }
-.machine_detail_state .item span.limit {
+.machine_state .item span.limit {
   color: #DB0000;
 }
-.machine_detail ._close {
+.machine ._close {
   position: absolute;
   top: 10px;
   right: 10px;
 }
-.machine_detail ._prev,
-.machine_detail ._next {
+.machine ._prev,
+.machine ._next {
   position: absolute;
   top: 0;
   bottom: 0;
   margin: auto;
 }
-.machine_detail ._prev {
+.machine ._prev {
   left: 0;
   transform: translateX(-50%);
 }
-.machine_detail ._next {
+.machine ._next {
   right: 0;
   transform: translateX(50%);
 }
 
-.line_detail {
+.line {
   position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
+  height: 674px;
+  padding: 20px;
+  background-color: #fff;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
+  box-shadow: 0px -10px 17px 0px rgba(0, 0, 0, 0.5019607843);
+}
+.line ._close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.line_info {
+  padding-top: 20px;
+}
+.line_staff {
+  padding-top: 20px;
+}
+.line_staff_group {
+  display: inline-flex;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: #C0ED5F;
+}
+.line_staff_item {
+  min-width: 100px;
+  padding: 20px 30px;
+  background-color: #85C600;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  text-align: center;
+  color: #fff;
+}
+.line_staff_item:after {
+  content: attr(data-txt);
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 21px;
+  color: #324A00;
+}
+.line_staff_item + .line_staff_item, .line_staff_item + .line_staff_txt {
+  margin-left: 10px;
+}
+.line_staff_txt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  color: #324A00;
+}
+.line_staff_txt::before {
+  content: attr(data-txt);
 }/*# sourceMappingURL=all.css.map */

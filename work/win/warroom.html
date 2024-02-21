@@ -109,19 +109,19 @@
 										<li id="item0" name="warroom_item" class="warroom_machine_item"
 											data-txt="EQ_WAIT">
 											<div class="state WAIT"></div>
-											<div class="machine"></div>
+											<div class="normal_machine"></div>
 											<div class="name">PrintPrintPr123</div>
 										</li>
 										<li id="item1" name="warroom_item" class="warroom_machine_item"
 											data-txt="EQ_WAIT">
 											<div class="state PM"></div>
-											<div class="machine"></div>
+											<div class="normal_machine"></div>
 											<div class="name">PrintPrintPr123</div>
 										</li>
 										<li id="item2" name="warroom_item" class="warroom_machine_item"
 											data-txt="EQ_WAIT">
 											<div class="state PD_RUN"></div>
-											<div class="machine"></div>
+											<div class="normal_machine"></div>
 											<div class="name">PrintPrintPr123</div>
 										</li>
 									</ul>
@@ -143,42 +143,42 @@
 				<ul class="machine_box ">
 					<li class="warroom_machine_item check" data-txt="EQ_WAIT">
 						<div class="state WAIT"></div>
-						<div class="machine"></div>
+						<div class="normal_machine"></div>
 						<div class="name">PrintPrintPr123</div>
 					</li>
 					<li class="warroom_machine_item" data-txt="EQ_WAIT">
 						<div class="state WAIT"></div>
-						<div class="machine"></div>
+						<div class="normal_machine"></div>
 						<div class="name">PrintPrintPr123</div>
 					</li>
 					<li class="warroom_machine_item" data-txt="EQ_WAIT">
 						<div class="state WAIT"></div>
-						<div class="machine"></div>
+						<div class="normal_machine"></div>
 						<div class="name">PrintPrintPr123</div>
 					</li>
 					<li class="warroom_machine_item" data-txt="EQ_WAIT">
 						<div class="state WAIT"></div>
-						<div class="machine"></div>
+						<div class="normal_machine"></div>
 						<div class="name">PrintPrintPr123</div>
 					</li>
 					<li class="warroom_machine_item" data-txt="EQ_WAIT">
 						<div class="state WAIT"></div>
-						<div class="machine"></div>
+						<div class="normal_machine"></div>
 						<div class="name">PrintPrintPr123</div>
 					</li>
 					<li class="warroom_machine_item" data-txt="EQ_WAIT">
 						<div class="state WAIT"></div>
-						<div class="machine"></div>
+						<div class="normal_machine"></div>
 						<div class="name">PrintPrintPr123</div>
 					</li>
 					<li class="warroom_machine_item" data-txt="EQ_WAIT">
 						<div class="state WAIT"></div>
-						<div class="machine"></div>
+						<div class="normal_machine"></div>
 						<div class="name">PrintPrintPr123</div>
 					</li>
 					<li class="warroom_machine_item" data-txt="EQ_WAIT">
 						<div class="state WAIT"></div>
-						<div class="machine"></div>
+						<div class="normal_machine"></div>
 						<div class="name">PrintPrintPr123</div>
 					</li>
 				</ul>
@@ -237,11 +237,11 @@
 			</div>
 		</div>
 
-		<div class="machine_detail" style="display: none;">
+		<div class="machine" style="display: none;">
 			<button class="icon_btn _close"></button>
 			<button class="icon_btn _prev"></button>
 			<button class="icon_btn _next"></button>
-			<div class="machine_detail_head">
+			<div class="machine_head">
 				<div class="pic">
 					<img src="./assets/images/machine_pic.jpg" alt="">
 				</div>
@@ -254,12 +254,12 @@
 					<li class="info_item" data-txt="程式名：">21X067-1-TOP</li>
 				</ul>
 			</div>
-			<div class="machine_detail_body">
-				<div class="machine_detail_result">
+			<div class="machine_body">
+				<div class="machine_result">
 					<span>EQ_WAIT</span>
 					<span>異常原因描述，目前由於停電，機器無法運做。</span>
 				</div>
-				<div class="machine_detail_tbBox">
+				<div class="machine_tbBox">
 					<div class="title">關鍵參數監控</div>
 					<table class="normal_tb">
 						<tr>
@@ -330,7 +330,7 @@
 						</tr>
 					</table>
 				</div>
-				<div class="machine_detail_state">
+				<div class="machine_state">
 					<div class="title">治具狀態</div>
 					<ul class="group">
 						<!-- 需要紅字 span 加上 limit -->
@@ -347,7 +347,38 @@
 			</div>
 		</div>
 
-		<div class="line_detail"></div>
+		<div class="line">
+			<button class="icon_btn _close"></button>
+			<ul class="normal_tab _large">
+				<li class="normal_tab_item">Line</li>
+				<li class="normal_tab_item on">Staff</li>
+				<li class="normal_tab_item">Energy</li>
+			</ul>
+			<div class="line_info" style="display: none;">
+				<ul class="normal_tab">
+					<li class="normal_tab_item on">In/Output</li>
+					<li class="normal_tab_item">產品達成率</li>
+				</ul>
+			</div>
+			<div class="line_staff">
+				<ul class="line_staff_group">
+					<li class="line_staff_item" data-txt="Process">SMT</li>
+					<li class="line_staff_item" data-txt="Job">領班</li>
+					<li class="line_staff_item" data-txt="工號">11106637F</li>
+					<li class="line_staff_item" data-txt="姓名">王大明</li>
+				</ul>
+				<ul class="line_staff_group">
+					<li class="line_staff_item" data-txt="Process">DIP</li>
+					<li class="line_staff_item" data-txt="Job">全才</li>
+					<li class="line_staff_item" data-txt="工號">234561G</li>
+					<li class="line_staff_item" data-txt="姓名">陳大明</li>
+				</ul>
+				<ul class="line_staff_group">
+					<li class="line_staff_item" data-txt="作業人數">3人</li>
+					<li class="line_staff_txt " data-txt="標準人力：">5人</li>
+				</ul>
+			</div>
+		</div>
 	</div>
 
 
