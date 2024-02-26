@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>IRIS Plus ATM</title>
+
+</head>
+
+<body>
+	<div class="report">
+		<div class="report_container">
+
+
+			<div class="report_group">
+
+
+				<div class="report_list _w518px">
+					<div class="report_list_title">匯率資訊</div>
+					<div class="report_list_exchangePic">
+						<div class="report_list_exchangePic_container" id="container"></div>
+						<!-- <img src="./images/us_chart.png" alt=""> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="./js/jquery_min.js"></script>
+	<script src="./js/highcharts.js"></script>
+	<script>
+		var year = 2022;
+		var olympic = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+		var normal = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+		var showXM = [0];
+		var xData = []
+		var showData = [30, 31];//趨勢圖資料
+		// 判斷月份天數
+
+
+
+
+		$(document).ready(function () {
+			var title = {};
+			var subtitle = {};
+			var chart = {
+				type: 'area',
+				scrollablePlotArea: {
+					minWidth: 700,
+					scrollPositionX: 1
+				},
+				spacingBottom: 15,
+				spacingTop: 10,
+				spacingLeft: 10,
+				spacingRight: 10,
+			};
+			var xAxis = {
+				scrollbar: {
+					enabled: true
+				},
+				// tickPositions: showXM,
+				categories: ['08:00'],
+				plotBands: [
+					{
+						color: '#000000',
+					}
+				],
+				gridLineWidth: 1,
+
+			};
+			var yAxis = {
+				min: 28,
+				max: 32,
+				scrollbar: {
+					enabled: true
+				},
+				title: {
+					text: ''
+				},
+				tickmarkPlacement: 'on',
+				scrollbar: {
+					enabled: true,
+					showFull: false
+				}
+			};
+
+			var tooltip = {}
+
+			var legend = {
+				layout: 'vertical',
+				align: 'right',
+				verticalAlign: 'middle',
+				borderWidth: 0
+			};
+
+			var series = [
+				{
+					name: '',
+					data: showData,
+					lineColor: "#05097b",
+					fillColor: 'rgba(5,9,123,.15)',
+				},
+			];
+
+			var json = {};
+			json.chart = chart;
+			json.title = title;
+			json.subtitle = subtitle;
+			json.xAxis = xAxis;
+			json.yAxis = yAxis;
+			json.tooltip = tooltip;
+			json.legend = legend;
+			json.series = series;
+
+			$('#container').highcharts(json);
+		});
+
+		// 圓餅圖修改範圍 start 
+		var circleData = {
+			//圓餅圖對應顏色
+			color: ['#5686e8', '#61cfa3', '#65799b', '#f2c53f', '#dd745b', '#6fc2e3'],
+			//圓餅圖資料放置處
+			data: [
+				{ y: 40 },
+				{ y: 10 },
+				{ y: 10 },
+				{ y: 15 },
+				{ y: 12 },
+				{ y: 13 }
+			]
+		}
+		$(document).ready(function () {
+			Highcharts.setOptions({
+				colors: circleData.color
+			});
+			var chart = {
+				plotBackgroundColor: null,
+				plotBorderWidth: null,
+				plotShadow: false,
+				type: 'pie'
+			}
+
+			var accessibility = {
+				point: {
+					valueSuffix: '%'
+				}
+			}
+			var plotOptions = {
+				pie: {
+					allowPointSelect: true,
+					cursor: 'pointer',
+					animation: false,
+					dataLabels: {
+						enabled: true,
+						format: '{point.percentage:f} %',
+						// format: '{point.percentage:.1f} %', //會出現小數點
+						connectorColor: 'silver',
+						style: {
+							fontSize: '20px',
+							color: '#5e5e5e',
+							fontFamily: 'MicrosoftJhengHei',
+						},
+						distance: 3,//文字與圓餅圖距離
+					}
+				}
+			}
+			var series = [{
+				data: circleData.data,
+				size: '65%',
+				innerSize: "50%",
+			}]
+
+			var json = {};
+			json.chart = chart;
+			json.accessibility = accessibility;
+			json.plotOptions = plotOptions;
+			json.series = series;
+			$('#circleContainer').highcharts(json);
+		})
+
+		// 圓餅圖修改範圍 end 
+	</script>
+</body>
+
+</html>
