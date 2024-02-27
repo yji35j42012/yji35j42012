@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="./assets/css/all.css">
+</head>
+
+<body>
+	<div class="wrap">
+		<div class="wrap option">
+			<div class="head">
+				<div class="logo" routerLink="/home">
+					<a><img src="./assets/images/logo.svg" alt=""></a>
+				</div>
+				<button class="icon_btn _home" routerLink="/home"></button>
+				<div class="user normal_sel">
+					<!-- 點擊在span class裡面加上on -->
+					<span class="normal_sel_title" [class.on]="menuShow" (click)="menuHandler()">Darren_KC_Huang</span>
+					<ul class="normal_sel_group">
+						<li class="normal_sel_item" (click)="logoutHandler()">Logout</li>
+					</ul>
+				</div>
+			</div>
+			<div class="container">
+				<div class="container_title" data-tw="後台控制系統">Option</div>
+
+				<div class="option_filter">
+					<div id="option_select" class="option_select">
+						<div class="title">權限設定</div>
+						<div id="txt" class="txt"></div>
+						<ul id="option_sel_ul" class="option_select_ul">
+							<li class="option_select_li">權限設定</li>
+							<li class="option_select_li">頁面設定</li>
+							<li class="option_select_li">角色設定</li>
+						</ul>
+					</div>
+					<button class="option_btn">EPK 參數設定</button>
+				</div>
+
+
+
+				<div class="permissions">
+					<div class="permissions_head">
+						<button class="border_btn _add"><i></i>Add Account</button>
+					</div>
+					<div class="permissions_body">
+						<div class="permissions_item">
+							<div class="permissions_item_list _title">
+								<div></div>
+								<div>Cameron Williamson</div>
+							</div>
+							<div class="permissions_item_list">
+								<div>工號</div>
+								<div>11106637</div>
+							</div>
+							<div class="permissions_item_list">
+								<div>email</div>
+								<div>williamson_chen_12234567892223@wiwynn.com.tw</div>
+							</div>
+							<div class="permissions_item_list">
+								<div>部門</div>
+								<div>MA1000</div>
+							</div>
+							<div class="permissions_item_list">
+								<div>職位</div>
+								<div>Engineer</div>
+							</div>
+							<div class="permissions_item_list">
+								<div>權限</div>
+								<div>Admin</div>
+							</div>
+							<div class="permissions_item_btnBox">
+								<label class="normal_switct">
+									<input type="checkbox">
+									<span class="normal_switct_ball"></span>
+								</label>
+								<button class="icon_btn _edit"></button>
+							</div>
+						</div>
+						<div class="permissions_item">
+							<div class="permissions_item_list _title">
+								<div></div>
+								<div>Cameron Williamson</div>
+							</div>
+							<div class="permissions_item_list">
+								<div>工號</div>
+								<div>11106637</div>
+							</div>
+							<div class="permissions_item_list">
+								<div>email</div>
+								<div>williamson_chen_12234567892223@wiwynn.com.tw</div>
+							</div>
+							<div class="permissions_item_list">
+								<div>部門</div>
+								<div>MA1000</div>
+							</div>
+							<div class="permissions_item_list">
+								<div>職位</div>
+								<div>Engineer</div>
+							</div>
+							<div class="permissions_item_list">
+								<div>權限</div>
+								<div>Admin</div>
+							</div>
+							<div class="permissions_item_btnBox">
+								<label class="normal_switct">
+									<input type="checkbox">
+									<span class="normal_switct_ball"></span>
+								</label>
+								<button class="icon_btn _edit"></button>
+							</div>
+						</div>
+						<div class="permissions_item">
+							<div class="permissions_item_list _title">
+								<div></div>
+								<div>Cameron Williamson</div>
+							</div>
+							<div class="permissions_item_list">
+								<div>工號</div>
+								<div>11106637</div>
+							</div>
+							<div class="permissions_item_list">
+								<div>email</div>
+								<div>williamson_chen_12234567892223@wiwynn.com.tw</div>
+							</div>
+							<div class="permissions_item_list">
+								<div>部門</div>
+								<div>MA1000</div>
+							</div>
+							<div class="permissions_item_list">
+								<div>職位</div>
+								<div>Engineer</div>
+							</div>
+							<div class="permissions_item_list">
+								<div>權限</div>
+								<div>Admin</div>
+							</div>
+							<div class="permissions_item_btnBox">
+								<label class="normal_switct">
+									<input type="checkbox">
+									<span class="normal_switct_ball"></span>
+								</label>
+								<button class="icon_btn _edit"></button>
+							</div>
+						</div>
+						<div class="permissions_item">
+							<div class="permissions_item_list _title">
+								<div></div>
+								<div>Cameron Williamson</div>
+							</div>
+							<div class="permissions_item_list">
+								<div>工號</div>
+								<div>11106637</div>
+							</div>
+							<div class="permissions_item_list">
+								<div>email</div>
+								<div>williamson_chen_12234567892223@wiwynn.com.tw</div>
+							</div>
+							<div class="permissions_item_list">
+								<div>部門</div>
+								<div>MA1000</div>
+							</div>
+							<div class="permissions_item_list">
+								<div>職位</div>
+								<div>Engineer</div>
+							</div>
+							<div class="permissions_item_list">
+								<div>權限</div>
+								<div>Admin</div>
+							</div>
+							<div class="permissions_item_btnBox">
+								<label class="normal_switct">
+									<input type="checkbox">
+									<span class="normal_switct_ball"></span>
+								</label>
+								<button class="icon_btn _edit"></button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		var option_select=document.querySelector("#option_select");
+		var txt=document.querySelector("#txt");
+		option_select.onclick=function () {
+			option_select.classList.contains("show")? option_select.classList.remove("show"):option_select.classList.add("show")
+		}
+		var option_sel_item=document.querySelectorAll("#option_sel_ul > li");
+
+		for (let i=0; i<option_sel_item.length; i++) {
+			const element=option_sel_item[i];
+			element.onclick=function (e) {
+				txt.innerHTML=element.innerHTML
+			}
+		}
+	</script>
+</body>
+
+</html>

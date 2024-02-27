@@ -29,6 +29,9 @@ h2 {
 .normal_btn {
 	height: 30px;
 	border-radius: 10px;
+	font-size: 14px;
+	font-weight: 400;
+
 	@extend %hand;
 	@extend %transition;
 
@@ -40,6 +43,7 @@ h2 {
 	&._primary {
 		background-color: #2E7FDF;
 		color: #fff;
+		border-radius: 6px;
 
 		@include hv {
 			background-color: #2E55DF;
@@ -53,6 +57,7 @@ h2 {
 	&._secondry {
 		background-color: #A4B2C2;
 		color: #fff;
+		border-radius: 6px;
 
 		@include hv {
 			background-color: #88A1BD;
@@ -81,75 +86,73 @@ h2 {
 }
 
 .border_btn {
-	position: relative;
-	@include d_f(flex, center, center);
 	min-width: 118px;
 	height: 33px;
 	border: 1px solid #2E7FDF;
-	color: #2E7FDF;
 	border-radius: 85px;
 	font-size: 14px;
 	font-weight: 400;
 	line-height: 21px;
 	@extend %hand;
-	@extend %transition;
 
-	&._add i {
+	&._add {
 		position: relative;
-		width: 16px;
-		height: 16px;
-		margin-right: 6px;
-		border: 1px solid #2E7FDF;
-		border-radius: 100%;
+		@include d_f(flex, center, center);
+		color: #2E7FDF;
 		@extend %transition;
 
-		&::before,
-		&::after {
-			content: "";
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			right: 0;
-			left: 0;
-			display: block;
-			width: 7px;
-			height: 1px;
-			margin: auto;
-			background-color: #2E7FDF;
-			transform: translateY(50%);
+		i {
+			flex: none;
+			@include d_f(flex, center, center);
+			width: 13px;
+			height: 13px;
+			margin-right: 6px;
+			border: 1px solid #2E7FDF;
 			border-radius: 100%;
 			@extend %transition;
-		}
-
-		&::after {
-			transform: translate(0, 50%) rotate(90deg);
-		}
-	}
-
-	@include hv {
-		color: #fff;
-		background-color: #2E7FDF;
-
-		i {
-			border-color: #fff;
 
 			&::before,
-			&::after {
-				background-color: #fff;
+			&:after {
+				content: "";
+				display: block;
+				width: 7px;
+				height: 1px;
+				border-radius: 100%;
+				background-color: #2E7FDF;
+				@extend %transition;
+			}
+
+			&:after {
+				position: absolute;
+				transform: rotate(90deg);
 			}
 		}
-	}
 
-	@include ac {
-		color: #fff;
-		background-color: #1D3EB3;
+		@include hv {
+			color: #fff;
+			background-color: #2E7FDF;
 
-		i {
-			border-color: #fff;
+			i {
+				border-color: #fff;
 
-			&::before,
-			&::after {
-				background-color: #fff;
+				&::before,
+				&:after {
+					background-color: #fff;
+				}
+			}
+		}
+
+		@include ac {
+			color: #fff;
+			background-color: #1D3EB3;
+
+			i {
+				border-color: #fff;
+
+				&::before,
+				&:after {
+					background-color: #fff;
+				}
 			}
 		}
 	}
@@ -197,7 +200,7 @@ h2 {
 
 		&._del {
 			position: absolute;
-			right: 15px;
+			right: 10px;
 			top: 0;
 			width: 24px;
 			height: 24px;
@@ -305,33 +308,44 @@ h2 {
 		&._next {
 			background-image: url('../images/icon_arr_right.svg');
 		}
+
+		&._edit {
+			width: 28px;
+			height: 28px;
+			background: url('../images/icon_edit.svg')no-repeat center/16px #2E7FDF;
+			border-radius: 100%;
+			@extend %transition;
+
+			@include hv {
+				background-color: #2E55DF;
+			}
+
+			@include ac {
+				background-color: #1D3EB3;
+			}
+		}
 	}
 }
 
-
 .normal_sel {
-	z-index: 10;
 	position: relative;
 	min-width: 180px;
+	border: 1px solid #BCBCBC;
+	border-radius: 8px;
+	@extend %transition;
 
 	&.user {
 		border: none;
 	}
 
-	&._hasMsg::before {
-		content: attr(data-msg);
-		display: block;
-		margin-bottom: 8px;
-		font-size: 12px;
-		font-weight: 400;
-		line-height: 18px;
-		color: #565656;
-
+	@include hoverHandler {
+		&:not(.user) {
+			background-color: #E7F0FF;
+		}
 	}
 
 	// .normal_sel_title
 	&_title {
-		position: relative;
 		display: block;
 		width: 100%;
 		height: 100%;
@@ -339,14 +353,7 @@ h2 {
 		color: #464646;
 		font-size: 16px;
 		font-weight: 400;
-		border: 1px solid #BCBCBC;
-		border-radius: 8px;
 		@extend %hand;
-		@extend %transition;
-
-		@include hv {
-			background-color: #E7F0FF;
-		}
 
 		&:after {
 			pointer-events: none;
@@ -368,27 +375,12 @@ h2 {
 			// 
 		}
 
-		&.on {
-			background-color: #E7F0FF;
-
-			&:after {
-				transform: rotate(180deg);
-			}
-		}
-
-		.user & {
-			border: none;
-
-			@include hv {
-				background-color: transparent;
-			}
-
-			&.on {
-				background-color: transparent;
-			}
+		&.on:after {
+			transform: rotate(180deg);
 		}
 
 		.user &:after {
+			pointer-events: none;
 			background-image: url('../images/icon_arrDown_user.svg');
 		}
 
@@ -399,6 +391,7 @@ h2 {
 				background-image: url('../images/icon_arrDown_w.svg');
 			}
 		}
+
 	}
 
 	&.on {
@@ -407,6 +400,7 @@ h2 {
 
 	// .normal_sel_group
 	&_group {
+		z-index: 20;
 		position: absolute;
 		right: 0;
 		top: calc(100% + 5px);
@@ -526,8 +520,57 @@ h2 {
 		}
 	}
 
-	.line_energy_group + &{
+	.line_energy_group+& {
 		margin-top: 20px;
+	}
+}
+
+.normal_switct {
+	position: relative;
+	width: 36px;
+	height: 20px;
+
+
+	@extend %hand;
+
+	// .normal_switct_ball
+	&_ball {
+		position: relative;
+		display: block;
+		width: 100%;
+		height: 100%;
+		padding: 1px;
+		background-color: #D3D8EE;
+		border-radius: 360px;
+		box-shadow: 0px 0px 1px 0px #00000026;
+		@extend %transition;
+
+		&::before {
+			content: "";
+			position: absolute;
+			left: 1px;
+			display: block;
+			width: 18px;
+			height: 18px;
+			background-color: #fff;
+			border-radius: 100%;
+			box-shadow: 0px 0px 1px 0px #33333340;
+			@extend %transition;
+		}
+	}
+
+	input {
+		display: none;
+		position: absolute;
+		opacity: 0;
+	}
+
+	input:checked~&_ball {
+		background-color: #2E7FDF;
+
+		&::before {
+			transform: translateX(calc(100% - 2px));
+		}
 	}
 }
 
@@ -555,10 +598,11 @@ h2 {
 	background-color: #8210B8;
 }
 
+
 .wrap {
 	width: 100%;
 	min-width: 1440px;
-	min-height: 100%;
+	height: 100%;
 	background-color: #f6f6f6;
 
 	&.home {
@@ -567,6 +611,7 @@ h2 {
 }
 
 .container {
+	position: relative;
 	overflow: hidden;
 	width: 100%;
 	height: calc(100% - 60px);
@@ -631,6 +676,10 @@ h2 {
 		background-image: url('../images/icon_user_blue.svg');
 	}
 
+	// &:after {
+	// 	background-image: url('./assets/images/icon_arrDown_b.svg');
+	// }
+
 	.home & {
 		color: #fff;
 
@@ -638,6 +687,7 @@ h2 {
 			background-image: url('../images/icon_user_w.svg');
 		}
 	}
+
 }
 
 .system_txt {
@@ -656,6 +706,9 @@ h2 {
 		flex-wrap: wrap;
 		width: 1060px;
 		margin: 10px auto 0;
+
+
+
 	}
 
 	// .home_item	
@@ -753,10 +806,10 @@ h2 {
 			max-height: calc(100% - 40px);
 			min-height: 280px;
 
-			.normal_sel {
-				max-width: 420px;
-				margin: auto;
-			}
+			// .normal_sel {
+			// 	max-width: 420px;
+			// 	margin: auto;
+			// }
 		}
 
 		._msg & {
@@ -819,6 +872,37 @@ h2 {
 
 		.normal_sel+.normal_sel {
 			margin-top: 20px;
+		}
+
+		// .alert_info_selBox
+		&_selBox {
+			position: relative;
+			@include d_f(flex, none, center);
+			width: 100%;
+			max-width: 454px;
+			margin: auto;
+			padding-top: 17px;
+
+			&+& {
+				margin-top: 20px;
+			}
+
+			&::before {
+				content: attr(data-msg);
+				position: absolute;
+				top: 0;
+				left: 0;
+				font-size: 12px;
+				font-weight: 400;
+			}
+
+			.selModle {
+				width: 100%;
+			}
+
+			.icon_btn {
+				margin-left: 10px;
+			}
 		}
 
 		// .alert_info_txt
@@ -890,11 +974,27 @@ h2 {
 	height: 60px;
 	background: url('../images/machine.svg')no-repeat center/contain;
 
+
+
 	.edit & {
 		background-image: url('../images/machine_edit.svg');
+	}
+
+	.add & {
+		background-image: url('../images/machine_add.svg');
 	}
 
 	.check & {
 		background-image: url('../images/machine_check.svg');
 	}
+}
+
+.state {
+	flex: none;
+	width: 54px;
+	height: 12px;
+	margin: 0 auto 8px;
+	border-radius: 21px;
+
+
 }
