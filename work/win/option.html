@@ -26,23 +26,20 @@
 			</div>
 			<div class="container">
 				<div class="container_title" data-tw="後台控制系統">Option</div>
-
 				<div class="option_filter">
-					<div id="option_select" class="option_select">
-						<div class="title">權限設定</div>
-						<div id="txt" class="txt"></div>
+					<div class="option_select" (click)="option_sel('permissions')" [class.on]="permissions_sel.on"
+						[class.show]="permissions_sel.show">
+						<div class="title">{{permissions_sel.title}}</div>
+						<div id="txt" class="txt">{{permissions_sel.txt}}</div>
 						<ul id="option_sel_ul" class="option_select_ul">
-							<li class="option_select_li">權限設定</li>
-							<li class="option_select_li">頁面設定</li>
-							<li class="option_select_li">角色設定</li>
+							<li class="option_select_li" *ngFor="let item of permissions_sel.lists"
+								(click)="option_item(item)">{{item}}
+							</li>
 						</ul>
 					</div>
 					<button class="option_btn">EPK 參數設定</button>
 				</div>
-
-
-
-				<div class="permissions">
+				<div class="permissions" style="display: none;">
 					<div class="permissions_head">
 						<button class="border_btn _add"><i></i>Add Account</button>
 					</div>
@@ -73,9 +70,9 @@
 								<div>Admin</div>
 							</div>
 							<div class="permissions_item_btnBox">
-								<label class="normal_switct">
+								<label class="normal_switch">
 									<input type="checkbox">
-									<span class="normal_switct_ball"></span>
+									<span class="normal_switch_ball"></span>
 								</label>
 								<button class="icon_btn _edit"></button>
 							</div>
@@ -106,9 +103,9 @@
 								<div>Admin</div>
 							</div>
 							<div class="permissions_item_btnBox">
-								<label class="normal_switct">
+								<label class="normal_switch">
 									<input type="checkbox">
-									<span class="normal_switct_ball"></span>
+									<span class="normal_switch_ball"></span>
 								</label>
 								<button class="icon_btn _edit"></button>
 							</div>
@@ -139,9 +136,9 @@
 								<div>Admin</div>
 							</div>
 							<div class="permissions_item_btnBox">
-								<label class="normal_switct">
+								<label class="normal_switch">
 									<input type="checkbox">
-									<span class="normal_switct_ball"></span>
+									<span class="normal_switch_ball"></span>
 								</label>
 								<button class="icon_btn _edit"></button>
 							</div>
@@ -172,13 +169,275 @@
 								<div>Admin</div>
 							</div>
 							<div class="permissions_item_btnBox">
-								<label class="normal_switct">
+								<label class="normal_switch">
 									<input type="checkbox">
-									<span class="normal_switct_ball"></span>
+									<span class="normal_switch_ball"></span>
 								</label>
 								<button class="icon_btn _edit"></button>
 							</div>
 						</div>
+					</div>
+				</div>
+				<div class="pageset" style="display: none;">
+					<div class="pageset_head">
+						<button class="border_btn _add"><i></i>新増選單</button>
+						<button class="border_btn _edit"><i></i>編輯選單</button>
+					</div>
+					<div class="pageset_title">請編輯頁面名稱或拖曳順序</div>
+					<div class="pageset_body">
+						<!-- 整個group移動 class加上 _on -->
+						<ul class="pageset_group _on">
+							<!-- 點點框線class加上 _dotted -->
+							<li class="pageset_item _title">
+								<i class="icon_btn _arr"></i>
+								<input type="text" value="權限設定">
+								<span class="pageset_item_lineY"></span>
+								<div class="pageset_item_btnBox">
+									<button class="icon_btn _trash"></button>
+									<button class="icon_btn _add"></button>
+								</div>
+							</li>
+							<li class="pageset_item _dotted">
+								<input type="text" value="權限設定">
+								<span class="pageset_item_lineX"></span>
+								<span class="pageset_item_lineY"></span>
+							</li>
+							<li class="pageset_item">
+								<input type="text" value="頁面設定">
+								<span class="pageset_item_lineX"></span>
+								<span class="pageset_item_lineY"></span>
+							</li>
+						</ul>
+						<!-- 沒有子項目 -->
+						<ul class="pageset_group _only">
+							<li class="pageset_item _title">
+								<input type="text" value="EPK 參數設定">
+							</li>
+						</ul>
+						<ul class="pageset_group">
+							<li class="pageset_item _title">
+								<i class="icon_btn _arr"></i>
+								<input type="text" value="機台/狀態註冊">
+								<span class="pageset_item_lineY"></span>
+							</li>
+							<li class="pageset_item">
+								<input type="text" value="狀態維護">
+								<span class="pageset_item_lineX"></span>
+								<span class="pageset_item_lineY"></span>
+							</li>
+							<li class="pageset_item">
+								<input type="text" value="機況維護">
+								<span class="pageset_item_lineX"></span>
+								<span class="pageset_item_lineY"></span>
+							</li>
+							<li class="pageset_item">
+								<input type="text" value="變更設備">
+								<span class="pageset_item_lineX"></span>
+								<span class="pageset_item_lineY"></span>
+							</li>
+							<li class="pageset_item">
+								<input type="text" value="線別維護">
+								<span class="pageset_item_lineX"></span>
+								<span class="pageset_item_lineY"></span>
+							</li>
+						</ul>
+						<!-- 沒有子項目 -->
+						<ul class="pageset_group _only">
+							<li class="pageset_item _title">
+								<input type="text" value="人力/工時註冊">
+							</li>
+						</ul>
+						<!-- 沒有子項目 -->
+						<ul class="pageset_group _only">
+							<li class="pageset_item _title">
+								<input type="text" value="產品Model/良率/UPH註冊">
+							</li>
+						</ul>
+
+						<ul class="pageset_group">
+							<li class="pageset_item _title">
+								<i class="icon_btn _arr"></i>
+								<input type="text" value="KPI指標">
+								<span class="pageset_item_lineY"></span>
+							</li>
+							<li class="pageset_item">
+								<input type="text" value="KPI算法Target">
+								<span class="pageset_item_lineX"></span>
+								<span class="pageset_item_lineY"></span>
+							</li>
+							<li class="pageset_item">
+								<input type="text" value="KPI指標建立">
+								<span class="pageset_item_lineX"></span>
+								<span class="pageset_item_lineY"></span>
+							</li>
+						</ul>
+
+						<!-- 沒有子項目 -->
+						<ul class="pageset_group _only">
+							<li class="pageset_item _title">
+								<input type="text" value="線別產品機台CycleTime">
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="roleset">
+					<div class="roleset_head">
+						<button class="border_btn _add"><i></i>新増角色</button>
+					</div>
+					<div class="roleset_body">
+						<div class="roleset_item">
+							Metaengineer
+							<button class="icon_btn _trash"></button>
+						</div>
+						<div class="roleset_item">
+							Metaengineer
+							<button class="icon_btn _trash"></button>
+						</div>
+						<div class="roleset_item">
+							Metaengineer
+							<button class="icon_btn _trash"></button>
+						</div>
+						<div class="roleset_item">
+							Metaengineer
+							<button class="icon_btn _trash"></button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Add/Edit Account -->
+			<div class="alert _option _permissionsEdit" style="display: none;">
+				<div class="alert_box">
+					<button class="icon_btn _close" (click)="alert_close('msg')"></button>
+					<div class="alert_title">Add Account</div>
+					<div class="alert_info">
+						<div class="alert_info_inp" data-msg="姓名">
+							<input type="text">
+						</div>
+						<div class="alert_info_inp" data-msg="工號">
+							<input type="text">
+						</div>
+						<div class="alert_info_inp" data-msg="email">
+							<input type="text">
+						</div>
+						<div class="alert_info_selBox" data-msg="部門">
+							<div class="normal_sel">
+								<!-- 點擊在span class裡面加上on -->
+								<span class="normal_sel_title" [class.on]="selectShow"
+									(click)="selHandler()">{{selectContent.title}}</span>
+								<ul class="normal_sel_group">
+									<li class="normal_sel_item" *ngFor="let item of selectContent.lists"
+										(click)="machineSel(item)">{{item}}</li>
+								</ul>
+							</div>
+						</div>
+						<div class="alert_info_selBox" data-msg="職位">
+							<div class="normal_sel">
+								<!-- 點擊在span class裡面加上on -->
+								<span class="normal_sel_title" [class.on]="selectShow"
+									(click)="selHandler()">{{selectContent.title}}</span>
+								<ul class="normal_sel_group">
+									<li class="normal_sel_item" *ngFor="let item of selectContent.lists"
+										(click)="machineSel(item)">{{item}}</li>
+								</ul>
+							</div>
+						</div>
+						<div class="alert_info_selBox" data-msg="權限">
+							<div class="normal_sel">
+								<!-- 點擊在span class裡面加上on -->
+								<span class="normal_sel_title" [class.on]="selectShow"
+									(click)="selHandler()">{{selectContent.title}}</span>
+								<ul class="normal_sel_group">
+									<li class="normal_sel_item" *ngFor="let item of selectContent.lists"
+										(click)="machineSel(item)">{{item}}</li>
+								</ul>
+							</div>
+						</div>
+						<label class="normal_switch _leftMsg" data-msg="啟用">
+							<input type="checkbox">
+							<span class="normal_switch_ball"></span>
+						</label>
+					</div>
+					<div class="alert_btnBox">
+						<button class="normal_btn _secondry">取消</button>
+						<button class="normal_btn _primary">新増</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- 新増第二層選單 -->
+			<div class="alert _option" style="display: none;">
+				<div class="alert_box">
+					<button class="icon_btn _close" (click)="alert_close('msg')"></button>
+					<div class="alert_title">新増第二層選單</div>
+					<div class="alert_info">
+						<div class="alert_info_inp" data-msg="上層選單">
+							<input type="text" value="權限設定" disabled>
+						</div>
+						<div class="alert_info_inp" data-msg="中文名稱">
+							<input type="text" placeholder="新第二層選單名稱">
+						</div>
+						<div class="alert_info_inp" data-msg="英文名稱">
+							<input type="text" placeholder="New Sub Nav">
+						</div>
+						<div class="alert_info_inp" data-msg="選單網址">
+							<input type="text" placeholder="/home/material">
+						</div>
+					</div>
+					<div class="alert_btnBox">
+						<button class="normal_btn _secondry">取消</button>
+						<button class="normal_btn _primary">新増</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- 新増選單 -->
+			<div class="alert _option" style="display: none;">
+				<div class="alert_box">
+					<button class="icon_btn _close" (click)="alert_close('msg')"></button>
+					<div class="alert_title">新増選單</div>
+					<div class="alert_info">
+						<div class="alert_info_inp" data-msg="中文名稱">
+							<input type="text" placeholder="新選單名稱">
+						</div>
+						<div class="alert_info_inp" data-msg="英文名稱">
+							<input type="text" placeholder="New Nav">
+						</div>
+						<div class="alert_info_inp" data-msg="選單網址">
+							<input type="text" placeholder="/home/material">
+						</div>
+						<div class="alert_info_box">
+							<button class="border_btn _add"><i></i>新増第二層選單</button>
+						</div>
+						<div class="alert_info_txt">第二層選單</div>
+
+						<div class="alert_info_mult">
+							<div class="alert_info_inp" data-msg="中文名稱">
+								<input type="text" placeholder="新選單名稱">
+							</div>
+							<div class="alert_info_inp" data-msg="英文名稱">
+								<input type="text" placeholder="New Nav">
+							</div>
+							<div class="alert_info_inp" data-msg="選單網址">
+								<input type="text" placeholder="/home/material">
+							</div>
+						</div>
+						<div class="alert_info_mult">
+							<div class="alert_info_inp" data-msg="中文名稱">
+								<input type="text" placeholder="新選單名稱">
+							</div>
+							<div class="alert_info_inp" data-msg="英文名稱">
+								<input type="text" placeholder="New Nav">
+							</div>
+							<div class="alert_info_inp" data-msg="選單網址">
+								<input type="text" placeholder="/home/material">
+							</div>
+						</div>
+					</div>
+					<div class="alert_btnBox">
+						<button class="normal_btn _secondry">取消</button>
+						<button class="normal_btn _primary">新増</button>
 					</div>
 				</div>
 			</div>
