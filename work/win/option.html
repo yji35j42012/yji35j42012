@@ -39,11 +39,12 @@
 					</div>
 					<button class="option_btn">EPK 參數設定</button>
 				</div>
-				<div class="permissions" style="display: none;">
-					<div class="permissions_head">
+
+				<div class="option_content _permissions" style="display: none;">
+					<div class="option_head">
 						<button class="border_btn _add"><i></i>Add Account</button>
 					</div>
-					<div class="permissions_body">
+					<div class="option_body">
 						<div class="permissions_item">
 							<div class="permissions_item_list _title">
 								<div></div>
@@ -178,13 +179,14 @@
 						</div>
 					</div>
 				</div>
-				<div class="pageset" style="display: none;">
-					<div class="pageset_head">
+				<div class="option_content" style="display: none;">
+					<div class="option_content_title">新選單名稱3</div>
+					<div class="option_head _border">
 						<button class="border_btn _add"><i></i>新増選單</button>
 						<button class="border_btn _edit"><i></i>編輯選單</button>
 					</div>
 					<div class="pageset_title">請編輯頁面名稱或拖曳順序</div>
-					<div class="pageset_body">
+					<div class="option_body">
 						<!-- 整個group移動 class加上 _on -->
 						<ul class="collapse _on">
 							<!-- 點點框線class加上 _dotted -->
@@ -280,13 +282,13 @@
 						</ul>
 					</div>
 				</div>
-				<div class="roleset" style="display: none;">
-					<div class="roleset_head">
+				<div class="option_content _roleset _edit" style="display: none;">
+					<div class="option_head _border">
 						<button class="border_btn _add" style="display: none;"><i></i>新増角色</button>
 						<div class="roleset_head_title">Metaengineer</div>
 						<div class="roleset_head_txt">請選擇可檢視之頁面</div>
 					</div>
-					<div class="roleset_body" style="display: none;">
+					<div class="option_body" style="display: none;">
 						<div class="roleset_item">
 							Metaengineer
 							<button class="icon_btn _trash"></button>
@@ -304,7 +306,7 @@
 							<button class="icon_btn _trash"></button>
 						</div>
 					</div>
-					<div class="roleset_body">
+					<div class="option_body">
 						<ul class="collapse">
 							<li class="collapse_item _title">
 								<i class="icon_btn _arr"></i>
@@ -336,14 +338,14 @@
 						</ul>
 					</div>
 				</div>
-				<div class="maintain">
-					<div class="maintain_head">
+				<div class="option_content _maintain" style="display: none;">
+					<div class="option_head">
 						<button class="border_btn _add"><i></i>新増狀態</button>
 						<button class="border_btn _export"><i></i>匯出 Excel</button>
 						<button class="border_btn _inport"><i></i>匯入 Excel</button>
 						<button class="border_btn _refresh"><i></i>Refresh</button>
 					</div>
-					<div class="maintain_body">
+					<div class="option_body">
 						<table class="normal_tb">
 							<tr>
 								<th>
@@ -444,6 +446,914 @@
 								</td>
 							</tr>
 						</table>
+						<ul class="normal_page">
+							<li class="normal_page_item _prev"></li>
+							<li class="normal_page_item on">1</li>
+							<li class="normal_page_item">2</li>
+							<li class="normal_page_item">3</li>
+							<li class="normal_page_item">4</li>
+							<li class="normal_page_item">5</li>
+							<li class="normal_page_item _dot">...</li>
+							<li class="normal_page_item">100</li>
+							<li class="normal_page_item _next"></li>
+						</ul>
+					</div>
+				</div>
+				<div class="option_content _condition" style="display: none;">
+					<div class="option_head">
+						<div class="normal_sel _hasMsg" data-msg="線別">
+							<!-- 點擊在span class裡面加上on -->
+							<span class="normal_sel_title" [class.on]="selectShow" (click)="selHandler()">S1</span>
+							<ul class="normal_sel_group">
+								<li class="normal_sel_item" *ngFor="let item of selectContent.lists"
+									(click)="machineSel(item)">{{item}}</li>
+							</ul>
+						</div>
+						<button class="border_btn _export"><i></i>匯出 Excel</button>
+						<button class="border_btn _inport"><i></i>匯入 Excel</button>
+						<button class="border_btn _refresh"><i></i>Refresh</button>
+					</div>
+					<div class="option_body">
+						<table class="normal_tb">
+							<tr>
+								<th>
+									<div class="normal_tb_box">
+										狀態代碼
+										<!-- 遞增加上 _asc 遞減加上 _desc-->
+										<button class="icon_btn _sort"></button>
+										<button class="icon_btn _filter"></button>
+										<div class="normal_tb_filterbox">
+											<label class="normal_search">
+												<input class="normal_search_inp" type="text" placeholder="搜尋">
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">Select All</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">EQ_WAIT</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">PM</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">PD_RUN</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">ENG</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">OFF</span>
+											</label>
+										</div>
+									</div>
+								</th>
+								<th>
+									<div class="normal_tb_box">
+										狀態顏色
+										<button class="icon_btn _filter"></button>
+									</div>
+								</th>
+								<th>狀態說明</th>
+								<th>
+									<div class="normal_tb_box _jucc">
+										授權人員
+										<!-- 遞增加上 _asc 遞減加上 _desc-->
+										<button class="icon_btn _sort"></button>
+									</div>
+								</th>
+								<th>編輯刪除</th>
+							</tr>
+							<tr>
+								<td>EQ_WAIT</td>
+								<td>
+									<div class="state WAIT"></div>
+								</td>
+								<td>
+									機台設備異常當機，機台設備異常當機，機台設備異常當機，機台設備異常當機，機台設備異常當機，機台設備異常當機，
+								</td>
+								<td>10人</td>
+								<td>
+									<div class="normal_tb_box _jucc">
+										<button class="icon_btn _edit"></button>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>PM</td>
+								<td>
+									<div class="state PM"></div>
+								</td>
+								<td>
+									機台設備異常當機，機台設備異常當機，機台設備異常當機，機台設備異常當機，機台設備異常當機，機台設備異常當機，
+								</td>
+								<td>10人</td>
+								<td>
+									<div class="normal_tb_box _jucc">
+										<button class="icon_btn _edit"></button>
+									</div>
+								</td>
+							</tr>
+						</table>
+						<ul class="normal_page">
+							<li class="normal_page_item _prev"></li>
+							<li class="normal_page_item on">1</li>
+							<li class="normal_page_item">2</li>
+							<li class="normal_page_item">3</li>
+							<li class="normal_page_item">4</li>
+							<li class="normal_page_item">5</li>
+							<li class="normal_page_item _dot">...</li>
+							<li class="normal_page_item">100</li>
+							<li class="normal_page_item _next"></li>
+						</ul>
+					</div>
+				</div>
+				<div class="option_content _device" style="display: none;">
+					<div class="option_head">
+						<button class="border_btn _add"><i></i>新増設備</button>
+						<button class="border_btn _export"><i></i>匯出 Excel</button>
+						<button class="border_btn _inport"><i></i>匯入 Excel</button>
+						<button class="border_btn _refresh"><i></i>Refresh</button>
+					</div>
+
+					<div class="option_body">
+						<table class="normal_tb">
+							<tr>
+								<th>
+									<div class="normal_tb_box">
+										設備
+										<!-- 遞增加上 _asc 遞減加上 _desc-->
+										<button class="icon_btn _sort"></button>
+										<button class="icon_btn _filter"></button>
+										<div class="normal_tb_filterbox">
+											<label class="normal_search">
+												<input class="normal_search_inp" type="text" placeholder="搜尋">
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">Select All</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">EQ_WAIT</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">PM</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">PD_RUN</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">ENG</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">OFF</span>
+											</label>
+										</div>
+									</div>
+								</th>
+								<th>
+									<div class="normal_tb_box">
+										有效性
+										<!-- 遞增加上 _asc 遞減加上 _desc-->
+										<button class="icon_btn _sort"></button>
+										<button class="icon_btn _filter"></button>
+										<div class="normal_tb_filterbox">
+											<label class="normal_search">
+												<input class="normal_search_inp" type="text" placeholder="搜尋">
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">Select All</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">EQ_WAIT</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">PM</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">PD_RUN</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">ENG</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">OFF</span>
+											</label>
+										</div>
+									</div>
+								</th>
+								<th>
+									<div class="normal_tb_box">
+										財產編號
+										<!-- 遞增加上 _asc 遞減加上 _desc-->
+										<button class="icon_btn _sort"></button>
+										<button class="icon_btn _filter"></button>
+										<div class="normal_tb_filterbox">
+											<label class="normal_search">
+												<input class="normal_search_inp" type="text" placeholder="搜尋">
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">Select All</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">EQ_WAIT</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">PM</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">PD_RUN</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">ENG</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">OFF</span>
+											</label>
+										</div>
+									</div>
+								</th>
+								<th>
+									<div class="normal_tb_box">
+										Category
+										<!-- 遞增加上 _asc 遞減加上 _desc-->
+										<button class="icon_btn _sort"></button>
+										<button class="icon_btn _filter"></button>
+										<div class="normal_tb_filterbox">
+											<label class="normal_search">
+												<input class="normal_search_inp" type="text" placeholder="搜尋">
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">Select All</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">EQ_WAIT</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">PM</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">PD_RUN</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">ENG</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">OFF</span>
+											</label>
+										</div>
+									</div>
+								</th>
+								<th>
+									<div class="normal_tb_box">
+										位置
+										<!-- 遞增加上 _asc 遞減加上 _desc-->
+										<button class="icon_btn _sort"></button>
+										<button class="icon_btn _filter"></button>
+										<div class="normal_tb_filterbox">
+											<label class="normal_search">
+												<input class="normal_search_inp" type="text" placeholder="搜尋">
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">Select All</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">EQ_WAIT</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">PM</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">PD_RUN</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">ENG</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">OFF</span>
+											</label>
+										</div>
+									</div>
+								</th>
+								<th>
+									<div class="normal_tb_box">
+										Model
+										<!-- 遞增加上 _asc 遞減加上 _desc-->
+										<button class="icon_btn _sort"></button>
+										<button class="icon_btn _filter"></button>
+										<div class="normal_tb_filterbox">
+											<label class="normal_search">
+												<input class="normal_search_inp" type="text" placeholder="搜尋">
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">Select All</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">EQ_WAIT</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">PM</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">PD_RUN</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">ENG</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">OFF</span>
+											</label>
+										</div>
+									</div>
+								</th>
+								<th>
+									<div class="normal_tb_box">
+										Process
+										<!-- 遞增加上 _asc 遞減加上 _desc-->
+										<button class="icon_btn _sort"></button>
+										<button class="icon_btn _filter"></button>
+										<div class="normal_tb_filterbox">
+											<label class="normal_search">
+												<input class="normal_search_inp" type="text" placeholder="搜尋">
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">Select All</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">EQ_WAIT</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">PM</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">PD_RUN</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">ENG</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">OFF</span>
+											</label>
+										</div>
+									</div>
+								</th>
+								<th>
+									<div class="normal_tb_box">
+										Vendor
+										<!-- 遞增加上 _asc 遞減加上 _desc-->
+										<button class="icon_btn _sort"></button>
+										<button class="icon_btn _filter"></button>
+										<div class="normal_tb_filterbox">
+											<label class="normal_search">
+												<input class="normal_search_inp" type="text" placeholder="搜尋">
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">Select All</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">EQ_WAIT</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">PM</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">PD_RUN</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">ENG</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">OFF</span>
+											</label>
+										</div>
+									</div>
+								</th>
+								<th>
+									<div class="normal_tb_box">
+										Dept
+										<!-- 遞增加上 _asc 遞減加上 _desc-->
+										<button class="icon_btn _sort"></button>
+										<button class="icon_btn _filter"></button>
+										<div class="normal_tb_filterbox">
+											<label class="normal_search">
+												<input class="normal_search_inp" type="text" placeholder="搜尋">
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">Select All</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">EQ_WAIT</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">PM</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">PD_RUN</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">ENG</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">OFF</span>
+											</label>
+										</div>
+									</div>
+								</th>
+								<th>
+									<div class="normal_tb_box">
+										廠區
+										<!-- 遞增加上 _asc 遞減加上 _desc-->
+										<button class="icon_btn _sort"></button>
+										<button class="icon_btn _filter"></button>
+										<div class="normal_tb_filterbox">
+											<label class="normal_search">
+												<input class="normal_search_inp" type="text" placeholder="搜尋">
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">Select All</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">EQ_WAIT</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">PM</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">PD_RUN</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">ENG</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">OFF</span>
+											</label>
+										</div>
+									</div>
+								</th>
+								<th>
+									<div class="normal_tb_box">
+										原始名稱
+										<!-- 遞增加上 _asc 遞減加上 _desc-->
+										<button class="icon_btn _sort"></button>
+										<button class="icon_btn _filter"></button>
+										<div class="normal_tb_filterbox">
+											<label class="normal_search">
+												<input class="normal_search_inp" type="text" placeholder="搜尋">
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">Select All</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">EQ_WAIT</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">PM</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">PD_RUN</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">ENG</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">OFF</span>
+											</label>
+										</div>
+									</div>
+								</th>
+								<th>編輯刪除</th>
+							</tr>
+							<tr>
+								<td>Printer-NS-0001(DEK-1)</td>
+								<td><i class="icon_btn _check"></i></td>
+								<td>30000138</td>
+								<td>NA</td>
+								<td>3F</td>
+								<td>NPM-W2 NM-EJM7D</td>
+								<td>SMT</td>
+								<td>Pasasonic</td>
+								<td>BLN100</td>
+								<td>WYTN</td>
+								<td>NPM-1</td>
+								<td>
+									<div class="normal_tb_box _jucc">
+										<button class="icon_btn _trash"></button>
+										<button class="icon_btn _edit"></button>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>Printer-NS-0001(DEK-1)</td>
+								<td><i class="icon_btn _invalid"></i></td>
+								<td>30000138</td>
+								<td>NA</td>
+								<td>3F</td>
+								<td>NPM-W2 NM-EJM7D</td>
+								<td>SMT</td>
+								<td>Pasasonic</td>
+								<td>BLN100</td>
+								<td>WYTN</td>
+								<td>NPM-1</td>
+								<td>
+									<div class="normal_tb_box _jucc">
+										<button class="icon_btn _trash"></button>
+										<button class="icon_btn _edit"></button>
+									</div>
+								</td>
+							</tr>
+						</table>
+						<ul class="normal_page">
+							<li class="normal_page_item _prev"></li>
+							<li class="normal_page_item on">1</li>
+							<li class="normal_page_item">2</li>
+							<li class="normal_page_item">3</li>
+							<li class="normal_page_item">4</li>
+							<li class="normal_page_item">5</li>
+							<li class="normal_page_item _dot">...</li>
+							<li class="normal_page_item">100</li>
+							<li class="normal_page_item _next"></li>
+						</ul>
+					</div>
+				</div>
+				<!-- 線別維護 -->
+				<div class="option_content _linefix">
+					<div class="option_head">
+						<button class="border_btn _add"><i></i>新増線別</button>
+						<button class="border_btn _export"><i></i>匯出 Excel</button>
+						<button class="border_btn _inport"><i></i>匯入 Excel</button>
+						<button class="border_btn _refresh"><i></i>Refresh</button>
+					</div>
+					<div class="option_body">
+						<table class="normal_tb">
+							<tr>
+								<th>
+									<div class="normal_tb_box">
+										線別名稱
+										<!-- 遞增加上 _asc 遞減加上 _desc-->
+										<button class="icon_btn _sort"></button>
+										<button class="icon_btn _filter"></button>
+										<div class="normal_tb_filterbox">
+											<label class="normal_search">
+												<input class="normal_search_inp" type="text" placeholder="搜尋">
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">Select All</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">EQ_WAIT</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">PM</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">PD_RUN</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">ENG</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">OFF</span>
+											</label>
+										</div>
+									</div>
+								</th>
+								<th>
+									<div class="normal_tb_box">
+										Sort
+										<!-- 遞增加上 _asc 遞減加上 _desc-->
+										<button class="icon_btn _sort"></button>
+									</div>
+								</th>
+								<th>
+									<div class="normal_tb_box">
+										有效性
+										<!-- 遞增加上 _asc 遞減加上 _desc-->
+										<button class="icon_btn _sort"></button>
+									</div>
+								</th>
+								<th>
+									<div class="normal_tb_box">
+										線別資訊
+										<!-- 遞增加上 _asc 遞減加上 _desc-->
+										<button class="icon_btn _sort"></button>
+									</div>
+								</th>
+								<th>設備清單</th>
+								<th>
+									<div class="normal_tb_box">
+										Updater
+										<!-- 遞增加上 _asc 遞減加上 _desc-->
+										<button class="icon_btn _sort"></button>
+										<button class="icon_btn _filter"></button>
+										<div class="normal_tb_filterbox">
+											<label class="normal_search">
+												<input class="normal_search_inp" type="text" placeholder="搜尋">
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">Select All</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">EQ_WAIT</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">PM</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">PD_RUN</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">ENG</span>
+											</label>
+											<label class="normal_check">
+												<input type="checkbox" class="normal_check_inp">
+												<span class="normal_check_span"></span>
+												<span class="normal_check_bg"></span>
+												<span class="normal_check_txt">OFF</span>
+											</label>
+										</div>
+									</div>
+								</th>
+								<th>編輯刪除</th>
+							</tr>
+							<tr>
+								<td>Line S1</td>
+								<td>99</td>
+								<td>Enable</td>
+								<td>DIP</td>
+								<td>NPM-NS-0008,NPM-NS-0009, NPM-NS-0010,NPM-NS-0011,
+									NPM-NS-0012,NPM-NS-0013,NPM-NS-0014,NPM-NS-0015, NPM-NS-0016,
+									NPM-NS-0017,NPM-NS-0018,NPM-NS-0019, Printer-NS-0002,Printer-NS-0003,SPI-NS-0002,
+									SPI-NS-0003,PreAOI-NS-0001,PostAOI-NS-0001,PostAOI-NS-0002,
+									Reflow-NS-0002,Reflow-NS-0003,Router-ND-0002,Wavesolder-ND-0002,AXI-ND-0002,FAOI-ND-0001,FAOI-ND-0002,PFit-ND-0002,
+									AutolNS-ND-
+									0001，</td>
+								<td>Darren_KC_Huang@wiwynn.com</td>
+								<td>
+									<div class="normal_tb_box _jucc">
+										<button class="icon_btn _trash"></button>
+										<button class="icon_btn _edit"></button>
+									</div>
+								</td>
+							</tr>
+						</table>
+						<ul class="normal_page">
+							<li class="normal_page_item _prev"></li>
+							<li class="normal_page_item on">1</li>
+							<li class="normal_page_item">2</li>
+							<li class="normal_page_item">3</li>
+							<li class="normal_page_item">4</li>
+							<li class="normal_page_item">5</li>
+							<li class="normal_page_item _dot">...</li>
+							<li class="normal_page_item">100</li>
+							<li class="normal_page_item _next"></li>
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -597,15 +1507,26 @@
 				</div>
 			</div>
 
-			<!-- 編輯狀態 未完成，要調整ＳＥＬＥＣＴ-->
-			<div class="alert _maintain" style="display: noneㄅ;">
+			<!-- 編輯狀態 -->
+			<div class="alert _maintain" style="display: none;">
 				<div class="alert_box">
 					<button class="icon_btn _close" (click)="alert_close('msg')"></button>
 					<div class="alert_title">編輯狀態</div>
 					<div class="alert_info">
-						<div class="alert_info_box">
+						<div class="alert_info_box _filter">
 							<div class="alert_info_inp" data-msg="狀態代碼">
 								<input type="text" placeholder="EQ_WAIT">
+							</div>
+							<div class="alert_info_sel" data-msg="Type">
+								<div class="normal_sel">
+									<!-- 點擊在span class裡面加上on -->
+									<span class="normal_sel_title" [class.on]="selectShow"
+										(click)="selHandler()">Loss</span>
+									<ul class="normal_sel_group">
+										<li class="normal_sel_item" *ngFor="let item of selectContent.lists"
+											(click)="machineSel(item)">{{item}}</li>
+									</ul>
+								</div>
 							</div>
 						</div>
 						<div class="alert_info_box _hasMsg" data-msg="狀態顏色">
@@ -667,7 +1588,256 @@
 							</label>
 						</div>
 						<div class="alert_info_box _hasMsg" data-msg="狀態說明">
+							<textarea class="alert_info_textarea"></textarea>
+						</div>
+						<!-- 打開class 加上on -->
+						<div class="normal_multsearch" data-msg="授權人員">
+							<div class="normal_multsearch_btnbox">
+								<button class="icon_btn _multclose"></button>
+								<button class="icon_btn _multarr"></button>
+							</div>
+							<div class="normal_multsearch_content">
+								<span class="normal_multsearch_item">
+									Darren_KC_Huang@wiwynn.com
+									<button class="icon_btn _multclose"></button>
+								</span>
+								<span class="normal_multsearch_item">
+									Vencent_Su@wiwynn.com
+									<button class="icon_btn _multclose"></button>
+								</span>
+								<span class="normal_multsearch_item">
+									jackson.graham@example.com
+									<button class="icon_btn _multclose"></button>
+								</span>
+								<span class="normal_multsearch_item">
+									kenzi.lawson@example.com
+									<button class="icon_btn _multclose"></button>
+								</span>
+								<span class="normal_multsearch_item">
+									Jenny Wilson
+									<button class="icon_btn _multclose"></button>
+								</span>
+								<span class="normal_multsearch_item">
+									curtis.weaver@example.com
+									<button class="icon_btn _multclose"></button>
+								</span>
+							</div>
+							<div class="normal_search">
+								<input class="normal_search_inp" type="text" placeholder="搜尋">
+							</div>
+							<div class="normal_multsearch_checkbox">
+								<label class="normal_check">
+									<input type="checkbox" class="normal_check_inp">
+									<span class="normal_check_span"></span>
+									Darren_KC_Huang@wiwynn.com
+								</label>
+								<label class="normal_check">
+									<input type="checkbox" class="normal_check_inp">
+									<span class="normal_check_span"></span>
+									Darren_KC_Huang@wiwynn.com
+								</label>
+								<label class="normal_check">
+									<input type="checkbox" class="normal_check_inp">
+									<span class="normal_check_span"></span>
+									Darren_KC_Huang@wiwynn.com
+								</label>
+								<label class="normal_check">
+									<input type="checkbox" class="normal_check_inp">
+									<span class="normal_check_span"></span>
+									Darren_KC_Huang@wiwynn.com
+								</label>
+							</div>
+						</div>
+					</div>
+					<div class="alert_btnBox">
+						<button class="normal_btn _secondry">取消</button>
+						<button class="normal_btn _primary">儲存變更</button>
+					</div>
+				</div>
+			</div>
+			<!-- 刪除狀態 -->
+			<div class="alert _msg" style="display: none;">
+				<div class="alert_box">
+					<button class="icon_btn _close"></button>
+					<div class="alert_title">刪除狀態</div>
+					<div class="alert_info">
+						<span class="alert_info_txt">您確定要刪除此狀態？</span>
 
+						<ul class="alert_info_detail">
+							<li data-msg="狀態代碼：">EQ_WAIT</li>
+							<li data-msg="排序：">1</li>
+							<li data-msg="Type：">Loss</li>
+							<li data-msg="狀態顏色：">
+								<div class="state WAIT"></div>
+							</li>
+							<li data-msg="狀態說明：">
+								機台設備異常當機機台設備異常當機機台設備異常當機機台設備異常當機機台設備異常當機機台設備異常當機機台設備異常當機機台設備異常當機機台設備異常當機機台設備異常當機機台設備異常當機機台設備異常當機機台設備異常當機機台設備異常當機
+							</li>
+						</ul>
+					</div>
+					<div class="alert_btnBox">
+						<button class="normal_btn _secondry">取消</button>
+						<button class="normal_btn _danger">刪除</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- 編輯機況 -->
+			<div class="alert _condition" style="display: none;">
+				<div class="alert_box">
+					<button class="icon_btn _close"></button>
+					<div class="alert_title">編輯機況</div>
+					<div class="alert_info">
+						<div class="alert_info_box">
+							<div class="condition_l">
+								<div class="alert_info_inp" data-msg="線別">
+									<input type="text" placeholder="S1">
+								</div>
+								<div class="condition_l_txt" data-msg="上次狀態">PD_RUN</div>
+								<div class="condition_l_txt" data-msg="現在時間">2023/11/20 08:00:00</div>
+							</div>
+							<div class="condition_r">
+								<div class="alert_info_inp" data-msg="設備">
+									<input type="text" placeholder="Printer-NS-0001(DEK-1)">
+								</div>
+								<div class="condition_r_txt" data-msg="記錄時間">2023/11/20 08:00:00</div>
+								<div class="normal_sel _hasMsg" data-msg="新狀態">
+									<!-- 點擊在span class裡面加上on -->
+									<span class="normal_sel_title" [class.on]="selectShow"
+										(click)="selHandler()">Normal</span>
+									<ul class="normal_sel_group">
+										<li class="normal_sel_item" *ngFor="let item of selectContent.lists"
+											(click)="machineSel(item)">{{item}}</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="alert_info_box _hasMsg" data-msg="狀態備註">
+							<textarea
+								class="alert_info_textarea">機台設備異常當機，機台設備異常當機，機台設備異常當機，機台設備異常當機，機台設備異常當機，機台設備異常當機，</textarea>
+						</div>
+					</div>
+					<div class="alert_btnBox">
+						<button class="normal_btn _secondry">取消</button>
+						<button class="normal_btn _primary">儲存變更</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- 新增／變更設備 -->
+			<div class="alert _device" style="display: none;">
+				<div class="alert_box">
+					<button class="icon_btn _close"></button>
+					<div class="alert_title">變更設備</div>
+					<div class="alert_info">
+						<div class="alert_info_box">
+							<div class="alert_info_inp" data-msg="設備名稱">
+								<input type="text" placeholder="Printer-NS-0001(DEK-1)">
+							</div>
+							<div class="alert_info_inp" data-msg="財產編號">
+								<input type="text" placeholder="30000138">
+							</div>
+							<div class="alert_info_inp" data-msg="Category">
+								<input type="text" placeholder="NA">
+							</div>
+							<div class="alert_info_inp" data-msg="位置">
+								<input type="text" placeholder="3F">
+							</div>
+							<div class="alert_info_inp" data-msg="Model">
+								<input type="text" placeholder="NPM-W2 NM-EJM7D">
+							</div>
+							<div class="alert_info_inp" data-msg="Process">
+								<input type="text" placeholder="SMT">
+							</div>
+							<div class="alert_info_inp" data-msg="Vendor">
+								<input type="text" placeholder="Pasasonic">
+							</div>
+							<div class="alert_info_inp" data-msg="Dept">
+								<input type="text" placeholder="BLN100">
+							</div>
+							<div class="alert_info_inp" data-msg="廠區">
+								<input type="text" placeholder="WYTN">
+							</div>
+							<div class="alert_info_inp" data-msg="原始名稱">
+								<input type="text" placeholder="NPM-1">
+							</div>
+							<div class="normal_sel _hasMsg" data-msg="Stations">
+								<!-- 點擊在span class裡面加上on -->
+								<span class="normal_sel_title" [class.on]="selectShow"
+									(click)="selHandler()">PCB-IM,PCB-IL</span>
+								<ul class="normal_sel_group">
+									<li class="normal_sel_item" *ngFor="let item of selectContent.lists"
+										(click)="machineSel(item)">{{item}}</li>
+								</ul>
+							</div>
+							<label class="normal_check">
+								<input type="checkbox" class="normal_check_inp">
+								<span class="normal_check_span"></span>
+								Enable
+							</label>
+							<div class="normal_textarea _hasMsg" data-msg="狀態備註">
+								<textarea
+									class="normal_textarea_inp">用途：NPM;Name:NPM-1;Process: SMT;Vendor: Pasasonic, Model: NP M-W2 NM-EJM7D;Gategory:NA, 樓層3F;財產編碼：30000009,Dept:BLN100</textarea>
+							</div>
+						</div>
+					</div>
+					<div class="alert_btnBox">
+						<button class="normal_btn _secondry">取消</button>
+						<button class="normal_btn _primary">儲存變更</button>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- 新増／變更線別 -->
+			<div class="alert _linefix">
+				<div class="alert_box">
+					<button class="icon_btn _close"></button>
+					<div class="alert_title">新増線別</div>
+					<div class="alert_linefix">
+						<div class="alert_linefix_head">
+							<label class="normal_check">
+								<input type="checkbox" class="normal_check_inp">
+								<span class="normal_check_span"></span>
+								Enable
+							</label>
+							<div class="alert_info_inp" data-msg="線別">
+								<input type="text" placeholder="Printer-NS-0001(DEK-1)">
+							</div>
+							<div class="alert_info_inp" data-msg="Sort">
+								<input type="text" placeholder="30000138">
+							</div>
+							<div class="normal_sel _hasMsg" data-msg="線別資訊">
+								<!-- 點擊在span class裡面加上on -->
+								<span class="normal_sel_title" [class.on]="selectShow" (click)="selHandler()">SMT</span>
+								<ul class="normal_sel_group">
+									<li class="normal_sel_item" *ngFor="let item of selectContent.lists"
+										(click)="machineSel(item)">{{item}}</li>
+								</ul>
+							</div>
+						</div>
+						<div class="alert_linefix_body">
+							<div class="alert_linefix_content _left">
+								<div class="func">
+									<div class="normal_radio">
+										<input type="radio" checked>
+										可用設備
+									</div>
+									<div class="normal_search">
+										<input class="normal_search_inp" type="text" placeholder="搜尋">
+									</div>
+								</div>
+							</div>
+							<div class="alert_linefix_content _right">
+								<div class="func">
+									<div class="normal_radio">
+										<input type="radio" checked>
+										可用設備
+									</div>
+									<div class="alert_linefix_msg">已選擇設備數量：0</div>
+								</div>
+
+							</div>
 						</div>
 					</div>
 					<div class="alert_btnBox">

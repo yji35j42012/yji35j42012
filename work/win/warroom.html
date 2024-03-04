@@ -189,14 +189,14 @@
 			</div>
 		</div>
 
-		<div class="alert _newLine" style="display: none;">
+		<div class="alert _newLine" style="display: none1;">
 			<div class="alert_box">
 				<button class="icon_btn _close"></button>
 				<div class="alert_title">新増生產線</div>
 				<div class="alert_info">
 					<div class="normal_sel _hasMsg" data-msg="線別 / 別產品別">
 						<!-- 點擊在span class裡面加上on -->
-						<span class="normal_sel_title" [class.on]="selectShow"
+						<span class="normal_sel_title " [class.on]="selectShow"
 							(click)="selHandler()">{{selectTitle}}</span>
 						<ul class="normal_sel_group">
 							<li class="normal_sel_item" (click)="machineSel('機台顯示名稱1')">機台顯示名稱1</li>
@@ -410,40 +410,40 @@
 
 
 	<script>
-		var warroom_items = document.querySelectorAll("[name='warroom_item']");
-		var itemX = 0
-		var itemMx = 0
-		var itemNum = null
-		var itemMoveNum = 0
+		var warroom_items=document.querySelectorAll("[name='warroom_item']");
+		var itemX=0
+		var itemMx=0
+		var itemNum=null
+		var itemMoveNum=0
 		var itemLast
-		for (let i = 0; i < warroom_items.length; i++) {
-			itemLast = i
+		for (let i=0; i<warroom_items.length; i++) {
+			itemLast=i
 			warroom_items[i].addEventListener("mousedown", itemDown);
 		}
 		function itemDown(e) {
 			this.addEventListener("mousemove", itemMove);
 			window.addEventListener("mouseup", itemUp);
 			this.classList.add("top");
-			itemX = e.clientX;
-			itemNum = parseInt(this.id.split("item")[1]);
-			itemMoveNum = parseInt(itemNum);
+			itemX=e.clientX;
+			itemNum=parseInt(this.id.split("item")[1]);
+			itemMoveNum=parseInt(itemNum);
 			console.log('itemLast', itemLast);
 		}
 
 		function itemMove(e) {
-			itemMx = e.clientX
-			let newX = itemMx - itemX
+			itemMx=e.clientX
+			let newX=itemMx-itemX
 			console.log('itemMoveNum', itemMoveNum);
 
-			if (itemNum == 0 && newX > (itemMoveNum + 1) * 50 && itemMoveNum < itemLast) {
-				changItem(itemMoveNum + 1)
+			if (itemNum==0&&newX>(itemMoveNum+1)*50&&itemMoveNum<itemLast) {
+				changItem(itemMoveNum+1)
 				itemMoveNum++
 			}
-			this.style = `transform:translateX(${newX}px);transition: all 0s;}`;
+			this.style=`transform:translateX(${ newX }px);transition: all 0s;}`;
 		}
 		function itemUp() {
 			console.log('itemUp');
-			warroom_items[itemNum].style = `transform:translateX(${itemMoveNum * 100}%);transition: all 0.3s ease-in-out;}`;
+			warroom_items[itemNum].style=`transform:translateX(${ itemMoveNum*100 }%);transition: all 0.3s ease-in-out;}`;
 			setTimeout(() => {
 				warroom_items[itemNum].classList.remove("top")
 			}, 300);
@@ -452,7 +452,7 @@
 		}
 
 		function changItem(n) {
-			warroom_items[n].style = `transform:translateX(-100%);transition: all 0.3s ease-in-out;}`;
+			warroom_items[n].style=`transform:translateX(-100%);transition: all 0.3s ease-in-out;}`;
 		}
 	</script>
 </body>
