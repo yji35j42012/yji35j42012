@@ -1190,7 +1190,7 @@
 					</div>
 				</div>
 				<!-- 線別維護 -->
-				<div class="option_content _linefix">
+				<div class="option_content _linefix" style="display: none;">
 					<div class="option_head">
 						<button class="border_btn _add"><i></i>新増線別</button>
 						<button class="border_btn _export"><i></i>匯出 Excel</button>
@@ -1354,6 +1354,403 @@
 							<li class="normal_page_item">100</li>
 							<li class="normal_page_item _next"></li>
 						</ul>
+					</div>
+				</div>
+
+				<!-- 產品Model/良率/UPH註冊 -->
+				<div class="option_content _model" style="display: none;">
+					<div class="option_head">
+						<button class="border_btn _add"><i></i>新増</button>
+					</div>
+					<div class="option_body">
+						<table class="normal_tb">
+							<tr>
+								<th>專案類型</th>
+								<th>專案</th>
+								<th>版號</th>
+								<th>專案產品名稱</th>
+								<th>UPH(每小時產出)</th>
+								<th>YR(良率):小數點一位</th>
+								<th>編輯刪除</th>
+							</tr>
+							<tr>
+								<td>PCB/FA</td>
+								<td>AMBROSE</td>
+								<td>20X056</td>
+								<td>AMBROSE RISER</td>
+								<td>251</td>
+								<td>99.5</td>
+								<td>
+									<div class="normal_tb_box _jucc">
+										<button class="icon_btn _trash"></button>
+										<button class="icon_btn _edit"></button>
+									</div>
+								</td>
+							</tr>
+						</table>
+						<ul class="normal_page">
+							<li class="normal_page_item _prev"></li>
+							<li class="normal_page_item on">1</li>
+							<li class="normal_page_item">2</li>
+							<li class="normal_page_item">3</li>
+							<li class="normal_page_item">4</li>
+							<li class="normal_page_item">5</li>
+							<li class="normal_page_item _dot">...</li>
+							<li class="normal_page_item">100</li>
+							<li class="normal_page_item _next"></li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- KPI算法Target -->
+				<div class="option_content _kpitarget" style="display: none;">
+					<div class="option_head ">
+						<button class="border_btn _add"><i></i>新増算法 Target</button>
+					</div>
+					<div class="option_body">
+						<ul class="kpitarget_group">
+							<li class="kpitarget_item">
+								<div class="kpitarget_item_content">
+									<div class="kpitarget_item_txt" data-msg="算法項目">FPYR</div>
+									<div class="kpitarget_item_txt" data-msg="時間">2023/12月</div>
+									<div class="kpitarget_box">
+										<!-- 0-25  25-50 50-75 75-100 -->
+										<!-- 
+											_quarter1：0-25   
+											_quarter2：26-50
+											_quarter3：50-75
+											_quarter4：75-100
+										-->
+										<!-- 趴數*3.6  ex num=25  --rot=25*.36 -->
+										<div class="normal_cicle _quarter4" data-num="26">
+											<span class="normal_cicle_s1" style="--rot:280deg;"></span>
+											<span class="normal_cicle_fake"></span>
+										</div>
+										<div class="kpitarget_box_txt">Target</div>
+									</div>
+								</div>
+
+								<div class="kpitarget_item_btnbox">
+									<button class="icon_btn _trash"></button>
+									<button class="icon_btn _edit"></button>
+								</div>
+							</li>
+							<li class="kpitarget_item">
+								<div class="kpitarget_item_content">
+									<div class="kpitarget_item_txt" data-msg="算法項目">FPYR</div>
+									<div class="kpitarget_item_txt" data-msg="時間">2023/12月</div>
+									<div class="kpitarget_box">
+										<div class="normal_cicle _quarter4" data-num="26">
+											<span class="normal_cicle_s1" style="--rot:360deg;"></span>
+											<span class="normal_cicle_fake"></span>
+										</div>
+										<div class="kpitarget_box_txt">Target</div>
+									</div>
+								</div>
+
+								<div class="kpitarget_item_btnbox">
+									<button class="icon_btn _trash"></button>
+									<button class="icon_btn _edit"></button>
+								</div>
+							</li>
+							<li class="kpitarget_item">
+								<div class="kpitarget_item_content">
+									<div class="kpitarget_item_txt" data-msg="算法項目">FPYR</div>
+									<div class="kpitarget_item_txt" data-msg="時間">2023/12月</div>
+									<div class="kpitarget_box">
+										<div class="normal_cicle _quarter4" data-num="26">
+											<span class="normal_cicle_s1" style="--rot:360deg;"></span>
+											<span class="normal_cicle_fake"></span>
+										</div>
+										<div class="kpitarget_box_txt">Target</div>
+									</div>
+								</div>
+
+								<div class="kpitarget_item_btnbox">
+									<button class="icon_btn _trash"></button>
+									<button class="icon_btn _edit"></button>
+								</div>
+							</li>
+							<li class="kpitarget_item">
+								<div class="kpitarget_item_content">
+									<div class="kpitarget_item_txt" data-msg="算法項目">FPYR</div>
+									<div class="kpitarget_item_txt" data-msg="時間">2023/12月</div>
+									<div class="kpitarget_box">
+										<div class="normal_cicle _quarter4" data-num="26">
+											<span class="normal_cicle_s1" style="--rot:360deg;"></span>
+											<span class="normal_cicle_fake"></span>
+										</div>
+										<div class="kpitarget_box_txt">Target</div>
+									</div>
+								</div>
+
+								<div class="kpitarget_item_btnbox">
+									<button class="icon_btn _trash"></button>
+									<button class="icon_btn _edit"></button>
+								</div>
+							</li>
+							<li class="kpitarget_item">
+								<div class="kpitarget_item_content">
+									<div class="kpitarget_item_txt" data-msg="算法項目">FPYR</div>
+									<div class="kpitarget_item_txt" data-msg="時間">2023/12月</div>
+									<div class="kpitarget_box">
+										<div class="normal_cicle _quarter4" data-num="26">
+											<span class="normal_cicle_s1" style="--rot:360deg;"></span>
+											<span class="normal_cicle_fake"></span>
+										</div>
+										<div class="kpitarget_box_txt">Target</div>
+									</div>
+								</div>
+
+								<div class="kpitarget_item_btnbox">
+									<button class="icon_btn _trash"></button>
+									<button class="icon_btn _edit"></button>
+								</div>
+							</li>
+							<li class="kpitarget_item">
+								<div class="kpitarget_item_content">
+									<div class="kpitarget_item_txt" data-msg="算法項目">FPYR</div>
+									<div class="kpitarget_item_txt" data-msg="時間">2023/12月</div>
+									<div class="kpitarget_box">
+										<div class="normal_cicle _quarter4" data-num="26">
+											<span class="normal_cicle_s1" style="--rot:360deg;"></span>
+											<span class="normal_cicle_fake"></span>
+										</div>
+										<div class="kpitarget_box_txt">Target</div>
+									</div>
+								</div>
+
+								<div class="kpitarget_item_btnbox">
+									<button class="icon_btn _trash"></button>
+									<button class="icon_btn _edit"></button>
+								</div>
+							</li>
+							<li class="kpitarget_item">
+								<div class="kpitarget_item_content">
+									<div class="kpitarget_item_txt" data-msg="算法項目">FPYR</div>
+									<div class="kpitarget_item_txt" data-msg="時間">2023/12月</div>
+									<div class="kpitarget_box">
+										<div class="normal_cicle _quarter4" data-num="26">
+											<span class="normal_cicle_s1" style="--rot:360deg;"></span>
+											<span class="normal_cicle_fake"></span>
+										</div>
+										<div class="kpitarget_box_txt">Target</div>
+									</div>
+								</div>
+
+								<div class="kpitarget_item_btnbox">
+									<button class="icon_btn _trash"></button>
+									<button class="icon_btn _edit"></button>
+								</div>
+							</li>
+						</ul>
+						<ul class="normal_page">
+							<li class="normal_page_item _prev"></li>
+							<li class="normal_page_item on">1</li>
+							<li class="normal_page_item">2</li>
+							<li class="normal_page_item">3</li>
+							<li class="normal_page_item">4</li>
+							<li class="normal_page_item">5</li>
+							<li class="normal_page_item _dot">...</li>
+							<li class="normal_page_item">100</li>
+							<li class="normal_page_item _next"></li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- KPI指標建立 -->
+				<div class="option_content _kpicreaet" style="display: none;">
+					<div class="option_head">
+						<button class="border_btn _add"><i></i>Add KPI Pointer</button>
+					</div>
+					<div class="option_body">
+						<ul class="kpicreaet_group">
+							<li class="kpicreaet_item">
+								<div class="kpicreaet_item_box">
+									<div class="normal_cicle _min _quarter4" data-num="99">
+										<span class="normal_cicle_s1" style="--rot:320deg;"></span>
+										<span class="normal_cicle_fake"></span>
+									</div>
+									<div class="kpicreaet_item_txt" data-title="PCBA FPYR DIP">
+										Target:98.5
+									</div>
+								</div>
+								<ul class="kpicreaet_item_detail">
+									<li>
+										PCBA FPYR-11 測試站點 測試站PCBA FPYR-11 測試站點 測試站...
+										<button style="display: none1;">more</button>
+									</li>
+									<li>Line:D1,D2,D3,D4,D6,D7</li>
+									<li>Stages:BD,CT,HB,IA,TA,TD</li>
+								</ul>
+								<div class="kpicreaet_item_btnbox">
+									<button class="icon_btn _trash"></button>
+									<button class="icon_btn _edit"></button>
+								</div>
+							</li>
+							<li class="kpicreaet_item">
+								<div class="kpicreaet_item_box">
+									<div class="normal_cicle _min _low _quarter4" data-num="99">
+										<span class="normal_cicle_s1" style="--rot:320deg;"></span>
+										<span class="normal_cicle_fake"></span>
+									</div>
+									<div class="kpicreaet_item_txt" data-title="PCBA FPYR DIP">
+										Target:98.5
+									</div>
+								</div>
+								<ul class="kpicreaet_item_detail">
+									<li>
+										PCBA FPYR-11 測試站點 測試站PCBA FPYR-11 測試站點 測試站...
+										<button style="display: none1;">more</button>
+									</li>
+									<li>Line:D1,D2,D3,D4,D6,D7</li>
+									<li>Stages:BD,CT,HB,IA,TA,TD</li>
+								</ul>
+								<div class="kpicreaet_item_btnbox">
+									<button class="icon_btn _trash"></button>
+									<button class="icon_btn _edit"></button>
+								</div>
+							</li>
+							<li class="kpicreaet_item">
+								<div class="kpicreaet_item_box">
+									<div class="normal_cicle _min _quarter4" data-num="99">
+										<span class="normal_cicle_s1" style="--rot:320deg;"></span>
+										<span class="normal_cicle_fake"></span>
+									</div>
+									<div class="kpicreaet_item_txt" data-title="PCBA FPYR DIP">
+										Target:98.5
+									</div>
+								</div>
+								<ul class="kpicreaet_item_detail">
+									<li>
+										PCBA FPYR-11 測試站點 測試站PCBA FPYR-11 測試站點 測試站...
+										<button style="display: none1;">more</button>
+									</li>
+									<li>Line:D1,D2,D3,D4,D6,D7</li>
+									<li>Stages:BD,CT,HB,IA,TA,TD</li>
+								</ul>
+								<div class="kpicreaet_item_btnbox">
+									<button class="icon_btn _trash"></button>
+									<button class="icon_btn _edit"></button>
+								</div>
+							</li>
+							<li class="kpicreaet_item">
+								<div class="kpicreaet_item_box">
+									<div class="normal_cicle _min _low _quarter4" data-num="99">
+										<span class="normal_cicle_s1" style="--rot:320deg;"></span>
+										<span class="normal_cicle_fake"></span>
+									</div>
+									<div class="kpicreaet_item_txt" data-title="PCBA FPYR DIP">
+										Target:98.5
+									</div>
+								</div>
+								<ul class="kpicreaet_item_detail">
+									<li>
+										PCBA FPYR-11 測試站點 測試站PCBA FPYR-11 測試站點 測試站...
+										<button style="display: none1;">more</button>
+									</li>
+									<li>Line:D1,D2,D3,D4,D6,D7</li>
+									<li>Stages:BD,CT,HB,IA,TA,TD</li>
+								</ul>
+								<div class="kpicreaet_item_btnbox">
+									<button class="icon_btn _trash"></button>
+									<button class="icon_btn _edit"></button>
+								</div>
+							</li>
+							<li class="kpicreaet_item">
+								<div class="kpicreaet_item_box">
+									<div class="normal_cicle _min _quarter4" data-num="99">
+										<span class="normal_cicle_s1" style="--rot:320deg;"></span>
+										<span class="normal_cicle_fake"></span>
+									</div>
+									<div class="kpicreaet_item_txt" data-title="PCBA FPYR DIP">
+										Target:98.5
+									</div>
+								</div>
+								<ul class="kpicreaet_item_detail">
+									<li>
+										PCBA FPYR-11 測試站點 測試站PCBA FPYR-11 測試站點 測試站...
+										<button style="display: none1;">more</button>
+									</li>
+									<li>Line:D1,D2,D3,D4,D6,D7</li>
+									<li>Stages:BD,CT,HB,IA,TA,TD</li>
+								</ul>
+								<div class="kpicreaet_item_btnbox">
+									<button class="icon_btn _trash"></button>
+									<button class="icon_btn _edit"></button>
+								</div>
+							</li>
+							<li class="kpicreaet_item">
+								<div class="kpicreaet_item_box">
+									<div class="normal_cicle _min _low _quarter4" data-num="99">
+										<span class="normal_cicle_s1" style="--rot:320deg;"></span>
+										<span class="normal_cicle_fake"></span>
+									</div>
+									<div class="kpicreaet_item_txt" data-title="PCBA FPYR DIP">
+										Target:98.5
+									</div>
+								</div>
+								<ul class="kpicreaet_item_detail">
+									<li>
+										PCBA FPYR-11 測試站點 測試站PCBA FPYR-11 測試站點 測試站...
+										<button style="display: none1;">more</button>
+									</li>
+									<li>Line:D1,D2,D3,D4,D6,D7</li>
+									<li>Stages:BD,CT,HB,IA,TA,TD</li>
+								</ul>
+								<div class="kpicreaet_item_btnbox">
+									<button class="icon_btn _trash"></button>
+									<button class="icon_btn _edit"></button>
+								</div>
+							</li>
+						</ul>
+						<ul class="normal_page">
+							<li class="normal_page_item _prev"></li>
+							<li class="normal_page_item on">1</li>
+							<li class="normal_page_item">2</li>
+							<li class="normal_page_item">3</li>
+							<li class="normal_page_item">4</li>
+							<li class="normal_page_item">5</li>
+							<li class="normal_page_item _dot">...</li>
+							<li class="normal_page_item">100</li>
+							<li class="normal_page_item _next"></li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- 人力/工時註冊 -->
+				<div class="option_content _working">
+					<div class="option_head">
+						<div class="normal_inp _hasMsg" data-msg="UPN(成品料號)">
+							<input type="text">
+						</div>
+						<div class="normal_inp _hasMsg" data-msg="SPN(半成品料號)">
+							<input type="text">
+						</div>
+						<div class="normal_sel _hasMsg" data-msg="Line">
+							<!-- 點擊在span class裡面加上on -->
+							<span class="normal_sel_title" [class.on]="selectShow" (click)="selHandler()">s1</span>
+							<ul class="normal_sel_group">
+								<li class="normal_sel_item" *ngFor="let item of selectContent.lists"
+									(click)="machineSel(item)">{{item}}</li>
+							</ul>
+						</div>
+						<div class="normal_inp _hasMsg" data-msg="PCBN">
+							<input type="text">
+						</div>
+						<div class="normal_sel _hasMsg" data-msg="Type">
+							<!-- 點擊在span class裡面加上on -->
+							<span class="normal_sel_title" [class.on]="selectShow"
+								(click)="selHandler()">Dip</span>
+							<ul class="normal_sel_group">
+								<li class="normal_sel_item" *ngFor="let item of selectContent.lists"
+									(click)="machineSel(item)">{{item}}</li>
+							</ul>
+						</div>
+						<button class="normal_btn _primary">Query</button>
+					</div>
+					<div class="option_body">
+
 					</div>
 				</div>
 			</div>
@@ -1790,7 +2187,7 @@
 			</div>
 
 			<!-- 新増／變更線別 -->
-			<div class="alert _linefix">
+			<div class="alert _linefix" style="display: none;">
 				<div class="alert_box">
 					<button class="icon_btn _close"></button>
 					<div class="alert_title">新増線別</div>
@@ -1827,6 +2224,32 @@
 										<input class="normal_search_inp" type="text" placeholder="搜尋">
 									</div>
 								</div>
+								<div class="alert_linefix_info">
+									<ul class="alert_linefix_num">
+										<li>1</li>
+										<li>2</li>
+										<li>3</li>
+										<li>4</li>
+										<li>5</li>
+										<li>6</li>
+										<li>7</li>
+										<li>8</li>
+										<li>9</li>
+										<li>10</li>
+									</ul>
+									<ul class="alert_linefix_group">
+										<li class="alert_linefix_item">NPM-NS-0008</li>
+										<li class="alert_linefix_item">NPM-NS-0008</li>
+										<li class="alert_linefix_item">NPM-NS-0008</li>
+										<li class="alert_linefix_item">NPM-NS-0008</li>
+										<li class="alert_linefix_item">NPM-NS-0008</li>
+										<li class="alert_linefix_item">NPM-NS-0008</li>
+										<li class="alert_linefix_item">NPM-NS-0008</li>
+										<li class="alert_linefix_item">NPM-NS-0008</li>
+										<li class="alert_linefix_item">NPM-NS-0008</li>
+										<li class="alert_linefix_item">NPM-NS-0008</li>
+									</ul>
+								</div>
 							</div>
 							<div class="alert_linefix_content _right">
 								<div class="func">
@@ -1836,8 +2259,146 @@
 									</div>
 									<div class="alert_linefix_msg">已選擇設備數量：0</div>
 								</div>
-
+								<div class="alert_linefix_info">
+									<ul class="alert_linefix_num">
+										<li>1</li>
+										<li>2</li>
+										<li>3</li>
+										<li>4</li>
+										<li>5</li>
+										<li>6</li>
+										<li>7</li>
+										<li>8</li>
+										<li>9</li>
+										<li>10</li>
+									</ul>
+									<ul class="alert_linefix_group">
+										<li class="alert_linefix_item">NPM-NS-0008</li>
+										<li class="alert_linefix_item">NPM-NS-0008</li>
+									</ul>
+								</div>
 							</div>
+						</div>
+					</div>
+					<div class="alert_btnBox">
+						<button class="normal_btn _secondry">取消</button>
+						<button class="normal_btn _primary">儲存變更</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- 新増／變更產品Model/良率/UPH註冊 -->
+			<div class="alert _option" style="display: none;">
+				<div class="alert_box">
+					<button class="icon_btn _close"></button>
+					<div class="alert_title">變更設備</div>
+					<div class="alert_info">
+						<div class="alert_info_box">
+							<div class="alert_info_inp" data-msg="專案類型">
+								<input type="text" placeholder="Printer-NS-0001(DEK-1)">
+							</div>
+							<div class="alert_info_inp" data-msg="專案">
+								<input type="text" placeholder="30000138">
+							</div>
+							<div class="alert_info_inp" data-msg="版號">
+								<input type="text" placeholder="NA">
+							</div>
+							<div class="alert_info_inp" data-msg="專案產品名稱">
+								<input type="text" placeholder="3F">
+							</div>
+							<div class="alert_info_inp" data-msg="UPH(每小時產出)">
+								<input type="text" placeholder="NPM-W2 NM-EJM7D">
+							</div>
+							<div class="alert_info_inp" data-msg="YR(良率):小數點一位">
+								<input type="text" placeholder="NPM-W2 NM-EJM7D">
+							</div>
+
+						</div>
+					</div>
+					<div class="alert_btnBox">
+						<button class="normal_btn _secondry">取消</button>
+						<button class="normal_btn _primary">儲存變更</button>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- 新増/編輯算法 Target -->
+			<div class="alert _kpitarget" style="display: none;">
+				<div class="alert_box">
+					<button class="icon_btn _close"></button>
+					<div class="alert_title">新増算法 Target</div>
+					<div class="alert_info">
+						<div class="normal_sel _hasMsg" data-msg="算法項目">
+							<!-- 點擊在span class裡面加上on -->
+							<span class="normal_sel_title" [class.on]="selectShow" (click)="selHandler()">FPYR</span>
+							<ul class="normal_sel_group">
+								<li class="normal_sel_item" *ngFor="let item of selectContent.lists"
+									(click)="machineSel(item)">{{item}}</li>
+							</ul>
+						</div>
+						<div class="alert_info_inp" data-msg="Target">
+							<input type="text" value="99.5">
+						</div>
+						<div class="alert_info_inp" data-msg="時間">
+							<input type="text" value="2023/12月">
+						</div>
+					</div>
+					<div class="alert_btnBox">
+						<button class="normal_btn _secondry">取消</button>
+						<button class="normal_btn _primary">儲存變更</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- KPI指標建立/編輯 -->
+			<div class="alert _kpicreaet" style="display: none;">
+				<div class="alert_box">
+					<button class="icon_btn _close"></button>
+					<div class="alert_title">KPI指標建立</div>
+					<div class="alert_info">
+						<div class="alert_info_inp" data-msg="Chart Title">
+							<input type="text" value="">
+							<span class="detail">0/30</span>
+						</div>
+						<div class="normal_sel _hasMsg" data-msg="KPI">
+							<!-- 點擊在span class裡面加上on -->
+							<span class="normal_sel_title" [class.on]="selectShow" (click)="selHandler()">PCBA
+								Productivity(KPI0001)</span>
+							<ul class="normal_sel_group">
+								<li class="normal_sel_item" *ngFor="let item of selectContent.lists"
+									(click)="machineSel(item)">{{item}}</li>
+							</ul>
+						</div>
+						<div class="normal_sel _hasMsg" data-msg="Lines">
+							<!-- 點擊在span class裡面加上on -->
+							<span class="normal_sel_title" [class.on]="selectShow" (click)="selHandler()">S1, S2, S3,
+								S4, S5, S123456</span>
+							<ul class="normal_sel_group">
+								<li class="normal_sel_item" *ngFor="let item of selectContent.lists"
+									(click)="machineSel(item)">{{item}}</li>
+							</ul>
+						</div>
+						<div class="normal_sel _hasMsg" data-msg="Stages">
+							<!-- 點擊在span class裡面加上on -->
+							<span class="normal_sel_title" [class.on]="selectShow" (click)="selHandler()">AC, AH, AS,
+								BD</span>
+							<ul class="normal_sel_group">
+								<li class="normal_sel_item" *ngFor="let item of selectContent.lists"
+									(click)="machineSel(item)">{{item}}</li>
+							</ul>
+						</div>
+						<div class="normal_sel _hasMsg" data-msg="Category">
+							<!-- 點擊在span class裡面加上on -->
+							<span class="normal_sel_title" [class.on]="selectShow" (click)="selHandler()">SMT</span>
+							<ul class="normal_sel_group">
+								<li class="normal_sel_item" *ngFor="let item of selectContent.lists"
+									(click)="machineSel(item)">{{item}}</li>
+							</ul>
+						</div>
+						<div class="alert_info_box _hasMsg" data-msg="Description">
+							<textarea class="alert_info_textarea"></textarea>
+							<span class="textarea_mag">0/200</span>
 						</div>
 					</div>
 					<div class="alert_btnBox">
