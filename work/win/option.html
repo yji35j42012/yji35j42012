@@ -50,7 +50,7 @@
 					</div>
 					<button class="option_btn">EPK 參數設定</button>
 				</div>
-
+				<!-- 權限設定 -->
 				<div class="option_content _permissions" style="display: none;">
 					<div class="option_head">
 						<button class="border_btn _add"><i></i>Add Account</button>
@@ -190,6 +190,7 @@
 						</div>
 					</div>
 				</div>
+				<!-- 頁面設定 -->
 				<div class="option_content _pageset" style="display: none1;">
 					<div class="option_content_title">新選單名稱3</div>
 					<div class="option_head _border">
@@ -295,6 +296,7 @@
 						</div>
 					</div>
 				</div>
+				<!-- 角色設定 -->
 				<div class="option_content _roleset _edit" style="display: none;">
 					<div class="option_head _border">
 						<button class="border_btn _add" style="display: none;"><i></i>新増角色</button>
@@ -351,6 +353,7 @@
 						</ul>
 					</div>
 				</div>
+				<!-- 狀態維護 -->
 				<div class="option_content _maintain" style="display: none;">
 					<div class="option_head">
 						<button class="border_btn _add"><i></i>新増狀態</button>
@@ -472,6 +475,7 @@
 						</ul>
 					</div>
 				</div>
+				<!-- 機況維護 -->
 				<div class="option_content _condition" style="display: none;">
 					<div class="option_head">
 						<div class="normal_sel _hasMsg" data-msg="線別">
@@ -598,6 +602,7 @@
 						</ul>
 					</div>
 				</div>
+				<!-- 變更設備 -->
 				<div class="option_content _device" style="display: none;">
 					<div class="option_head">
 						<button class="border_btn _add"><i></i>新増設備</button>
@@ -3251,17 +3256,17 @@
 	</div>
 
 	<script>
-		var option_select=document.querySelector("#option_select");
-		var txt=document.querySelector("#txt");
-		option_select.onclick=function () {
-			option_select.classList.contains("show")? option_select.classList.remove("show"):option_select.classList.add("show")
+		var option_select = document.querySelector("#option_select");
+		var txt = document.querySelector("#txt");
+		option_select.onclick = function () {
+			option_select.classList.contains("show") ? option_select.classList.remove("show") : option_select.classList.add("show")
 		}
-		var option_sel_item=document.querySelectorAll("#option_sel_ul > li");
+		var option_sel_item = document.querySelectorAll("#option_sel_ul > li");
 
-		for (let i=0; i<option_sel_item.length; i++) {
-			const element=option_sel_item[i];
-			element.onclick=function (e) {
-				txt.innerHTML=element.innerHTML
+		for (let i = 0; i < option_sel_item.length; i++) {
+			const element = option_sel_item[i];
+			element.onclick = function (e) {
+				txt.innerHTML = element.innerHTML
 			}
 		}
 	</script>
