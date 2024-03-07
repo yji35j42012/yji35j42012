@@ -3256,17 +3256,17 @@
 	</div>
 
 	<script>
-		var option_select = document.querySelector("#option_select");
-		var txt = document.querySelector("#txt");
-		option_select.onclick = function () {
-			option_select.classList.contains("show") ? option_select.classList.remove("show") : option_select.classList.add("show")
+		var option_select=document.querySelector("#option_select");
+		var txt=document.querySelector("#txt");
+		option_select.onclick=function () {
+			option_select.classList.contains("show")? option_select.classList.remove("show"):option_select.classList.add("show")
 		}
-		var option_sel_item = document.querySelectorAll("#option_sel_ul > li");
+		var option_sel_item=document.querySelectorAll("#option_sel_ul > li");
 
-		for (let i = 0; i < option_sel_item.length; i++) {
-			const element = option_sel_item[i];
-			element.onclick = function (e) {
-				txt.innerHTML = element.innerHTML
+		for (let i=0; i<option_sel_item.length; i++) {
+			const element=option_sel_item[i];
+			element.onclick=function (e) {
+				txt.innerHTML=element.innerHTML
 			}
 		}
 	</script>
