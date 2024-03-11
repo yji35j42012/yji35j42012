@@ -3094,7 +3094,7 @@
 			<!-- Clone -->
 			<div class="alert _clone" style="display: none;">
 				<div class="alert_box">
-					<button class="icon_btn _close"></button>
+					<button class="icon_btn _close" (click)="alert_close('cloneAlert')"></button>
 					<div class="alert_title">Clone</div>
 					<div class="alert_info">
 						<ul class="alert_clone">
@@ -3107,7 +3107,7 @@
 							<div class="alert_clone_item _show">
 								<div class="title">
 									<label class="normal_check">
-										<input type="checkbox" class="normal_check_inp">
+										<input type="checkbox" class="normal_check_inp" />
 										<span class="normal_check_span"></span>
 									</label>
 									TA
@@ -3132,7 +3132,7 @@
 							<div class="alert_clone_item">
 								<div class="title">
 									<label class="normal_check">
-										<input type="checkbox" class="normal_check_inp">
+										<input type="checkbox" class="normal_check_inp" />
 										<span class="normal_check_span"></span>
 									</label>
 									TA
@@ -3157,7 +3157,7 @@
 							<div class="alert_clone_item">
 								<div class="title">
 									<label class="normal_check">
-										<input type="checkbox" class="normal_check_inp">
+										<input type="checkbox" class="normal_check_inp" />
 										<span class="normal_check_span"></span>
 									</label>
 									TA
@@ -3182,7 +3182,7 @@
 						</div>
 					</div>
 					<div class="alert_btnBox">
-						<button class="normal_btn _secondry">取消</button>
+						<button class="normal_btn _secondry" (click)="alert_close('cloneAlert')">取消</button>
 						<button class="normal_btn _primary">確定</button>
 					</div>
 				</div>
