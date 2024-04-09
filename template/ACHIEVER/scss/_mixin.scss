@@ -13,6 +13,7 @@
 // @extend %hand;
 // @extend %transition;
 @mixin hoverHandler {
+
 	@media (pointer: fine) and (max-resolution: 2dppx),
 	screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2),
 	(-moz-touch-enabled: 0) {
@@ -20,12 +21,14 @@
 			@content;
 		}
 	}
+
 	&:active {
 		@content;
 	}
 }
 
 @mixin hv {
+
 	@media (pointer: fine) and (max-resolution: 2dppx),
 	screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2),
 	(-moz-touch-enabled: 0) {
@@ -89,7 +92,7 @@ $breakpoints: (
 	XL: 1280px,
 	L: 1024px,
 	M: 995px,
-	S: 767px,
+	S: 768px,
 	XS: 599px,
 	XXS: 360px,
 	special:1439px,

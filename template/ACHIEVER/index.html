@@ -2,18 +2,177 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/all.min.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ACHIEVER GAIN INTERNATIONAL LIMITED</title>
+	<link rel="stylesheet" href="./css/all.min.css">
 </head>
 
 <body>
-    <div class="loading">
-        <div class="loading_ball1"></div>
-        <div class="loading_ball2"></div>
-    </div>
+	<div class="wrap">
+		<div class="head">
+			<h1 class="logo">
+				<a href="#">
+					<img src="./images/logo.png" alt="">
+				</a>
+			</h1>
+			<div id="nav" class="nav">
+				<ul class="nav_box">
+					<li class="nav_item_logo">
+						<h1 class="logo">
+							<a href="#">
+								<img src="./images/logo.png" alt="">
+							</a>
+						</h1>
+					</li>
+					<li class="nav_item _on"><a href="#">Home</a></li>
+					<li class="nav_item"><a href="#services">Services</a></li>
+					<li class="nav_item"><a href="#about">About Us</a></li>
+					<li class="nav_item"><a href="#statistics">Statistics</a></li>
+					<li class="nav_item"><a href="#skills">Our Skills</a></li>
+				</ul>
+			</div>
 
+			<button id="nav_btn" class="nav_btn">
+				<span></span>
+			</button>
+		</div>
+		<div class="banner">
+			<div class="banner_txtBox">
+				<h2 class="txt_white">Get Started</h2>
+				<div class="banner_txt">
+					<h2 class="txt_white">With</h2>
+					<div class="banner_txt_ani">
+						<h2 id="txtAni" class="txt_primary">ACHIEVER GAIN</h2>
+						<h2 class="txt_primary">INTERNATIONAL</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+		<section class="content provide">
+			<div class="container">
+				<div class="provide_item">
+					<div class="provide_item_pic">
+						<img src="./images/icon_provide01.png" alt="">
+					</div>
+					<h3>
+						We Provide <span class="txt_primary">Road</span><br>
+						Freight Services
+					</h3>
+					<p>
+						Reliable, efficient overland transportation for goods, using advanced
+						fleet management and GPS tracking for secure delivery.
+					</p>
+				</div>
+				<div class="provide_item">
+					<div class="provide_item_pic">
+						<img src="./images/icon_provide02.png" alt="">
+					</div>
+					<h3>
+						We Provide <span class="txt_primary">Air</span><br>
+						Freight Services
+					</h3>
+					<p>
+						Rapid, safe global transportation via air. Ideal for time-sensitive
+						cargo, employing real-time tracking and expert handling.
+					</p>
+				</div>
+				<div class="provide_item">
+					<div class="provide_item_pic">
+						<img src="./images/icon_provide03.png" alt="">
+					</div>
+					<h3>
+						We Provide <span class="txt_primary">Sea</span><br>
+						Freight Services
+					</h3>
+					<p>
+						Cost-effective, scalable marine cargo transport solutions. Ensures
+						large-volume freight transportation with high environmental
+						efficiency.
+					</p>
+				</div>
+				<div class="provide_item">
+					<div class="provide_item_pic">
+						<img src="./images/icon_provide04.png" alt="">
+					</div>
+					<h3>
+						We Provide <span class="txt_primary">Global</span><br>
+						Freight Services
+					</h3>
+					<p>
+						Holistic, international logistics solutions. Integrates road, air,
+						and sea freight for seamless, borderless goods movement.
+					</p>
+				</div>
+			</div>
+		</section>
+		<section id="about" class="content about">
+			<div class="container">
+				<div class="about_pic">
+					<div class="about_pic_1">
+						<img src="./images/about01.jpg" alt="">
+					</div>
+					<div class="about_pic_2">
+						<img src="./images/about02.jpg" width="370" height="280" alt="">
+					</div>
+				</div>
+				<div class="about_txt">
+					<div class="about_title">
+						<div class="about_title_line"></div>
+						<div class="about_title_txt">About Us</div>
+					</div>
+					<div class="about_txt_large">
+						Modern & Trusted Logistics Company
+					</div>
+					<div class="about_txt_mid">
+						ACHIEVER GAIN INTERNATIONAL LIMITED, your modern and trusted logistics partner, seamlessly
+						streamlines complex transportation processes with innovative, reliable solutions.
+					</div>
+					<div class="about_txt_small">
+						As a contemporary, dependable logistics company, ACHIEVER GAIN INTERNATIONAL LIMITED stands at
+						the forefront of the industry. We harness the latest technologies and maintain an unwavering
+						commitment to service excellence. Our dynamic approach ensures smooth, efficient, and secure
+						transportation, regardless of your cargo’s size or destination. Whether by road, sea, or air,
+						we’ve established an enviable reputation for reliability and promptness. Our globally integrated
+						services are specifically designed to bridge any distance, making worldwide logistics feel
+						local. Trust ACHIEVER GAIN INTERNATIONAL LIMITED with your freight needs and experience the
+						difference of modern, trusted logistics solutions.
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="services" class="content"></section>
+		<section id="skills" class="content"></section>
+		<section id="statistics" class="content"></section>
+	</div>
+	<div class="loading" style="display: none;">
+		<div class="loading_ball1"></div>
+		<div class="loading_ball2"></div>
+	</div>
+
+
+	<script>
+		var txtAni=document.querySelector("#txtAni");
+		(function txtAniFunction() {
+			setInterval(() => {
+				if (txtAni.classList.contains("_txtani")) {
+					txtAni.classList.remove("_txtani")
+				} else {
+					txtAni.classList.add("_txtani")
+				}
+			}, 3000);
+		})()
+
+
+		var nav_btn=document.querySelector("#nav_btn");
+		var nav=document.querySelector("#nav");
+		nav_btn.onclick=function () {
+			nav.classList.add("_show");
+		}
+		nav.onclick=function () {
+			nav.classList.remove("_show");
+		}
+	</script>
 </body>
 
 </html>
