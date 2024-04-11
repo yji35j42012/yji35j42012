@@ -10,18 +10,22 @@
 }
 
 h2 {
+	font-size: 100px;
 	font-weight: bold;
-	font-size: 32px;
+
+	@include mw(S) {
+		font-size: 36px;
+	}
 
 	&.txt_white {
 		color: map-get($txt_color , white)
 	}
 
-	@include minmw(S) {
-		font-size: 100px;
+	.banner_txt_ani & {
+		font-size: 90px;
 
-		.banner_txt & {
-			font-size: 90px;
+		@include mw(S) {
+			font-size: 36px;
 		}
 	}
 }
@@ -33,6 +37,26 @@ h3 {
 
 	.txt_primary {
 		font-weight: bold;
+	}
+}
+
+.normal_btn {
+	position: relative;
+	display: inline-block;
+	padding: 28px 51px 25px 52px;
+	background-color: transparent;
+	background-image: radial-gradient(at center left, map-get($bg_color, secondry) 0%, map-get($bg_color, primary) 100%);
+	font-weight: 700;
+	font-size: 15px;
+	line-height: 1em;
+	letter-spacing: 0;
+	border-radius: 50px;
+	color: #fff;
+	@extend %hand;
+	@extend %transition;
+
+	@include hoverHandler {
+		transform: translateY(-8px);
 	}
 }
 
@@ -67,7 +91,6 @@ h3 {
 		position: fixed;
 		top: 0;
 		left: 0;
-		// display: none;
 		width: 100%;
 		height: 100%;
 		z-index: -999;
@@ -117,15 +140,12 @@ h3 {
 
 	// .nav_item
 	&_item {
+		margin-left: 45px;
+
 		@include mw(M) {
+			margin-left: 0;
 			padding: 20px;
 			border-bottom: 1px solid #28282833;
-		}
-
-		@include minmw(M) {
-			&+& {
-				margin-left: 45px;
-			}
 		}
 
 
@@ -225,29 +245,32 @@ h3 {
 	&_txtBox {
 		position: relative;
 		width: 100%;
+		max-width: 1170px;
 		padding-left: 20px;
 
 		h2 {
-			height: 32px;
+			height: 100px;
 
-			@include minmw(S) {
-				height: 100px;
+			@include mw(S) {
+				height: 36px;
 			}
 		}
-
-
 	}
 
 	// .banner_txt
 	&_txt {
-		display: block;
+		@include d_f(flex);
 
-		@include mwrange(XS, S) {
+		@include mw(M) {
+			display: block;
+		}
+
+		@include mw(S) {
 			@include d_f(flex);
 		}
 
-		@include minmw(M) {
-			@include d_f(flex);
+		@include mw(XS) {
+			display: block;
 		}
 
 		.txt_white {
@@ -257,10 +280,10 @@ h3 {
 		// .banner_txt_ani
 		&_ani {
 			overflow: hidden;
-			height: 32px;
+			height: 100px;
 
-			@include minmw(S) {
-				height: 100px;
+			@include mw(S) {
+				height: 36px;
 			}
 
 			h2 {
@@ -268,10 +291,10 @@ h3 {
 			}
 
 			._txtani {
-				margin-top: -32px;
+				margin-top: -100px;
 
-				@include minmw(S) {
-					margin-top: -100px;
+				@include mw(S) {
+					margin-top: -36px;
 				}
 			}
 		}
@@ -282,11 +305,16 @@ h3 {
 
 .content {
 	padding-top: 130px;
+
+	&.about {
+		padding-bottom: 130px;
+	}
 }
 
 .container {
-	max-width: 1170px;
+	max-width: 1210px;
 	padding: 0 20px;
+	margin: auto;
 
 	@include mw(L) {
 		max-width: 1027px;
@@ -294,7 +322,6 @@ h3 {
 
 	.provide & {
 		@include d_f(flex);
-		margin: auto;
 
 		@include mw(L) {
 			flex-wrap: wrap;
@@ -303,7 +330,7 @@ h3 {
 
 	.about & {
 		@include d_f(flex);
-		margin: auto;
+
 		@include mw(L) {
 			display: block;
 		}
@@ -382,6 +409,10 @@ h3 {
 			padding-right: 45px;
 			text-align: center;
 
+			@include mw(XS) {
+				padding-right: 0;
+			}
+
 			img {
 				max-width: 400px;
 			}
@@ -393,9 +424,25 @@ h3 {
 			padding-right: 45px;
 			text-align: right;
 
+			@include mw(S) {
+				margin-top: 30px;
+			}
+
+			@include mw(XS) {
+				padding-right: 0;
+			}
+
 			img {
 				width: auto;
 				transform: translateY(-36px);
+
+				@include mw(S) {
+					transform: translateY(0);
+				}
+
+				@include mw(XS) {
+					max-width: 100%;
+				}
 			}
 		}
 	}
@@ -414,6 +461,10 @@ h3 {
 			font-weight: 700;
 			line-height: 1.1em;
 			letter-spacing: -0.3px;
+
+			@include mw(S) {
+				font-size: 32px;
+			}
 		}
 
 		// .about_txt_mid
@@ -457,5 +508,294 @@ h3 {
 			font-weight: bold;
 			color: map-get($txt_color , primary);
 		}
+	}
+}
+
+.contact {
+	position: relative;
+	padding: 120px 0 130px 0;
+	background: url('../images/contact_bg.jpg')no-repeat center/cover;
+	color: #fff;
+	text-align: center;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(40, 40, 40, .6);
+	}
+
+	// .contact_title
+	&_title {
+		position: relative;
+		display: inline-block;
+		margin-bottom: 35px;
+		font-size: 24px;
+		font-weight: 700;
+		line-height: 1em;
+		letter-spacing: 0px;
+		border-bottom: 1px solid #fff;
+	}
+
+	// .contact_need
+	&_need {
+		position: relative;
+		margin-bottom: 35px;
+		font-size: 60px;
+		font-weight: 700;
+		line-height: 1.08em;
+		letter-spacing: -0.3px;
+
+		@include mw(S) {
+			font-size: 45px;
+		}
+	}
+
+	// .contact_txt
+	&_txt {
+		position: relative;
+		margin-bottom: 35px;
+		font-size: 18px;
+		font-weight: 400;
+		line-height: 30px;
+		letter-spacing: 0;
+	}
+}
+
+.services {
+	background-color: map-get($bg_color , primary);
+
+	// .services_title
+	&_title {
+		@include d_f(flex, center, center);
+		width: 100%;
+		margin-bottom: 20px;
+		font-size: 20px;
+		font-weight: 700;
+		line-height: 1.5em;
+		letter-spacing: 0px;
+		color: map-get($txt_color , white);
+
+		&:before,
+		&:after {
+			content: "";
+			width: 45px;
+			height: 3px;
+			background-color: map-get($bg_color , white);
+		}
+
+		&:before {
+			margin-right: 20px;
+		}
+
+		&:after {
+			margin-left: 20px;
+		}
+	}
+
+	// .services_largetxt
+	&_largetxt {
+		color: map-get($txt_color , white);
+		font-size: 50px;
+		font-weight: 700;
+		line-height: 1.1em;
+		letter-spacing: -0.3px;
+		text-align: center;
+
+		@include mw(S) {
+			font-size: 32px;
+		}
+	}
+
+	// .services_group
+	&_group {
+		@include d_f(flex);
+		transform: translateY(75px);
+
+		@include mw(L) {
+			flex-wrap: wrap;
+		}
+	}
+
+	// .services_item
+	&_item {
+		position: relative;
+		@include d_f(flex, center);
+		flex-direction: column;
+		width: 100%;
+		margin: 0 12px 30px;
+		padding: 228px 30px 21px 30px;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+
+
+		// padding: 80px 20px 15px 20px;
+		// @include minmw(S) {
+		// 	width: calc(50% - 24px);
+		// 	padding: 150px 35px 20px 25px;
+		// }
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(40, 40, 40, .85);
+		}
+
+		&:nth-child(1) {
+			background-image: url('../images/service-01.jpg');
+		}
+
+		&:nth-child(2) {
+			background-image: url('../images/service-02.jpg');
+		}
+
+		&:nth-child(3) {
+			background-image: url('../images/service-03.jpg');
+		}
+
+		&:nth-child(4) {
+			background-image: url('../images/service-04.jpg');
+		}
+
+		// .services_item_num
+		&_num {
+			position: relative;
+			margin-bottom: 20px;
+			font-size: 80px;
+			font-weight: 700;
+			line-height: 1em;
+			letter-spacing: 0px;
+			text-align: center;
+			color: map-get($txt_color , white);
+		}
+
+		// .services_item_title
+		&_title {
+			position: relative;
+			margin-bottom: 10px;
+			font-size: 30px;
+			font-weight: 700;
+			line-height: 1em;
+			letter-spacing: 0px;
+			color: map-get($txt_color , white);
+			text-align: center;
+		}
+
+		// .services_item_txt
+		&_txt {
+			position: relative;
+			height: 100%;
+			padding-bottom: 100px;
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 1.8em;
+			letter-spacing: 0;
+			color: map-get($txt_color , white);
+			text-align: center;
+		}
+
+		// .services_item_footer
+		&_footer {
+			position: relative;
+			color: map-get($txt_color , white);
+			text-align: center;
+			font-size: 24px;
+			font-weight: 700;
+			line-height: 1.2em;
+			letter-spacing: 0px;
+		}
+	}
+}
+
+.explore {
+	@include d_f(flex);
+	width: 100%;
+	padding-top: 235px;
+
+	@include mw(L) {
+		display: block;
+	}
+
+	// .explore_pic
+	&_pic {
+		width: 50%;
+		background: url('../images/bg-02.jpg')no-repeat center/cover;
+
+		@include mw(L) {
+			width: 100%;
+		}
+	}
+
+	// .explore_info
+	&_info {
+		width: 50%;
+		padding: 97px 230px 100px 115px;
+		background-color: #F3F6F8;
+
+		@include mw(L) {
+			width: 100%;
+			padding: 100px 30px 100px 30px;
+		}
+	}
+
+	// .explore_title
+	&_title {
+		@include d_f(flex, none, center);
+		margin-bottom: 20px;
+		color: map-get($txt_color , primary);
+		font-size: 20px;
+		font-weight: 700;
+		line-height: 1.5em;
+		letter-spacing: 0px;
+
+		&::before {
+			content: "";
+			width: 45px;
+			height: 3px;
+			margin-right: 30px;
+			background-color: map-get($bg_color , primary);
+		}
+	}
+
+	// .explore_largtxt
+	&_largtxt {
+		margin-bottom: 36px;
+		color: #282828;
+		font-size: 32px;
+		font-weight: 700;
+		line-height: 1.1em;
+		letter-spacing: -0.3px;
+
+		// @include minmw(S) {
+		// 	font-size: 50px;
+		// }
+	}
+
+	// .explore_midtxt
+	&_midtxt {
+		margin-bottom: 16px;
+		font-size: 22px;
+		font-weight: 700;
+		line-height: 1em;
+		letter-spacing: 0;
+
+	}
+
+	// .explore_smalltxt
+	&_smalltxt {
+		margin-bottom: 24px;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 1.8em;
+		letter-spacing: 0;
+
 	}
 }
