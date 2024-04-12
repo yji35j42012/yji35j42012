@@ -5,12 +5,19 @@ body {
 }
 
 .loading {
+	z-index: 20;
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
 	background-color: #fff;
+	opacity: 1;
+	transition-duration: 1s;
+
+	&._hide {
+		opacity: 0;
+	}
 
 	&_ball1,
 	&_ball2 {

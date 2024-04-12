@@ -306,7 +306,9 @@
 					<div class="footer_content_group">
 						<div class="footer_title">About Us</div>
 						<div class="footer_content_txt">
-							ACHIEVER GAIN INTERNATIONAL LIMITED: Modern, reliable freight solutions via road, air, & sea. Committed to punctuality, security, and 24/7 support. Your trusted partner in logistics and freight services.
+							ACHIEVER GAIN INTERNATIONAL LIMITED: Modern, reliable freight solutions via road, air, &
+							sea. Committed to punctuality, security, and 24/7 support. Your trusted partner in logistics
+							and freight services.
 						</div>
 					</div>
 				</div>
@@ -317,13 +319,22 @@
 			</div>
 		</div>
 	</div>
-	<div class="loading" style="display: none;">
+	<div id="loading" class="loading">
 		<div class="loading_ball1"></div>
 		<div class="loading_ball2"></div>
 	</div>
 
 
 	<script>
+		var loading=document.querySelector("#loading");
+		window.onload=function () {
+			loading.classList.add("_hide")
+			setTimeout(() => {
+				loading.style.display="none"
+			}, 1100);
+		}
+
+
 		var txtAni=document.querySelector("#txtAni");
 		(function () {
 			setInterval(() => {
