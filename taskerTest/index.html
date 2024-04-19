@@ -75,7 +75,7 @@
 	<script src="./js/icon_all.js"></script>
 	<script src="./store/store.js"></script>
 	<script>
-		const routes = [
+		const routes=[
 			// {
 			// 	path: "/",
 			// 	component: httpVueLoader("./page/home.vue"),
@@ -149,12 +149,12 @@
 			// 	],
 			// },
 		];
-		const router = new VueRouter({
+		const router=new VueRouter({
 			// mode: 'history',
 			routes: routes, // (缩写) 相当于 routes: routes
 		});
 
-		var vue = new Vue({
+		var vue=new Vue({
 			el: "#app",
 			data() {
 				return {
@@ -185,7 +185,8 @@
 			methods: {
 				tabHandler(num) {
 					console.log('tabHandler');
-					this.tabNum = num
+					this.tabNum=num
+
 				},
 			},
 		});

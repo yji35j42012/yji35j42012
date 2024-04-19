@@ -6,37 +6,34 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>ACHIEVER GAIN INTERNATIONAL LIMITED</title>
 	<link rel="stylesheet" href="./css/all.min.css">
+	<link rel="stylesheet" href="./css/aos.css">
 </head>
 
 <body>
 	<div class="wrap">
 		<div class="head">
 			<h1 class="logo">
-				<a href="#">
-					<img src="./images/logo.png" alt="">
-				</a>
+				<a href="#home" name="link"><img src="./images/logo.png" alt=""></a>
 			</h1>
 			<div id="nav" class="nav">
 				<ul class="nav_box">
 					<li class="nav_item_logo">
 						<h1 class="logo">
-							<a href="#">
+							<a href="#home" name="link">
 								<img src="./images/logo.png" alt="">
 							</a>
 						</h1>
 					</li>
-					<li class="nav_item _on"><a href="#">Home</a></li>
-					<li class="nav_item"><a href="#services">Services</a></li>
-					<li class="nav_item"><a href="#about">About Us</a></li>
-					<li class="nav_item"><a href="#statistics">Statistics</a></li>
-					<li class="nav_item"><a href="#skills">Our Skills</a></li>
+					<li class="nav_item _on"><a href="#home" name="link">Home</a></li>
+					<li class="nav_item"><a href="#services" name="link">Services</a></li>
+					<li class="nav_item"><a href="#about" name="link">About Us</a></li>
+					<li class="nav_item"><a href="#statistics" name="link">Statistics</a></li>
+					<li class="nav_item"><a href="#skills" name="link">Our Skills</a></li>
 				</ul>
 			</div>
-			<button id="nav_btn" class="nav_btn">
-				<span></span>
-			</button>
+			<button id="nav_btn" class="nav_btn"><span></span></button>
 		</div>
-		<div class="banner">
+		<div id="home" class="banner">
 			<div class="banner_txtBox">
 				<h2 class="txt_white">Get Started</h2>
 				<div class="banner_txt">
@@ -48,7 +45,7 @@
 				</div>
 			</div>
 		</div>
-		<section class="content provide">
+		<section id="provide" class="content provide">
 			<div class="container">
 				<div class="provide_item">
 					<div class="provide_item_pic">
@@ -105,7 +102,7 @@
 				</div>
 			</div>
 		</section>
-		<section id="about" class="content about">
+		<section id="about" class="content about" data-aos="" data-aos-offset="200">
 			<div class="container">
 				<div class="about_pic">
 					<div class="about_pic_1">
@@ -116,10 +113,10 @@
 					</div>
 				</div>
 				<div class="about_txt">
-					<!-- <div class="about_title"> -->
-					<!-- <div class="about_title_line"></div> -->
-					<h4 class="txt_primary _leftLine">About Us</h4>
-					<!-- </div> -->
+					<div class="titlebox txt_primary">
+						<div class="about_line leftLine"></div>
+						<h4 class="about_title">About Us</h4>
+					</div>
 					<div class="txt_larget">Modern & Trusted Logistics Company</div>
 					<div class="about_txt_mid">
 						ACHIEVER GAIN INTERNATIONAL LIMITED, your modern and trusted logistics partner, seamlessly
@@ -208,10 +205,9 @@
 				<div class="explore_smalltxt">We prioritize securing your goods and earning your trust. Leveraging
 					robust security measures and transparency, we guarantee the safe, reliable transit of your freight,
 					fostering long-term partnerships.</div>
-				<a class="normal_btn" href="#">Connect</a>
+				<a class="normal_btn" href="#home">Connect</a>
 			</div>
 		</section>
-
 		<section id="skills" class="content skills">
 			<div class="skills_info">
 				<h4 class="txt_primary _leftLine">Our Skills</h4>
@@ -234,7 +230,6 @@
 			</div>
 			<div class="skills_pic"></div>
 		</section>
-
 		<section id="statistics" class="content statistics">
 			<div class="container">
 				<h4 class="txt_primary _leftLine _rightLine">Company Statistics</h4>
@@ -259,7 +254,6 @@
 				</ul>
 			</div>
 		</section>
-
 		<section class="content newsletters">
 			<div class="container">
 				<h4 class="_leftLine">Our Newsletters</h4>
@@ -272,18 +266,18 @@
 			<div class="container">
 				<div class="footer_head">
 					<h1 class="logo">
-						<a href="#">
+						<a href="#home">
 							<img src="./images/logo.png" alt="">
 						</a>
 					</h1>
 					<ul class="footer_head_group">
 						<li class="footer_head_item">
 							Make An Appointment
-							<a href="#" class="footer_head_a">REQUEST A QUOTE</a>
+							<a href="#home" class="footer_head_a">REQUEST A QUOTE</a>
 						</li>
 						<li class="footer_head_item">
 							Need Any Help ?
-							<a href="#" class="footer_head_a">CONTACT US</a>
+							<a href="#home" class="footer_head_a">CONTACT US</a>
 						</li>
 					</ul>
 				</div>
@@ -325,7 +319,10 @@
 	</div>
 
 
+
+	<script src="./js/aos.js"></script>
 	<script>
+		AOS.init();
 		var loading=document.querySelector("#loading");
 		window.onload=function () {
 			loading.classList.add("_hide")
@@ -355,6 +352,29 @@
 		nav.onclick=function () {
 			nav.classList.remove("_show");
 		}
+
+		var link=document.querySelectorAll("[name='link']");
+		for (let i=0; i<link.length; i++) {
+			const element=link[i];
+			element.onclick=function () {
+				event.preventDefault();
+				var target=document.querySelector(this.hash);
+				if (this.hash.indexOf('home')==-1) {
+					window.scrollTo({
+						'behavior': 'smooth',
+						'left': 0,
+						'top': target.offsetTop
+					});
+				} else {
+					window.scrollTo({
+						'behavior': 'smooth',
+						'left': 0,
+						'top': 0
+					});
+				}
+			}
+		}
+
 	</script>
 </body>
 
