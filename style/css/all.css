@@ -1,6 +1,5 @@
 .normal_btn {
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
+  transition-duration: 0.3s;
 }
 
 .wrap {
@@ -18,14 +17,12 @@
   background-color: #428bca;
   border-color: #357ebd;
 }
-
 @media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
   .normal_btn:hover {
     background-color: #3071a9;
     border-color: #285e8e;
   }
 }
-
 .normal_btn:active {
   background-color: #3071a9;
   border-color: #285e8e;
@@ -34,5 +31,4 @@
 .header {
   width: 100%;
   height: 50px;
-}
-/*# sourceMappingURL=all.css.map */
+}/*# sourceMappingURL=all.css.map */

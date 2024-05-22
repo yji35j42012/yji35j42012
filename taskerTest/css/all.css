@@ -3,8 +3,7 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html,
@@ -101,29 +100,17 @@ img {
     background-color: #f1f1f1;
   }
 }
-
 .wrap {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-direction: column;
   width: 100%;
   height: 100%;
 }
 
 header {
-  -webkit-box-flex: 0;
-      -ms-flex: none;
-          flex: none;
+  flex: none;
   width: 100%;
   height: 50px;
   background-color: #138b8b;
@@ -131,24 +118,14 @@ header {
 
 .content {
   overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 100%;
-          flex: 1 1 100%;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex: 1 1 100%;
 }
 
 .menu {
-  -webkit-box-flex: 0;
-      -ms-flex: none;
-          flex: none;
+  flex: none;
   width: 60px;
   height: 100%;
   background-color: #085a5a;
@@ -161,34 +138,20 @@ header {
 }
 
 .head {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: flex-start;
+  align-items: center;
   height: 30px;
   margin-bottom: 10px;
 }
-
 .head_title {
   color: #108080;
   font-size: 20px;
 }
-
 .head_range {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   margin-left: 10px;
   padding: 0 15px;
   background-color: #108080;
@@ -197,44 +160,27 @@ header {
 }
 
 .tab {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
+  justify-content: flex-start;
+  align-items: stretch;
   height: 20px;
   color: #fff;
 }
-
 .tab_item {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   width: 150px;
   height: 100%;
   padding: 0 30px;
   background-color: #359b9b;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  -webkit-transform: translateX(-30px);
-          transform: translateX(-30px);
+  transform: translateX(-30px);
 }
-
 .tab_item:first-child {
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
+  transform: translateX(0);
 }
-
 .tab_item.on {
   position: relative;
   background-color: #085a5a;
@@ -242,51 +188,34 @@ header {
 }
 
 .tbBox {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-direction: column;
   height: calc(100% - 60px);
 }
-
 .tbBox table {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
   text-align: center;
 }
-
 .tbBox th {
   height: 30px;
   background-color: #085a5a;
   color: #ffffff;
   font-size: 16px;
 }
-
 .tbBox td {
   height: 30px;
 }
-
 .tbBox_head {
-  -webkit-box-flex: 0;
-      -ms-flex: none;
-          flex: none;
+  flex: none;
   overflow-y: scroll;
   width: calc(100% + 6px);
   height: 30px;
 }
-
 .tbBox_body {
   overflow-y: scroll;
   width: calc(100% + 6px);
-}
-/*# sourceMappingURL=all.css.map */
+}/*# sourceMappingURL=all.css.map */

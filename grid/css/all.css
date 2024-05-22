@@ -1,6 +1,5 @@
 * {
-  font-family: 'Helvetica', sans-serif;
-  -webkit-box-sizing: border-box;
+  font-family: "Helvetica", sans-serif;
   box-sizing: border-box;
   -webkit-touch-callout: none;
   -webkit-text-size-adjust: none;
@@ -47,8 +46,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: #000;
-  -ms-touch-action: manipulation;
-      touch-action: manipulation;
+  touch-action: manipulation;
   font-size: 16px;
 }
 
@@ -76,7 +74,7 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-input[type="password"]::-webkit-textfield-decoration-container {
+input[type=password]::-webkit-textfield-decoration-container {
   visibility: hidden;
 }
 
@@ -84,15 +82,13 @@ input,
 button,
 select,
 textarea {
-  font-family: 'Helvetica', sans-serif;
+  font-family: "Helvetica", sans-serif;
   padding: 0;
   border: 0;
   background-color: transparent;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-appearance: none;
   -moz-appearance: none;
-  -ms-appearance: none;
   appearance: none;
   resize: none;
   font-size: 16px;
@@ -105,7 +101,7 @@ select::-ms-expand {
 }
 
 .nofloat:after {
-  content: '';
+  content: "";
   display: table;
   clear: both;
 }
@@ -121,7 +117,7 @@ img {
 }
 
 tt {
-  font-family: 'Helvetica', sans-serif;
+  font-family: "Helvetica", sans-serif;
 }
 
 @media only screen and (min-device-width: 1025px) {
@@ -135,8 +131,8 @@ tt {
     border: 1px #f1f1f1 solid;
     border-radius: 3px;
     cursor: pointer;
-    -webkit-transition: background .5s linear;
-    transition: background .5s linear;
+    -webkit-transition: background 0.5s linear;
+    transition: background 0.5s linear;
   }
   *:hover::-webkit-scrollbar-thumb {
     background-color: #a9a9a9;
@@ -145,12 +141,9 @@ tt {
     background-color: #f1f1f1;
   }
 }
-
 .wrap {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 130px 1fr;
-      grid-template-columns: 130px 1fr;
+  grid-template-columns: 130px 1fr;
   width: 100%;
   height: 100%;
 }
@@ -162,56 +155,38 @@ tt {
 }
 
 .main {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 750px auto;
-      grid-template-columns: 750px auto;
-  -ms-grid-rows: 50px 480px 80px;
-      grid-template-rows: 50px 480px 80px;
-      grid-template-areas: "header header" "video order" "table order" "road detail";
+  grid-template-columns: 750px auto;
+  grid-template-rows: 50px 480px 80px;
+  grid-template-areas: "header header" "video order" "table order" "road detail";
 }
 
 .header {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
   grid-area: header;
   background-color: darkgrey;
 }
 
 .video {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
   grid-area: video;
   background-color: cornsilk;
 }
 
 .table {
-  -ms-grid-row: 3;
-  -ms-grid-column: 1;
   grid-area: table;
   background-color: cornflowerblue;
 }
 
 .order {
-  -ms-grid-row: 2;
-  -ms-grid-row-span: 2;
-  -ms-grid-column: 2;
   grid-area: order;
   background-color: blanchedalmond;
 }
 
 .road {
-  -ms-grid-row: 4;
-  -ms-grid-column: 1;
   grid-area: road;
   background-color: antiquewhite;
 }
 
 .detail {
-  -ms-grid-row: 4;
-  -ms-grid-column: 2;
   grid-area: detail;
   background-color: aquamarine;
-}
-/*# sourceMappingURL=all.css.map */
+}/*# sourceMappingURL=all.css.map */

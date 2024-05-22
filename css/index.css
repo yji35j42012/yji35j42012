@@ -1,7 +1,6 @@
 h1 {
   color: #000;
 }
-
 @media screen and (max-width: 1280px) {
   h1 {
     color: #fff;
@@ -11,10 +10,8 @@ h1 {
 h2 {
   color: #ff0;
 }
-
 @media screen and (max-width: 1280px) {
   h2 {
     color: #0ff;
   }
-}
-/*# sourceMappingURL=index.css.map */
+}/*# sourceMappingURL=index.css.map */

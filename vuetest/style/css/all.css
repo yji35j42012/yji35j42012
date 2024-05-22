@@ -2,8 +2,7 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html,
@@ -13,8 +12,6 @@ body {
 }
 
 .wrap {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
   height: 100%;
@@ -22,13 +19,11 @@ body {
 }
 
 .nav {
-  -webkit-box-flex: 0;
-      -ms-flex: none;
-          flex: none;
+  flex: none;
   width: 220px;
   height: 100%;
   background-color: #fff;
-  border-right: 1px solid #e4e4e7;
+  border-right: 1px solid rgb(228, 228, 231);
 }
 
 .main {
@@ -40,5 +35,4 @@ body {
 .container {
   width: 100%;
   height: calc(100% - 60px);
-}
-/*# sourceMappingURL=all.css.map */
+}/*# sourceMappingURL=all.css.map */

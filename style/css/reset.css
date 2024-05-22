@@ -1,8 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   list-style: none;
 }
 
@@ -14,5 +13,4 @@ body {
 
 a {
   text-decoration: none;
-}
-/*# sourceMappingURL=reset.css.map */
+}/*# sourceMappingURL=reset.css.map */

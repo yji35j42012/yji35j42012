@@ -1,9 +1,11 @@
-@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
   list-style: none;
   box-sizing: border-box;
+  font-size: 16px;
+  font-family: "Noto Sans TC", "Arial", sans-serif;
+  line-height: 1;
 }
 
 html,
@@ -47,24 +49,14 @@ body {
   width: 100%;
   height: 100%;
   background-color: #ffffff;
-  color: #262626;
-  font-family: "Abhaya Libre", sans-serif;
+  font-size: 16px;
+  font-family: "Noto Sans TC", sans-serif;
+  color: #000000;
 }
 
-/* 
-僅限ios15以上的safari瀏覽器
-才加class在html上(高度改為100vh的class)
-並於以下狀態
-在html加上重整高度class(一秒後移除)
-1.從登入頁進入到主框架時
-2.鍵盤彈出後收起時 
-*/
-html.ios15 {
-  height: 100vh;
-}
-
-.ios15 body {
-  height: 100vh;
+html.ph,
+body.ph {
+  overflow: hidden;
 }
 
 *:hover,
@@ -84,16 +76,6 @@ input,
 textarea,
 button {
   border: none;
-  font-family: "Helvetica", sans-serif;
-  padding: 0;
-  border: 0;
-  background-color: transparent;
-  box-sizing: border-box;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  resize: none;
-  font-size: 15px;
 }
 
 button {
@@ -107,14 +89,20 @@ img {
 }
 
 select {
+  font-size: 16px;
   border: none;
   -webkit-appearance: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 @media only screen and (min-device-width: 1025px) {
   ::-webkit-scrollbar {
     width: 6px;
-    height: 6px;
+    height: 10px;
     background-color: #f1f1f1;
   }
   ::-webkit-scrollbar-thumb {
@@ -131,13 +119,4 @@ select {
   ::-webkit-scrollbar-corner {
     background-color: #f1f1f1;
   }
-}
-.wrap {
-  display: flex;
-  justify-content: flex-start;
-  align-items: stretch;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  background-color: #e5e5e5;
 }/*# sourceMappingURL=all.css.map */
