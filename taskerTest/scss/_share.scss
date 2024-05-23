@@ -4,12 +4,14 @@
     width: 100%;
     height: 100%;
 }
+
 header {
     flex: none;
     width: 100%;
     height: 50px;
     background-color: #138b8b;
 }
+
 .content {
     overflow: hidden;
     @include d_f(flex);
@@ -23,19 +25,23 @@ header {
     height: 100%;
     background-color: #085a5a;
 }
+
 .main {
     width: 100%;
     height: 100%;
     padding: 10px 20px;
 }
+
 .head {
-	@include d_f(flex,flex-start,center);
-	height: 30px;
+    @include d_f(flex, flex-start, center);
+    height: 30px;
     margin-bottom: 10px;
+
     &_title {
         color: #108080;
         font-size: 20px;
     }
+
     &_range {
         @include d_f(flex, center, center);
         margin-left: 10px;
@@ -50,6 +56,7 @@ header {
     @include d_f(inline-flex);
     height: 20px;
     color: #fff;
+
     // tab_item
     &_item {
         @include d_f(inline-flex, center, center);
@@ -60,9 +67,11 @@ header {
         border-top-left-radius: 8px;
         border-top-right-radius: 8px;
         transform: translateX(-30px);
+
         &:first-child {
             transform: translateX(0);
         }
+
         &.on {
             position: relative;
             background-color: #085a5a;
@@ -70,35 +79,43 @@ header {
         }
     }
 }
+
 .tbBox {
     @include d_f(flex);
     flex-direction: column;
     height: calc(100% - 60px);
+
     table {
         width: 100%;
         border-collapse: collapse;
         border-spacing: 0;
         text-align: center;
     }
+
     th {
         height: 30px;
         background-color: #085a5a;
         color: #ffffff;
         font-size: 16px;
     }
+
     td {
         height: 30px;
     }
+
     // tbBox_head
     &_head {
-		flex: none;
+        flex: none;
         overflow-y: scroll;
-		width: calc(100% + 6px);
-		height: 30px;
+        width: calc(100% + 6px);
+        height: 30px;
     }
+
     // tbBox_body
     &_body {
         overflow-y: scroll;
         width: calc(100% + 6px);
     }
 }
+
+

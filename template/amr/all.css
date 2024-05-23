@@ -51,6 +51,44 @@ body {
 	background-color: #999;
 }
 
+.ccc {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 500px;
+	height: 500px;
+}
+
+.sideBox {
+	position: relative;
+    /* position: absolute;
+    left: 42%;
+    top: 40%; */
+}
+.top{
+	width: 100px;
+    transform: skew(55deg, -35deg);
+    background: #51aef9;
+    margin-left: 5px;
+    height: 40px;
+}
+.left {
+    width: 57px;
+	height: 20px;
+    transform: skew(0, 35deg);
+    background: #8ffce7;
+    margin-top: 14px;
+    margin-left: -23px;
+}
+.right {
+    position: absolute;
+    bottom: 14px;
+    left: 34px;
+    width: 100px;
+	height: 20px;
+    transform: skew(0, -35deg);
+    background: #3460f2;
+}
 /* .box_itme._road._c{
 transform: rotate(90deg);
 }
