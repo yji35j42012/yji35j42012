@@ -30,12 +30,12 @@
 
     <script>
 
-        let sendButton = document.querySelector('button');
+        let sendButton=document.querySelector('button');
 
         function send() {
-            let name = document.querySelector('#nameValue').value;
-            let phone = document.querySelector('#phoneValue').value;
-            let demand = document.querySelector('#demandValue').value;
+            let name=document.querySelector('#nameValue').value;
+            let phone=document.querySelector('#phoneValue').value;
+            let demand=document.querySelector('#demandValue').value;
 
 
             $.ajax({
@@ -46,9 +46,9 @@
                     "demand": demand
                 },
                 success: function (response) {
-                    console.log('response',response);
+                    console.log('response', response);
 
-                    if (response == "成功") {
+                    if (response=="成功") {
                         alert("成功");
                     }
                 },
