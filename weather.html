@@ -29,7 +29,6 @@
 
 		function getApi(params) {
 			if (city.value=='all') {
-				console.log('???');
 				apiUrl=`https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-D0047-091?Authorization=${ apiKey }&format=JSON`;
 			} else {
 				apiUrl=`https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-D0047-091?Authorization=${ apiKey }&format=JSON&locationName=${ city.value }`;
@@ -38,8 +37,6 @@
 			axios.get(apiUrl)
 				.then(res => {
 					const data=res.data.records.locations[0].location
-					console.log('data', data);
-					// const location = response.data.records.location[0]; // 取得第一個地點的資料
 					const weatherElement=document.getElementById('weather');
 					var txt="";
 					weatherElement.innerHTML=txt
@@ -48,7 +45,6 @@
 						txt+=`<p>天氣現象：${ data[i].weatherElement[6].time[0].elementValue[0].value }</p>`
 						txt+=`<p>最低溫度：${ data[i].weatherElement[8].time[0].elementValue[0].value }°C</p>`
 						txt+=`<p>最高溫度：${ data[i].weatherElement[12].time[0].elementValue[0].value }°C</p>`
-
 					}
 					weatherElement.innerHTML=txt
 
