@@ -16,7 +16,7 @@ body {
 	align-items: center;
 	width: 100%;
 	min-height: 100%;
-	background-color: #eee;
+	background-color: #F5F5F5;
 }
 
 .car {
@@ -68,17 +68,19 @@ body {
 .top{
 	width: 100px;
     transform: skew(55deg, -35deg);
-    background: #51aef9;
+    background: #FFFFFF;
     margin-left: 5px;
     height: 40px;
+	border: 1px solid #EBEBEB;
 }
 .left {
     width: 57px;
 	height: 20px;
     transform: skew(0, 35deg);
-    background: #8ffce7;
+    background: #ECECEC;
     margin-top: 14px;
     margin-left: -23px;
+	border: 1px solid #EBEBEB;
 }
 .right {
     position: absolute;
@@ -87,7 +89,8 @@ body {
     width: 100px;
 	height: 20px;
     transform: skew(0, -35deg);
-    background: #3460f2;
+    background: #ECECEC;
+	border: 1px solid #EBEBEB;
 }
 /* .box_itme._road._c{
 transform: rotate(90deg);
