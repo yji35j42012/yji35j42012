@@ -1,0 +1,271 @@
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+html,
+body {
+	width: 100%;
+}
+
+.wrap {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+
+.selfStyle {
+	width: 100%;
+	max-width: 1200px;
+}
+
+.selfStyle img {
+	width: 100%;
+	vertical-align: middle;
+}
+
+.selfStyle_item {
+	position: relative;
+}
+
+.selfStyle_item._item2 {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	height: 506px;
+	padding-right: 77px;
+	background-color: #20523B;
+}
+
+.selfStyle_item._item4 {
+	display: flex;
+	align-items: center;
+	height: 506px;
+	padding-left: 85px;
+	background-color: #20523B;
+}
+
+.grow_img1_1 {
+	position: absolute;
+	top: 33px;
+	right: 80px;
+	max-width: 512px;
+}
+
+.grow_img2 {
+	z-index: 1;
+	position: absolute;
+	top: -160px;
+	left: 20px;
+	max-width: 330px;
+}
+
+.selfStyle_item_txt {
+	color: #fff;
+}
+
+._item2 .selfStyle_item_txt {
+	display: inline-flex;
+	flex-direction: column;
+	/* margin-left: auto; */
+}
+
+._item2 .selfStyle_item_txt span {
+	line-height: 1;
+}
+
+._item2 .selfStyle_item_txt span:nth-child(1) {
+	position: relative;
+	margin-bottom: 20px;
+	font-size: 125px;
+}
+
+._item2 .selfStyle_item_txt span:nth-child(1):after {
+	content: "+";
+	position: absolute;
+	top: -40px;
+	margin-left: 10px;
+
+}
+
+._item2 .selfStyle_item_txt span:nth-child(2) {
+	margin-bottom: 20px;
+	font-size: 101px;
+}
+
+._item2 .selfStyle_item_txt span:nth-child(3) {
+	font-size: 43px;
+}
+
+._item4 .selfStyle_item_txt {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	padding-left: 70px;
+}
+
+._item4 .selfStyle_item_txt span {
+	line-height: 1;
+}
+
+._item4 .selfStyle_item_txt span:nth-child(1) {
+	margin-bottom: 10px;
+	font-size: 170px;
+}
+
+._item4 .selfStyle_item_txt span:nth-child(2) {
+	font-size: 70px;
+}
+
+.icon_one {
+	max-width: 115px;
+}
+
+.selfStyle_item_btn {
+	position: absolute;
+	right: 80px;
+	bottom: 118px;
+	display: inline-block;
+	padding: 25px 106px;
+	background-color: #20523B;
+	color: #FFFBD4;
+	font-size: 80px;
+}
+
+.selfStyle_item._item7 {
+	height: 238px;
+	background-color: #20523B;
+	;
+}
+
+.grow_img7 {
+	position: absolute;
+	top: -100px;
+	left: 0;
+	right: 0;
+	max-width: 569px;
+	margin: auto;
+}
+
+._item8 .selfStyle_item_txt {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	padding-top: 30px;
+	color: #20523B;
+}
+
+._item8 .selfStyle_item_txt>div {
+	display: inline-flex;
+	flex-direction: column;
+}
+
+._item8 .selfStyle_item_txt span:nth-child(1) {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 46px;
+	text-align: center;
+}
+
+._item8 .selfStyle_item_txt span:nth-child(1)::before,
+._item8 .selfStyle_item_txt span:nth-child(1)::after {
+	content: '';
+	width: calc(50% - 170px);
+	height: 3px;
+	background-color: #20523B;
+}
+
+._item8 .selfStyle_item_txt span:nth-child(2) {
+	font-size: 84px;
+}
+
+.selfStyle_item._item9 {
+	height: 230px;
+	background-color: #20523B;
+}
+
+.grow_img9 {
+	position: absolute;
+	top: -125px;
+	left: 0;
+	right: 0;
+	max-width: 996px;
+	margin: auto;
+}
+
+.selfStyle_item._item11 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	min-height: 316px;
+	padding-top: 18px;
+	padding-bottom: 40px;
+	background: url('./images/grow_img11.svg')no-repeat top center/cover;
+	box-sizing: border-box;
+}
+
+.selfStyle_item_txt11_1 {
+	margin-bottom: 10px;
+	font-size: 133px;
+	font-weight: 700;
+	color: #FFFBD4;
+	line-height: 1;
+}
+
+.selfStyle_item_txt11_2 {
+	font-size: 98px;
+	font-weight: 700;
+	color: #BAD59B9B;
+	line-height: 1;
+}
+
+.selfStyle_item._item12 {
+	padding-top: 30px;
+}
+
+.selfStyle_item_txt12_1 {
+	font-size: 115px;
+	font-weight: 700;
+	color: #20523B;
+	text-shadow: 2px 2px 8px 0px #0000001F;
+	text-align: center;
+}
+
+.selfStyle_item_txt12_2 {
+	margin-bottom: 130px;
+	color: #20523B;
+	font-size: 51px;
+	text-shadow: 2px 2px 8px 0px #0000001F;
+	text-align: center;
+}
+
+.selfStyle_item_box12 {
+	display: flex;
+	justify-content: center;
+}
+
+.grow_img12 {
+	max-width: 700px;
+	margin: auto;
+	padding-bottom: 130px;
+}
+
+.selfStyle_item._item13 {
+	height: 352px;
+	background-color: #20523B;
+}
+
+.selfStyle_item_txt13_1 {
+	color: #FFFFFF;
+	font-size: 98px;
+	text-shadow: 2px 2px 8px 0px #0000001F;
+}
