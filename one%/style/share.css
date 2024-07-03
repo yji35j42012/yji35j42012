@@ -9,11 +9,88 @@
 .selfStyle li {
 	list-style: none;
 }
+
 .selfStyle div,
 .selfStyle span {
 	font-family: "Noto Sans TC", sans-serif !important;
 }
+
 .selfStyle img {
 	width: 100%;
 	vertical-align: middle;
+}
+
+
+
+.model1 {
+	display: flex;
+	align-items: center;
+	margin-top: 77px;
+}
+
+.model1_num {
+	color: #3C8E43;
+	font-size: 313px;
+	font-weight: 700;
+	text-shadow: 2px 2px 8px 0px #0000001F;
+	line-height: 1;
+}
+
+.model1_txt {
+	color: #20523B;
+	font-weight: 700;
+}
+
+.model1_txt1 {
+	display: block;
+	line-height: 1;
+	font-size: 125px;
+}
+
+.model1_txt2 {
+	display: block;
+	line-height: 1;
+	font-size: 116px;
+}
+
+@media screen and (max-width:991px) {
+	.model1_num {
+		font-size: 215px;
+	}
+	.model1_txt1 {
+		font-size: 80px;
+	}
+
+	.model1_txt2 {
+		font-size: 73px;
+	}
+
+}
+
+@media screen and (max-width:767px) {
+	.model1_num {
+		font-size: 160px;
+	}
+	.model1_txt1 {
+		font-size: 60px;
+	}
+
+	.model1_txt2 {
+		font-size: 55px;
+	}
+
+}
+
+@media screen and (max-width:575px) {
+	.model1_num {
+		font-size: 110px;
+	}
+	.model1_txt1 {
+		font-size: 38px;
+	}
+
+	.model1_txt2 {
+		font-size: 34px;
+	}
+
 }
