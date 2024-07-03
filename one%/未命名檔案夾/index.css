@@ -17,6 +17,7 @@ body {
 
 
 .homestyle {
+	overflow: hidden;
 	width: 100%;
 	max-width: 1200px;
 	font-family: "Noto Sans TC", sans-serif;

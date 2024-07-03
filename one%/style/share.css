@@ -1,0 +1,19 @@
+.selfStyle {
+	overflow: hidden;
+	width: 100%;
+	max-width: 1200px;
+	font-family: "Noto Sans TC", sans-serif;
+	line-height: 1;
+}
+
+.selfStyle li {
+	list-style: none;
+}
+.selfStyle div,
+.selfStyle span {
+	font-family: "Noto Sans TC", sans-serif !important;
+}
+.selfStyle img {
+	width: 100%;
+	vertical-align: middle;
+}
