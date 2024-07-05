@@ -16,9 +16,7 @@
 	<link rel="stylesheet" href="./style/grow.css">
 
 	<style type="text/css">
-		.selfStyle_item {
-			position: relative;
-		}
+		.selfStyle_item {position: relative;}
 
 		.selfStyle_item._item2 {
 			display: flex;
@@ -251,6 +249,9 @@
 		}
 
 		.selfStyle_item._item12 {
+			display: flex;
+			align-items: center;
+			flex-direction: column;
 			padding-top: 30px;
 		}
 
@@ -272,8 +273,75 @@
 		}
 
 		.selfStyle_item_box12 {
-			display: flex;
-			justify-content: center;
+			position: relative;
+			display: inline-block;
+			max-width: 700px;
+			margin: auto;
+		}
+		.selfStyle_item_txt12{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			color: #20523B;
+		}
+
+		.selfStyle_item_txt12_4{
+			position: absolute;
+			top: 60px;
+			left: 80px;
+			
+			letter-spacing: 0.04em;
+			text-align: left;
+		}
+		.selfStyle_item_txt12_4::before{
+			content:attr(data-txt);
+			display: block;
+			letter-spacing: 0.04em;
+			text-align: left;
+		}
+		.selfStyle_item_txt12_5{
+			position: absolute;
+			top: 250px;
+			right: 0px;
+			letter-spacing: 0.04em;
+			text-align: left;
+		}
+		.selfStyle_item_txt12_5::after{
+			content:attr(data-txt);
+			display: block;
+			letter-spacing: 0.03em;
+			text-align: left;
+		}
+		.selfStyle_item_txt12_6{
+			position: absolute;
+			left: 245px;
+			bottom: 100px;
+			font-size:  50px;
+			font-weight: 700;
+			line-height: 60px;
+			letter-spacing: 0.12em;
+			text-align: left;
+		}
+		.selfStyle_item_txt12_6::after{
+			content:attr(data-txt);
+			display: block;
+			letter-spacing: 0.1em;
+			text-align: left;
+
+		}
+		.selfStyle_item_txt12_4,.selfStyle_item_txt12_5,.selfStyle_item_txt12_6{
+			font-size:  50px;
+			font-weight: 700;
+			line-height: 60px;
+		}
+		.selfStyle_item_txt12_4::before,
+		.selfStyle_item_txt12_5::after,
+		.selfStyle_item_txt12_6::after{
+			font-size: 38px;
+			font-weight: 700;
+			line-height: 60px;
 		}
 
 		.grow_img12 {
@@ -309,9 +377,9 @@
 		}	
 
 		.selfStyle_item_txt14 {
-			position: absolute;
-			top: 0;
-			left: 0;
+			display: flex;
+			align-items: center;
+			flex-direction: column;
 			width: 100%;
 			height: 100%;
 			color: #20523B;
@@ -328,12 +396,14 @@
 			position: relative;
 			display: flex;
 			font-weight: 700;
-			font-size: 182px;
+			font-size: 170px;
 			line-height: 1;
 		}
 
 		.selfStyle_item._item14 {
 			overflow: hidden;
+			padding-bottom: 90px;
+			background: url('//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_fd325f79-6652-4e86-9b50-12fcf96e6611.png')no-repeat center/cover;
 		}
 
 		.selfStyle_item._item14::after {
@@ -363,60 +433,77 @@
 
 		.selfStyle_item_txt14_2 {
 			position: relative;
-			top: 90px;
+			top: 75px;
 			margin-left: 80px;
 			font-weight: 700;
-			font-size: 127px;
+			font-size: 115px;
 		}
-
-		.liTitle {
-			margin-bottom: 10px;
-			font-weight: 700;
-			font-size: 44px;
+		.selfStyle_item_group {
+			display: inline-block;
+			padding-top: 100px !important;
 		}
-
-		.litxt {
+		.selfStyle_item_group li{
 			position: relative;
-			padding-left: 20px;
-			font-weight: 400;
-			font-size: 36px;
+			left: 0;
+			display: flex;
+			align-items: center;
+		}
+		.selfStyle_item_group li::before{
+			flex: none;
+			content:"";
+			width: 125px;
+			height: 125px;
+			margin-right: 10px;
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: center;
+		}
+		.selfStyle_item_group li:nth-child(1){left: 165px;}
+		.selfStyle_item_group li:nth-child(1)::before{
+			background-image: url('//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_40ecfed7-989e-4d16-aa9c-31ef46a01d36.png');
 		}
 
-		.litxt::before {
+		.selfStyle_item_group li:nth-child(2){left: 75px;}
+		.selfStyle_item_group li:nth-child(2)::before{
+			background-image: url('//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_4f12c3ce-21a3-41b2-a909-75dbe1559ad8.png');
+		}
+
+		.selfStyle_item_group li:nth-child(3){left: -25px;}
+		.selfStyle_item_group li:nth-child(3)::before{
+			background-image: url('//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_e2144db8-e1e8-4adf-ac1c-bb8bff1fd462.png');
+		}
+
+		.selfStyle_item_group li:nth-child(4){left: -140px;}
+		.selfStyle_item_group li:nth-child(4)::before{
+			background-image: url('//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_dfdadfab-0f94-4060-a3a5-06fc2d35c60f.png');
+		}
+		
+		.txtbox14 .title{
+			font-size: 44px;
+			font-weight: 700;
+			line-height: 63.71px;
+			letter-spacing: 0.07em;
+			text-align: left;
+		}
+		.sectxt{
+			position: relative;
+			font-size: 36px;
+			font-weight: 400;
+			line-height: 46px;
+			letter-spacing: 0.04em;
+			text-align: left;
+		}
+		.sectxt::before{
+			content:"";
 			position: absolute;
-			left: 0;
-			top: 0;
-			content: '';
+			display: block;
 			width: 10px;
 			height: 100%;
 			background-color: #20523B;
 		}
-
-		.litxt span {
-			display: block;
+		.sectxt div{
+			padding-left: 20px;
 		}
-
-		.selfStyle_item_group {
-			padding-top: 100px !important;
-		}
-
-		.selfStyle_item_group li:nth-child(1) {
-			padding-left: 680px;
-		}
-
-		.selfStyle_item_group li:nth-child(2) {
-			padding-left: 600px;
-		}
-
-		.selfStyle_item_group li:nth-child(3) {
-			padding-left: 520px;
-		}
-
-		.selfStyle_item_group li:nth-child(4) {
-			padding-left: 440px;
-			margin-top: 80px;
-		}
-
 		.selfStyle_item_group li+li {
 			margin-top: 60px;
 		}
@@ -555,11 +642,6 @@
 			background-color: rgb(32, 82, 59);
 			color: #fff;
 		}
-
-
-
-
-
 		.selfStyle_item_group16 .panel span:nth-child(2) {
 			margin-top: 5px;
 			font-size: 64px;
@@ -776,170 +858,59 @@
 
 
 		@media screen and (max-width:991px) {
-
 			.selfStyle_item_txt20_1 {font-size: 32px;line-height: 55px;}
-			img.grow_img20_2,
-			img.grow_img20_1 {width: 132px;}
+			img.grow_img20_2,img.grow_img20_1 {width: 132px;}
 			img.grow_img20_3 {width: 115px;}
 			img.grow_img20_4 {width: 120px;}
 			.selfStyle_item._item20 {padding: 100px 0;}
 			.selfStyle_item_group20 .txt div:nth-child(1) {margin-bottom: 0;font-size: 24px;}
 			.selfStyle_item_group20 .txt div:nth-child(2) {font-size: 24px;line-height: 34px;}
-			.selfStyle_item_group20 .txt .good {font-size: 24px;}
-			
-			.selfStyle_item_txt17_1 div:nth-child(1) {
-				font-size: 50px;
-			}
-
-			.selfStyle_item_txt17_1 div:nth-child(2) {
-				margin-top: 25px;
-				font-size: 90px;
-			}
-
-			.selfStyle_item_txt17_1 {
-				padding: 50px 35px;
-			}
-
-			
-
-			.selfStyle_item_group16 .percentage {
-				width: 200px;
-				height: 200px;
-				font-size: 36px;
-			}
-
-			.selfStyle_item_group16 .panel span:nth-child(2) {
-				font-size: 45px;
-			}
-
-			.selfStyle_item_group16 .panel div:after {
-				font-size: 21px;
-			}
-
-			.selfStyle_item_group16 .panel {
-				padding: 30px 25px;
-			}
-
-			.icon_item16_1,
-			.icon_item16_2 {
-				max-width: 280px !important;
-			}
-
-			.selfStyle_item_txt14_1 {
-				font-size: 100px;
-			}
-
-			.selfStyle_item_txt14_2 {
-				margin-left: 55px;
-				font-size: 80px;
-			}
-
-			.selfStyle_item_txt14_1::after {
-				top: 10px;
-				width: 175px;
-				height: 210px;
-			}
-
-
-
-			.selfStyle_item_txt13_1 {
-				font-size: 70px;
-			}
-
-			.selfStyle_item_txt13_1::before {
-				font-size: 110px;
-			}
-
+			.selfStyle_item_group20 .txt .good {font-size: 24px;}	
+			.selfStyle_item_txt17_1 div:nth-child(1) {font-size: 50px;}
+			.selfStyle_item_txt17_1 div:nth-child(2) {margin-top: 25px;font-size: 90px;}
+			.selfStyle_item_txt17_1 {padding: 50px 35px;}
+			.selfStyle_item_group16 .percentage {width: 200px;height: 200px;font-size: 36px;}
+			.selfStyle_item_group16 .panel span:nth-child(2) {font-size: 45px;}
+			.selfStyle_item_group16 .panel div:after {font-size: 21px;}
+			.selfStyle_item_group16 .panel {padding: 30px 25px;}
+			.icon_item16_1,.icon_item16_2 {max-width: 280px !important;}
+			.selfStyle_item_txt14_1 {font-size: 100px;}
+			.selfStyle_item_txt14_2 {margin-left: 55px;font-size: 80px;}
+			.selfStyle_item_txt14_1::after {top: 10px;width: 175px;height: 210px;}
+			.selfStyle_item_txt13_1 {font-size: 70px;}
+			.selfStyle_item_txt13_1::before {font-size: 110px;}
 			.selfStyle_item._item13 {height: 280px;}			
-
 			._item8 .selfStyle_item_txt span:nth-child(2) {font-size: 60px;}
-
-			.selfStyle_buynow_btn {
-				right: 40px;
-				padding: 25px 50px;
-				font-size: 50px;
-			}
-
-			.selfStyle_item._item6::after {
-				left: -182px;
-				top: -250px;
-				width: 500px;
-				height: 500px;
-				border-width: 100px;
-			}
-
-			.selfStyle_item._item4 {
-				padding-left: 35px;
-				padding-top: 80px;
-				padding-bottom: 80px;
-			}
-
+			.selfStyle_buynow_btn {right: 40px;padding: 25px 50px;font-size: 50px;}
+			.selfStyle_item._item6::after {left: -182px;top: -250px;width: 500px;height: 500px;border-width: 100px;}
+			.selfStyle_item._item4 {padding-left: 35px;padding-top: 80px;padding-bottom: 80px;}
 			.selfStyle_item._item4::after,
-			.selfStyle_item._item5::after {
-				right: -250px;
-				width: 500px;
-				height: 500px;
-				border-width: 100px;
-			}
-
-			.selfStyle_item._item4::after {
-				bottom: -250px;
-			}
-
-			.selfStyle_item._item5::after {
-				top: -250px;
-			}
-
-			._item4 .selfStyle_item_txt {
-				padding-left: 0px;
-			}
-
-			img.icon_one {
-				width: 70%;
-			}
-
-			._item4 .selfStyle_item_txt span:nth-child(1) {
-				font-size: 120px;
-			}
-
-			._item4 .selfStyle_item_txt span:nth-child(2) {
-				font-size: 48px;
-			}
-
-			.grow_img2 {
-				max-width: 260px !important;
-			}
-
-			.selfStyle_item._item2 {
-				height: 380px;
-				padding-left: 315px;
-			}
-
-			._item2 .selfStyle_item_txt span:nth-child(1) {
-				font-size: 100px;
-			}
-
-			._item2 .selfStyle_item_txt span:nth-child(2) {
-				font-size: 60px;
-			}
-
-			._item2 .selfStyle_item_txt span:nth-child(3) {
-				font-size: 27px;
-			}
-
-			.selfStyle_item._item15 {
-				flex-wrap: wrap;
-				padding: 120px 25px 120px;
-			}
-
-			.selfStyle_item_list {
-				width: 50%;
-				margin-bottom: 30px;
-			}
+			.selfStyle_item._item5::after {right: -250px;width: 500px;height: 500px;border-width: 100px;}
+			.selfStyle_item._item4::after {bottom: -250px;}
+			.selfStyle_item._item5::after {top: -250px;}
+			._item4 .selfStyle_item_txt {padding-left: 0px;}
+			img.icon_one {width: 70%;}
+			._item4 .selfStyle_item_txt span:nth-child(1) {font-size: 120px;}
+			._item4 .selfStyle_item_txt span:nth-child(2) {font-size: 48px;}
+			.grow_img2 {max-width: 260px !important;}
+			.selfStyle_item._item2 {height: 380px;padding-left: 315px;}
+			._item2 .selfStyle_item_txt span:nth-child(1) {font-size: 100px;}
+			._item2 .selfStyle_item_txt span:nth-child(2) {font-size: 60px;}
+			._item2 .selfStyle_item_txt span:nth-child(3) {font-size: 27px;}
+			.selfStyle_item._item15 {flex-wrap: wrap;padding: 120px 25px 120px;}
+			.selfStyle_item_list {width: 50%;margin-bottom: 30px;}
+			.selfStyle_item_group li::before{width: 90px;height: 90px;}
+			.txtbox14 .title{font-size: 38px;}
+			.sectxt{font-size: 28px;}
+			.sectxt::before{width: 7px;}
+			.selfStyle_item_group li:nth-child(1){left: 125px;}
+			.selfStyle_item_group li:nth-child(2){left: 48px;}
+			.selfStyle_item_group li:nth-child(3){left: -40px;}
+			.selfStyle_item_group li:nth-child(4){left: -150px;}
+			.selfStyle_item_group li+li{margin-top: 35px;}
 		}
 
 		@media screen and (max-width:767px) {
-		
 			.selfStyle_item_group20 li {width: auto;}
 			.selfStyle_item_group20 {align-items: center;flex-wrap: wrap;flex-direction: column;}
 			.selfStyle_item._item20 {padding: 50px 0;}
@@ -949,406 +920,144 @@
 			.selfStyle_item_txt17_1 div:nth-child(1)::after {padding: 0 30px;}
 			.selfStyle_item_txt17_1 div:nth-child(1) {font-size: 40px;}
 			.selfStyle_item_txt17_1 div:nth-child(2) {margin-top: 25px;font-size: 65px;}
-
-			.selfStyle_item_txt17_1 div:nth-child(1)::before {
-				height: 7px;
-			}		
-
-			.selfStyle_item_group16 .panel div:nth-child(1) {
-				line-height: 30px;
-			}
-
-			.selfStyle_item_group16 .panel span:nth-child(2) {
-				font-size: 58px;
-			}
-
-			.icon_item16_2 {
-				margin-top: 48px;
-				margin-bottom: 40px;
-			}
-
-			.selfStyle_item_group16 li {
-				max-width: 400px;
-			}
-
-			.selfStyle_item_group16 {
-				flex-wrap: wrap;
-			}
-
-			.selfStyle_item_group16 li+li {
-				margin-left: 0;
-				margin-top: 15px;
-			}
-
-			.selfStyle_item_txt14_1 {
-				font-size: 70px;
-			}
-
-			.selfStyle_item_txt14_2 {
-				top: 65px;
-				margin-left: 30px;
-				font-size: 55px;
-			}
-
-			.selfStyle_item_txt14_1::after {
-				top: -30px;
-				left: 70px;
-				width: 120px;
-			}
-
-			
-
-			.selfStyle_item._item13 {
-				height: 210px;
-			}
-
-			.selfStyle_item_txt13_1 {
-				font-size: 48px;
-			}
-
-			.selfStyle_item_txt13_1::before {
-				font-size: 78px;
-			}
-
-			.selfStyle_item_txt12_1 {
-				font-size: 65px;
-			}
-
-			.selfStyle_item_txt12_2 {
-				font-size: 29px;
-			}
-
-			.selfStyle_item._item11 {
-				min-height: 230px;
-			}
-
-			.selfStyle_item_txt11_1 {
-				font-size: 90px;
-			}
-
-			.selfStyle_item_txt11_2 {
-				font-size: 55px;
-			}	
-
+			.selfStyle_item_txt17_1 div:nth-child(1)::before {height: 7px;}		
+			.selfStyle_item_group16 .panel div:nth-child(1) {line-height: 30px;}
+			.selfStyle_item_group16 .panel span:nth-child(2) {font-size: 58px;}
+			.icon_item16_2 {margin-top: 48px;margin-bottom: 40px;}
+			.selfStyle_item_group16 li {max-width: 400px;}
+			.selfStyle_item_group16 {flex-wrap: wrap;}
+			.selfStyle_item_group16 li+li {margin-left: 0;margin-top: 15px;}
+			.selfStyle_item_txt14_1 {font-size: 70px;}
+			.selfStyle_item_txt14_2 {top: 65px;margin-left: 30px;font-size: 55px;}
+			.selfStyle_item_txt14_1::after {top: -30px;left: 70px;width: 120px;}
+			.selfStyle_item._item13 {height: 210px;}
+			.selfStyle_item_txt13_1 {font-size: 48px;}
+			.selfStyle_item_txt13_1::before {font-size: 78px;}
+			.selfStyle_item_txt12_1 {font-size: 65px;}
+			.selfStyle_item_txt12_2 {font-size: 29px;}
+			.selfStyle_item._item11 {min-height: 230px;}
+			.selfStyle_item_txt11_1 {font-size: 90px;}
+			.selfStyle_item_txt11_2 {font-size: 55px;}	
 			._item8 .selfStyle_item_txt span:nth-child(1)::before,
-			._item8 .selfStyle_item_txt span:nth-child(1)::after {
-				width: calc(50% - 100px);
-			}
-
-			._item8 .selfStyle_item_txt span:nth-child(1) {
-				font-size: 35px;
-			}
-
-			._item8 .selfStyle_item_txt span:nth-child(2) {
-				font-size: 40px;
-			}
-
-			.selfStyle_item._item7 {
-				height: 180px;
-			}
-
-			img.grow_img7 {
-				top: -90px;
-				max-width: 370px !important;
-			}
-
-			.selfStyle_item._item6::after {
-				top: -125px;
-				left: -90px;
-				width: 250px;
-				height: 250px;
-				border-width: 50px;
-			}
-
-			._item4 .selfStyle_item_txt span:nth-child(1) {
-				font-size: 90px;
-			}
-
-			._item4 .selfStyle_item_txt span:nth-child(2) {
-				font-size: 35px;
-			}
-
+			._item8 .selfStyle_item_txt span:nth-child(1)::after {width: calc(50% - 100px);}
+			._item8 .selfStyle_item_txt span:nth-child(1) {font-size: 35px;}
+			._item8 .selfStyle_item_txt span:nth-child(2) {font-size: 40px;}
+			.selfStyle_item._item7 {height: 180px;}
+			img.grow_img7 {top: -90px;max-width: 370px !important;}
+			.selfStyle_item._item6::after {top: -125px;left: -90px;width: 250px;height: 250px;border-width: 50px;}
+			._item4 .selfStyle_item_txt span:nth-child(1) {font-size: 90px;}
+			._item4 .selfStyle_item_txt span:nth-child(2) {font-size: 35px;}
 			.selfStyle_item._item4::after,
-			.selfStyle_item._item5::after {
-				right: -120px;
-				width: 250px;
-				height: 250px;
-				border-width: 50px;
+			.selfStyle_item._item5::after {right: -120px;width: 250px;height: 250px;border-width: 50px;}
+			.selfStyle_item._item4::after {bottom: -125px;}
+			.selfStyle_item._item5::after {top: -125px;}
+			._item4 .selfStyle_item_txt {position: relative;left: -35px;}
+			img.icon_one {width: 50%;}
+			.selfStyle_item .grow_img1_1 {top: 25px;right: 40px;max-width: 250px !important;}
+			.selfStyle_item._item2 {height: 215px;padding-left: 240px;}
+			.grow_img2 {max-width: 180px !important;}
+			._item2 .selfStyle_item_txt span:nth-child(1) {font-size: 62px;}
+			._item2 .selfStyle_item_txt span:nth-child(2) {font-size: 42px;}
+			._item2 .selfStyle_item_txt span:nth-child(3) {font-size: 19px;}
+			._item2 .selfStyle_item_txt span:nth-child(1)::after {top: -15px;margin-left: 5px;}
+			.selfStyle_item_group li::before{width: 65px;height: 65px;}
+			.txtbox14 .title{font-size: 30px;}
+			.sectxt{font-size: 20px; line-height: 28px;}
+			.selfStyle_item_group li+li{margin-top: 22px;}
+			.selfStyle_item_group li:nth-child(1){left: 100px;}
+			.selfStyle_item_group li:nth-child(2){left: 32px;}
+			.selfStyle_item_group li:nth-child(4){left: -125px;}
+			.selfStyle_item._item14::after{right: -200px; bottom: -200px; width: 400px;height: 400px;border-width: 50px;}
+			.selfStyle_item_box12{max-width: 500px;}
+			.selfStyle_item_txt12_4, .selfStyle_item_txt12_5, .selfStyle_item_txt12_6{font-size: 26px;line-height: 32px;}
+			.selfStyle_item_txt12_4::before, .selfStyle_item_txt12_5::after, .selfStyle_item_txt12_6::after{
+				font-size: 30px;
+				line-height: 40px;
 			}
-
-			.selfStyle_item._item4::after {
-				bottom: -125px;
-			}
-
-			.selfStyle_item._item5::after {
-				top: -125px;
-			}
-
-			._item4 .selfStyle_item_txt {
-				position: relative;
-				left: -35px;
-			}
-
-			img.icon_one {
-				width: 50%;
-			}
-
-			.selfStyle_item .grow_img1_1 {
-				top: 25px;
-				right: 40px;
-				max-width: 250px !important;
-			}
-
-			.selfStyle_item._item2 {
-				height: 215px;
-				padding-left: 240px;
-			}
-
-			.grow_img2 {
-				max-width: 180px !important;
-			}
-
-			._item2 .selfStyle_item_txt span:nth-child(1) {
-				font-size: 62px;
-			}
-
-			._item2 .selfStyle_item_txt span:nth-child(2) {
-				font-size: 42px;
-			}
-
-			._item2 .selfStyle_item_txt span:nth-child(3) {
-				font-size: 19px;
-			}
-
-			._item2 .selfStyle_item_txt span:nth-child(1)::after {
-				top: -15px;
-				margin-left: 5px;
-			}
+			.selfStyle_item_txt12_4{left: 45px;}
+			.selfStyle_item_txt12_5{top: 170px;}
+			.selfStyle_item_txt12_6{left: 170px;}
+			.selfStyle_item_txt12_2{margin-bottom: 50px;}
 		}
 
 		@media screen and (max-width:575px) {
 			.selfStyle_item_txt21 {font-size: 48px;line-height: 60px;}
 			.selfStyle_item_txt21::after {font-size: 42px;line-height: 45px;}
-			
 			.selfStyle_item_txt20_1 {font-size: 16px;line-height: 28px;}
 			.selfStyle_item_txt20 {font-size: 50px;line-height: 55px;}
 			img.grow_img20_2,
 			img.grow_img20_1,
 			img.grow_img20_3,
 			img.grow_img20_4 {width: 90px;}
-
 			.selfStyle_item_group20 .txt div:nth-child(1),
 			.selfStyle_item_group20 .txt div:nth-child(2) {font-size: 20px;}
-
-			.selfStyle_item_group20 .txt div:nth-child(2) {
-				line-height: 26px;
-			}
-			
-
-			.selfStyle_item_txt17_1 {
-				padding: 20px 15px;
-			}
-
-			.selfStyle_item_txt17_1 div:nth-child(1) {
-				font-size: 28px;
-			}
-
-			.selfStyle_item_txt17_1 div:nth-child(1)::after {
-				padding: 0px 15px;
-			}
-
-			.selfStyle_item_txt17_1 div:nth-child(1)::before {
-				height: 4px;
-			}
-
-			.selfStyle_item_txt17_1 div:nth-child(2) {
-				margin-top: 15px;
-				font-size: 39px;
-			}
-
-		
-
-			.selfStyle_item_group16 .panel span:nth-child(2) {
-				font-size: 42px;
-			}
-
-			.selfStyle_item_txt14Box {
-				padding-top: 20px;
-			}
-
-			.selfStyle_item._item14::after {
-				right: -75px;
-				bottom: -75px;
-				width: 150px;
-				height: 150px;
-				border-width: 35px;
-			}
-
-			.selfStyle_item_txt14_1 {
-				font-size: 50px;
-			}
-
-			.selfStyle_item_txt14_2 {
-				top: 45px;
-				margin-left: 25px;
-				font-size: 35px;
-			}
-
-			.selfStyle_item_txt14_1::after {
-				top: -55px;
-				left: 55px;
-				width: 90px;
-			}			
-
-			.selfStyle_item._item13 {
-				height: 140px;
-			}
-
-			.selfStyle_item_txt13_1 {
-				font-size: 28px;
-			}
-
-			.selfStyle_item_txt13_1::before {
-				font-size: 50px;
-			}
-
-			.selfStyle_item_txt12_1 {
-				font-size: 42px;
-			}
-
-			.selfStyle_item_txt12_2 {
-				font-size: 18px;
-			}
-
-			.selfStyle_item._item11 {
-				min-height: 170px;
-			}
-
-			.selfStyle_item_txt11_1 {
-				font-size: 60px;
-			}
-
-			.selfStyle_item_txt11_2 {
-				font-size: 30px;
-
-			}
-
-			.selfStyle_buynow_btn {
-				bottom: 55px;
-			}
-
-			.selfStyle_item._item6::after {
-				top: -75px;
-				left: -60px;
-				width: 150px;
-				height: 150px;
-				border-width: 35px;
-
-			}
-
-			.selfStyle_buynow_btn {
-				right: 20px;
-				padding: 15px 25px;
-				font-size: 36px;
-			}
-
+			.selfStyle_item_group20 .txt div:nth-child(2) {line-height: 26px;}
+			.selfStyle_item_txt17_1 {padding: 20px 15px;}
+			.selfStyle_item_txt17_1 div:nth-child(1) {font-size: 28px;}
+			.selfStyle_item_txt17_1 div:nth-child(1)::after {padding: 0px 15px;}
+			.selfStyle_item_txt17_1 div:nth-child(1)::before {height: 4px;}
+			.selfStyle_item_txt17_1 div:nth-child(2) {margin-top: 15px;font-size: 39px;}
+			.selfStyle_item_group16 .panel span:nth-child(2) {font-size: 42px;}
+			.selfStyle_item_txt14Box {padding-top: 20px;}
+			.selfStyle_item._item14::after {right: -75px;bottom: -75px;width: 150px;height: 150px;border-width: 35px;}
+			.selfStyle_item_txt14_1 {font-size: 45px;}
+			.selfStyle_item_txt14_2 {top: 45px;margin-left: 20px;font-size: 35px;}
+			.selfStyle_item_txt14_1::after {top: -55px;left: 40px;width: 90px;}			
+			.selfStyle_item._item13 {height: 140px;}
+			.selfStyle_item_txt13_1 {font-size: 28px;}
+			.selfStyle_item_txt13_1::before {font-size: 50px;}
+			.selfStyle_item_txt12_1 {font-size: 42px;}
+			.selfStyle_item_txt12_2 {font-size: 18px;}
+			.selfStyle_item._item11 {min-height: 170px;}
+			.selfStyle_item_txt11_1 {font-size: 60px;}
+			.selfStyle_item_txt11_2 {font-size: 30px;}
+			.selfStyle_buynow_btn {bottom: 55px;}
+			.selfStyle_item._item6::after {top: -75px;left: -60px;width: 150px;height: 150px;border-width: 35px;}
+			.selfStyle_buynow_btn {right: 20px;padding: 15px 25px;font-size: 36px;}
 			.selfStyle_item._item4::after,
-			.selfStyle_item._item5::after {
-				right: -75px;
-				width: 150px;
-				height: 150px;
-				border-width: 35px;
-			}
-
-			.selfStyle_item._item4::after {
-				bottom: -75px;
-			}
-
-			.selfStyle_item._item5::after {
-				top: -75px;
-			}
-
-			.selfStyle_item._item4 {
-				padding-left: 25px;
-				padding-top: 35px;
-				padding-bottom: 35px;
-			}
-
-			._item4 .selfStyle_item_txt {
-				left: -63px;
-			}
-
-			img.icon_one {
-				width: 36%;
-			}
-
-			._item4 .selfStyle_item_txt span:nth-child(1) {
-				font-size: 55px;
-			}
-
-			._item4 .selfStyle_item_txt span:nth-child(2) {
-				font-size: 23px;
-			}
+			.selfStyle_item._item5::after {right: -75px;width: 150px;height: 150px;border-width: 35px;}
+			.selfStyle_item._item4::after {bottom: -75px;}
+			.selfStyle_item._item5::after {top: -75px;}
+			.selfStyle_item._item4 {padding-left: 25px;padding-top: 35px;padding-bottom: 35px;}
+			._item4 .selfStyle_item_txt {left: 10px;}
+			img.icon_one {max-width: 50px !important;}
+			._item4 .selfStyle_item_txt span:nth-child(1) {font-size: 55px;}
+			._item4 .selfStyle_item_txt span:nth-child(2) {font-size: 23px;}
 			._item8 .selfStyle_item_txt span:nth-child(1)::before,
-			._item8 .selfStyle_item_txt span:nth-child(1)::after {
-				width: calc(50% - 65px);
-			}
-
-			._item8 .selfStyle_item_txt span:nth-child(1) {
-				font-size: 20px;
-			}
-
-			._item8 .selfStyle_item_txt span:nth-child(2) {
-				font-size: 25px;
-			}
-
-			.selfStyle_item._item7 {
-				height: 100px;
-			}
-
-			img.grow_img7 {
-				top: -60px;
-				max-width: 250px !important;
-			}
-
-			.selfStyle_item .grow_img1_1 {
-				top: 15px;
-				right: 20px;
-				max-width: 115px !important;
-			}
-
-			.grow_img2 {
-				top: -45px;
-				max-width: 100px !important;
-			}
-
-			.selfStyle_item._item2 {
-				height: 165px;
-				padding-left: 140px;
-			}
-
-			._item2 .selfStyle_item_txt span:nth-child(1) {
-				margin-bottom: 10px;
-				font-size: 48px;
-			}
-
-			._item2 .selfStyle_item_txt span:nth-child(2) {
-				margin-bottom: 10px;
-				font-size: 26px;
-			}
-
-			._item2 .selfStyle_item_txt span:nth-child(3) {
-				font-size: 12px;
-			}
-
-			.selfStyle_item._item15 {
-				flex-wrap: wrap;
-				padding: 60px 25px;
-			}
-
-			.selfStyle_item_list {
-				width: 100%;
-			}
+			._item8 .selfStyle_item_txt span:nth-child(1)::after {width: calc(50% - 65px);}
+			._item8 .selfStyle_item_txt span:nth-child(1) {font-size: 20px;}
+			._item8 .selfStyle_item_txt span:nth-child(2) {font-size: 25px;}
+			.selfStyle_item._item7 {height: 100px;}
+			img.grow_img7 {top: -60px;max-width: 250px !important;}
+			.selfStyle_item .grow_img1_1 {top: 15px;right: 20px;max-width: 115px !important;}
+			.grow_img2 {top: -45px;max-width: 100px !important;}
+			.selfStyle_item._item2 {height: 165px;padding-left: 140px;}
+			._item2 .selfStyle_item_txt span:nth-child(1) {margin-bottom: 10px;font-size: 48px;}
+			._item2 .selfStyle_item_txt span:nth-child(2) {margin-bottom: 10px;font-size: 26px;}
+			._item2 .selfStyle_item_txt span:nth-child(3) {font-size: 12px;}
+			.selfStyle_item._item15 {flex-wrap: wrap;padding: 60px 25px;}
+			.selfStyle_item_list {width: 100%;}
+			.selfStyle_item_group li::before{width: 45px;height: 45px;}
+			.txtbox14 .title{font-size: 20px;}
+			.sectxt {font-size: 14px;line-height: 22px;}
+			.sectxt::before {width: 5px;}
+			.sectxt div{padding-left: 10px;}
+			.txtbox14 .title{line-height: 36px;}
+			.selfStyle_item_group{padding-top: 60px;}
+			.selfStyle_item_group li::before{margin-right: 5px;}
+			.selfStyle_item_group li:nth-child(1){left: 68px;}
+			.selfStyle_item_group li:nth-child(2){left: 30px;}
+			.selfStyle_item_group li:nth-child(3){left: -20px;}
+			.selfStyle_item_group li:nth-child(4){left: -75px;}
+			.selfStyle_item_group li+li{margin-top: 15px;}
+			.selfStyle_item_box12{max-width: 300px;}
+			.selfStyle_item_txt12_4, .selfStyle_item_txt12_5, .selfStyle_item_txt12_6{font-size: 24px; line-height: 28px;}
+			.selfStyle_item_txt12_4::before, .selfStyle_item_txt12_5::after, .selfStyle_item_txt12_6::after{font-size: 18px; line-height: 24px;}
+			.selfStyle_item_txt12_4{top: 30px;left: 30px;}
+			.selfStyle_item_txt12_5{top: 100px;}
+			.selfStyle_item_txt12_6{left: 102px; bottom: 70px;}
+			.selfStyle_item_txt12_2{margin-bottom: 30px;}
+			.grow_img12{padding-bottom: 90px;}
 		}
 	</style>
 </head>
@@ -1356,149 +1065,114 @@
 <body>
 	<div class="selfStyle">
 		<div class="selfStyle_item _item1">
-			<span contenteditable="false" tabindex="-1"><span contenteditable="false" tabindex="-1"><span
-						contenteditable="false" tabindex="-1"><img alt=""
-							src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_84951946-b6e0-405d-95fc-b02ce5014bc6.jpg"></span></span></span>
-			<span contenteditable="false" tabindex="-1"><span contenteditable="false" tabindex="-1"><span
-						contenteditable="false" tabindex="-1"><img alt="" class="grow_img1_1" data-aos="fade-up"
-							data-aos-duration="1000"
-							src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_47de04a8-28ee-4202-9cf8-59599ae2f15c.png"></span></span></span>
+			<img alt="" src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_84951946-b6e0-405d-95fc-b02ce5014bc6.jpg">
+			<img alt="" class="grow_img1_1" data-aos="fade-up" data-aos-duration="1000" src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_47de04a8-28ee-4202-9cf8-59599ae2f15c.png">
 		</div>
 
 		<div class="selfStyle_item _item2">
-			<span contenteditable="false" tabindex="-1"><span contenteditable="false" tabindex="-1"><span
-						contenteditable="false" tabindex="-1"><img alt="" class="grow_img2" data-aos="fade-right"
-							data-aos-duration="1000"
-							src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_76fd3b34-e7cf-4903-8b40-59ffbfdcf3db.png"></span></span></span>
-
+			<img alt="" class="grow_img2" data-aos="fade-right" data-aos-duration="1000" src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_76fd3b34-e7cf-4903-8b40-59ffbfdcf3db.png">
 			<div class="selfStyle_item_txt">
 				<span data-aos="fade-left" data-aos-delay="100" data-aos-duration="1000">Grow</span> <span
 					data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">植物營養精華</span> <span
-					data-aos="fade-left" data-aos-delay="300" data-aos-duration="1000">Plant Nutrition
-					Concentrate</span>
+					data-aos="fade-left" data-aos-delay="300" data-aos-duration="1000">Plant NutritionConcentrate</span>
 			</div>
 		</div>
 
-		<div class="selfStyle_item"><span contenteditable="false" tabindex="-1"><span contenteditable="false"
-					tabindex="-1"><span contenteditable="false" tabindex="-1"><img alt=""
-							src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_ca988b8a-d00c-4918-9b36-53fdb189907e.jpg"></span></span></span>
+		<div class="selfStyle_item">
+			<img alt="" src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_ca988b8a-d00c-4918-9b36-53fdb189907e.jpg">
 		</div>
-
 		<div class="selfStyle_item _item4">
-			<span contenteditable="false" tabindex="-1"><span contenteditable="false" tabindex="-1"><span
-						contenteditable="false" tabindex="-1"><img alt="" class="icon_one" data-aos="fade-right"
-							data-aos-duration="1000"
-							src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_c9980317-cd4e-48bf-967f-45655c602550.png"></span></span></span>
-
-			<div class="selfStyle_item_txt" data-aos="fade-left" data-aos-duration="1000">
-				<span>滴</span> <span>釋放綠色生長力</span>
+			<img alt="" class="icon_one" data-aos="fade-right" data-aos-duration="1000" src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_c9980317-cd4e-48bf-967f-45655c602550.png">
+			<div class="selfStyle_item_txt">
+				<span data-aos="fade-left" data-aos-duration="1000">滴</span>
+				<span  data-aos="fade-left" data-aos-duration="1000"  data-aos-delay="100">釋放綠色生長力</span>
 			</div>
 		</div>
-
 		<div class="selfStyle_item _item5">
-			<span contenteditable="false" tabindex="-1"><span contenteditable="false" tabindex="-1"><span
-						contenteditable="false" tabindex="-1"><img alt="" class="grow_img5"
-							src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_60c8b211-ddb3-4bbf-8485-1ad94db7b1dd.jpg"></span></span></span>
-
-			<div class="selfStyle_buynow_btn" data-aos="fade-up" data-aos-anchor-placement="top-bottom"
-				data-aos-duration="1000">BUY NOW</div>
+			<img alt="" class="grow_img5" src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_60c8b211-ddb3-4bbf-8485-1ad94db7b1dd.jpg">
+			<div class="selfStyle_buynow_btn" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="1000">BUY NOW</div>
 		</div>
-
-		<div class="selfStyle_item _item6"><span contenteditable="false" tabindex="-1"><span contenteditable="false"
-					tabindex="-1"><span contenteditable="false" tabindex="-1"><img alt="" class="grow_img6"
-							src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_539cc68f-b65f-4322-a62c-b54f69550a8b.jpg"></span></span></span>
+		<div class="selfStyle_item _item6">
+			<img alt="" class="grow_img6" src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_539cc68f-b65f-4322-a62c-b54f69550a8b.jpg">
 		</div>
-
-		<div class="selfStyle_item _item7"><span contenteditable="false" tabindex="-1"><span contenteditable="false"
-					tabindex="-1"><span contenteditable="false" tabindex="-1"><img alt="" class="grow_img7"
-							data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="1000"
-							src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_987ae3c8-665f-42b9-9e29-c778fa43a6ba.png"></span></span></span>
+		<div class="selfStyle_item _item7">
+			<img alt="" class="grow_img7" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="1000" src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_987ae3c8-665f-42b9-9e29-c778fa43a6ba.png">
 		</div>
-
 		<div class="selfStyle_item _item8">
-			<span contenteditable="false" tabindex="-1"><span contenteditable="false" tabindex="-1"><span
-						contenteditable="false" tabindex="-1"><img alt="" class="grow_img8"
-							src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_ceb44892-8cdb-477b-a43d-1f961974613e.jpg"></span></span></span>
-
+			<img alt="" class="grow_img8" src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_ceb44892-8cdb-477b-a43d-1f961974613e.jpg">
 			<div class="selfStyle_item_txt">
 				<div>
-					<span data-aos="zoom-in" data-aos-duration="1000">一起享受</span> <span data-aos="zoom-in"
-						data-aos-duration="1000">最棒的居家種植體驗</span>
+					<span data-aos="zoom-in" data-aos-duration="1000">一起享受</span> <span data-aos="zoom-in" data-aos-duration="1000">最棒的居家種植體驗</span>
 				</div>
 			</div>
 		</div>
-
 		<div class="model3">
 			<img alt="" class="model3_img" data-aos="zoom-in" data-aos-duration="1000" src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_75dac96b-0a63-4644-a402-2ecd54521fa5.png">
 		</div>
-
 		<div class="selfStyle_item _item10">
 			<img alt="" class="grow_img10" src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_ceb44892-8cdb-477b-a43d-1f961974613e.jpg">
 		</div>
-
 		<div class="selfStyle_item _item11">
 			<div class="selfStyle_item_txt11_1" data-aos="flip-up" data-aos-duration="1000">SHOP</div>
-
 			<div class="selfStyle_item_txt11_2" data-aos="flip-up" data-aos-duration="1000">NOW</div>
-			<!-- <img class="grow_img11" src="./images/grow_img11.svg" alt=""> -->
 		</div>
-
 		<div class="selfStyle_item _item12">
 			<div class="selfStyle_item_txt12_1" data-aos="fade-up" data-aos-duration="1000">精準營養學</div>
-
-			<div class="selfStyle_item_txt12_2" data-aos="fade-up" data-aos-duration="1000">Core Nutrition for Plants
-			</div>
-
-			<div class="selfStyle_item_box12"><span contenteditable="false" tabindex="-1"><span contenteditable="false"
-						tabindex="-1"><span contenteditable="false" tabindex="-1"><img alt="" class="grow_img12"
-								src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_20f48c6e-ec09-4746-941d-5f63764d4fb6.png"></span></span></span>
+			<div class="selfStyle_item_txt12_2" data-aos="fade-up" data-aos-duration="1000">Core Nutrition for Plants</div>
+			<div class="selfStyle_item_box12">
+				<img class="grow_img12" src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_1aba235a-9755-4bdd-8675-faf6008c7721.png">
+				<div class="selfStyle_item_txt12">
+					<div class="selfStyle_item_txt12_4" data-txt="友善" data-aos="fade-down-right" data-aos-duration="1000">植物、土壤</div>
+					<div class="selfStyle_item_txt12_5" data-txt="化學肥料" data-aos="fade-down-left" data-aos-duration="1000">非傳統</div>
+					<div class="selfStyle_item_txt12_6" data-txt="萃取" data-aos="fade-up" data-aos-duration="1000">天然植物</div>
+				</div>
 			</div>
 		</div>
-
 		<div class="selfStyle_item _item13">
 			<div class="model_border"></div>
 			<div class="selfStyle_item_txt13_1" data-aos="fade-left" data-aos-duration="1000">本滿足成長關鍵</div>
 		</div>
-
 		<div class="selfStyle_item _item14">
-			<span contenteditable="false" tabindex="-1"><span contenteditable="false" tabindex="-1"><span
-						contenteditable="false" tabindex="-1"><img alt="" class="grow_img14"
-							src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_9475eac5-c4d4-46ca-954a-073d28613ec6.jpg"></span></span></span>
-
 			<div class="selfStyle_item_txt14">
 				<div class="selfStyle_item_txt14Box">
 					<div class="selfStyle_item_txt14_1">4大</div>
-
 					<div class="selfStyle_item_txt14_2">植萃營養</div>
 				</div>
-
 				<ul class="selfStyle_item_group">
 					<li data-aos="fade-left" data-aos-duration="1000">
-						<div class="liTitle">棕櫚酸維他命A</div>
-
-						<div class="litxt">
-							<span>提升生理機能</span> <span>加速成長代謝</span>
+						<div class="txtbox14">
+							<div class="title">棕櫚酸維他命A</div>
+							<div class="sectxt">
+								<div>提升生理機能</div>
+								<div>加速成長代謝</div>
+							</div>
 						</div>
 					</li>
 					<li data-aos="fade-left" data-aos-duration="1000">
-						<div class="liTitle">紫根萃取物</div>
-
-						<div class="litxt">
-							<span>提高細胞活性</span> <span>減緩細胞老化</span>
+						<div class="txtbox14">
+							<div class="title">紫根萃取物</div>
+							<div class="sectxt">
+								<div>提高細胞活性</div>
+								<div>減緩細胞老化</div>
+							</div>
 						</div>
 					</li>
 					<li data-aos="fade-left" data-aos-duration="1000">
-						<div class="liTitle">海帶萃取物</div>
-
-						<div class="litxt">
-							<span>促進根系發育</span> <span>強化健康防禦力</span>
+						<div class="txtbox14">
+							<div class="title">海帶萃取物</div>
+							<div class="sectxt">
+								<div>促進根系發育</div>
+								<div>強化健康防禦力</div>
+							</div>
 						</div>
 					</li>
 					<li data-aos="fade-left" data-aos-duration="1000">
-						<div class="liTitle">腐植土萃取物</div>
-
-						<div class="litxt">
-							<span>提高養分吸收率</span> <span>改善土質防劣化</span>
+						<div class="txtbox14">
+							<div class="title">腐植土萃取物</div>
+							<div class="sectxt">
+								<div>提高養分吸收率</div>
+								<div>改善土質防劣化</div>
+							</div>
 						</div>
 					</li>
 				</ul>
@@ -1507,46 +1181,31 @@
 
 		<div class="selfStyle_item _item15">
 			<div class="selfStyle_item_list" data-aos="fade-up" data-aos-duration="1000">全株照護</div>
-
 			<div class="selfStyle_item_list" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">天然萃取</div>
-
-			<div class="selfStyle_item_list" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">不易致肥傷
-			</div>
-
-			<div class="selfStyle_item_list" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">14天有感
-			</div>
+			<div class="selfStyle_item_list" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">不易致肥傷</div>
+			<div class="selfStyle_item_list" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">14天有感</div>
 		</div>
 
 		<div class="selfStyle_item _item16">
 			<ul class="selfStyle_item_group16">
 				<li data-aos="fade-up-right" data-aos-duration="1000">
-					<div class="percentage">施肥量<br>
-						50%↓</div>
-					<span contenteditable="false" tabindex="-1"><span contenteditable="false" tabindex="-1"><span
-								contenteditable="false" tabindex="-1"><img alt="" class="icon_item16_1"
-									src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_291e734b-ef4a-4964-9147-5084e85749aa.png"></span></span></span>
-
+					<div class="percentage">施肥量<br>50%↓</div>
+					<img alt="" class="icon_item16_1" src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_291e734b-ef4a-4964-9147-5084e85749aa.png">
 					<div class="panel">
 						<div data-txt="根系生長茂密"> </div>
 						<span>有效吸收養分</span>
 					</div>
 				</li>
 				<li data-aos="fade-up-left" data-aos-duration="1000">
-					<div class="percentage">成長<br>
-						20%↑</div>
-					<span contenteditable="false" tabindex="-1"><span contenteditable="false" tabindex="-1"><span
-								contenteditable="false" tabindex="-1"><img alt="" class="icon_item16_2"
-									src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_b4e8d5b3-10eb-455c-a6d7-3b26c591180a.png"></span></span></span>
-
+					<div class="percentage">成長<br>20%↑</div>
+					<img alt="" class="icon_item16_2" src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_b4e8d5b3-10eb-455c-a6d7-3b26c591180a.png">
 					<div class="panel">
-						<div data-txt="全株穩定成長"> </div>
+						<div data-txt="全株穩定成長"></div>
 						<span>莖葉強健健康</span>
 					</div>
 				</li>
 			</ul>
-
 			<div class="selfStyle_item_txt16_1">數據來自30名使用者，一週使用2-3次，連續使用2週的自我評估解果</div>
-
 			<div class="model1">
 				<div class="model1_num" data-aos="fade-right" data-aos-duration="1000">3</div>
 				<div class="model1_txt" data-aos="fade-left" data-aos-duration="1000">
@@ -1554,16 +1213,12 @@
 					<div class="model1_txt2">How to Use</div>
 				</div>
 			</div>
-
 		</div>
 
 		<div class="model2">
-			<img alt=""
-				src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_679d52d3-cb34-4fb6-8b42-b438e1220ef3.png">
-
+			<img alt="" src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_679d52d3-cb34-4fb6-8b42-b438e1220ef3.png">
 			<div class="model2_rightimg" data-aos="fade-up-left" data-aos-duration="1000">
-				<img
-					src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_28f646a8-9888-420b-a794-75823c342bd3.png">
+				<img src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_28f646a8-9888-420b-a794-75823c342bd3.png">
 				<div>
 					<div class="model2_txt1" data-txt="滴">DRIP</div>
 					<div class="model2_txt2">
@@ -1571,10 +1226,8 @@
 					</div>
 				</div>
 			</div>
-
 			<div class="model2_leftimg" data-aos="fade-up-right" data-aos-duration="1000">
-				<img alt=""
-					src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_d799c457-5431-4788-b621-c140a09eb52f.png">
+				<img alt="" src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_d799c457-5431-4788-b621-c140a09eb52f.png">
 				<div>
 					<div class="model2_txt1" data-txt="澆">WATER</div>
 					<div class="model2_txt2">
@@ -1582,14 +1235,11 @@
 					</div>
 				</div>
 			</div>
-
 			<div class="model2_topimg" data-aos="fade-down" data-aos-duration="1000">
-				<img alt=""
-					src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_63373155-1639-447b-ae7f-6f928eaf353d.png">
+				<img alt="" src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_63373155-1639-447b-ae7f-6f928eaf353d.png">
 				<div class="model2_txt1" data-txt="搖">SHAKE</div>
 				<div class="model2_txt2">搖勻成分，精準補給</div>
 			</div>
-
 			<div class="model2_txt3">
 				<div>14天</div>
 				<div>擁抱植感生活</div>
@@ -1599,31 +1249,22 @@
 		<div class="selfStyle_item _item17">
 			<div class="selfStyle_item_txt17_1">
 				<div data-aos="zoom-in-up" data-aos-duration="1000" data-txt="持續使用"> </div>
-
 				<div data-aos="zoom-in-up" data-aos-duration="1000">14天見效</div>
 			</div>
-
-			<img alt=""
-				src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_c291d873-ec77-408d-b7f0-f82a2ffeec56.jpg">
-
+			<img alt="" src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_c291d873-ec77-408d-b7f0-f82a2ffeec56.jpg">
 		</div>
 
 		<div class="selfStyle_item _item18">
-			<div class="selfStyle_item_txt18"><span contenteditable="false" tabindex="-1"><span contenteditable="false"
-						tabindex="-1"><span contenteditable="false" tabindex="-1"><img alt="" data-aos="zoom-in-up"
-								data-aos-duration="1000"
-								src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_e0db8f0c-71e5-4f42-b67e-28a099f94fa5.png"></span></span></span>
+			<div class="selfStyle_item_txt18">
+				<img alt="" data-aos="zoom-in-up" data-aos-duration="1000" src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_e0db8f0c-71e5-4f42-b67e-28a099f94fa5.png">
 			</div>
-			<span contenteditable="false" tabindex="-1"><span contenteditable="false" tabindex="-1"><span
-						contenteditable="false" tabindex="-1"><img alt=""
-							src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_37e4e163-d587-4e84-8eef-86bca09d43a4.jpg"></span></span></span>
+			<img alt="" src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_37e4e163-d587-4e84-8eef-86bca09d43a4.jpg">
 		</div>
-
-
+		
 		<div class="model4">
 			<img alt="" class="model4_img" src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_dc3c3e69-c44d-4732-b0f0-33cd725b0754.png">
-			<div class="model4_txt1">推薦好評</div>
-			<div class="model4_txt2">RECOMMENDATION</div>
+			<div class="model4_txt1" data-aos="zoom-in" data-aos-duration="1000">推薦好評</div>
+			<div class="model4_txt2" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100">RECOMMENDATION</div>
 			<ul class="model4_group">
 				<li class="model4_item">
 					<img alt="" data-aos="fade-right" data-aos-duration="1000" src="//cdn.cybassets.com/s/files/29074/ckeditor/pictures/content_4e25c1f8-7b9a-44f9-b063-3a0b1f95f852.png">
@@ -1764,7 +1405,10 @@
 				data-aos-duration="1000">BUY NOW</div>
 		</div>
 	</div>
-	<script>AOS.init();
+	<script>
+		window.addEventListener('load', (event) => {
+			AOS.init();
+		})		
 	</script>
 </body>
 

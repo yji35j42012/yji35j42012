@@ -923,6 +923,7 @@
 			justify-content: center;
 			align-items: flex-end;
 			margin-top: 85px;
+			padding: 0 !important;
 		}
 
 		.selfStyle_item_group23 li {
@@ -1110,17 +1111,10 @@
 		}
 
 		@media screen and (max-width:575px) {
+			.simple_img21_1 {top: 30px; left: 25px; max-width: 150px !important;}
 			.selfStyle_item_txt11_1::after {width: 185px;height: 60px;}
-			.selfStyle_item_txt11_2 {
-				bottom: -14px;
-				font-size: 35px;
-			}
-
-			.selfStyle_item._item11 {
-				padding-top: 25px;
-				height: 130px;
-			}
-
+			.selfStyle_item_txt11_2 {bottom: -14px;font-size: 35px;}
+			.selfStyle_item._item11 {padding-top: 25px;height: 130px;}
 			.selfStyle_item_btnbox10 {
 				padding: 30px 10px;
 			}
@@ -1538,8 +1532,6 @@
 					</div>
 				</li>
 			</ul>
-			<div class="selfStyle_buynow_btn" data-aos="fade-up" data-aos-anchor-placement="top-bottom"
-			data-aos-duration="1000">BUY NOW</div>
 		</div>
 
 		<div class="selfStyle_item _item23">
@@ -1619,7 +1611,9 @@
 		</div>
 	</div>
 	<script>
-		AOS.init();
+		window.addEventListener('load', (event) => {
+			AOS.init();
+		})		
 	</script>
 </body>
 
