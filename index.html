@@ -13,69 +13,63 @@
 
 <body>
 	<div id="app" class="wrap">
-		<div class="header">
-			<div class="logo"></div>
-			<ul>
-				<li></li>
-				<li></li>
-				<li></li>
-			</ul>
-		</div>
-		<a class="normal_btn" href="./button">按鈕樣式</a>
-		<ol style="display: block">
-			<li v-for="item in todos">{{item.text}}</li>
-		</ol>
-		<!-- <TodoItem /> -->
+		<div class="leftPadle"></div>
+		{{title}}
 	</div>
 
 
-	<script src="./js/libs/vue_3_2_26.js"></script>
-	<script src="./js/libs/vue_loader.js"></script>
+	<script src="./js/libs/axios.js"></script>
+	<script src="./js/libs/vue.global_3_4_38.js"></script>
+	<script src="./js/libs/vue3-sfc-loader.js"></script>
+	<script src="./js/libs/vue-router_4_3_2.js"></script>
 
 	<script>
-		const vue={
-			data() {
+		const options={
+			moduleCache: {
+				vue: Vue
+			},
+			async getFile(url) {
+				const res=await fetch(url);
+				if (!res.ok)
+					throw Object.assign(new Error(res.statusText+' '+url), { res });
 				return {
-					counter: 0,
-					todos: [
-						{ text: 'Learn JavaScript' },
-						{ text: 'Learn Vue' },
-						{ text: 'Build something awesome' }
-					]
+					getContentData: asBinary => asBinary? res.arrayBuffer():res.text(),
 				}
 			},
-			components: {
-				TodoItem: httpVueLoader("./components/todoList.vue"),
+			addStyle(textContent) {
+				const style=Object.assign(document.createElement('style'), { textContent });
+				const ref=document.head.getElementsByTagName('style')[0]||null;
+				document.head.insertBefore(style, ref);
 			},
-			mounted() {
-				// setInterval(() => {
-				// 	this.counter++
-				// }, 1000)
-			}
 		}
-		Vue.createApp(vue).mount('#app')
-	</script>
-	<!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.9/vue.global.min.js'></script>
-	<script src="./js/vue-router.js"></script>
-	
-		const routes = [
+		const { loadModule }=window['vue3-sfc-loader'];
+		const routes=[
 			{
-				path: '',
-				components: {
-					default: httpVueLoader('./components/home/home.vue'),
-				}
+				path: '/',
+				component: () => loadModule('./components/todoList.vue', options),
 			},
-		]
-
-		const vue = {
+		];
+		const router=VueRouter.createRouter({
+			history: VueRouter.createWebHistory('#'),
+			routes
+		})
+		const app=Vue.createApp({
+			// mixins: [url],
 			data() {
 				return {
-					counter: 0
+					title: 'alex'
 				}
-			}
-		}
-
-		Vue.createApp(vue).mount('#app') -->
+			},
+			mounted() { },
+			computed: {},
+			components: {
+				// 'header-component': Vue.defineAsyncComponent(() => loadModule('./components/HeaderComponent.vue', options)),
+			},
+			methods: {}
+		});
+		app.use(router)
+		app.mount('#app');
+	</script>
 
 </body>
 
