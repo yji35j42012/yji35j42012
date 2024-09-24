@@ -1,0 +1,33 @@
+$ligth_color: (
+	headerbg:#0c2565,
+	headerBtn_txt:#949eb5,
+);
+
+$dark_color: (
+	bodybg:#060e23,
+
+	headerbg:#1e2841,
+	headerBtn_txt:#75829b,
+	headerBtn_txt_hv:#ffffff,
+	headerBtn_txt_ac:#ffffff,
+	headerBtn_bg_ac:#6700f4,
+	headerBtn_txt_on:#ffffff,
+	headerBtn_bg_on:#6700f4,
+
+	money_txt: #30dff2,
+
+	home_title_txt:#ffffff,
+	home_titleBefore_bg: #75829b,
+
+	home_gameBtn_txt:#ffffff,
+	home_gameBtn_txt_ac:#30dff2,
+	home_gameBtn_bg:rgba(255, 255, 255, 0.1),
+	home_gameBtn_bd:rgba(255, 255, 255, 0.1),
+	home_gameBtn_bd_hv:#30dff2,
+	
+	home_gameBtn_fi:#ffffff,
+	home_gameBtn_fi_ac:#30dff2,
+	home_gameBtnIcon_bg:#131a2a,
+	home_gameBtnIcon_bg_ac:#1e2841,
+
+);

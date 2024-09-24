@@ -6,15 +6,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Alex</title>
-	<link rel="stylesheet" href="./style/css/reset.css">
 	<link rel="stylesheet" href="./style/css/all.css">
 
 </head>
 
 <body>
 	<div id="app" class="wrap">
-		<div class="leftPadle"></div>
-		{{title}}
+		<header-component></header-component>
+		<div class="content">
+			<router-view></router-view>
+			<div class="content_r"></div>
+		</div>
+		<!-- <div class="leftPadle"></div> -->
+
 	</div>
 
 
@@ -22,6 +26,7 @@
 	<script src="./js/libs/vue.global_3_4_38.js"></script>
 	<script src="./js/libs/vue3-sfc-loader.js"></script>
 	<script src="./js/libs/vue-router_4_3_2.js"></script>
+	<script src="./js/icon_all.js"></script>
 
 	<script>
 		const options={
@@ -46,7 +51,31 @@
 		const routes=[
 			{
 				path: '/',
-				component: () => loadModule('./components/todoList.vue', options),
+				component: () => loadModule('./page/home.vue', options),
+			},
+			{
+				path: '/live',
+				component: () => loadModule('./page/live.vue', options),
+			},
+			{
+				path: '/outrights',
+				component: () => loadModule('./page/outrights.vue', options),
+			},
+			{
+				path: '/result',
+				component: () => loadModule('./page/result.vue', options),
+			},
+			{
+				path: '/tv',
+				component: () => loadModule('./page/tv.vue', options),
+			},
+			{
+				path: '/history',
+				component: () => loadModule('./page/history.vue', options),
+			},
+			{
+				path: '/todaywagers',
+				component: () => loadModule('./page/todaywagers.vue', options),
 			},
 		];
 		const router=VueRouter.createRouter({
@@ -57,13 +86,14 @@
 			// mixins: [url],
 			data() {
 				return {
-					title: 'alex'
+					title: 'alex',
+					icon_all: icon_all,
 				}
 			},
 			mounted() { },
 			computed: {},
 			components: {
-				// 'header-component': Vue.defineAsyncComponent(() => loadModule('./components/HeaderComponent.vue', options)),
+				'header-component': Vue.defineAsyncComponent(() => loadModule('./components/HeaderComponent.vue', options)),
 			},
 			methods: {}
 		});
