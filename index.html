@@ -15,7 +15,7 @@
 		<header-component></header-component>
 		<div class="content">
 			<router-view></router-view>
-			<div class="content_r"></div>
+			<right-panel></right-panel>
 		</div>
 		<!-- <div class="leftPadle"></div> -->
 
@@ -94,6 +94,7 @@
 			computed: {},
 			components: {
 				'header-component': Vue.defineAsyncComponent(() => loadModule('./components/HeaderComponent.vue', options)),
+				'right-panel': Vue.defineAsyncComponent(() => loadModule('./components/RightPanel.vue', options)),
 			},
 			methods: {}
 		});

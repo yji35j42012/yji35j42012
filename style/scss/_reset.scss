@@ -15,3 +15,26 @@ body {
 a {
     text-decoration: none;
 }
+
+@media (pointer: fine) and (max-resolution: 2dppx),
+screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2),
+(-moz-touch-enabled: 0),
+screen and (-ms-high-contrast: active),
+(-ms-high-contrast: none) {
+
+    /* scroll bar style setting */
+    ::-webkit-scrollbar {
+        width: 4px;
+        height: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #B9BDC5;
+        border-radius: 20px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+        border-radius: 20px;
+    }
+}

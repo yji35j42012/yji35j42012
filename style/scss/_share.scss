@@ -39,7 +39,10 @@
 
 	// .content_r
 	&_r {
+		overflow-x: hidden;
+		overflow-y: auto;
 		min-width: 342px;
 		flex: 1 1 33.3%;
+		padding: 8px 8px 56px 8px;
 	}
 }
