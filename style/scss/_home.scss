@@ -1,96 +1,40 @@
-.game_title {
-	position: relative;
-	@include d_f(flex, center);
-	height: 56px;
-	margin: 32px 16px 0;
+.home {
 
-	&::before,
-	&::after {
-		content: "";
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		width: 40%;
-		height: 1px;
-		margin: auto;
-		background-color: map-get($dark_color , home_titleBefore_bg);
-		box-sizing: border-box;
-	}
-
-	&::before {
-		left: 0;
-	}
-
-	&::after {
-		right: 0;
-	}
-
-	// .game_title_txt
-	&_txt {
+	// .home_title
+	&_title {
 		position: relative;
-		@include d_f(inline-flex, none, center);
-		height: 100%;
-		padding: 0 16px;
-		color: map-get($dark_color , home_title_txt);
-		font-size: 16px;
-	}
-}
+		@include d_f(flex, center, center);
+		width: calc(100% - 32px);
+		height: 56px;
+		margin: 8px 16px;
 
-.game_box {
-	@include d_f(flex);
-	width: calc(100% - 32px);
-	margin: 0 16px;
-	padding: 16px 8px;
-}
+		&::before {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: 0;
+			width: 100%;
+			height: 1px;
+			background-color: map-get($dark_color , home_title_bd);
+			transform: translateZ(0px);
+		}
 
-.game_sport {
-	overflow: hidden;
-	@include d_f(flex);
-	width: calc((100% - 32px) / 2);
-	height: 56px;
-	margin: 0 8px 16px 8px;
-	background-color: map-get($dark_color , home_gameBtn_bg);
-	border: 1px solid map-get($dark_color , home_gameBtn_bd);
-	border-radius: 8px;
-@extend %hand;
-	i {
-		flex: none;
-		display: block;
-		width: 54px;
-		height: 54px;
-		padding: 15px;
-		background-color: map-get($dark_color , home_gameBtnIcon_bg);
-		fill: map-get($dark_color , home_gameBtn_fi);
-
-		svg {
-			width: 24px;
-			height: 24px;
+		span {
+			position: relative;
+			@include d_f(inline-flex, none, center);
+			height: 100%;
+			padding: 0 16px;
+			font-size: 20px;
+			font-weight: 700;
+			color: map-get($dark_color , home_title_txt);
+			background-color: map-get($dark_color , bodybg);
 		}
 	}
 
-	// .game_sport_txt
-	&_txt {
-		@include d_f(flex, none, center);
-		flex: 1 1 auto;
-		padding: 4px 16px 4px 8px;
-		color: map-get($dark_color , home_gameBtn_txt);
-		font-size: 14px;
-	}
+	// .home_sport
+	&_sport {
+		@include d_f(flex, center);
 
-	@include hv {
-		border-color: map-get($dark_color , home_gameBtn_bd_hv);
-	}
 
-	@include ac {
-		border-color: map-get($dark_color , home_gameBtn_bd_hv);
-
-		i {
-			background-color: map-get($dark_color , home_gameBtnIcon_bg_ac);
-			fill: map-get($dark_color , home_gameBtn_fi_ac);
-		}
-
-		.game_sport_txt {
-			color: map-get($dark_color , home_gameBtn_txt_ac);
-		}
 	}
 }

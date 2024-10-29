@@ -35,6 +35,10 @@
 		overflow-y: auto;
 		width: 100%;
 		flex: 1 1 66.6%;
+
+		.home & {
+			padding-top: 16px;
+		}
 	}
 
 	// .content_r
@@ -44,5 +48,40 @@
 		min-width: 342px;
 		flex: 1 1 33.3%;
 		padding: 8px 8px 56px 8px;
+	}
+}
+
+
+
+// .sport_btn
+.sport_btn {
+	@include d_f(flex, flex-end, center);
+	flex-direction: column;
+	width: 80px;
+	height: 88px;
+
+	// .sport_btn_icon
+	&_icon {
+		display: block;
+		width: 40px;
+		height: 40px;
+		padding: 8px;
+		fill: map-get($dark_color , sport_btn_fi);
+
+
+	}
+
+	// .sport_btn_txt
+	&_txt {
+		width: 100%;
+		height: 24px;
+		line-height: 24px;
+		font-size: 13px;
+		font-weight: bold;
+		text-align: center;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+		color: map-get($dark_color , sport_btn_txt);
 	}
 }

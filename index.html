@@ -13,8 +13,10 @@
 <body>
 	<div id="app" class="wrap">
 		<header-component></header-component>
-		<div class="content">
-			<router-view></router-view>
+		<div :class="['content',nowPage]">
+			<div class="content_l">
+				<router-view></router-view>
+			</div>
 			<right-panel></right-panel>
 		</div>
 		<!-- <div class="leftPadle"></div> -->
@@ -86,11 +88,26 @@
 			// mixins: [url],
 			data() {
 				return {
+					nowPage: "",
 					title: 'alex',
 					icon_all: icon_all,
 				}
 			},
 			mounted() { },
+			watch: {
+				$route(to, from) {
+					// store.dispatch("SET_LOADING", true);
+					var now=this.$route.path;
+					if (now=="/"||now=='home') {
+						this.nowPage="home";
+						// store.dispatch("PAGE", "home");
+					} else {
+						// store.dispatch("SET_LOADING", true);
+						this.nowPage=now.split("/")[1];
+						// store.dispatch("PAGE", now.split("/")[1]);
+					}
+				},
+			},
 			computed: {},
 			components: {
 				'header-component': Vue.defineAsyncComponent(() => loadModule('./components/HeaderComponent.vue', options)),
