@@ -8,10 +8,16 @@
 		</nav>
 		<router-view></router-view>
 		<my-component></my-component>
+		<h1>Vuex Example</h1>
+		<p>Count: {{ count }}</p>
+		<button @click="increment">Increment</button>
+		<button @click="decrement">Decrement</button>
 	</div>
 	<script src="https://unpkg.com/vue@latest"></script>
 	<script src="./js/libs/vue3-sfc-loader.js"></script>
 	<script src="./js/libs/vue-router_4_3_2.js"></script>
+	<script src="./js/libs/vuex_4_0_2.js"></script>
+	<script src="./store/store.js"></script>
 	<script>
 
 		const options={
@@ -53,9 +59,22 @@
 		const app=Vue.createApp({
 			components: {
 				'my-component': Vue.defineAsyncComponent(() => loadModule('./components/UserComponent.vue', options))
+			}, computed: {
+				count() {
+					return this.$store.state.count;
+				},
+			},
+			methods: {
+				increment() {
+					this.$store.dispatch('increment');
+				},
+				decrement() {
+					this.$store.dispatch('decrement');
+				},
 			},
 		});
-		app.use(router)
+		app.use(router);
+		app.use(store);
 		app.mount('#app');
 
 	</script>
