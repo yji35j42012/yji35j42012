@@ -524,6 +524,16 @@ body {
 	display: none !important;
 }
 
+/* 代理商球類未勾選冠軍時 隱藏相關按鈕與框架 */
+.noFS .show_FS {
+	display: none !important;
+}
+
+/* 代理商球類未勾選特別賽事時 隱藏相關按鈕與框架 */
+.noSpecial .show_Special {
+	display: none !important;
+}
+
 /* 代理商球類未勾選活動時 隱藏相關按鈕與框架 */
 .noBonus .show_Bonus {
 	display: none !important;
@@ -531,6 +541,25 @@ body {
 
 /* 代理商球類未勾選活動時 隱藏相關按鈕與框架 */
 .noBonus .show_Bonus {
+	display: none !important;
+}
+
+.noNBA .show_NBA {
+	display: none !important;
+}
+
+.noOP .show_OP {
+	display: none !important;
+}
+
+/* 代理商球類未勾選mlb時 隱藏相關按鈕與框架 */
+.noBS .show_BS,
+.noBS .show_mlb {
+	display: none !important;
+}
+
+/* 無籃球新玩法時 隱藏相關按鈕與框架 */
+.noBK .show_BK {
 	display: none !important;
 }
 
