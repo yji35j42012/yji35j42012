@@ -619,6 +619,7 @@
 	--bet_sort_fi_hv: #30dff2;
 	--btn_market_tx_on: #30dff2;
 	--btn_market_tx_hv: #30dff2;
+	--btn_market_tx_ac: #30dff2;
 	--bet_no_event_bg: center bottom;
 }
 
@@ -1243,6 +1244,7 @@
 	--bet_sort_fi_hv: #30dff2;
 	--btn_market_tx_on: #30dff2;
 	--btn_market_tx_hv: #30dff2;
+	--btn_market_tx_ac: #30dff2;
 	--bet_no_event_bg: center top;
 }
 

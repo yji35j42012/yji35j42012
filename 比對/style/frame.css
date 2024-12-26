@@ -62,16 +62,6 @@ body {
 	background-color: var(--comm_bg);
 }
 
-.dark .loading {
-	background-color: #060e23;
-}
-
-.light .loading,
-.bbo.dark .loading,
-.bbo .loading {
-	background-color: #f1f5ff;
-}
-
 .loading_right {
 	overflow: hidden;
 	position: fixed;
