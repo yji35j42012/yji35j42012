@@ -4711,7 +4711,7 @@ screen and (-ms-high-contrast: active),
 
 .btn_market:active {
 	background-color: rgba(255, 255, 255, 0.1);
-	color: #30dff2;
+	color: var(--btn_market_tx_ac);
 }
 
 .game_title_inn:active,
