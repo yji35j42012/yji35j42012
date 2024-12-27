@@ -1174,7 +1174,6 @@ i[class^="icon_flag flag"] {
 	stroke: var(--bet_start_st);
 	pointer-events: none;
 }
-
 .hide_vf_star .box_star ,
 .hide_vf_star .box_star .icon_star {
 	display: none;
