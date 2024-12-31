@@ -21,18 +21,10 @@ module.exports={
 			icon_all: icon_all,
 			gameTitle: ['滾球中賽事', '虛擬賽事', '今日賽事', '早盤賽事'],
 			gameData: {
-				live: {
-					title_id: 0, ft: true, tt: true,
-				},
-				vf: {
-					title_id: 1, ft: true, tt: false,
-				},
-				today: {
-					title_id: 2, ft: false, tt: true,
-				},
-				early: {
-					title_id: 3, ft: false, tt: false,
-				}
+				live: { title_id: 0, ft: true, tt: true, },
+				vf: { title_id: 1, ft: true, tt: false, },
+				today: { title_id: 2, ft: false, tt: true, },
+				early: { title_id: 3, ft: false, tt: false, }
 			}
 		}
 	},

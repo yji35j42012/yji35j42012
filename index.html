@@ -11,7 +11,7 @@
 </head>
 
 <body>
-	<div id="app" class="wrap">	
+	<div id="app" class="wrap">
 		<header-component></header-component>
 		<div :class="['content',nowPage]">
 			<div class="content_l">
@@ -21,7 +21,6 @@
 		</div>
 		<!-- <div class="leftPadle"></div> -->
 	</div>
-
 
 	<script src="./js/libs/axios.js"></script>
 	<script src="./js/libs/vue.global_3_4_38.js"></script>
@@ -50,34 +49,13 @@
 		}
 		const { loadModule }=window['vue3-sfc-loader'];
 		const routes=[
-			{
-				path: '/',
-				component: () => loadModule('./page/home.vue', options),
-			},
-			{
-				path: '/live',
-				component: () => loadModule('./page/live.vue', options),
-			},
-			{
-				path: '/outrights',
-				component: () => loadModule('./page/outrights.vue', options),
-			},
-			{
-				path: '/result',
-				component: () => loadModule('./page/result.vue', options),
-			},
-			{
-				path: '/tv',
-				component: () => loadModule('./page/tv.vue', options),
-			},
-			{
-				path: '/history',
-				component: () => loadModule('./page/history.vue', options),
-			},
-			{
-				path: '/todaywagers',
-				component: () => loadModule('./page/todaywagers.vue', options),
-			},
+			{ path: '/', component: () => loadModule('./page/home.vue', options), },
+			{ path: '/live', component: () => loadModule('./page/live.vue', options), },
+			{ path: '/outrights', component: () => loadModule('./page/outrights.vue', options), },
+			{ path: '/result', component: () => loadModule('./page/result.vue', options), },
+			{ path: '/tv', component: () => loadModule('./page/tv.vue', options), },
+			{ path: '/history', component: () => loadModule('./page/history.vue', options), },
+			{ path: '/todaywagers', component: () => loadModule('./page/todaywagers.vue', options), },
 		];
 		const router=VueRouter.createRouter({
 			history: VueRouter.createWebHistory('#'),
