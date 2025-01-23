@@ -2,16 +2,22 @@
 
 <template>
 	<div class="home_title"><span>滾球中賽事</span></div>
-	<div class="home_sport">
-		<div class="sport_btn">
+	<div class="home_link">
+		<router-link class="sport_btn" to="/live/sc">
 			<i class="sport_btn_icon" v-html="icon_all.icon_ft"></i>
 			<div class="sport_btn_txt">足球</div>
-		</div>
-		<div class="sport_btn">
-			<i class="sport_btn_icon" v-html="icon_all.icon_bk"></i>
+		</router-link>
+		<router-link class="sport_btn" to="/live/bk">
+			<i class="sport_btn_icon" v-html="icon_all.icon_ft"></i>
 			<div class="sport_btn_txt">籃球 & 美式足球</div>
-		</div>
+		</router-link>
 	</div>
+	<div class="home_title"><span>體育</span></div>
+	<!-- <div class="home_sport">
+		<div class="home_sport_item">
+
+		</div>
+	</div> -->
 </template>
 
 <script>
@@ -24,7 +30,7 @@ module.exports={
 				live: { title_id: 0, ft: true, tt: true, },
 				vf: { title_id: 1, ft: true, tt: false, },
 				today: { title_id: 2, ft: false, tt: true, },
-				early: { title_id: 3, ft: false, tt: false, }
+				early: { title_id: 3, ft: false, tt: false, },
 			}
 		}
 	},

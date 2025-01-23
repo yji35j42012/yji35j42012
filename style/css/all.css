@@ -31,6 +31,10 @@ a {
     border-radius: 20px;
   }
 }
+.sport_btn {
+  cursor: pointer;
+}
+
 .normal_btn {
   transition-duration: 0.3s;
 }
@@ -96,13 +100,24 @@ a {
   flex-direction: column;
   width: 80px;
   height: 88px;
+  color: rgba(255, 255, 255, 0.45);
+  fill: rgba(255, 255, 255, 0.45);
+}
+@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+  .sport_btn:hover {
+    color: #30dff2;
+    fill: #30dff2;
+  }
+}
+.sport_btn:active {
+  color: #30dff2;
+  fill: #30dff2;
 }
 .sport_btn_icon {
   display: block;
   width: 40px;
   height: 40px;
   padding: 8px;
-  fill: rgba(255, 255, 255, 0.7);
 }
 .sport_btn_txt {
   width: 100%;
@@ -114,7 +129,6 @@ a {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  color: #ffffff;
 }
 
 .icon_home {
@@ -148,8 +162,7 @@ a {
   align-items: stretch;
   justify-content: flex-start;
   width: 100%;
-  height: 56px;
-  padding: 8px;
+  height: 48px;
   background-color: #1e2841;
 }
 .header_link {
@@ -157,7 +170,7 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 40px;
+  height: 48px;
   padding: 0 12px;
   color: #75829b;
   font-size: 14px;
@@ -198,7 +211,7 @@ a {
   align-items: center;
   justify-content: center;
   width: 56px;
-  height: 40px;
+  height: 48px;
   fill: #75829b;
 }
 @media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
@@ -262,10 +275,21 @@ a {
   color: #ffffff;
   background-color: #060e23;
 }
-.home_sport {
+.home_link {
   display: flex;
   align-items: stretch;
   justify-content: center;
+}
+.home_sport {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+.home_sport_item {
+  width: calc(50% - 8px);
+}
+.home_sport_item + .home_sport_item {
+  margin-left: 16px;
 }
 
 .marquee {

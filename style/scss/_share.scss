@@ -59,6 +59,14 @@
 	flex-direction: column;
 	width: 80px;
 	height: 88px;
+	color: map-get($dark_color , sport_btn_txt);
+	fill: map-get($dark_color , sport_btn_txt);
+	@extend %hand;
+
+	@include hoverHandler {
+		color: map-get($dark_color , sport_btn_txt_hv);
+		fill: map-get($dark_color , sport_btn_txt_hv);
+	}
 
 	// .sport_btn_icon
 	&_icon {
@@ -66,9 +74,6 @@
 		width: 40px;
 		height: 40px;
 		padding: 8px;
-		fill: map-get($dark_color , sport_btn_fi);
-
-
 	}
 
 	// .sport_btn_txt
@@ -82,6 +87,5 @@
 		text-overflow: ellipsis;
 		overflow: hidden;
 		white-space: nowrap;
-		color: map-get($dark_color , sport_btn_txt);
 	}
 }

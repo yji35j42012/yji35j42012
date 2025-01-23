@@ -31,10 +31,22 @@
 		}
 	}
 
+	// .home_link
+	&_link {
+		@include d_f(flex, center);
+	}
+
 	// .home_sport
 	&_sport {
-		@include d_f(flex, center);
+		@include d_f(flex);
 
+		// .home_sport_item
+		&_item {
+			width: calc(50% - 8px);
 
+			&+& {
+				margin-left: 16px;
+			}
+		}
 	}
 }
