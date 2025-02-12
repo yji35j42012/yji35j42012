@@ -31,7 +31,8 @@ a {
     border-radius: 20px;
   }
 }
-.sport_btn {
+.icon_back,
+.icon_reload, .sport_btn {
   cursor: pointer;
 }
 
@@ -129,6 +130,109 @@ a {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+}
+
+.sportTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 48px;
+  margin-bottom: 32px;
+  padding: 0 4px;
+  background-image: url("../../images/bg_title.png"), linear-gradient(90deg, #00002f 0%, #221758 25%, #0a124c 50%, #221758 75%, #00002f 100%);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.sportTitle span {
+  display: inline-block;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+}
+
+.icon_back,
+.icon_reload {
+  display: block;
+  width: 32px;
+  height: 32px;
+  padding: 8px;
+  fill: #fff;
+}
+@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+  .icon_back:hover,
+  .icon_reload:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+.icon_back:active,
+.icon_reload:active {
+  background-color: rgba(255, 255, 255, 0.45);
+}
+
+.selectBox {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding: 0 16px;
+  gap: 16px;
+}
+.selectBox_date, .selectBox_tool {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: none;
+  width: 100%;
+  height: 48px;
+  background-color: #262f41;
+  border-radius: 3px;
+  color: #ffffff;
+}
+.selectBox_title {
+  padding: 0 16px;
+  color: #fff;
+  font-size: 14px;
+}
+.selectBox_group {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% + 2px);
+  padding: 8px 0;
+  background-color: #262f41;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.24);
+}
+.selectBox_group_list {
+  display: flex;
+  align-items: center;
+  justify-content: none;
+  min-height: 40px;
+  padding: 0 8px;
+}
+.selectBox_group_list.on {
+  color: #30dff2;
+}
+@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+  .selectBox_group_list:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+.selectBox_group_list:active {
+  color: #30dff2;
+}
+
+.icon_arr {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: block;
+  width: 32px;
+  height: 32px;
+  padding: 8px;
+  fill: #fff;
 }
 
 .icon_home {

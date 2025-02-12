@@ -21,8 +21,6 @@
 	}
 }
 
-
-
 .content {
 	overflow: hidden;
 	@include d_f(flex);
@@ -50,8 +48,6 @@
 		padding: 8px 8px 56px 8px;
 	}
 }
-
-
 
 // .sport_btn
 .sport_btn {
@@ -88,4 +84,111 @@
 		overflow: hidden;
 		white-space: nowrap;
 	}
+}
+
+.sportTitle {
+	@include d_f(flex, center, center);
+	width: 100%;
+	height: 48px;
+	margin-bottom: 32px;
+	padding: 0 4px;
+	background-image: url("../../images/bg_title.png"), map-get($dark_color , title_bg);
+	background-position: center;
+	background-repeat: no-repeat;
+
+	span {
+		display: inline-block;
+		width: 100%;
+		font-size: 16px;
+		font-weight: bold;
+		color: #fff;
+		text-align: center;
+	}
+}
+
+.icon_back,
+.icon_reload {
+	display: block;
+	width: 32px;
+	height: 32px;
+	padding: 8px;
+	fill: #fff;
+	@extend %hand;
+
+	@include hv {
+		background-color: rgba(255, 255, 255, 0.1);
+	}
+
+	@include ac {
+		background-color: rgba(255, 255, 255, 0.45);
+	}
+}
+
+.selectBox {
+	position: relative;
+	@include d_f(flex);
+	padding: 0 16px;
+	gap: 16px;
+
+	&_date,
+	&_tool {
+		position: relative;
+		@include d_f(flex, none, center);
+		width: 100%;
+		height: 48px;
+		background-color: #262f41;
+		border-radius: 3px;
+		color: #ffffff;
+	}
+
+	// .selectBox_date
+	// .selectBox_tool
+
+	// .selectBox_title
+	&_title {
+		padding: 0 16px;
+		color: #fff;
+		font-size: 14px;
+	}
+
+	// .selectBox_group
+	&_group {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: calc(100% + 2px);
+		padding: 8px 0;
+		background-color: #262f41;
+		box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.24);
+
+		// .selectBox_group_list
+		&_list {
+			@include d_f(flex, none, center);
+			min-height: 40px;
+			padding: 0 8px;
+
+			&.on {
+				color: #30dff2;
+			}
+
+			@include hv {
+				background-color: rgba(255, 255, 255, 0.1);
+			}
+
+			@include ac {
+				color: #30dff2;
+			}
+		}
+	}
+}
+
+.icon_arr {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	display: block;
+	width: 32px;
+	height: 32px;
+	padding: 8px;
+	fill: #fff;
 }

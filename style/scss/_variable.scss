@@ -1,9 +1,11 @@
 $ligth_color: (
 	headerbg:#0c2565,
 	headerBtn_txt:#949eb5,
+	title_bg: linear-gradient(90deg, #ffffff 0%, #d5e4ff 25%, #d9ecff 50%, #d5e4ff 75%, #ffffff 100%),
 );
 
 $dark_color: (
+	title_bg: linear-gradient(90deg, #00002f 0%, #221758 25%, #0a124c 50%, #221758 75%, #00002f 100%),
 	bodybg:#060e23,
 	headerbg:#1e2841,
 	headerBtn_txt:#75829b,

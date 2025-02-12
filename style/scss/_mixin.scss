@@ -1,46 +1,46 @@
 // juc 預設值 flex-start 、 align-items 預設值 stretch
 @mixin d_f($flex, $jc: flex-start, $ai: stretch) {
-    display: $flex;
-    align-items: $ai;
-    justify-content: $jc;
+	display: $flex;
+	align-items: $ai;
+	justify-content: $jc;
 }
 
 @mixin hoverHandler {
 
-    @media (pointer: fine) and (max-resolution: 2dppx),
-    screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2),
-    (-moz-touch-enabled: 0) {
-        &:hover {
-            @content;
-        }
-    }
+	@media (pointer: fine) and (max-resolution: 2dppx),
+	screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2),
+	(-moz-touch-enabled: 0) {
+		&:hover {
+			@content;
+		}
+	}
 
-    &:active {
-        @content;
-    }
+	&:active {
+		@content;
+	}
 }
 
 @mixin hv {
 
-    @media (pointer: fine) and (max-resolution: 2dppx),
-    screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2),
-    (-moz-touch-enabled: 0) {
-        &:hover {
-            @content;
-        }
-    }
+	@media (pointer: fine) and (max-resolution: 2dppx),
+	screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2),
+	(-moz-touch-enabled: 0) {
+		&:hover {
+			@content;
+		}
+	}
 }
 
 @mixin ac {
-    &:active {
-        @content;
-    }
+	&:active {
+		@content;
+	}
 }
 
 %hand {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 %transition {
-    transition-duration: 0.3s;
+	transition-duration: 0.3s;
 }
