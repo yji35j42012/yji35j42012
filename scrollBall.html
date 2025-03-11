@@ -109,52 +109,52 @@
 		</div>
 	</div>
 	<script>
-		window.onload = function () {
-			var lineDiv = document.getElementById('lineDiv'); //長線條
-			var minDiv = document.getElementById('minDiv'); //小方塊
-			var msg = document.getElementById("msg");
-			var vals = document.getElementById("vals");
-			var ifBool = false; //判斷滑鼠是否按下
+		window.onload=function () {
+			var lineDiv=document.getElementById('lineDiv'); //長線條
+			var minDiv=document.getElementById('minDiv'); //小方塊
+			var msg=document.getElementById("msg");
+			var vals=document.getElementById("vals");
+			var ifBool=false; //判斷滑鼠是否按下
 			//滑鼠按下方塊
 			minDiv.addEventListener("touchstart", function (e) {
 				e.stopPropagation();
-				ifBool = true;
+				ifBool=true;
 				console.log("滑鼠按下")
 			});
 			//拖動
 			window.addEventListener("touchmove", function (e) {
 				console.log("滑鼠拖動")
 				if (ifBool) {
-					var x = e.touches[0].pageX || e.touches[0].clientX; //滑鼠橫座標var x
-					var lineDiv_left = getPosition(lineDiv).left; //長線條的橫座標
-					var minDiv_left = x - lineDiv_left; //小方塊相對於父元素（長線條）的left值
-					if (minDiv_left >= lineDiv.offsetWidth - 15) {
-						minDiv_left = lineDiv.offsetWidth - 15;
+					var x=e.touches[0].pageX||e.touches[0].clientX; //滑鼠橫座標var x
+					var lineDiv_left=getPosition(lineDiv).left; //長線條的橫座標
+					var minDiv_left=x-lineDiv_left; //小方塊相對於父元素（長線條）的left值
+					if (minDiv_left>=lineDiv.offsetWidth-15) {
+						minDiv_left=lineDiv.offsetWidth-15;
 					}
-					if (minDiv_left < 0) {
-						minDiv_left = 0;
+					if (minDiv_left<0) {
+						minDiv_left=0;
 					}
 					//設定拖動後小方塊的left值
-					minDiv.style.left = minDiv_left + "px";
-					msg.innerText = parseInt((minDiv_left / (lineDiv.offsetWidth - 15)) * 100);
-					vals.innerText = parseInt((minDiv_left / (lineDiv.offsetWidth - 15)) * 100);
+					minDiv.style.left=minDiv_left+"px";
+					msg.innerText=parseInt((minDiv_left/(lineDiv.offsetWidth-15))*100);
+					vals.innerText=parseInt((minDiv_left/(lineDiv.offsetWidth-15))*100);
 				}
 			});
 			//滑鼠鬆開
 			window.addEventListener("touchend", function (e) {
 				console.log("滑鼠彈起")
-				ifBool = false;
+				ifBool=false;
 			});
 			//獲取元素的絕對位置
 			function getPosition(node) {
-				var left = node.offsetLeft; //獲取元素相對於其父元素的left值var left
-				var top = node.offsetTop;
-				current = node.offsetParent; // 取得元素的offsetParent
+				var left=node.offsetLeft; //獲取元素相對於其父元素的left值var left
+				var top=node.offsetTop;
+				current=node.offsetParent; // 取得元素的offsetParent
 				// 一直迴圈直到根元素
-				while (current != null) {
-					left += current.offsetLeft;
-					top += current.offsetTop;
-					current = current.offsetParent;
+				while (current!=null) {
+					left+=current.offsetLeft;
+					top+=current.offsetTop;
+					current=current.offsetParent;
 				}
 				return {
 					"left": left,
@@ -164,42 +164,42 @@
 		}
 
 
-		var ballBool = false;
-		var ballDiv = document.getElementById('ballDiv'); //小方塊
-		var padDiv = document.getElementById('padDiv'); //小方塊
-		var ox = 0;
-		var oy = 0;
-		var startBall = function (e) {
+		var ballBool=false;
+		var ballDiv=document.getElementById('ballDiv'); //小方塊
+		var padDiv=document.getElementById('padDiv'); //小方塊
+		var ox=0;
+		var oy=0;
+		var startBall=function (e) {
 			e.stopPropagation();
-			ballBool = true;
+			ballBool=true;
 			console.log("球球按下")
 			console.log('手指e', e.offsetX);
-			ox = e.offsetX * -1;
-			oy = e.offsetY * -1;
+			ox=e.offsetX*-1;
+			oy=e.offsetY*-1;
 			console.log('minDiv_left', padDiv.offsetTop);
 			// ballDiv.style.transform = 'translateX(' + e.offsetX * -1 + "px)";
 		}
-		var endBall = function (e) {
+		var endBall=function (e) {
 			console.log("放開那球球");
-			ballBool = false;
+			ballBool=false;
 		}
-		var moveBall = function (e) {
+		var moveBall=function (e) {
 			if (!ballBool) return;
 			console.log("開始遛球球");
 			if (!e.touches) {  //相容移動端
-				var x = e.clientX;
-				var y = e.clientY;
+				var x=e.clientX;
+				var y=e.clientY;
 			} else {   //相容PC端
-				var x = e.touches[0].pageX;
-				var y = e.touches[0].pageY;
+				var x=e.touches[0].pageX;
+				var y=e.touches[0].pageY;
 			}
 			console.log('手指Ｘ', x);
-			var minDiv_left = x; //小方塊相對於父元素（長線條）的left值
-			var minDiv_top = y; //小方塊相對於父元素（長線條）的left值
+			var minDiv_left=x; //小方塊相對於父元素（長線條）的left值
+			var minDiv_top=y; //小方塊相對於父元素（長線條）的left值
 			// scrollitem.style.transform = `translate3d(${moveX}px, ${moveY}px, 1px) rotate(-3deg)`;
-			ballDiv.style.left = minDiv_left - padDiv.offsetLeft + "px";
-			ballDiv.style.top = minDiv_top - padDiv.offsetTop + "px";
-			ballDiv.style.transform = `translate3d(${ox}px, ${oy}px, 0)`;
+			ballDiv.style.left=minDiv_left-padDiv.offsetLeft+"px";
+			ballDiv.style.top=minDiv_top-padDiv.offsetTop+"px";
+			ballDiv.style.transform=`translate3d(${ ox }px, ${ oy }px, 0)`;
 			// ballDiv.style.transform = 'translate(' + ox + "px)";
 		}
 
@@ -208,46 +208,46 @@
 		window.addEventListener("mousemove", moveBall);
 
 
-		window.onload = function () {
-			var lineDiv = document.getElementById('lineDiv'); //長線條
-			var minDiv = document.getElementById('minDiv'); //小方塊
-			var msg = document.getElementById("msg");
-			var vals = document.getElementById("vals");
-			var ifBool = false; //判斷滑鼠是否按下
+		window.onload=function () {
+			var lineDiv=document.getElementById('lineDiv'); //長線條
+			var minDiv=document.getElementById('minDiv'); //小方塊
+			var msg=document.getElementById("msg");
+			var vals=document.getElementById("vals");
+			var ifBool=false; //判斷滑鼠是否按下
 			//事件
-			var start = function (e) {
+			var start=function (e) {
 				e.stopPropagation();
-				ifBool = true;
+				ifBool=true;
 				console.log("滑鼠按下")
 			}
-			var move = function (e) {
+			var move=function (e) {
 				if (ifBool) {
 					console.log("滑鼠拖動")
 					if (!e.touches) {  //相容移動端
-						var x = e.clientX;
+						var x=e.clientX;
 					} else {   //相容PC端
-						var x = e.touches[0].pageX;
+						var x=e.touches[0].pageX;
 					}
 					//var x = e.touches[0].pageX || e.clientX; //滑鼠橫座標var x
-					var lineDiv_left = getPosition(lineDiv).left; //長線條的橫座標
-					var minDiv_left = x - lineDiv_left; //小方塊相對於父元素（長線條）的left值
+					var lineDiv_left=getPosition(lineDiv).left; //長線條的橫座標
+					var minDiv_left=x-lineDiv_left; //小方塊相對於父元素（長線條）的left值
 					// console.log('x - lineDiv_left', x, lineDiv_left);
 
-					if (minDiv_left >= lineDiv.offsetWidth - 15) {
-						minDiv_left = lineDiv.offsetWidth - 15;
+					if (minDiv_left>=lineDiv.offsetWidth-15) {
+						minDiv_left=lineDiv.offsetWidth-15;
 					}
-					if (minDiv_left < 0) {
-						minDiv_left = 0;
+					if (minDiv_left<0) {
+						minDiv_left=0;
 					}
 					//設定拖動後小方塊的left值
-					minDiv.style.left = minDiv_left + "px";
-					msg.innerText = parseInt((minDiv_left / (lineDiv.offsetWidth - 15)) * 100);
-					vals.innerText = parseInt((minDiv_left / (lineDiv.offsetWidth - 15)) * 100);
+					minDiv.style.left=minDiv_left+"px";
+					msg.innerText=parseInt((minDiv_left/(lineDiv.offsetWidth-15))*100);
+					vals.innerText=parseInt((minDiv_left/(lineDiv.offsetWidth-15))*100);
 				}
 			}
-			var end = function (e) {
+			var end=function (e) {
 				console.log("滑鼠彈起")
-				ifBool = false;
+				ifBool=false;
 			}
 			//滑鼠按下方塊
 			minDiv.addEventListener("touchstart", start);
@@ -260,15 +260,15 @@
 			window.addEventListener("mouseup", end);
 			//獲取元素的絕對位置
 			function getPosition(node) {
-				var left = node.offsetLeft; //獲取元素相對於其父元素的left值var left
-				var top = node.offsetTop;
-				current = node.offsetParent; // 取得元素的offsetParent
+				var left=node.offsetLeft; //獲取元素相對於其父元素的left值var left
+				var top=node.offsetTop;
+				current=node.offsetParent; // 取得元素的offsetParent
 				// 一直迴圈直到根元素
 
-				while (current != null) {
-					left += current.offsetLeft;
-					top += current.offsetTop;
-					current = current.offsetParent;
+				while (current!=null) {
+					left+=current.offsetLeft;
+					top+=current.offsetTop;
+					current=current.offsetParent;
 				}
 				return {
 					"left": left,
