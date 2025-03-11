@@ -15,18 +15,18 @@
 		<input id="inp" type="text">
 	</div>
 	<script>
-		var inp=document.querySelector("#inp")
+		var inp = document.querySelector("#inp")
 		document.addEventListener('keydown', (event) => {
 			// 主鍵盤上的數字鍵
-			if (event.code>='Digit1'&&event.code<='Digit9') {
+			if (event.code >= 'Digit1' && event.code <= 'Digit9') {
 				console.log(`按下主鍵盤數字鍵：${ event.key }`);
-				inp.value=""
+				inp.value = ""
 			}
 
 			// 數字鍵盤上的數字鍵
-			if (event.code>='Numpad1'&&event.code<='Numpad9') {
+			if (event.code >= 'Numpad1' && event.code <= 'Numpad9') {
 				console.log(`按下數字鍵盤上的數字鍵：${ event.key }`);
-				inp.value=""
+				inp.value = ""
 			}
 		});
 	</script>
