@@ -24,7 +24,7 @@
 </template>
 
 <script>
-module.exports={
+module.exports = {
 	data() {
 		return {
 			icon_all: icon_all,

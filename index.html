@@ -29,26 +29,26 @@
 	<script src="./js/icon_all.js"></script>
 
 	<script>
-		const options={
+		const options = {
 			moduleCache: {
 				vue: Vue
 			},
 			async getFile(url) {
-				const res=await fetch(url);
+				const res = await fetch(url);
 				if (!res.ok)
-					throw Object.assign(new Error(res.statusText+' '+url), { res });
+					throw Object.assign(new Error(res.statusText + ' ' + url), { res });
 				return {
-					getContentData: asBinary => asBinary? res.arrayBuffer():res.text(),
+					getContentData: asBinary => asBinary ? res.arrayBuffer() : res.text(),
 				}
 			},
 			addStyle(textContent) {
-				const style=Object.assign(document.createElement('style'), { textContent });
-				const ref=document.head.getElementsByTagName('style')[0]||null;
+				const style = Object.assign(document.createElement('style'), { textContent });
+				const ref = document.head.getElementsByTagName('style')[0] || null;
 				document.head.insertBefore(style, ref);
 			},
 		}
-		const { loadModule }=window['vue3-sfc-loader'];
-		const routes=[
+		const { loadModule } = window['vue3-sfc-loader'];
+		const routes = [
 			{ path: '/', component: () => loadModule('./page/home.vue', options), },
 			{ path: '/live', component: () => loadModule('./page/live.vue', options), },
 			{ path: '/outrights', component: () => loadModule('./page/outrights.vue', options), },
@@ -57,11 +57,11 @@
 			{ path: '/history', component: () => loadModule('./page/history.vue', options), },
 			{ path: '/todaywagers', component: () => loadModule('./page/todaywagers.vue', options), },
 		];
-		const router=VueRouter.createRouter({
+		const router = VueRouter.createRouter({
 			history: VueRouter.createWebHistory('#'),
 			routes
 		})
-		const app=Vue.createApp({
+		const app = Vue.createApp({
 			// mixins: [url],
 			data() {
 				return {
@@ -74,13 +74,13 @@
 			watch: {
 				$route(to, from) {
 					// store.dispatch("SET_LOADING", true);
-					var now=this.$route.path;
-					if (now=="/"||now=='home') {
-						this.nowPage="home";
+					var now = this.$route.path;
+					if (now == "/" || now == 'home') {
+						this.nowPage = "home";
 						// store.dispatch("PAGE", "home");
 					} else {
 						// store.dispatch("SET_LOADING", true);
-						this.nowPage=now.split("/")[1];
+						this.nowPage = now.split("/")[1];
 						// store.dispatch("PAGE", now.split("/")[1]);
 					}
 				},

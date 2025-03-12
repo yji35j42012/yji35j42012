@@ -10,14 +10,14 @@
 module.exports = {
 	data() {
 		return {
-		
+
 		};
 	},
 	mounted() {
 
 	},
 	methods: {
-	
+
 	},
 };
 </script>

@@ -15,7 +15,7 @@ module.exports = {
 			jpy: 0,
 		};
 	},
-	mounted() {},
+	mounted() { },
 	computed: {
 		twd: {
 			get() {

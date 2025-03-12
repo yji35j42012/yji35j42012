@@ -20,33 +20,33 @@
 	<div id="weather"></div>
 
 	<script>
-		var city=document.querySelector("#city");
-		const apiKey='CWA-D2F00B5B-99FA-4464-BC7B-830327B7AC35'; // 請替換成你的 API Key
+		var city = document.querySelector("#city");
+		const apiKey = 'CWA-D2F00B5B-99FA-4464-BC7B-830327B7AC35'; // 請替換成你的 API Key
 		var apiUrl;
 
 		city.addEventListener("change", getApi)
 
 
 		function getApi(params) {
-			if (city.value=='all') {
-				apiUrl=`https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-D0047-091?Authorization=${ apiKey }&format=JSON`;
+			if (city.value == 'all') {
+				apiUrl = `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-D0047-091?Authorization=${ apiKey }&format=JSON`;
 			} else {
-				apiUrl=`https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-D0047-091?Authorization=${ apiKey }&format=JSON&locationName=${ city.value }`;
+				apiUrl = `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-D0047-091?Authorization=${ apiKey }&format=JSON&locationName=${ city.value }`;
 			}
 
 			axios.get(apiUrl)
 				.then(res => {
-					const data=res.data.records.locations[0].location
-					const weatherElement=document.getElementById('weather');
-					var txt="";
-					weatherElement.innerHTML=txt
-					for (let i=0; i<data.length; i++) {
-						txt+=`<h2>${ data[i].locationName }</h2>`
-						txt+=`<p>天氣現象：${ data[i].weatherElement[6].time[0].elementValue[0].value }</p>`
-						txt+=`<p>最低溫度：${ data[i].weatherElement[8].time[0].elementValue[0].value }°C</p>`
-						txt+=`<p>最高溫度：${ data[i].weatherElement[12].time[0].elementValue[0].value }°C</p>`
+					const data = res.data.records.locations[0].location
+					const weatherElement = document.getElementById('weather');
+					var txt = "";
+					weatherElement.innerHTML = txt
+					for (let i = 0; i < data.length; i++) {
+						txt += `<h2>${ data[i].locationName }</h2>`
+						txt += `<p>天氣現象：${ data[i].weatherElement[6].time[0].elementValue[0].value }</p>`
+						txt += `<p>最低溫度：${ data[i].weatherElement[8].time[0].elementValue[0].value }°C</p>`
+						txt += `<p>最高溫度：${ data[i].weatherElement[12].time[0].elementValue[0].value }°C</p>`
 					}
-					weatherElement.innerHTML=txt
+					weatherElement.innerHTML = txt
 
 				})
 				.catch(error => {
