@@ -117,44 +117,25 @@
 			template: `<div>Page2</div>`,
 		}
 		const User = {
-			template: `
-			<div>
-				User
-				<router-view></router-view>
-			</div>
-			`,
-			mounted() {
-				console.log('user');
-			}
+			template: `<div>User<router-view></router-view></div>`,
+			mounted() { console.log('user'); }
 		}
 		const Profile = {
 			template: `<div>Profile</div>`,
-			mounted() {
-				console.log('Profile');
-			}
+			mounted() { console.log('Profile'); }
 		}
 		const Posts = {
 			template: `<div>Posts</div>`,
-			mounted() {
-				console.log('Posts');
-			}
+			mounted() { console.log('Posts'); }
 		}
 		const UserContent = {
 			template: `<div>UserContent</div>`,
-			mounted() {
-				console.log('UserContent');
-			}
+			mounted() { console.log('UserContent'); }
 		}
 		const User2 = {
-			template: `
-			<div>
-				User2 {{ $route.params.id }}
-				{{ num }}<button @click="num++">+</button>
-			</div>`,
+			template: `<div>User2 {{ $route.params.id }}{{ num }}<button @click="num++">+</button></div>`,
 			mounted() {
-				setTimeout(function () {
-					window.alert('api')
-				}, 500)
+				setTimeout(function () { window.alert('api') }, 500)
 			},
 			data() {
 				return {

@@ -235,6 +235,36 @@ a {
   fill: #fff;
 }
 
+.sportHead_league {
+  background-color: #11051D;
+}
+.sportHead_menu {
+  height: 56px;
+  padding: 8px 8px 0 8px;
+}
+.sportHead_title {
+  width: 100%;
+  height: 48px;
+  padding: 7px 8px;
+}
+.sportHead_title_txt .league {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  color: rgba(255, 255, 255, 0.72);
+  fill: rgba(255, 255, 255, 0.72);
+}
+.sportHead_title_txt .name {
+  overflow: hidden;
+  height: 18px;
+  line-height: 18px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .icon_home {
   display: block;
   width: 24px;
