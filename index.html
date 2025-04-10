@@ -51,6 +51,7 @@
 		const routes = [
 			{ path: '/', component: () => loadModule('./page/home.vue', options), },
 			{ path: '/live', component: () => loadModule('./page/live.vue', options), },
+			{ path: '/live/:sport', component: () => loadModule('./page/live.vue', options), },
 			{ path: '/outrights', component: () => loadModule('./page/outrights.vue', options), },
 			{ path: '/result', component: () => loadModule('./page/result.vue', options), },
 			{ path: '/tv', component: () => loadModule('./page/tv.vue', options), },
@@ -89,6 +90,7 @@
 			components: {
 				'header-component': Vue.defineAsyncComponent(() => loadModule('./components/HeaderComponent.vue', options)),
 				'right-panel': Vue.defineAsyncComponent(() => loadModule('./components/RightPanel.vue', options)),
+				'sport-btn': Vue.defineAsyncComponent(() => loadModule('./components/SportBtn.vue', options)),
 			},
 			methods: {}
 		});

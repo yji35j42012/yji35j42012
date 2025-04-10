@@ -2,16 +2,7 @@
 
 <template>
 	<div class="home_title"><span>滾球中賽事</span></div>
-	<div class="sportBtn_group">
-		<router-link class="sportBtn_group_item" to="/live/sc">
-			<i class="sportBtn_group_icon" v-html="icon_all.icon_ft"></i>
-			<div class="sportBtn_group_txt">足球</div>
-		</router-link>
-		<router-link class="sportBtn_group_item" to="/live/bk">
-			<i class="sportBtn_group_icon" v-html="icon_all.icon_bk"></i>
-			<div class="sportBtn_group_txt">籃球 & 美式足球</div>
-		</router-link>
-	</div>
+	<sport-btn></sport-btn>
 	<div class="home_title"><span>體育</span></div>
 	<!-- <div class="home_sport">
 		<div class="home_sport_item">
@@ -33,6 +24,9 @@ module.exports = {
 				early: { title_id: 3, ft: false, tt: false, },
 			}
 		}
+	},
+	components: {
+		'sport-btn': Vue.defineAsyncComponent(() => loadModule('./components/SportBtn.vue', options)),
 	},
 	computed: {
 		rGameData() {

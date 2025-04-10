@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   list-style: none;
+  font-family: Arial;
 }
 
 html,
@@ -424,6 +425,7 @@ a {
   height: 100%;
 }
 .sportBtn_group_item {
+  flex: none;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -460,6 +462,7 @@ a {
   padding: 0;
 }
 .sportBtn_group_txt {
+  overflow: hidden;
   width: 100%;
   height: 24px;
   line-height: 24px;
@@ -467,7 +470,6 @@ a {
   font-weight: bold;
   text-align: center;
   text-overflow: ellipsis;
-  overflow: hidden;
   white-space: nowrap;
 }
 .sportHead .sportBtn_group_txt {

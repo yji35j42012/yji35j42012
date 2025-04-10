@@ -4,16 +4,7 @@
 	<div class="sportHead">
 		<div class="sportHead_league">
 			<div class="sportHead_menu">
-				<div class="sportBtn_group">
-					<router-link class="sportBtn_group_item" to="/live/sc">
-						<i class="sportBtn_group_icon" v-html="icon_all.icon_ft"></i>
-						<div class="sportBtn_group_txt">足球</div>
-					</router-link>
-					<router-link class="sportBtn_group_item" to="/live/bk">
-						<i class="sportBtn_group_icon" v-html="icon_all.icon_bk"></i>
-						<div class="sportBtn_group_txt">籃球 & 美式足球</div>
-					</router-link>
-				</div>
+				<sport-btn></sport-btn>
 			</div>
 			<div class="sportHead_title">
 				<div class="sportHead_title_txt">
@@ -34,6 +25,9 @@ module.exports = {
 		return {
 			icon_all: icon_all,
 		}
+	},
+	components: {
+		'sport-btn': Vue.defineAsyncComponent(() => loadModule('./components/SportBtn.vue', options)),
 	},
 	computed: {},
 	methods: {},
