@@ -31,8 +31,8 @@ a {
     border-radius: 20px;
   }
 }
-.icon_back,
-.icon_reload, .sport_btn {
+.sportBtn_group_item, .sportHead_title_txt .league, .icon_back,
+.icon_reload {
   cursor: pointer;
 }
 
@@ -92,44 +92,6 @@ a {
   min-width: 342px;
   flex: 1 1 33.3%;
   padding: 8px 8px 56px 8px;
-}
-
-.sport_btn {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-direction: column;
-  width: 80px;
-  height: 88px;
-  color: rgba(255, 255, 255, 0.45);
-  fill: rgba(255, 255, 255, 0.45);
-}
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
-  .sport_btn:hover {
-    color: #30dff2;
-    fill: #30dff2;
-  }
-}
-.sport_btn:active {
-  color: #30dff2;
-  fill: #30dff2;
-}
-.sport_btn_icon {
-  display: block;
-  width: 40px;
-  height: 40px;
-  padding: 8px;
-}
-.sport_btn_txt {
-  width: 100%;
-  height: 24px;
-  line-height: 24px;
-  font-size: 13px;
-  font-weight: bold;
-  text-align: center;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
 }
 
 .sportTitle {
@@ -247,12 +209,43 @@ a {
   height: 48px;
   padding: 7px 8px;
 }
+.sportHead_title_txt {
+  font-size: 0;
+}
 .sportHead_title_txt .league {
-  display: flex;
+  position: relative;
+  display: inline-flex;
   align-items: stretch;
   justify-content: flex-start;
+  overflow: hidden;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   color: rgba(255, 255, 255, 0.72);
   fill: rgba(255, 255, 255, 0.72);
+}
+@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+  .sportHead_title_txt .league:hover {
+    color: #30dff2;
+    fill: #30dff2;
+  }
+}
+.sportHead_title_txt .league:active {
+  color: #30dff2;
+  fill: #30dff2;
+  background-color: rgba(255, 255, 255, 0.16);
+}
+.sportHead_title_txt .league .icon_arr {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 8px;
+  height: 16px;
+  margin-right: 4px;
+  padding: 0;
+  flex: none;
+  fill: inherit;
 }
 .sportHead_title_txt .name {
   overflow: hidden;
@@ -409,11 +402,6 @@ a {
   color: #ffffff;
   background-color: #060e23;
 }
-.home_link {
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-}
 .home_sport {
   display: flex;
   align-items: stretch;
@@ -424,6 +412,66 @@ a {
 }
 .home_sport_item + .home_sport_item {
   margin-left: 16px;
+}
+
+.sportBtn_group {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+.sportHead .sportBtn_group {
+  justify-content: flex-start;
+  height: 100%;
+}
+.sportBtn_group_item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+  width: 80px;
+  height: 88px;
+  color: rgba(255, 255, 255, 0.45);
+  fill: rgba(255, 255, 255, 0.45);
+}
+@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+  .sportBtn_group_item:hover {
+    color: #30dff2;
+    fill: #30dff2;
+  }
+}
+.sportBtn_group_item:active {
+  color: #30dff2;
+  fill: #30dff2;
+}
+.sportHead .sportBtn_group_item {
+  width: 72px;
+  height: 100%;
+}
+.sportBtn_group_icon {
+  display: block;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+}
+.sportHead .sportBtn_group_icon {
+  width: 16px;
+  height: 16px;
+  margin: 4px auto;
+  padding: 0;
+}
+.sportBtn_group_txt {
+  width: 100%;
+  height: 24px;
+  line-height: 24px;
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.sportHead .sportBtn_group_txt {
+  font-size: 12px;
 }
 
 .marquee {

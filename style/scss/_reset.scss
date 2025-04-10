@@ -1,19 +1,19 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style: none;
 }
 
 html,
 body {
-    width: 100%;
-    height: 100%;
-    background-color: map-get($dark_color , bodybg);
+	width: 100%;
+	height: 100%;
+	background-color: map-get($dark_color , bodybg);
 }
 
 a {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 @media (pointer: fine) and (max-resolution: 2dppx),
@@ -22,19 +22,19 @@ screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2),
 screen and (-ms-high-contrast: active),
 (-ms-high-contrast: none) {
 
-    /* scroll bar style setting */
-    ::-webkit-scrollbar {
-        width: 4px;
-        height: 8px;
-    }
+	/* scroll bar style setting */
+	::-webkit-scrollbar {
+		width: 4px;
+		height: 8px;
+	}
 
-    ::-webkit-scrollbar-thumb {
-        background: #B9BDC5;
-        border-radius: 20px;
-    }
+	::-webkit-scrollbar-thumb {
+		background: #B9BDC5;
+		border-radius: 20px;
+	}
 
-    ::-webkit-scrollbar-track {
-        background: transparent;
-        border-radius: 20px;
-    }
+	::-webkit-scrollbar-track {
+		background: transparent;
+		border-radius: 20px;
+	}
 }

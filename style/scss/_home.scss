@@ -31,11 +31,6 @@
 		}
 	}
 
-	// .home_link
-	&_link {
-		@include d_f(flex, center);
-	}
-
 	// .home_sport
 	&_sport {
 		@include d_f(flex);
@@ -47,6 +42,67 @@
 			&+& {
 				margin-left: 16px;
 			}
+		}
+	}
+}
+
+// .sportBtn_group
+.sportBtn_group {
+	@include d_f(flex, center);
+	.sportHead & {
+		justify-content: flex-start;
+		height: 100%;
+	}
+	// .sportBtn_group_item
+	&_item {
+		@include d_f(flex, flex-end, center);
+		flex-direction: column;
+		width: 80px;
+		height: 88px;
+		color: map-get($dark_color , sport_btn_txt);
+		fill: map-get($dark_color , sport_btn_txt);
+		@extend %hand;
+
+		@include hoverHandler {
+			color: map-get($dark_color , sport_btn_txt_hv);
+			fill: map-get($dark_color , sport_btn_txt_hv);
+		}
+
+		.sportHead & {
+			width: 72px;
+			height: 100%;
+		}
+	}
+
+	// .sportBtn_group_icon
+	&_icon {
+		display: block;
+		width: 40px;
+		height: 40px;
+		padding: 8px;
+
+		.sportHead & {
+			width: 16px;
+			height: 16px;
+			margin: 4px auto;
+			padding: 0;
+		}
+	}
+
+	// .sportBtn_group_txt
+	&_txt {
+		width: 100%;
+		height: 24px;
+		line-height: 24px;
+		font-size: 13px;
+		font-weight: bold;
+		text-align: center;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+
+		.sportHead & {
+			font-size: 12px;
 		}
 	}
 }

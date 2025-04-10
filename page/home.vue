@@ -2,14 +2,14 @@
 
 <template>
 	<div class="home_title"><span>滾球中賽事</span></div>
-	<div class="home_link">
-		<router-link class="sport_btn" to="/live/sc">
-			<i class="sport_btn_icon" v-html="icon_all.icon_ft"></i>
-			<div class="sport_btn_txt">足球</div>
+	<div class="sportBtn_group">
+		<router-link class="sportBtn_group_item" to="/live/sc">
+			<i class="sportBtn_group_icon" v-html="icon_all.icon_ft"></i>
+			<div class="sportBtn_group_txt">足球</div>
 		</router-link>
-		<router-link class="sport_btn" to="/live/bk">
-			<i class="sport_btn_icon" v-html="icon_all.icon_ft"></i>
-			<div class="sport_btn_txt">籃球 & 美式足球</div>
+		<router-link class="sportBtn_group_item" to="/live/bk">
+			<i class="sportBtn_group_icon" v-html="icon_all.icon_bk"></i>
+			<div class="sportBtn_group_txt">籃球 & 美式足球</div>
 		</router-link>
 	</div>
 	<div class="home_title"><span>體育</span></div>
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-module.exports={
+module.exports = {
 	data() {
 		return {
 			icon_all: icon_all,
@@ -36,7 +36,7 @@ module.exports={
 	},
 	computed: {
 		rGameData() {
-			let rObj={}
+			let rObj = {}
 			return
 		}
 	},
