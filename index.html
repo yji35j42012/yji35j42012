@@ -23,11 +23,13 @@
 	</div>
 
 	<script src="./js/libs/axios.js"></script>
-	<script src="./js/libs/vue.global_3_4_38.js"></script>
+	<!-- <script src="./js/libs/vue.global_3_4_38.js"></script> -->
+	<script src="https://unpkg.com/vue@latest"></script>
 	<script src="./js/libs/vue3-sfc-loader.js"></script>
 	<script src="./js/libs/vue-router_4_3_2.js"></script>
 	<script src="./js/icon_all.js"></script>
-
+	<script src="./js/libs/vuex_4_0_2.js"></script>
+	<script src="./store/store.js"></script>
 	<script>
 		const options = {
 			moduleCache: {
@@ -86,15 +88,21 @@
 					}
 				},
 			},
-			computed: {},
+			computed: {
+				count() {
+					return this.$store.state.count;
+				},
+			},
 			components: {
 				'header-component': Vue.defineAsyncComponent(() => loadModule('./components/HeaderComponent.vue', options)),
 				'right-panel': Vue.defineAsyncComponent(() => loadModule('./components/RightPanel.vue', options)),
 				'sport-btn': Vue.defineAsyncComponent(() => loadModule('./components/SportBtn.vue', options)),
 			},
-			methods: {}
+			methods: {
+			}
 		});
-		app.use(router)
+		app.use(router);
+		app.use(store);
 		app.mount('#app');
 	</script>
 

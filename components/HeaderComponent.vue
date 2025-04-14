@@ -6,8 +6,8 @@
 			<i class="icon_home" v-html="icon_all.home"></i>
 		</router-link>
 		<div class="header_menu">
-			<router-link class="header_link" to="/live">滾球</router-link>
-			<router-link class="header_link" to="/outrights">冠軍</router-link>
+			<div class="header_link" @click="page('live')" to="/live">滾球</div>
+			<div class="header_link" @click="page('outrights')" to="/outrights">冠軍</div>
 		</div>
 		<div class="header_info">
 			<div class="time">23:56:39</div>
@@ -31,6 +31,12 @@ module.exports = {
 		}
 	},
 	computed: {},
-	methods: {},
+	methods: {
+		page(p) {
+			// console.log('page', p);
+			console.log(this.$store.state.count);
+			// this.$router.push("/" + p);
+		}
+	},
 }
 </script>
