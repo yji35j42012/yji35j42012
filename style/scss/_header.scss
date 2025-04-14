@@ -21,7 +21,7 @@
 			// height: calc(100% - 16px);
 		}
 
-		&.router-link-active {
+		&.on {
 			background-color: map-get($dark_color , headerBtn_bg_on);
 			color: map-get($dark_color , headerBtn_txt_on);
 			fill: map-get($dark_color , headerBtn_txt_on);

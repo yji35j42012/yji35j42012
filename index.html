@@ -55,6 +55,7 @@
 			{ path: '/live', component: () => loadModule('./page/live.vue', options), },
 			{ path: '/live/:sport', component: () => loadModule('./page/live.vue', options), },
 			{ path: '/outrights', component: () => loadModule('./page/outrights.vue', options), },
+			{ path: '/outrights/:sport', component: () => loadModule('./page/outrights.vue', options), },
 			{ path: '/result', component: () => loadModule('./page/result.vue', options), },
 			{ path: '/tv', component: () => loadModule('./page/tv.vue', options), },
 			{ path: '/history', component: () => loadModule('./page/history.vue', options), },
@@ -73,18 +74,17 @@
 					icon_all: icon_all,
 				}
 			},
-			mounted() { },
+			mounted() {
+			},
 			watch: {
 				$route(to, from) {
-					// store.dispatch("SET_LOADING", true);
-					var now = this.$route.path;
-					if (now == "/" || now == 'home') {
-						this.nowPage = "home";
-						// store.dispatch("PAGE", "home");
-					} else {
-						// store.dispatch("SET_LOADING", true);
-						this.nowPage = now.split("/")[1];
-						// store.dispatch("PAGE", now.split("/")[1]);
+					var path = this.$route.path
+					if (path.split('/').length == 2) {
+						console.log('path', path.split('/'));
+						this.$store.dispatch('SET_SPORT_TYPE', path.split('/')[1]);
+					} else if (path.split('/').length > 2) {
+						this.$store.dispatch('SET_SPORT_TYPE', path.split('/')[1]);
+						this.$store.dispatch('SET_SPORT', path.split('/')[2]);
 					}
 				},
 			},

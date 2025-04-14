@@ -2,19 +2,21 @@
 
 <template>
 	<div class="header">
-		<router-link class="header_link _home" to="/">
+		<div :class="['header_link _home', r_sport_type == '' ? 'on' : '']" @click="page('')">
 			<i class="icon_home" v-html="icon_all.home"></i>
-		</router-link>
+		</div>
 		<div class="header_menu">
-			<div class="header_link" @click="page('live')" to="/live">滾球</div>
-			<div class="header_link" @click="page('outrights')" to="/outrights">冠軍</div>
+			<div :class="['header_link', r_sport_type == 'live' ? 'on' : '']" @click="page('live')" to="/live">滾球</div>
+			<div :class="['header_link', r_sport_type == 'outrights' ? 'on' : '']" @click="page('outrights')"
+				to="/outrights">冠軍</div>
 		</div>
 		<div class="header_info">
 			<div class="time">23:56:39</div>
-			<router-link class="header_link" to="/result">賽果</router-link>
-			<router-link class="header_link" to="/tv">賽程</router-link>
-			<router-link class="header_link" to="/history">帳戶歷史</router-link>
-			<router-link class="header_link" to="/todaywagers">交易狀況</router-link>
+			<div :class="['header_link', r_sport_type == 'result' ? 'on' : '']" @click="page('result')">賽果</div>
+			<div :class="['header_link', r_sport_type == 'tv' ? 'on' : '']" @click="page('tv')">賽程</div>
+			<div :class="['header_link', r_sport_type == 'history' ? 'on' : '']" @click="page('history')">帳戶歷史</div>
+			<div :class="['header_link', r_sport_type == 'todaywagers' ? 'on' : '']" @click="page('todaywagers')">交易狀況
+			</div>
 			<div class="acc_money">9,998,068.00 RMB</div>
 			<div class="header_menuBtn">
 				<i class="icon_menu" v-html="icon_all.menuBtn"></i>
@@ -28,14 +30,32 @@ module.exports = {
 	data() {
 		return {
 			icon_all: icon_all,
+			sport_type: null,
 		}
 	},
-	computed: {},
+	created() {
+	},
+	computed: {
+		r_sport_type() {
+			return this.$store.state.sport_type
+		},
+	},
 	methods: {
 		page(p) {
-			// console.log('page', p);
-			console.log(this.$store.state.count);
-			// this.$router.push("/" + p);
+			var sport = this.$store.state.sport;
+			if (p == '') {
+				this.$router.push("/");
+			} else if (p == 'result') {
+				this.$router.push("/" + p);
+			} else if (p == 'tv') {
+				this.$router.push("/" + p);
+			} else if (p == 'history') {
+				this.$router.push("/" + p);
+			} else if (p == 'todaywagers') {
+				this.$router.push("/" + p);
+			} else {
+				this.$router.push("/" + p + "/" + sport);
+			}
 		}
 	},
 }

@@ -308,7 +308,7 @@ a {
   padding: 0;
   fill: #75829b;
 }
-.header_link.router-link-active {
+.header_link.on {
   background-color: #6700f4;
   color: #ffffff;
   fill: #ffffff;
@@ -448,6 +448,10 @@ a {
 .sportHead .sportBtn_group_item {
   width: 72px;
   height: 100%;
+}
+.sportHead .sportBtn_group_item.on {
+  color: #30dff2;
+  fill: #30dff2;
 }
 .sportBtn_group_icon {
   display: block;

@@ -74,6 +74,11 @@
 		.sportHead & {
 			width: 72px;
 			height: 100%;
+
+			&.on {
+				color: map-get($dark_color , sport_btn_txt_hv);
+				fill: map-get($dark_color , sport_btn_txt_hv);
+			}
 		}
 	}
 

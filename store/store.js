@@ -1,21 +1,22 @@
-const store=Vuex.createStore({
+const store = Vuex.createStore({
 	state: {
-		count: 0,
+		sport_type: null,
+		sport: null,
 	},
 	mutations: {
-		increment(state) {
-			state.count++;
+		set_sport_type(state, str) {
+			state.sport_type = str;
 		},
-		decrement(state) {
-			state.count--;
+		set_sport(state, str) {
+			state.sport = str;
 		},
 	},
 	actions: {
-		increment({ commit }) {
-			commit('increment');
+		SET_SPORT_TYPE({ commit }, sport_type) {
+			commit('set_sport_type', sport_type);
 		},
-		decrement({ commit }) {
-			commit('decrement');
+		SET_SPORT({ commit }, sport) {
+			commit('set_sport', sport);
 		},
 	},
 });
