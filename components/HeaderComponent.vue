@@ -6,9 +6,10 @@
 			<i class="icon_home" v-html="icon_all.home"></i>
 		</div>
 		<div class="header_menu">
-			<div :class="['header_link', r_sport_type == 'live' ? 'on' : '']" @click="page('live')" to="/live">滾球</div>
-			<div :class="['header_link', r_sport_type == 'outrights' ? 'on' : '']" @click="page('outrights')"
-				to="/outrights">冠軍</div>
+			<div :class="['header_link', r_sport_type == 'live' ? 'on' : '']" @click="page('live')">滾球</div>
+			<div :class="['header_link', r_sport_type == 'soon' ? 'on' : '']" @click="page('soon')">即將開賽</div>
+			<div :class="['header_link', r_sport_type == 'hot' ? 'on' : '']" @click="page('hot')">熱門</div>
+			<div :class="['header_link', r_sport_type == 'outrights' ? 'on' : '']" @click="page('outrights')">冠軍</div>
 		</div>
 		<div class="header_info">
 			<div class="time">23:56:39</div>
@@ -18,9 +19,7 @@
 			<div :class="['header_link', r_sport_type == 'todaywagers' ? 'on' : '']" @click="page('todaywagers')">交易狀況
 			</div>
 			<div class="acc_money">9,998,068.00 RMB</div>
-			<div class="header_menuBtn">
-				<i class="icon_menu" v-html="icon_all.menuBtn"></i>
-			</div>
+			<div class="header_menuBtn"><i class="icon_menu" v-html="icon_all.menuBtn"></i></div>
 		</div>
 	</div>
 </template>
@@ -43,19 +42,15 @@ module.exports = {
 	methods: {
 		page(p) {
 			var sport = this.$store.state.sport;
-			if (p == '') {
-				this.$router.push("/");
-			} else if (p == 'result') {
-				this.$router.push("/" + p);
-			} else if (p == 'tv') {
-				this.$router.push("/" + p);
-			} else if (p == 'history') {
-				this.$router.push("/" + p);
-			} else if (p == 'todaywagers') {
-				this.$router.push("/" + p);
-			} else {
-				this.$router.push("/" + p + "/" + sport);
-			}
+			if (p == '') { this.$router.push("/"); }
+			else if (sport == null) { this.$router.push("/" + p + "/sc"); }
+			else if (p == 'result') { this.$router.push("/" + p); }
+			else if (p == 'tv') { this.$router.push("/" + p); }
+			else if (p == 'history') { this.$router.push("/" + p); }
+			else if (p == 'todaywagers') { this.$router.push("/" + p); }
+			else if (p == 'soon') { this.$router.push("/" + p); }
+			else if (p == 'hot') { this.$router.push("/" + p); }
+			else { this.$router.push("/" + p + "/" + sport); }
 		}
 	},
 }

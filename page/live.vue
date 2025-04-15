@@ -9,14 +9,24 @@
 			<div class="sportHead_title">
 				<div class="sportHead_title_txt">
 					<league-title></league-title>
-					<div class="name">滾球賽事</div>
+					<game-title></game-title>
 				</div>
 			</div>
 		</div>
 		<league-tab></league-tab>
 	</div>
 	<div class="sportBody">
-
+		<div class="sportBody_content">
+			<div class="sportBody_title">球會友誼賽</div>
+			<div class="sportBody_game">
+				<div class="sportBody_game_info">
+					<div class="sportBody_game_l">
+						<i class="icon_heart on" v-html="icon_all.icon_heart"></i>
+					</div>
+					<div class="sportBody_game_r"></div>
+				</div>
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -31,6 +41,7 @@ module.exports = {
 		'sport-btn': Vue.defineAsyncComponent(() => loadModule('./components/SportBtn.vue', options)),
 		'league-title': Vue.defineAsyncComponent(() => loadModule('./components/LeagueTitle.vue', options)),
 		'league-tab': Vue.defineAsyncComponent(() => loadModule('./components/Tab.vue', options)),
+		'game-title': Vue.defineAsyncComponent(() => loadModule('./components/GameTitle.vue', options)),
 	},
 	computed: {},
 	methods: {},

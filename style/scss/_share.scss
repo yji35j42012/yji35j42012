@@ -275,4 +275,90 @@
 	}
 }
 
-.sportBody {}
+.sportBody {
+	padding: 0 16px;
+
+	// .sportBody_title
+	&_title {
+		@include d_f(flex, space-between, center);
+		height: 40px;
+		padding: 4px 8px;
+		background-color: #1E2841;
+		border-bottom: 1px solid #060e23;
+		color: #fff;
+		font-size: 14px;
+		font-weight: bold;
+		@extend %hand;
+
+		@include hv {
+			background-color: #2d3c62;
+		}
+
+		@include ac {
+			background-color: #131a2a;
+		}
+	}
+
+	// .sportBody_game
+	&_game {
+		// .sportBody_game_info
+	}
+
+	.icon_heart {
+		flex: none;
+		display: block;
+		width: 32px;
+		height: 32px;
+		margin: 4px 8px 4px 0;
+		padding: 8px;
+		fill: rgba(167, 128, 37, 0);
+		stroke: #ffffff;
+		@extend %hand;
+
+		@include hv {
+			padding: 6px;
+			fill: rgba(255, 255, 255, 0.5);
+			stroke: #ffffff;
+		}
+
+		@include ac {
+			fill: #7c1fff;
+			stroke: #7c1fff;
+		}
+
+		&.on {
+			fill: #7c1fff;
+			stroke: #7c1fff;
+
+			@include ac {
+				fill: rgba(167, 128, 37, 0);
+				stroke: #ffffff;
+			}
+		}
+	}
+}
+
+.no_event {
+	@include d_f(flex, center, center);
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	min-height: 200px;
+
+	i {
+		display: block;
+		width: 80px;
+		height: 80px;
+		margin: 8px auto;
+		background: url('../../images/img_nodata.svg')no-repeat center bottom/cover;
+	}
+
+	span {
+		@include d_f(flex, center, center);
+		width: 100%;
+		height: 40px;
+		line-height: normal;
+		font-size: 12px;
+		color: #fff;
+	}
+}

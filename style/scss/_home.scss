@@ -79,6 +79,9 @@
 				color: map-get($dark_color , sport_btn_txt_hv);
 				fill: map-get($dark_color , sport_btn_txt_hv);
 			}
+			@include ac{
+				background-color: rgba(255, 255, 255, 0.45);
+			}
 		}
 	}
 
