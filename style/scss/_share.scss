@@ -49,8 +49,6 @@
 	}
 }
 
-
-
 .sportTitle {
 	@include d_f(flex, center, center);
 	width: 100%;
@@ -175,7 +173,7 @@
 	&_title {
 		width: 100%;
 		height: 48px;
-		padding: 7px 8px;
+		padding: 7px 8px 7px 16px;
 
 		// .sportHead_title_txt
 		&_txt {
@@ -231,4 +229,50 @@
 			}
 		}
 	}
+
+	// .sportHead_tab
+	&_tab {
+		@include d_f(flex, none, center);
+		height: 56px;
+		padding: 0 16px;
+
+		// .sportHead_tab_item
+		&_item {
+			position: relative;
+			@include d_f(inline-flex, none, center);
+			height: 24px;
+			line-height: 1px;
+			padding: 4px 12px;
+			font-size: 13px;
+			font-weight: 700;
+			border-radius: 24px;
+			background-color: #1E2841;
+			color: #75829b;
+			border: 1px solid #34446e;
+			@extend %hand;
+
+			&+& {
+				margin-left: 8px;
+			}
+
+			@include hv {
+				background-color: #6700F4;
+				color: #ffffff;
+				border-color: #34446e;
+			}
+
+			@include ac {
+				background-color: #131a2a;
+				color: #30dff2;
+			}
+
+			&.on {
+				background-color: #6700F4;
+				color: #ffffff;
+				border-color: #34446e;
+			}
+		}
+	}
 }
+
+.sportBody {}

@@ -61,7 +61,7 @@ module.exports = {
 	methods: {
 		page(sport) {
 			var sport_type = this.$store.state.sport_type;
-			if (sport_type == "home" || sport_type == null|| sport_type == '') {
+			if (sport_type == "home" || sport_type == null || sport_type == '') {
 				this.$router.push("/live" + "/" + sport);
 			} else {
 				this.$router.push("/" + sport_type + "/" + sport);

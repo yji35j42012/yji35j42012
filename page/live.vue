@@ -8,14 +8,15 @@
 			</div>
 			<div class="sportHead_title">
 				<div class="sportHead_title_txt">
-					<div class="league">
-						<i class="icon_arr" v-html="icon_all.icon_back"></i>
-						<span data-showleague="/聯盟">電子競技</span>
-					</div>
+					<league-title></league-title>
 					<div class="name">滾球賽事</div>
 				</div>
 			</div>
 		</div>
+		<league-tab></league-tab>
+	</div>
+	<div class="sportBody">
+
 	</div>
 </template>
 
@@ -28,6 +29,8 @@ module.exports = {
 	},
 	components: {
 		'sport-btn': Vue.defineAsyncComponent(() => loadModule('./components/SportBtn.vue', options)),
+		'league-title': Vue.defineAsyncComponent(() => loadModule('./components/LeagueTitle.vue', options)),
+		'league-tab': Vue.defineAsyncComponent(() => loadModule('./components/Tab.vue', options)),
 	},
 	computed: {},
 	methods: {},

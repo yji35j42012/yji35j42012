@@ -13,6 +13,7 @@
 		padding: 0 12px;
 		color: map-get($dark_color , headerBtn_txt);
 		font-size: 14px;
+		@extend %hand;
 
 		&._home {
 			width: 48px;
