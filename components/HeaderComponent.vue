@@ -36,7 +36,7 @@ module.exports = {
 	},
 	computed: {
 		r_sport_type() {
-			return this.$store.state.sport_type
+			return this.$store.state.sport_type;
 		},
 	},
 	methods: {

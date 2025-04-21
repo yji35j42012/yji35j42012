@@ -1,8 +1,14 @@
 // juc 預設值 flex-start 、 align-items 預設值 stretch
 @mixin d_f($flex, $jc: flex-start, $ai: stretch) {
 	display: $flex;
-	align-items: $ai;
-	justify-content: $jc;
+
+	@if ($jc !=none) {
+		justify-content: $jc;
+	}
+
+	@if ($ai !=none) {
+		align-items: $ai;
+	}
 }
 
 @mixin hoverHandler {
@@ -21,7 +27,7 @@
 }
 
 @mixin hv {
-
+ 
 	@media (pointer: fine) and (max-resolution: 2dppx),
 	screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2),
 	(-moz-touch-enabled: 0) {

@@ -21,7 +21,11 @@
 			<div class="sportBody_game">
 				<div class="sportBody_game_info">
 					<div class="sportBody_game_l">
-						<i class="icon_heart on" v-html="icon_all.icon_heart"></i>
+						<icon-heart></icon-heart>
+						<div class="detail">
+							<span>上半場<b></b>00:04</span>
+						</div>
+						<div class="state"></div>
 					</div>
 					<div class="sportBody_game_r"></div>
 				</div>
@@ -42,6 +46,7 @@ module.exports = {
 		'league-title': Vue.defineAsyncComponent(() => loadModule('./components/LeagueTitle.vue', options)),
 		'league-tab': Vue.defineAsyncComponent(() => loadModule('./components/Tab.vue', options)),
 		'game-title': Vue.defineAsyncComponent(() => loadModule('./components/GameTitle.vue', options)),
+		'icon-heart': Vue.defineAsyncComponent(() => loadModule('./components/BtnHeart.vue', options)),
 	},
 	computed: {},
 	methods: {},

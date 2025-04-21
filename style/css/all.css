@@ -43,8 +43,8 @@ a {
 
 .wrap {
   display: flex;
-  align-items: stretch;
   justify-content: flex-start;
+  align-items: stretch;
   flex-direction: column;
   width: 100%;
   height: 100%;
@@ -73,8 +73,8 @@ a {
 .content {
   overflow: hidden;
   display: flex;
-  align-items: stretch;
   justify-content: flex-start;
+  align-items: stretch;
   width: 100%;
   height: 100%;
 }
@@ -97,8 +97,8 @@ a {
 
 .sportTitle {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   width: 100%;
   height: 48px;
   margin-bottom: 32px;
@@ -138,8 +138,8 @@ a {
 .selectBox {
   position: relative;
   display: flex;
-  align-items: stretch;
   justify-content: flex-start;
+  align-items: stretch;
   padding: 0 16px;
   gap: 16px;
 }
@@ -147,7 +147,6 @@ a {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: none;
   width: 100%;
   height: 48px;
   background-color: #262f41;
@@ -171,7 +170,6 @@ a {
 .selectBox_group_list {
   display: flex;
   align-items: center;
-  justify-content: none;
   min-height: 40px;
   padding: 0 8px;
 }
@@ -216,8 +214,8 @@ a {
 .sportHead_title_txt .league {
   position: relative;
   display: inline-flex;
-  align-items: stretch;
   justify-content: flex-start;
+  align-items: stretch;
   overflow: hidden;
   font-size: 12px;
   text-overflow: ellipsis;
@@ -261,7 +259,6 @@ a {
 .sportHead_tab {
   display: flex;
   align-items: center;
-  justify-content: none;
   height: 56px;
   padding: 0 16px;
 }
@@ -269,7 +266,6 @@ a {
   position: relative;
   display: inline-flex;
   align-items: center;
-  justify-content: none;
   height: 24px;
   line-height: 1px;
   padding: 4px 12px;
@@ -305,8 +301,8 @@ a {
 }
 .sportBody_title {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   height: 40px;
   padding: 4px 8px;
   background-color: #1E2841;
@@ -322,6 +318,29 @@ a {
 }
 .sportBody_title:active {
   background-color: #131a2a;
+}
+.sportBody_game_l {
+  display: flex;
+  flex-wrap: wrap;
+  width: 29%;
+}
+.sportBody_game_l .detail {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 12px;
+}
+.sportBody_game_l .detail span {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  white-space: nowrap;
+}
+.sportBody_game_l .state {
+  width: 100%;
+}
+.sportBody_game_r {
+  width: 71%;
 }
 .sportBody .icon_heart {
   flex: none;
@@ -355,8 +374,8 @@ a {
 
 .no_event {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
   width: 100%;
   height: 100%;
@@ -371,8 +390,8 @@ a {
 }
 .no_event span {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   width: 100%;
   height: 40px;
   line-height: normal;
@@ -393,8 +412,8 @@ a {
 .icon_msg {
   flex: none;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   width: 32px;
   height: 32px;
   background-color: #6700f4;
@@ -408,8 +427,8 @@ a {
 .header {
   flex: none;
   display: flex;
-  align-items: stretch;
   justify-content: flex-start;
+  align-items: stretch;
   width: 100%;
   height: 48px;
   background-color: #1e2841;
@@ -417,8 +436,8 @@ a {
 .header_link {
   flex: none;
   display: inline-flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   height: 48px;
   padding: 0 12px;
   color: #75829b;
@@ -451,14 +470,14 @@ a {
 .header_info {
   flex: none;
   display: flex;
-  align-items: stretch;
   justify-content: flex-start;
+  align-items: stretch;
 }
 .header_menuBtn {
   flex: none;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   width: 56px;
   height: 48px;
   fill: #75829b;
@@ -478,7 +497,6 @@ a {
 .acc_money {
   display: flex;
   align-items: center;
-  justify-content: none;
   margin: 0 8px 0 16px;
   color: #30dff2;
   font-size: 14px;
@@ -487,7 +505,6 @@ a {
 .time {
   display: flex;
   align-items: center;
-  justify-content: none;
   margin: 0 20px 0 14px;
   font-size: 14px;
   color: #75829b;
@@ -496,8 +513,8 @@ a {
 .home_title {
   position: relative;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   width: calc(100% - 32px);
   height: 56px;
   margin: 8px 16px;
@@ -516,7 +533,6 @@ a {
   position: relative;
   display: inline-flex;
   align-items: center;
-  justify-content: none;
   height: 100%;
   padding: 0 16px;
   font-size: 20px;
@@ -526,8 +542,8 @@ a {
 }
 .home_sport {
   display: flex;
-  align-items: stretch;
   justify-content: flex-start;
+  align-items: stretch;
 }
 .home_sport_item {
   width: calc(50% - 8px);
@@ -538,8 +554,8 @@ a {
 
 .sportBtn_group {
   display: flex;
-  align-items: stretch;
   justify-content: center;
+  align-items: stretch;
 }
 .sportHead .sportBtn_group {
   justify-content: flex-start;
@@ -548,8 +564,8 @@ a {
 .sportBtn_group_item {
   flex: none;
   display: flex;
-  align-items: center;
   justify-content: flex-end;
+  align-items: center;
   flex-direction: column;
   width: 80px;
   height: 88px;
@@ -606,8 +622,8 @@ a {
 
 .marquee {
   display: flex;
-  align-items: stretch;
   justify-content: flex-start;
+  align-items: stretch;
   margin-bottom: 15px;
   background-color: #1e2841;
   color: #fff;
@@ -615,7 +631,6 @@ a {
 .marquee_box {
   display: flex;
   align-items: center;
-  justify-content: none;
 }
 
 .ad {

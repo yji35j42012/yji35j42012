@@ -301,7 +301,37 @@
 
 	// .sportBody_game
 	&_game {
+
 		// .sportBody_game_info
+		&_info {}
+
+		// .sportBody_game_l
+		&_l {
+			@include d_f(flex, none, none);
+			flex-wrap: wrap;
+			width: 29%;
+
+			.detail {
+				@include d_f(flex, none, center);
+				color: #fff;
+				font-size: 12px;
+
+				span {
+					@include d_f(flex, none, center);
+					line-height: 1;
+					white-space: nowrap;
+				}
+			}
+
+			.state {
+				width: 100%;
+			}
+		}
+
+		// .sportBody_game_r
+		&_r {
+			width: 71%;
+		}
 	}
 
 	.icon_heart {
