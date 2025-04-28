@@ -1,0 +1,68 @@
+.wrap {}
+
+.normal_header {
+	display: flex;
+	height: 106px;
+	background-color: rgba(36, 95, 65, 1);
+}
+
+.logo {}
+
+.logo img {
+	width: 175px;
+}
+
+.footer {}
+
+.noraml_menu {
+	display: flex;
+}
+
+.normal_menu_item {
+	color: rgba(255, 255, 255, 1);
+}
+
+.normal_iconBox {
+	display: flex;
+}
+
+.normal_icon {
+	display: block;
+	width: 24px;
+	height: 24px;
+}
+
+.normal_icon+.normal_icon {
+	margin-left: 20px;
+}
+
+.normal_icon._user {
+	background: url('./images/icon_user.svg');
+}
+
+.normal_icon._search {
+	background: url('./images/icon_search.svg');
+}
+
+.normal_icon._cart {
+	background: url('./images/icon_cart.svg');
+}
+
+.banner {
+	width: 100%;
+	height: 796px;
+	background-color: rgba(36, 95, 65, 1);
+}
+
+.near {
+	height: 1067px;
+	background: url('./images/terra.png')no-repeat center/cover;
+}
+
+.test {
+	height: 734px;
+	background-image: url('./images/test.jpg');
+	background-attachment: fixed;
+	background-position: top center;
+	background-size: cover;
+}
