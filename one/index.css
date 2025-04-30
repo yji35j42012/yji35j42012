@@ -59,10 +59,63 @@
 	background: url('./images/terra.png')no-repeat center/cover;
 }
 
-.test {
+.normal_picGroup {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	height: 1154px;
+}
+
+.normal_picItem {}
+
+.normal_picItem:nth-child(1) {
+	width: 100%;
 	height: 734px;
-	background-image: url('./images/test.jpg');
+	background-image: url('./images/pic1.jpg');
+	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: top center;
 	background-size: cover;
+}
+
+.normal_picItem:nth-child(2) {
+	width: 50%;
+	height: 420px;
+	background-image: url('./images/pic2.png');
+}
+
+.normal_picItem:nth-child(3) {
+	width: 50%;
+	height: 420px;
+	background-image: url('./images/pic3.png');
+}
+
+.normal_stick {
+	padding-top: 288px;
+	background-color: rgba(36, 95, 65, 1);
+	background-image: url('./images/nutrition_txt.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center bottom;
+}
+
+.normal_stick_txt {
+	color: rgba(255, 255, 255, 1);
+	font-size: 44px;
+	font-weight: 500;
+	text-align: center;
+}
+
+.normal_stick_plant {
+	width: 494px;
+	margin: 18px auto 0;
+}
+
+.normal_stick_terra {
+	display: flex;
+	justify-content: center;
+}
+
+.normal_stick_terra .center {
+	width: 704px;
 }
