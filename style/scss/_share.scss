@@ -46,6 +46,11 @@
 		min-width: 342px;
 		flex: 1 1 33.3%;
 		padding: 8px 8px 56px 8px;
+
+
+		@include mw(L) {
+			display: none;
+		}
 	}
 }
 
@@ -269,7 +274,7 @@
 			&.on {
 				background-color: #6700F4;
 				color: #ffffff;
-				border-color: #34446e;	
+				border-color: #34446e;
 			}
 		}
 	}
@@ -390,5 +395,134 @@
 		line-height: normal;
 		font-size: 12px;
 		color: #fff;
+	}
+}
+
+.bottom_menu {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	display: none;
+	width: 100vw;
+	min-height: 58px;
+	background-color: #1e2841;
+
+	@include mw(L) {
+		display: block;
+	}
+}
+
+.mask {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	flex: 1 1 auto;
+	opacity: 0;
+	background-color: rgba(0, 0, 0, .32);
+	transition: opacity 0.3s ease;
+
+	.on .mask {
+		opacity: 1;
+	}
+}
+
+.left_menu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	@include d_f(flex);
+	width: 100%;
+	height: 100%;
+
+	// .left_menu_box 
+	&_box {
+		position: relative;
+		width: 320px;
+		height: auto;
+		margin-left: auto;
+		background-color: #060e23;
+	}
+
+	// .left_menu_title
+	&_title {
+		@include d_f(flex, none, center);
+		width: 100%;
+		height: 56px;
+		padding: 0 8px;
+		background-color: #1e2841;
+	}
+}
+
+.icon_close {
+	flex: none;
+	display: block;
+	width: 40px;
+	height: 40px;
+	padding: 12px;
+	fill: #fff;
+	opacity: 0.56;
+	@extend %hand;
+	@extend %transition;
+
+	@include hv {
+		opacity: 1;
+		background-color: rgba(255, 255, 255, .1);
+	}
+
+	@include ac {
+		opacity: 1;
+		background-color: #6700f4;
+	}
+}
+
+.acc {
+
+	// .acc_eyes
+	&_eyes {
+		flex: none;
+		display: block;
+		width: 40px;
+		height: 40px;
+		margin-right: 8px;
+		padding: 4px;
+		background-size: 16px;
+		background-position: center;
+		background-repeat: no-repeat;
+		@extend %hand;
+		@extend %transition;
+		background-image: url("../../images/icon_eye.svg");
+
+		&._off {
+			background-image: url("../../images/icon_noeye.svg");
+		}
+	}
+
+	// .acc_info
+	&_info {
+		width: 100%;
+
+		// .acc_info_name
+		&_name {
+			display: block;
+			height: 16px;
+			line-height: 16px;
+			font-size: 14px;
+			color: #fff;
+		}
+
+		// .acc_info_money
+		&_money {
+			display: block;
+			height: 16px;
+			line-height: 16px;
+			font-size: 14px;
+			color: #30dff2;
+			@extend %hand;
+
+			&:after {
+				content: attr(data-currency);
+				margin-left: 4px;
+			}
+		}
 	}
 }
