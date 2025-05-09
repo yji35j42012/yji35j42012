@@ -19,7 +19,7 @@
 			<div :class="['header_link', r_sport_type == 'todaywagers' ? 'on' : '']" @click="page('todaywagers')">交易狀況
 			</div>
 			<div class="acc_money">9,998,068.00 RMB</div>
-			<div class="header_menuBtn"><i class="icon_menu" v-html="icon_all.menuBtn"></i></div>
+			<div class="header_menuBtn" @click="menuHandler"><i class="icon_menu" v-html="icon_all.menuBtn"></i></div>
 		</div>
 	</div>
 </template>
@@ -51,6 +51,9 @@ module.exports = {
 			else if (p == 'soon') { this.$router.push("/" + p); }
 			else if (p == 'hot') { this.$router.push("/" + p); }
 			else { this.$router.push("/" + p + "/" + sport); }
+		},
+		menuHandler(){
+			this.$store.dispatch('SET_MENU', true);
 		}
 	},
 }

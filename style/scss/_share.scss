@@ -433,6 +433,11 @@
 	@include d_f(flex);
 	width: 100%;
 	height: 100%;
+	pointer-events: none;
+
+	&.on {
+		pointer-events: all;
+	}
 
 	// .left_menu_box 
 	&_box {
@@ -441,7 +446,14 @@
 		height: auto;
 		margin-left: auto;
 		background-color: #060e23;
+		transform: translateX(100%);
+		@extend %transition;
+		.on & {
+			transform: translateX(0);
+		}
 	}
+
+	
 
 	// .left_menu_title
 	&_title {

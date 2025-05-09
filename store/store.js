@@ -2,6 +2,7 @@ const store = Vuex.createStore({
 	state: {
 		sport_type: null,
 		sport: null,
+		isShowMenu: false,
 	},
 	mutations: {
 		set_sport_type(state, str) {
@@ -10,6 +11,9 @@ const store = Vuex.createStore({
 		set_sport(state, str) {
 			state.sport = str;
 		},
+		set_menu(state, boo) {
+			state.isShowMenu = boo;
+		}
 	},
 	actions: {
 		SET_SPORT_TYPE({ commit }, sport_type) {
@@ -18,5 +22,8 @@ const store = Vuex.createStore({
 		SET_SPORT({ commit }, sport) {
 			commit('set_sport', sport);
 		},
+		SET_MENU({ commit }, boo) {
+			commit('set_menu', boo);
+		}
 	},
 });
