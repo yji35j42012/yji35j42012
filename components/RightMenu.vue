@@ -2,7 +2,7 @@
 
 <template>
 	<div :class="['left_menu', isShowMenu ? 'on' : '']">
-		<div class="mask"></div>
+		<div class="mask" @click="closeLeftMenu"></div>
 		<div class="left_menu_box">
 			<div class="left_menu_title">
 				<acc-component></acc-component>
