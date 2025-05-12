@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html id="scroll_html" lang="en">
 
 <head>
 	<meta charset="UTF-8">
@@ -10,7 +10,7 @@
 
 </head>
 
-<body>
+<body id="scroll_body">
 	<div id="app" class="wrap">
 		<header-component></header-component>
 		<div :class="['content',nowPage]">
@@ -79,6 +79,11 @@
 				}
 			},
 			mounted() {
+				let scroll_html = document.querySelector("html");
+				if (/Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+					scroll_html.classList.add("ios_scroll");
+				}
+				window.addEventListener('scroll', this.scrollHandler);
 			},
 			watch: {
 				$route(to, from) {
@@ -104,6 +109,20 @@
 				'right-menu': Vue.defineAsyncComponent(() => loadModule('./components/RightMenu.vue', options)),
 			},
 			methods: {
+				scrollHandler() {
+					const currentScroll = window.scrollY || document.documentElement.scrollTop;
+					let scroll_body = document.querySelector("body");
+					var lastScrollTop = 0;
+					console.log('scroll');
+					if (currentScroll > lastScrollTop && window.scrollY > 56) {
+						scroll_body.classList.add("hide")
+					} else if (currentScroll < lastScrollTop) {
+						// 使用者往上滑
+						console.log("Scrolling up");
+						scroll_body.classList.remove("hide")
+					}
+					lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // 為了避免負值
+				}
 			}
 		});
 		app.use(router);

@@ -23,9 +23,22 @@
 
 .content {
 	overflow: hidden;
+	position: relative;
+	top: 0;
 	@include d_f(flex);
 	width: 100%;
 	height: 100%;
+	padding-top: 48px;
+	padding-bottom: 0px;
+	@extend %transition;
+
+	@include mw(L){
+		padding-bottom: 58px;
+	}
+	.hide & {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
 
 	// .content_l
 	&_l {
@@ -406,9 +419,14 @@
 	width: 100vw;
 	min-height: 58px;
 	background-color: #1e2841;
+	@extend %transition;
 
 	@include mw(L) {
 		display: block;
+	}
+
+	.hide & {
+		bottom: -58px;
 	}
 }
 
@@ -448,12 +466,13 @@
 		background-color: #060e23;
 		transform: translateX(100%);
 		@extend %transition;
+
 		.on & {
 			transform: translateX(0);
 		}
 	}
 
-	
+
 
 	// .left_menu_title
 	&_title {

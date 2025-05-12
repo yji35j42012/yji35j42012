@@ -13,6 +13,10 @@ body {
 	background-color: map-get($dark_color , bodybg);
 }
 
+.ios_scroll body {
+	height: auto;
+}
+
 a {
 	text-decoration: none;
 }
