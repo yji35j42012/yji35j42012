@@ -115,11 +115,11 @@
 					var lastScrollTop = 0;
 					console.log('scroll');
 					if (currentScroll > lastScrollTop && window.scrollY > 56) {
-						scroll_body.classList.add("hide")
+						scroll_body.classList.add("hide");
 					} else if (currentScroll < lastScrollTop) {
 						// 使用者往上滑
 						console.log("Scrolling up");
-						scroll_body.classList.remove("hide")
+						scroll_body.classList.remove("hide");
 					}
 					lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // 為了避免負值
 				}
