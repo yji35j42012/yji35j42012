@@ -76,14 +76,21 @@
 					nowPage: "",
 					title: 'alex',
 					icon_all: icon_all,
+					lastScrollTop: 0,
+					isMobile: false
 				}
 			},
+
 			mounted() {
 				let scroll_html = document.querySelector("html");
 				if (/Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 					scroll_html.classList.add("ios_scroll");
+					this.isMobile = true;
+				} else {
+					this.isMobile = false;
 				}
-				window.addEventListener('scroll', this.scrollHandler);
+				window.addEventListener('scroll', this.scrollHandler, { passive: true });
+
 			},
 			watch: {
 				$route(to, from) {
@@ -110,18 +117,25 @@
 			},
 			methods: {
 				scrollHandler() {
-					const currentScroll = window.scrollY || document.documentElement.scrollTop;
-					let scroll_body = document.querySelector("body");
-					var lastScrollTop = 0;
-					console.log('scroll');
-					if (currentScroll > lastScrollTop && window.scrollY > 56) {
-						scroll_body.classList.add("hide");
-					} else if (currentScroll < lastScrollTop) {
-						// 使用者往上滑
-						console.log("Scrolling up");
+					var clientHeight = window.innerHeight
+					// 取得目前的捲動位置
+					const scrollTop = window.scrollY || document.documentElement.scrollTop;
+					var scroll_html = document.querySelector("#scroll_html");
+					var scroll_body = document.querySelector("#scroll_body");
+					const docHeight = document.documentElement.scrollHeight;
+					var totalHeight = scroll_html.scrollHeight;
+					// console.log('docHeight', docHeight);
+					if (scrollTop > this.lastScrollTop) {
+						// 如果目前 scrollTop 大於上一次，表示往下滑
+						if (window.scrollY > 56) {
+							scroll_body.classList.add("hide");
+						}
+					} else if (scrollTop < this.lastScrollTop) {
+						// 如果目前 scrollTop 小於上一次，表示往上滑
 						scroll_body.classList.remove("hide");
 					}
-					lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // 為了避免負值
+					// 更新 this.lastScrollTop，準備下一次比較
+					this.lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // 防止負值
 				}
 			}
 		});

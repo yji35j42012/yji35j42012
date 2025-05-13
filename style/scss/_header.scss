@@ -68,6 +68,7 @@
 		width: 56px;
 		height: 48px;
 		fill: map-get($dark_color , headerBtn_txt);
+		@extend %hand;
 
 		@include hv {
 			color: map-get($dark_color , headerBtn_txt_hv);

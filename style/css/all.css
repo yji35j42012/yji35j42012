@@ -36,12 +36,12 @@ a {
     border-radius: 20px;
   }
 }
-.sportBtn_group_item, .header_link, .acc_info_money, .acc_eyes, .icon_close, .sportBody .icon_heart, .sportBody_title, .sportHead_tab_item, .sportHead_title_txt .league, .icon_back,
+.sportBtn_group_item, .header_menuBtn, .header_link, .acc_info_money, .acc_eyes, .icon_close, .sportBody .icon_heart, .sportBody_title, .sportHead_tab_item, .sportHead_title_txt .league, .icon_back,
 .icon_reload {
   cursor: pointer;
 }
 
-.header, .acc_eyes, .icon_close, .left_menu_box, .bottom_menu, .content, .normal_btn {
+.header, .acc_eyes, .icon_close, .left_menu_box, .hide .bottom_menu, .content, .normal_btn {
   transition: 0.3s ease;
 }
 
@@ -453,6 +453,7 @@ a {
 }
 
 .left_menu {
+  z-index: 2;
   position: fixed;
   top: 0;
   left: 0;

@@ -419,7 +419,7 @@
 	width: 100vw;
 	min-height: 58px;
 	background-color: #1e2841;
-	@extend %transition;
+
 
 	@include mw(L) {
 		display: block;
@@ -427,6 +427,7 @@
 
 	.hide & {
 		bottom: -58px;
+		@extend %transition;
 	}
 }
 
@@ -445,6 +446,7 @@
 }
 
 .left_menu {
+	z-index: 2;
 	position: fixed;
 	top: 0;
 	left: 0;
