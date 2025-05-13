@@ -113,7 +113,10 @@
 			padding: 3px 0;
 			border-radius: 2px;
 			z-index: 0;
-			cursor: pointer;
+			color: #30dff2;
+			fill: rgba(48, 223, 242, .2);
+			@extend %hand;
+			@extend %transition;
 
 			span {
 				overflow: hidden;
@@ -129,6 +132,18 @@
 				text-overflow: ellipsis;
 				white-space: nowrap;
 			}
+
+			@include hv {
+				background-color: #62c4d9;
+				color: #ffffff;
+				fill: #ffffff;
+			}
+
+			@include ac {
+				background-color: #30dff2;
+				color: #ffffff;
+				fill: #ffffff;
+			}
 		}
 
 		// .home_sport_num
@@ -137,7 +152,6 @@
 			font-size: 20px;
 			line-height: 16px;
 			font-weight: 700;
-			color: #30dff2;
 
 			.icon_homearr {
 				display: block;
@@ -145,7 +159,6 @@
 				height: 8px;
 				margin-right: 6px;
 				margin-left: 4px;
-				fill: rgba(48, 223, 242, .2);
 			}
 		}
 	}

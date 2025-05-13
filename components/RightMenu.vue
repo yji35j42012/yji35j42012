@@ -1,12 +1,17 @@
 <style scoped></style>
 
 <template>
-	<div :class="['left_menu', isShowMenu ? 'on' : '']">
-		<div class="mask" @click="closeLeftMenu"></div>
-		<div class="left_menu_box">
-			<div class="left_menu_title">
+	<div :class="['right_menu', isShowMenu ? 'on' : '']">
+		<div class="mask" @click="closeRightMenu"></div>
+		<div class="right_menu_box">
+			<div class="right_menu_title">
 				<acc-component></acc-component>
-				<i class="icon_close" v-html="icon_all.icon_close" @click="closeLeftMenu"></i>
+				<i class="icon_close" v-html="icon_all.icon_close" @click="closeRightMenu"></i>
+			</div>
+			<div class="right_menu_content">
+				<div class="right_menu_item"></div>
+				<div class="right_menu_item"></div>
+				<div class="right_menu_item"></div>
 			</div>
 		</div>
 	</div>
@@ -34,7 +39,7 @@ module.exports = {
 		'acc-component': Vue.defineAsyncComponent(() => loadModule('./components/AccComponent.vue', options)),
 	},
 	methods: {
-		closeLeftMenu() {
+		closeRightMenu() {
 			this.$store.dispatch('SET_MENU', false);
 		}
 	},
