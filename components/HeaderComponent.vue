@@ -52,7 +52,7 @@ module.exports = {
 			else if (p == 'hot') { this.$router.push("/" + p); }
 			else { this.$router.push("/" + p + "/" + sport); }
 		},
-		menuHandler(){
+		menuHandler() {
 			this.$store.dispatch('SET_MENU', true);
 		}
 	},

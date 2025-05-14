@@ -3,11 +3,10 @@
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Alex</title>
 	<link rel="stylesheet" href="./style/css/all.css">
-
 </head>
 
 <body id="scroll_body">
@@ -64,6 +63,7 @@
 			{ path: '/tv', component: () => loadModule('./page/tv.vue', options), },
 			{ path: '/history', component: () => loadModule('./page/history.vue', options), },
 			{ path: '/todaywagers', component: () => loadModule('./page/todaywagers.vue', options), },
+			{ path: '/rule', component: () => loadModule('./page/rule.vue', options), },
 		];
 		const router = VueRouter.createRouter({
 			history: VueRouter.createWebHistory('#'),
@@ -77,7 +77,8 @@
 					title: 'alex',
 					icon_all: icon_all,
 					lastScrollTop: 0,
-					isMobile: false
+					isMobile: false,
+					isScrollBottom: false,
 				}
 			},
 
@@ -90,7 +91,19 @@
 					this.isMobile = false;
 				}
 				window.addEventListener('scroll', this.scrollHandler, { passive: true });
-
+				document.addEventListener('touchstart', (event) => {
+					if (event.touches && event.touches.length > 1) {  // 禁止多指觸控
+						event.preventDefault();
+					}
+				}, { passive: false });
+				let lastTouchEndTime = 0;
+				document.addEventListener('touchend', (event) => {
+					const now = new Date().getTime();
+					if ((now - lastTouchEndTime) <= 300) {      // 偵測時間差是否小於 300ms
+						event.preventDefault();
+					}
+					lastTouchEndTime = now;
+				}, false);
 			},
 			watch: {
 				$route(to, from) {
@@ -124,7 +137,11 @@
 					var scroll_body = document.querySelector("#scroll_body");
 					const docHeight = document.documentElement.scrollHeight;
 					var totalHeight = scroll_html.scrollHeight;
-					// console.log('docHeight', docHeight);
+					if (scrollTop + clientHeight >= totalHeight) {
+						this.isScrollBottom = true
+					} else if (this.isScrollBottom) {
+						this.isScrollBottom = false
+					}
 					if (scrollTop > this.lastScrollTop) {
 						// 如果目前 scrollTop 大於上一次，表示往下滑
 						if (window.scrollY > 56) {
@@ -132,11 +149,14 @@
 						}
 					} else if (scrollTop < this.lastScrollTop) {
 						// 如果目前 scrollTop 小於上一次，表示往上滑
+						if (this.isScrollBottom) {
+							return
+						}
 						scroll_body.classList.remove("hide");
 					}
 					// 更新 this.lastScrollTop，準備下一次比較
 					this.lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // 防止負值
-				}
+				},
 			}
 		});
 		app.use(router);

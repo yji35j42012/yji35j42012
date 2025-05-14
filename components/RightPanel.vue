@@ -2,7 +2,7 @@
 
 <template>
 	<div class="content_r">
-		<div class="marquee">
+		<div class="marquee" style="display: none;">
 			<i class="icon_msg" v-html="icon_all.icon_msg"></i>
 			<marquee scrollamount="5" direction="left" class="marquee_box">
 				<span>hahaha</span>

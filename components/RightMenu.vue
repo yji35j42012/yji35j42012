@@ -9,7 +9,11 @@
 				<i class="icon_close" v-html="icon_all.icon_close" @click="closeRightMenu"></i>
 			</div>
 			<div class="right_menu_content">
-				<div class="right_menu_item"></div>
+				<div class="right_menu_txt">支援</div>
+				<div class="right_menu_item" @click="page('rule')">
+					<i class="right_menu_icon" v-html="icon_all.icon_rule"></i>
+					<span>體育玩法規則</span>
+				</div>
 				<div class="right_menu_item"></div>
 				<div class="right_menu_item"></div>
 			</div>
@@ -41,6 +45,10 @@ module.exports = {
 	methods: {
 		closeRightMenu() {
 			this.$store.dispatch('SET_MENU', false);
+		},
+		page(p) {
+			this.$store.dispatch('SET_MENU', false);
+			this.$router.push("/" + p);
 		}
 	},
 }

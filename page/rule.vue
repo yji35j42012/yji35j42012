@@ -1,7 +1,7 @@
 <style scoped></style>
 
 <template>
-	<no-data></no-data>
+<div class="page_title"></div>
 </template>
 
 <script>
@@ -10,7 +10,6 @@ module.exports = {
 		return {}
 	},
 	components: {
-		'no-data': Vue.defineAsyncComponent(() => loadModule('./components/NoData.vue', options)),
 	},
 	computed: {},
 	methods: {},
