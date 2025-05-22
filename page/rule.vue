@@ -13,10 +13,13 @@ module.exports = {
 	data() {
 		return {
 			icon_all: icon_all,
-			select_group: [
-				{ select_id: 0, select_title: "一般體育說明", },
-				{ select_id: 1, select_title: "冠軍", },
-			]
+			select_group: {
+				title: "選擇體育項目",
+				lists: [
+					{ select_id: 0, select_title: "一般體育說明", },
+					{ select_id: 1, select_title: "冠軍", },
+				]
+			}
 		}
 	},
 	components: {

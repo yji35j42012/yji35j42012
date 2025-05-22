@@ -2,14 +2,14 @@
 
 <template>
 	<div class="normal_select">
-		<div class="normal_select_title">選擇體育項目</div>
+		<div class="normal_select_title" v-if="this.$props.SelectGroup.title !== null">
+			{{ this.$props.SelectGroup.title }}
+		</div>
 		<label class="normal_select_box">
 			<i class="icon_arr" v-html="icon_all.icon_arr"></i>
 			<div class="normal_select_txt" @click="selHandler">{{ select_txt }}</div>
 			<ul :class="['normal_select_ul', isShow ? 'on' : '']">
-				<!-- <li class="normal_select_li on" id="pc_general">一般體育說明</li>
-				<li class="normal_select_li" id="pc_outright">冠軍</li> -->
-				<li class="normal_select_li" v-for="item in SelectGroup" :key="item.select_id"
+				<li class="normal_select_li" v-for="item in SelectGroup.lists" :key="item.select_id"
 					@click="itemHandler(item)">
 					{{ item.select_title }}
 				</li>
@@ -29,8 +29,7 @@ module.exports = {
 	},
 	props: ['SelectGroup'],
 	mounted() {
-		console.log("收到的 products:", this.$props.SelectGroup);
-		this.select_txt = this.$props.SelectGroup[0].select_title
+		this.select_txt = this.$props.SelectGroup.lists[0].select_title
 	},
 	computed: {},
 	methods: {
@@ -46,8 +45,7 @@ module.exports = {
 			}
 		},
 		itemHandler(str) {
-			console.log('str', str);
-			console.log('props', this.$props.SelectGroup);
+			this.select_txt = str.select_title
 		}
 	},
 }
