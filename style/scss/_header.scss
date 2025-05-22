@@ -58,7 +58,7 @@
 	// .header_info
 	&_info {
 		flex: none;
-		@include d_f(flex);
+		@include d_f(flex,none,center);
 	}
 
 	// .header_menuBtn

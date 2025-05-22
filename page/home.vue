@@ -36,7 +36,7 @@ module.exports = {
 				vf: { title_id: 1, ft: true, tt: false, },
 				today: { title_id: 2, ft: false, tt: true, },
 				early: { title_id: 3, ft: false, tt: false, },
-			}
+			},
 		}
 	},
 	components: {

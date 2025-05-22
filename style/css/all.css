@@ -37,7 +37,7 @@ a {
     border-radius: 20px;
   }
 }
-.sportBtn_group_item, .home_sport_new, .header_menuBtn, .header_link, .acc_info_money, .acc_eyes, .icon_close, .sportBody .icon_heart, .sportBody_title, .sportHead_tab_item, .sportHead_title_txt .league, .icon_back,
+.sportBtn_group_item, .home_sport_new, .header_menuBtn, .header_link, .normal_select_txt, .normal_select_li, .acc_info_money, .acc_eyes, .icon_close, .sportBody .icon_heart, .sportBody_title, .sportHead_tab_item, .sportHead_title_txt .league, .icon_back,
 .icon_reload {
   cursor: pointer;
 }
@@ -141,10 +141,10 @@ a {
 
 .icon_back,
 .icon_reload {
+  flex: none;
   display: block;
   width: 32px;
   height: 32px;
-  padding: 8px;
   fill: #fff;
 }
 @media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
@@ -156,6 +156,15 @@ a {
 .icon_back:active,
 .icon_reload:active {
   background-color: rgba(255, 255, 255, 0.45);
+}
+.icon_back svg,
+.icon_reload svg {
+  width: 100%;
+  height: 100%;
+}
+
+.icon_reload {
+  padding: 8px;
 }
 
 .selectBox {
@@ -594,6 +603,10 @@ a {
 .acc_eyes._off {
   background-image: url("../../images/icon_noeye.svg");
 }
+.header_info .acc_eyes {
+  width: 32px;
+  height: 32px;
+}
 .acc_info {
   width: 100%;
 }
@@ -603,6 +616,9 @@ a {
   line-height: 16px;
   font-size: 14px;
   color: #fff;
+}
+.header_info .acc_info_name {
+  display: none;
 }
 .acc_info_money {
   display: block;
@@ -614,6 +630,89 @@ a {
 .acc_info_money:after {
   content: attr(data-currency);
   margin-left: 4px;
+}
+
+.normal_select {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 650px;
+  margin: auto;
+  color: #fff;
+}
+.normal_select .icon_arr {
+  pointer-events: none;
+}
+.normal_select_box {
+  position: relative;
+  border-radius: 3px;
+}
+.normal_select_title {
+  height: 20px;
+  margin: 0 0 12px 0;
+  line-height: 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.normal_select_ul {
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  max-height: 616px;
+  padding: 8px 0;
+  border-radius: 4px;
+  background-color: #262f41;
+  color: #ffffff;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.24);
+  visibility: hidden;
+  transform-origin: 10% 10%;
+  transform: scale(0.35, 0.35);
+  opacity: 0;
+  transition: opacity 121ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 187ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, visibility 187ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+.normal_select_ul.on {
+  visibility: visible;
+  transform: scale(1, 1);
+  opacity: 1;
+  z-index: 1;
+}
+.normal_select_li {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 4px 48px 4px 16px;
+  font-size: 14px;
+}
+@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+  .normal_select_li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+.normal_select_li:active {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #30dff2;
+}
+.normal_select_li.on {
+  color: #30dff2;
+}
+.normal_select_txt {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 48px;
+  padding: 4px 32px 4px 16px;
+  background-color: #262f41;
+  color: #ffffff;
+  border-radius: 3px;
+}
+@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+  .normal_select_txt:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
 }
 
 .icon_home {
@@ -695,8 +794,7 @@ a {
 .header_info {
   flex: none;
   display: flex;
-  justify-content: flex-start;
-  align-items: stretch;
+  align-items: center;
 }
 .header_menuBtn {
   flex: none;
@@ -990,4 +1088,8 @@ a {
   max-width: 480px;
   padding-bottom: 75%;
   opacity: 0;
+}
+
+.rule .icon_reload {
+  display: none;
 }/*# sourceMappingURL=all.css.map */

@@ -90,10 +90,10 @@
 
 .icon_back,
 .icon_reload {
+	flex: none;
 	display: block;
 	width: 32px;
 	height: 32px;
-	padding: 8px;
 	fill: #fff;
 	@extend %hand;
 
@@ -104,6 +104,15 @@
 	@include ac {
 		background-color: rgba(255, 255, 255, 0.45);
 	}
+
+	svg {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.icon_reload {
+	padding: 8px;
 }
 
 .selectBox {
@@ -125,7 +134,6 @@
 
 	// .selectBox_date
 	// .selectBox_tool
-
 	// .selectBox_title
 	&_title {
 		padding: 0 16px;
@@ -610,6 +618,11 @@
 		&._off {
 			background-image: url("../../images/icon_noeye.svg");
 		}
+
+		.header_info & {
+			width: 32px;
+			height: 32px;
+		}
 	}
 
 	// .acc_info
@@ -623,6 +636,10 @@
 			line-height: 16px;
 			font-size: 14px;
 			color: #fff;
+
+			.header_info & {
+				display: none;
+			}
 		}
 
 		// .acc_info_money
@@ -638,6 +655,101 @@
 				content: attr(data-currency);
 				margin-left: 4px;
 			}
+		}
+	}
+}
+
+.normal_select {
+	position: relative;
+	display: block;
+	width: 100%;
+	max-width: 650px;
+	margin: auto;
+	color: #fff;
+
+	.icon_arr {
+		pointer-events: none;
+	}
+
+	// .normal_select_box
+	&_box {
+		position: relative;
+		border-radius: 3px;
+	}
+
+	// .normal_select_title
+	&_title {
+		height: 20px;
+		margin: 0 0 12px 0;
+		line-height: 20px;
+		font-size: 14px;
+		font-weight: 600;
+	}
+
+	// .normal_select_ul
+	&_ul {
+		overflow-x: hidden;
+		overflow-y: auto;
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: block;
+		width: 100%;
+		max-height: 616px;
+		padding: 8px 0;
+		border-radius: 4px;
+		background-color: #262f41;
+		color: #ffffff;
+		box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.24);
+		visibility: hidden;
+		transform-origin: 10% 10%;
+		transform: scale(0.35, 0.35);
+		opacity: 0;
+		transition: opacity 121ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 187ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, visibility 187ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
+		&.on {
+			visibility: visible;
+			transform: scale(1, 1);
+			opacity: 1;
+			z-index: 1;
+		}
+	}
+
+	// .normal_select_li
+	&_li {
+		@include d_f(flex, none, center);
+		height: 40px;
+		padding: 4px 48px 4px 16px;
+		font-size: 14px;
+		@extend %hand;
+
+		@include hv {
+			background-color: rgba(255, 255, 255, .1);
+		}
+
+		@include ac {
+			background-color: rgba(255, 255, 255, .1);
+			color: #30dff2;
+		}
+
+		&.on {
+			color: #30dff2;
+		}
+	}
+
+	// .normal_select_txt
+	&_txt {
+		@include d_f(flex, none, center);
+		width: 100%;
+		height: 48px;
+		padding: 4px 32px 4px 16px;
+		background-color: #262f41;
+		color: #ffffff;
+		border-radius: 3px;
+		@extend %hand;
+
+		@include hv {
+			background-color: rgba(255, 255, 255, .1);
 		}
 	}
 }

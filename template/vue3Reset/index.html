@@ -12,6 +12,11 @@
 		<p>Count: {{ count }}</p>
 		<button @click="increment">Increment</button>
 		<button @click="decrement">Decrement</button>
+
+		<ul class="product">
+			<props-li :products="productGroup"></props-li>
+		</ul>
+
 	</div>
 	<script src="https://unpkg.com/vue@latest"></script>
 	<script src="./js/libs/vue3-sfc-loader.js"></script>
@@ -20,28 +25,28 @@
 	<script src="./store/store.js"></script>
 	<script>
 
-		const options={
+		const options = {
 			moduleCache: {
 				vue: Vue
 			},
 			async getFile(url) {
-				const res=await fetch(url);
+				const res = await fetch(url);
 				if (!res.ok)
-					throw Object.assign(new Error(res.statusText+' '+url), { res });
+					throw Object.assign(new Error(res.statusText + ' ' + url), { res });
 				return {
-					getContentData: asBinary => asBinary? res.arrayBuffer():res.text(),
+					getContentData: asBinary => asBinary ? res.arrayBuffer() : res.text(),
 				}
 			},
 			addStyle(textContent) {
-				const style=Object.assign(document.createElement('style'), { textContent });
-				const ref=document.head.getElementsByTagName('style')[0]||null;
+				const style = Object.assign(document.createElement('style'), { textContent });
+				const ref = document.head.getElementsByTagName('style')[0] || null;
 				document.head.insertBefore(style, ref);
 			},
 		}
 
-		const { loadModule }=window['vue3-sfc-loader'];
+		const { loadModule } = window['vue3-sfc-loader'];
 
-		const routes=[
+		const routes = [
 			{
 				path: '/',
 				component: () => loadModule('./page/home.vue', options),
@@ -51,15 +56,25 @@
 				component: () => loadModule('./page/about.vue', options),
 			},
 		];
-		const router=VueRouter.createRouter({
+		const router = VueRouter.createRouter({
 			history: VueRouter.createWebHistory(''),
 			routes
 		})
 
-		const app=Vue.createApp({
+		const app = Vue.createApp({
+			data() {
+				return {
+					productGroup: [
+						{ product_id: 1, product_name: "三明治" },
+						{ product_id: 2, product_name: "漢堡" },
+					]
+				}
+			},
 			components: {
-				'my-component': Vue.defineAsyncComponent(() => loadModule('./components/UserComponent.vue', options))
-			}, computed: {
+				'my-component': Vue.defineAsyncComponent(() => loadModule('./components/UserComponent.vue', options)),
+				'props-li': Vue.defineAsyncComponent(() => loadModule('./components/PropsLi.vue', options)),
+			},
+			computed: {
 				count() {
 					return this.$store.state.count;
 				},

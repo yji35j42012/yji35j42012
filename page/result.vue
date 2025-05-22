@@ -1,11 +1,7 @@
 <style scoped></style>
 
 <template>
-	<div class="sportTitle">
-		<i class="icon_back" v-html="icon_all.icon_back"></i>
-		<span>賽果</span>
-		<i class="icon_reload" v-html="icon_all.icon_reload"></i>
-	</div>
+	<sport-title msg="賽果"></sport-title>
 	<div class="selectBox">
 		<div class="selectBox_date">
 			<i class="icon_arr" v-html="icon_all.icon_arr"></i>
@@ -30,6 +26,9 @@ module.exports = {
 		}
 	},
 	computed: {},
+	components: {
+		'sport-title': Vue.defineAsyncComponent(() => loadModule('./components/SportTitle.vue', options)),
+	},
 	methods: {},
 }
 </script>
