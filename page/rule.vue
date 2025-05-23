@@ -3,8 +3,10 @@
 <template>
 	<div class="rule">
 		<sport-title msg="體育玩法規則"></sport-title>
-		<select-component :SelectGroup="select_group"></select-component>
-		<div class="rule_content"></div>
+		<select-component :SelectGroup="select_group" @return-sel="returnSel"></select-component>
+		<div class="rule_content">
+			<router-view></router-view>
+		</div>
 	</div>
 </template>
 
@@ -16,8 +18,8 @@ module.exports = {
 			select_group: {
 				title: "選擇體育項目",
 				lists: [
-					{ select_id: 0, select_title: "一般體育說明", },
-					{ select_id: 1, select_title: "冠軍", },
+					{ select_id: 0, select_title: "一般體育說明", select_view: "general" },
+					{ select_id: 1, select_title: "冠軍", select_view: "outright" },
 				]
 			}
 		}
@@ -27,6 +29,10 @@ module.exports = {
 		'select-component': Vue.defineAsyncComponent(() => loadModule('./components/SelectComponent.vue', options)),
 	},
 	computed: {},
-	methods: {},
+	methods: {
+		returnSel(r) {
+			this.$router.push("/rule/" + r.select_view);
+		}
+	},
 }
 </script>

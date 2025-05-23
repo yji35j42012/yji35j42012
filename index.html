@@ -63,7 +63,16 @@
 			{ path: '/tv', component: () => loadModule('./page/tv.vue', options), },
 			{ path: '/history', component: () => loadModule('./page/history.vue', options), },
 			{ path: '/todaywagers', component: () => loadModule('./page/todaywagers.vue', options), },
-			{ path: '/rule', component: () => loadModule('./page/rule.vue', options), },
+			{
+				path: '/rule/',
+				component: () => loadModule('./page/rule.vue', options),
+				children: [
+					{ path: '', component: () => loadModule('./components/rule/RuleGeneral.vue', options) },
+					{ path: 'general', component: () => loadModule('./components/rule/RuleGeneral.vue', options) },
+					{ path: 'outright', component: () => loadModule('./components/rule/RuleOutright.vue', options) },
+				]
+
+			},
 		];
 		const router = VueRouter.createRouter({
 			history: VueRouter.createWebHistory('#'),
@@ -138,9 +147,9 @@
 					const docHeight = document.documentElement.scrollHeight;
 					var totalHeight = scroll_html.scrollHeight;
 					if (scrollTop + clientHeight >= totalHeight) {
-						this.isScrollBottom = true
+						this.isScrollBottom = true;
 					} else if (this.isScrollBottom) {
-						this.isScrollBottom = false
+						this.isScrollBottom = false;
 					}
 					if (scrollTop > this.lastScrollTop) {
 						// 如果目前 scrollTop 大於上一次，表示往下滑
@@ -150,7 +159,7 @@
 					} else if (scrollTop < this.lastScrollTop) {
 						// 如果目前 scrollTop 小於上一次，表示往上滑
 						if (this.isScrollBottom) {
-							return
+							return;
 						}
 						scroll_body.classList.remove("hide");
 					}

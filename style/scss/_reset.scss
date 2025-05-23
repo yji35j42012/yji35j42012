@@ -12,6 +12,7 @@ body {
 	height: 100%;
 	background-color: map-get($dark_color , bodybg);
 	touch-action: manipulation;
+	font-size: 14px;
 }
 
 .ios_scroll body {

@@ -4,9 +4,9 @@
 	<div class="content_r">
 		<div class="marquee" style="display: none;">
 			<i class="icon_msg" v-html="icon_all.icon_msg"></i>
-			<marquee scrollamount="5" direction="left" class="marquee_box">
+			<!-- <marquee scrollamount="5" direction="left" class="marquee_box">
 				<span>hahaha</span>
-			</marquee>
+			</marquee> -->
 		</div>
 
 		<div class="ad">

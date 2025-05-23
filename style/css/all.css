@@ -12,6 +12,7 @@ body {
   height: 100%;
   background-color: #060e23;
   touch-action: manipulation;
+  font-size: 14px;
 }
 
 .ios_scroll body {
@@ -1092,4 +1093,67 @@ a {
 
 .rule .icon_reload {
   display: none;
+}
+.rule_content {
+  max-width: 650px;
+  margin: 24px auto 0;
+  padding: 0 0 8px 0;
+  color: #fff;
+  text-align: justify;
+}
+.rule_title {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 16px;
+}
+.rule_title_sec {
+  margin-bottom: 12px;
+  line-height: 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.rule_date {
+  display: block;
+  margin-bottom: 14px;
+  line-height: 17px;
+  font-size: 12px;
+  color: #75829B;
+}
+.rule_txt {
+  font-size: 14px;
+  text-align: justify;
+}
+.rule_ul {
+  margin: 16px 0;
+  font-size: 14px;
+}
+.rule_ul > li {
+  list-style: decimal inside;
+  text-transform: none;
+}
+.rule_ul > li li {
+  margin-left: 2rem;
+  margin-bottom: 14px;
+  list-style-position: outside;
+}
+.rule_ul .list_none {
+  display: block;
+  margin-left: 0;
+  list-style-type: none;
+}
+.rule_subtitle {
+  margin: 16px 0;
+}
+.rule_ol {
+  display: block;
+  margin: 16px 0;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.rule_ol > li {
+  margin-bottom: 14px;
+  list-style-type: upper-alpha;
+  text-transform: none;
 }/*# sourceMappingURL=all.css.map */
