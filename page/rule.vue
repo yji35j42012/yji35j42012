@@ -20,6 +20,7 @@ module.exports = {
 				lists: [
 					{ select_id: 0, select_title: "一般體育說明", select_view: "general" },
 					{ select_id: 1, select_title: "冠軍", select_view: "outright" },
+					{ select_id: 2, select_title: "足球", select_view: "ft" },
 				]
 			}
 		}

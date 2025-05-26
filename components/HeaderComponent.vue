@@ -1,7 +1,7 @@
 <style scoped></style>
 
 <template>
-	<div class="header">
+	<div id="header" class="header">
 		<div :class="['header_link _home', r_sport_type == '' ? 'on' : '']" @click="page('')">
 			<i class="icon_home" v-html="icon_all.home"></i>
 		</div>

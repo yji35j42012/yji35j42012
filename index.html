@@ -13,7 +13,7 @@
 	<div id="app" class="wrap">
 		<header-component></header-component>
 		<div :class="['content',nowPage]">
-			<div class="content_l">
+			<div id="content_l" class="content_l">
 				<router-view></router-view>
 			</div>
 			<right-panel></right-panel>
@@ -70,6 +70,7 @@
 					{ path: '', component: () => loadModule('./components/rule/RuleGeneral.vue', options) },
 					{ path: 'general', component: () => loadModule('./components/rule/RuleGeneral.vue', options) },
 					{ path: 'outright', component: () => loadModule('./components/rule/RuleOutright.vue', options) },
+					{ path: 'ft', component: () => loadModule('./components/rule/RuleFootball.vue', options) },
 				]
 
 			},
@@ -139,7 +140,7 @@
 			},
 			methods: {
 				scrollHandler() {
-					var clientHeight = window.innerHeight
+					var clientHeight = window.innerHeight;
 					// 取得目前的捲動位置
 					const scrollTop = window.scrollY || document.documentElement.scrollTop;
 					var scroll_html = document.querySelector("#scroll_html");

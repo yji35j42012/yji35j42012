@@ -106,6 +106,11 @@ a {
 .home .content_l {
   padding-top: 16px;
 }
+@media screen and (max-width: 1023px) {
+  .content_l {
+    overflow: hidden;
+  }
+}
 .content_r {
   overflow-x: hidden;
   overflow-y: auto;
@@ -1108,7 +1113,13 @@ a {
   font-weight: bold;
   line-height: 16px;
 }
-.rule_title_sec {
+.rule_h2 {
+  margin-bottom: 12px;
+  line-height: 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.rule_h3 {
   margin-bottom: 12px;
   line-height: 20px;
   font-size: 14px;
@@ -1125,35 +1136,62 @@ a {
   font-size: 14px;
   text-align: justify;
 }
-.rule_ul {
-  margin: 16px 0;
-  font-size: 14px;
-}
-.rule_ul > li {
-  list-style: decimal inside;
-  text-transform: none;
-}
-.rule_ul > li li {
-  margin-left: 2rem;
-  margin-bottom: 14px;
-  list-style-position: outside;
-}
-.rule_ul .list_none {
-  display: block;
-  margin-left: 0;
-  list-style-type: none;
-}
 .rule_subtitle {
   margin: 16px 0;
 }
-.rule_ol {
+.rule_ul {
   display: block;
   margin: 16px 0;
   font-size: 14px;
   text-transform: uppercase;
 }
-.rule_ol > li {
+.rule_ul + .rule_h2 {
+  margin-top: 3rem;
+}
+.rule_ul_sec {
+  display: block;
+  margin: 16px 0;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.rule_li {
+  margin-left: 2rem;
+  font-size: 14px;
+  list-style-type: decimal;
+  text-transform: none;
+}
+.rule_li_sec {
+  margin-left: 2rem;
   margin-bottom: 14px;
   list-style-type: upper-alpha;
   text-transform: none;
+  font-size: 14px;
+}
+.rule_menu {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 100%;
+  margin: 16px 0 8px 0;
+  flex-wrap: wrap;
+}
+.rule_menu_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc((100% - 16px) / 3);
+  height: 48px;
+  margin: 0 8px 8px 0;
+  padding: 4px 8px;
+  text-align: center;
+  font-size: 12px;
+  border-radius: 4px;
+  background-color: #1e2841;
+  color: #ffffff;
+}
+.rule_menu_btn:nth-child(3n+3) {
+  margin-right: 0;
+}
+.rule_menu_btn:active {
+  background-color: #131a2a;
 }/*# sourceMappingURL=all.css.map */

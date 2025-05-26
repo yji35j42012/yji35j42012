@@ -19,14 +19,22 @@
 		font-size: 16px;
 		font-weight: bold;
 		line-height: 16px;
+	}
 
-		// .rule_title_sec
-		&_sec {
-			margin-bottom: 12px;
-			line-height: 20px;
-			font-size: 14px;
-			font-weight: 600;
-		}
+	// .rule_h2
+	&_h2 {
+		margin-bottom: 12px;
+		line-height: 20px;
+		font-size: 14px;
+		font-weight: 600;
+	}
+
+	// .rule_h3
+	&_h3 {
+		margin-bottom: 12px;
+		line-height: 20px;
+		font-size: 14px;
+		font-weight: 600;
 	}
 
 	// .rule_date
@@ -44,45 +52,112 @@
 		text-align: justify;
 	}
 
-	// .rule_ul
-	&_ul {
-		margin: 16px 0;
-		font-size: 14px;
-
-		>li {
-			list-style: decimal inside;
-			text-transform: none;
-
-			li {
-				margin-left: 2rem;
-				margin-bottom: 14px;
-				list-style-position: outside;
-			}
-		}
-
-		.list_none {
-			display: block;
-			margin-left: 0;
-			list-style-type: none;
-		}
-	}
-
 	// .rule_subtitle
 	&_subtitle {
 		margin: 16px 0;
 	}
 
-	// .rule_ol
-	&_ol {
+
+	// .rule_ul
+	&_ul {
 		display: block;
 		margin: 16px 0;
 		font-size: 14px;
 		text-transform: uppercase;
 
-		>li {
+		&+.rule_h2 {
+			margin-top: 3rem;
+		}
+
+		// .rule_ul_sec
+		&_sec {
+			display: block;
+			margin: 16px 0;
+			font-size: 14px;
+			text-transform: uppercase;
+		}
+	}
+
+	// .rule_li
+	&_li {
+		margin-left: 2rem;
+		font-size: 14px;
+		list-style-type: decimal;
+		text-transform: none;
+
+		// .rule_li_sec
+		&_sec {
+			margin-left: 2rem;
 			margin-bottom: 14px;
 			list-style-type: upper-alpha;
 			text-transform: none;
+			font-size: 14px;
+		}
+	}
+
+	// &_ul {
+	// 	margin: 16px 0;
+	// 	font-size: 14px;
+
+	// 	>li {
+	// 		list-style: decimal inside;
+	// 		text-transform: none;
+
+	// 		li {
+	// 			margin-left: 2rem;
+	// 			margin-bottom: 14px;
+	// 			list-style-position: outside;
+	// 		}
+	// 	}
+
+	// 	.list_none {
+	// 		display: block;
+	// 		margin-left: 0;
+	// 		list-style-type: none;
+	// 	}
+	// }
+
+	// .rule_ol
+	// &_ol {
+	// 	display: block;
+	// 	margin: 16px 0;
+	// 	font-size: 14px;
+	// 	text-transform: uppercase;
+
+	// 	>li {
+	// 		margin-bottom: 14px;
+	// 		list-style-type: upper-alpha;
+	// 		text-transform: none;
+	// 	}
+	// }
+
+	// .rule_menu
+	&_menu {
+		@include d_f(flex);
+		width: 100%;
+		margin: 16px 0 8px 0;
+		flex-wrap: wrap;
+
+		// .rule_menu_btn
+		&_btn {
+			@include d_f(flex, center, center);
+			width: calc((100% - 16px) / 3);
+			height: 48px;
+			margin: 0 8px 8px 0;
+			padding: 4px 8px;
+			text-align: center;
+			font-size: 12px;
+			border-radius: 4px;
+			background-color: #1e2841;
+			color: #ffffff;
+
+			&:nth-child(3n+3) {
+				margin-right: 0;
+			}
+
+			@include ac {
+				background-color: #131a2a;
+			}
 		}
 	}
 }
