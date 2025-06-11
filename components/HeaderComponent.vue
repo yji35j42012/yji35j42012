@@ -6,6 +6,7 @@
 			<i class="icon_home" v-html="icon_all.home"></i>
 		</div>
 		<div class="header_menu">
+			<div :class="['header_link', r_sport_type == 'sudoku' ? 'on' : '']" @click="page('sudoku')">數獨</div>
 			<div :class="['header_link', r_sport_type == 'live' ? 'on' : '']" @click="page('live')">滾球</div>
 			<div :class="['header_link', r_sport_type == 'soon' ? 'on' : '']" @click="page('soon')">即將開賽</div>
 			<div :class="['header_link', r_sport_type == 'hot' ? 'on' : '']" @click="page('hot')">熱門</div>
@@ -56,6 +57,7 @@ module.exports = {
 				}
 			});
 			if (p == '') { this.$router.push("/"); }
+			else if (p == 'sudoku') { this.$router.push("/sudoku"); }
 			else if (sport == null) { this.$router.push("/" + p + "/ft"); }
 			else if (p == 'result') { this.$router.push("/" + p); }
 			else if (p == 'tv') { this.$router.push("/" + p); }
