@@ -65,10 +65,12 @@
 		<li class="rule_li">{{ rule_data.rule_h2b_h3f1 }}</li>
 		<li class="rule_li">{{ rule_data.rule_h2b_h3f2 }}</li>
 	</ul>
-
-
-
-
+	<div class="rule_h3">{{ rule_data.rule_h2b_h3g }}</div>
+	<ul class="rule_ul">
+		<li class="rule_li">{{ rule_data.rule_h2b_h3g1 }}</li>
+		<li class="rule_li">{{ rule_data.rule_h2b_h3g2 }}</li>
+		<li class="rule_li">{{ rule_data.rule_h2b_h3g3 }}</li>
+	</ul>
 
 	<div class="rule_h2" id="GoalMarkets">進球集錦</div>
 </template>
@@ -120,6 +122,15 @@ module.exports = {
 				rule_h2b_h3f: "加時賽 - 讓球",
 				rule_h2b_h3f1: "所有注單將按照盤口開出讓球信息，在30分鐘加時賽結束後計算，包含補時。",
 				rule_h2b_h3f2: "如果賽事在加時賽結束前取消或中斷，所有注單將會被視為無效。",
+				rule_h2b_h3g: "加時賽 - 讓球-上半場",
+				rule_h2b_h3g1: "所有注單將按照盤口開出讓球信息，在15分鐘加時賽結束後計算，包含補時。",
+				rule_h2b_h3g2: "加時賽中如果賽事在上半場取消或中斷，所有上半場注單將會被視為無效。",
+				rule_h2b_h3g3: "加時賽中如果賽事在下半場或補時階段取消或中斷，所有上半場注單將會被視為有效。",
+
+
+
+
+
 			}
 		}
 	},

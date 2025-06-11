@@ -67,10 +67,10 @@
 				path: '/rule/',
 				component: () => loadModule('./page/rule.vue', options),
 				children: [
-					{ path: '', component: () => loadModule('./components/rule/RuleGeneral.vue', options) },
-					{ path: 'general', component: () => loadModule('./components/rule/RuleGeneral.vue', options) },
-					{ path: 'outright', component: () => loadModule('./components/rule/RuleOutright.vue', options) },
-					{ path: 'ft', component: () => loadModule('./components/rule/RuleFootball.vue', options) },
+					{ path: '', component: () => loadModule('./page/rule/RuleGeneral.vue', options) },
+					{ path: 'general', component: () => loadModule('./page/rule/RuleGeneral.vue', options) },
+					{ path: 'outright', component: () => loadModule('./page/rule/RuleOutright.vue', options) },
+					{ path: 'ft', component: () => loadModule('./page/rule/RuleFootball.vue', options) },
 				]
 
 			},

@@ -16,7 +16,6 @@ module.exports = {
 				case "hot": return "熱門賽事"; break;
 				default: break;
 			}
-
 		}
 	},
 	methods: {},

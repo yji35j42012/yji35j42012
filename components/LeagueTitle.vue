@@ -18,7 +18,7 @@ module.exports = {
 	computed: {
 		r_sport() {
 			switch (this.$store.state.sport) {
-				case "sc": return "足球"; break;
+				case "ft": return "足球"; break;
 				case "bk": return "籃球 & 美式足球"; break;
 				case "es": return "電子競技"; break;
 				case "tn": return "網球"; break;

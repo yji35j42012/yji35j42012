@@ -2,45 +2,19 @@
 
 <template>
 	<div class="sportBtn_group">
-		<div :class="['sportBtn_group_item', r_sport == 'sc' ? 'on' : '']" @click="page('sc')">
-			<i class="sportBtn_group_icon" v-html="icon_all.icon_ft"></i>
-			<div class="sportBtn_group_txt">足球</div>
-		</div>
-		<div :class="['sportBtn_group_item', r_sport == 'bk' ? 'on' : '']" @click="page('bk')">
-			<i class="sportBtn_group_icon" v-html="icon_all.icon_bk"></i>
-			<div class="sportBtn_group_txt">籃球 & 美式足球</div>
-		</div>
-		<div :class="['sportBtn_group_item', r_sport == 'es' ? 'on' : '']" @click="page('es')">
-			<i class="sportBtn_group_icon" v-html="icon_all.icon_es"></i>
-			<div class="sportBtn_group_txt">電子競技</div>
-		</div>
-		<div :class="['sportBtn_group_item', r_sport == 'tn' ? 'on' : '']" @click="page('tn')">
-			<i class="sportBtn_group_icon" v-html="icon_all.icon_tn"></i>
-			<div class="sportBtn_group_txt">網球</div>
-		</div>
-		<div :class="['sportBtn_group_item', r_sport == 'vb' ? 'on' : '']" @click="page('vb')">
-			<i class="sportBtn_group_icon" v-html="icon_all.icon_vb"></i>
-			<div class="sportBtn_group_txt">排球</div>
-		</div>
-		<div :class="['sportBtn_group_item', r_sport == 'bm' ? 'on' : '']" @click="page('bm')">
-			<i class="sportBtn_group_icon" v-html="icon_all.icon_bm"></i>
-			<div class="sportBtn_group_txt">羽毛球</div>
-		</div>
-		<div :class="['sportBtn_group_item', r_sport == 'tt' ? 'on' : '']" @click="page('tt')">
-			<i class="sportBtn_group_icon" v-html="icon_all.icon_tt"></i>
-			<div class="sportBtn_group_txt">乒乓球</div>
-		</div>
-		<div :class="['sportBtn_group_item', r_sport == 'bs' ? 'on' : '']" @click="page('bs')">
-			<i class="sportBtn_group_icon" v-html="icon_all.icon_bs"></i>
-			<div class="sportBtn_group_txt">棒球</div>
-		</div>
-		<div :class="['sportBtn_group_item', r_sport == 'sk' ? 'on' : '']" @click="page('sk')">
-			<i class="sportBtn_group_icon" v-html="icon_all.icon_sk"></i>
-			<div class="sportBtn_group_txt">斯諾克 / 台球</div>
-		</div>
-		<div :class="['sportBtn_group_item', r_sport == 'op' ? 'on' : '']" @click="page('op')">
-			<i class="sportBtn_group_icon" v-html="icon_all.icon_op"></i>
-			<div class="sportBtn_group_txt">其他</div>
+		<div v-for="item in sport_list" :class="['sportBtn_group_item', r_sport == item.sport_s ? 'on' : '']"
+			@click="page(item.sport_s)">
+			<i v-if="item.sport_s == 'ft'" class="sportBtn_group_icon" v-html="icon_all.icon_ft"></i>
+			<i v-if="item.sport_s == 'bk'" class="sportBtn_group_icon" v-html="icon_all.icon_bk"></i>
+			<i v-if="item.sport_s == 'es'" class="sportBtn_group_icon" v-html="icon_all.icon_es"></i>
+			<i v-if="item.sport_s == 'tn'" class="sportBtn_group_icon" v-html="icon_all.icon_tn"></i>
+			<i v-if="item.sport_s == 'vb'" class="sportBtn_group_icon" v-html="icon_all.icon_vb"></i>
+			<i v-if="item.sport_s == 'bm'" class="sportBtn_group_icon" v-html="icon_all.icon_bm"></i>
+			<i v-if="item.sport_s == 'tt'" class="sportBtn_group_icon" v-html="icon_all.icon_tt"></i>
+			<i v-if="item.sport_s == 'bs'" class="sportBtn_group_icon" v-html="icon_all.icon_bs"></i>
+			<i v-if="item.sport_s == 'sk'" class="sportBtn_group_icon" v-html="icon_all.icon_sk"></i>
+			<i v-if="item.sport_s == 'op'" class="sportBtn_group_icon" v-html="icon_all.icon_op"></i>
+			<div class="sportBtn_group_txt">{{ item.sport_n }}</div>
 		</div>
 	</div>
 </template>
@@ -55,7 +29,17 @@ module.exports = {
 	},
 	computed: {
 		r_sport() {
-			return this.$store.state.sport
+			return this.$store.state.sport;
+		},
+		sport_list() {
+			var sl = [];
+			this.$store.state.sportList.forEach((item, index) => {
+				if (item.isShow) {
+					item["sport_id"] = index;
+					sl.push(item);
+				}
+			});
+			return sl;
 		},
 	},
 	methods: {

@@ -49,8 +49,14 @@ module.exports = {
 	methods: {
 		page(p) {
 			var sport = this.$store.state.sport;
+			var sportList = this.$store.state.sportList;
+			sportList.forEach(item => {
+				if (sport !== item.sport_s) {
+					sport = "ft"
+				}
+			});
 			if (p == '') { this.$router.push("/"); }
-			else if (sport == null) { this.$router.push("/" + p + "/sc"); }
+			else if (sport == null) { this.$router.push("/" + p + "/ft"); }
 			else if (p == 'result') { this.$router.push("/" + p); }
 			else if (p == 'tv') { this.$router.push("/" + p); }
 			else if (p == 'history') { this.$router.push("/" + p); }
