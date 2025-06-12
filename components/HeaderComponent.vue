@@ -6,15 +6,10 @@
 			<i class="icon_home" v-html="icon_all.home"></i>
 		</div>
 		<div class="header_menu">
-			<div :class="['header_link', r_sport_type == 'sudoku' ? 'on' : '']" @click="page('sudoku')">數獨</div>
-			<div :class="['header_link', r_sport_type == 'live' ? 'on' : '']" @click="page('live')">滾球</div>
-			<div :class="['header_link', r_sport_type == 'soon' ? 'on' : '']" @click="page('soon')">即將開賽</div>
-			<div :class="['header_link', r_sport_type == 'hot' ? 'on' : '']" @click="page('hot')">熱門</div>
-			<div class="header_link">今日</div>
-			<div class="header_link">早盤</div>
-			<div :class="['header_link', r_sport_type == 'outrights' ? 'on' : '']" @click="page('outrights')">冠軍</div>
-			<div class="header_link">綜合過關</div>
-			<div class="header_link">虛擬賽事</div>
+			<div v-for="item in r_header_menu" :class="['header_link', r_sport_type == item.h_type ? 'on' : '']"
+				@click="page(item.h_type)">
+				{{ item.h_name }}
+			</div>
 		</div>
 		<div class="header_info">
 			<div class="time">23:56:39</div>
@@ -35,6 +30,17 @@ module.exports = {
 		return {
 			icon_all: icon_all,
 			sport_type: null,
+			h_menu: [
+				{ h_type: "sudoku", h_name: "數獨" },
+				{ h_type: "live", h_name: "滾球" },
+				{ h_type: "soon", h_name: "即將開賽" },
+				{ h_type: "hot", h_name: "熱門" },
+				{ h_type: "today", h_name: "今日" },
+				{ h_type: "early", h_name: "早盤" },
+				{ h_type: "outrights", h_name: "冠軍" },
+				{ h_type: "parlay", h_name: "綜合過關" },
+				{ h_type: "virtual", h_name: "虛擬賽事" },
+			],
 		}
 	},
 	created() {
@@ -42,6 +48,9 @@ module.exports = {
 	computed: {
 		r_sport_type() {
 			return this.$store.state.sport_type;
+		},
+		r_header_menu() {
+			return this.h_menu;
 		},
 	},
 	components: {

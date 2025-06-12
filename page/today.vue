@@ -1,7 +1,7 @@
 <style scoped></style>
 
 <template>
-	<no-data></no-data>
+    <no-data></no-data>
 </template>
 
 <script>

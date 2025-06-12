@@ -57,8 +57,16 @@
 			{ path: '/live/:sport', component: () => loadModule('./page/live.vue', options), },
 			{ path: '/soon', component: () => loadModule('./page/soon.vue', options), },
 			{ path: '/hot', component: () => loadModule('./page/hot.vue', options), },
+			{ path: '/today', component: () => loadModule('./page/today.vue', options), },
+			{ path: '/today/:sport', component: () => loadModule('./page/today.vue', options), },
+			{ path: '/early', component: () => loadModule('./page/early.vue', options), },
+			{ path: '/early/:sport', component: () => loadModule('./page/early.vue', options), },
 			{ path: '/outrights', component: () => loadModule('./page/outrights.vue', options), },
 			{ path: '/outrights/:sport', component: () => loadModule('./page/outrights.vue', options), },
+			{ path: '/parlay', component: () => loadModule('./page/parlay.vue', options), },
+			{ path: '/parlay/:sport', component: () => loadModule('./page/parlay.vue', options), },
+			{ path: '/virtual', component: () => loadModule('./page/virtual.vue', options), },
+			{ path: '/virtual/:sport', component: () => loadModule('./page/virtual.vue', options), },
 			{ path: '/result', component: () => loadModule('./page/result.vue', options), },
 			{ path: '/tv', component: () => loadModule('./page/tv.vue', options), },
 			{ path: '/history', component: () => loadModule('./page/history.vue', options), },
@@ -72,7 +80,6 @@
 					{ path: 'outright', component: () => loadModule('./page/rule/RuleOutright.vue', options) },
 					{ path: 'ft', component: () => loadModule('./page/rule/RuleFootball.vue', options) },
 				]
-
 			},
 			{ path: '/sudoku', component: () => loadModule('./page/sudoku.vue', options), },
 		];
