@@ -19,6 +19,12 @@ body {
 	height: auto;
 }
 
+@media screen and (max-width: 1023px) {
+	body {
+		height: auto;
+	}
+}
+
 a {
 	text-decoration: none;
 }

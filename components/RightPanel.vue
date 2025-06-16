@@ -8,7 +8,6 @@
 				<span>hahaha</span>
 			</marquee> -->
 		</div>
-
 		<div class="ad">
 			<div class="ad_box"></div>
 		</div>
@@ -30,6 +29,8 @@ module.exports = {
 		return {
 			icon_all: icon_all,
 		}
+	},
+	components: {
 	},
 	computed: {},
 	methods: {},

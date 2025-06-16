@@ -3,7 +3,8 @@
 <template>
 	<div id="header" class="header">
 		<div :class="['header_link _home', r_sport_type == '' ? 'on' : '']" @click="page('')">
-			<i class="icon_home" v-html="icon_all.home"></i>
+			<!-- <i class="icon_home" v-html="icon_all.home"></i> -->
+			<icon-all icon_name="icon_home"></icon-all>
 		</div>
 		<div class="header_menu">
 			<div v-for="item in r_header_menu" :class="['header_link', r_sport_type == item.h_type ? 'on' : '']"
@@ -55,6 +56,7 @@ module.exports = {
 	},
 	components: {
 		'acc-component': Vue.defineAsyncComponent(() => loadModule('./components/AccComponent.vue', options)),
+		'icon-all': Vue.defineAsyncComponent(() => loadModule('./components/IconComponent.vue', options)),
 	},
 	methods: {
 		page(p) {
@@ -62,7 +64,7 @@ module.exports = {
 			var sportList = this.$store.state.sportList;
 			sportList.forEach(item => {
 				if (sport !== item.sport_s) {
-					sport = "ft"
+					sport = "ft";
 				}
 			});
 			if (p == '') { this.$router.push("/"); }
