@@ -32,6 +32,7 @@ module.exports = {
 			icon_all: icon_all,
 			sport_type: null,
 			h_menu: [
+				{ h_type: "digimon", h_name: "數碼" },
 				{ h_type: "sudoku", h_name: "數獨" },
 				{ h_type: "live", h_name: "滾球" },
 				{ h_type: "soon", h_name: "即將開賽" },
@@ -68,6 +69,7 @@ module.exports = {
 				}
 			});
 			if (p == '') { this.$router.push("/"); }
+			else if (p == 'digimon') { this.$router.push("/digimon"); }
 			else if (p == 'sudoku') { this.$router.push("/sudoku"); }
 			else if (sport == null) { this.$router.push("/" + p + "/ft"); }
 			else if (p == 'result') { this.$router.push("/" + p); }
