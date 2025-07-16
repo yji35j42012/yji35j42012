@@ -94,7 +94,7 @@
 			</li>
 			<li :class="['page_li' , nowPageNum==item ? 'on' : '']" v-for="(item,index) in showPage"
 				@click="chanPage(item)" :key="index">
-				{{item == 'more' ? '...' : item}}
+				{{item == "more" ? "..." : item}}
 			</li>
 			<li>
 				<span class="material-icons">chevron_right</span>
@@ -116,12 +116,12 @@
 			data: data,
 			computed: {
 				showPage() {
-					let show = []
-					let page = this.page
-					let halfPage = this.page / 2
-					let nowPageNum = this.nowPageNum
-					let evePage = Math.floor(halfPage)
-					let eveupPage = Math.ceil(halfPage)
+					let show = [];
+					let page = this.page;
+					let halfPage = this.page / 2;
+					let nowPageNum = this.nowPageNum;
+					let evePage = Math.floor(halfPage);
+					let eveupPage = Math.ceil(halfPage);
 					// .on代表當前頁數要加上class
 					if (page > 6) {
 						if (nowPageNum == 1) {
@@ -144,7 +144,12 @@
 							// 總頁數的一半等於現在的頁數而且現在的頁數加４等於總頁數
 							// 此判斷發生於總頁數＝８現在頁數＝４
 							// 如果沒有此判斷再第４頁的時候會變成 1,2,...,3,4,5
-							show.push(nowPageNum - 1); show.push(nowPageNum); show.push(nowPageNum + 1); show.push(nowPageNum + 2); show.push(nowPageNum + 3); show.push(nowPageNum + 4);
+							show.push(nowPageNum - 1);
+							show.push(nowPageNum);
+							show.push(nowPageNum + 1);
+							show.push(nowPageNum + 2);
+							show.push(nowPageNum + 3);
+							show.push(nowPageNum + 4);
 						} else if (nowPageNum > 1 && nowPageNum < eveupPage) {
 							// 總頁數的一半大於現在的頁數，前面顯示三個頁碼，後面顯示兩個頁碼，
 							// .on在前面三個的中間

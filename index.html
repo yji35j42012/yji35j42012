@@ -72,8 +72,7 @@
 			{ path: '/history', component: () => loadModule('./page/history.vue', options), },
 			{ path: '/todaywagers', component: () => loadModule('./page/todaywagers.vue', options), },
 			{
-				path: '/rule/',
-				component: () => loadModule('./page/rule.vue', options),
+				path: '/rule/', component: () => loadModule('./page/rule.vue', options),
 				children: [
 					{ path: '', component: () => loadModule('./page/rule/RuleGeneral.vue', options) },
 					{ path: 'general', component: () => loadModule('./page/rule/RuleGeneral.vue', options) },
