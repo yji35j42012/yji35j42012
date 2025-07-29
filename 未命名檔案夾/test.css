@@ -1,0 +1,302 @@
+html,
+body {
+	width: 100%;
+	height: 100%;
+	background-color: #ffffff;
+	font-size: 16px;
+	font-family: "Noto Sans TC", sans-serif;
+	/* background-color: #171717; */
+	color: #333333;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	box-sizing: border-box;
+}
+
+h2 {
+	font-weight: 600;
+	font-size: 42px;
+	line-height: 57px;
+	text-align: center;
+}
+
+.wrap {
+	padding-top: 98px;
+	height: 100%;
+}
+
+.container {
+	width: 100%;
+	max-width: 1280px;
+	margin: auto;
+	padding: 0 20px;
+}
+
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 98px;
+	background: rgba(255, 255, 255, 1);
+	box-shadow: 0px 10px 16px rgba(0, 0, 0, 0.05);
+	z-index: 2;
+}
+
+.inv {
+	position: relative;
+	padding-top: 90px;
+	padding-bottom: 330px;
+	background-color: rgba(249, 249, 249, 1);
+}
+
+.inv_selbox {
+	position: sticky;
+	top: 55px;
+	padding-top: 90px;
+	background-color: #f9f9f9;
+	z-index: 1;
+}
+
+.inv_selbox_txt {
+	display: none;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	max-width: 268px;
+	height: 37px;
+	padding: 0 20px;
+	background-color: rgba(51, 51, 51, 1);
+	border-radius: 100px;
+	color: rgba(255, 255, 255, 1);
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.recruitment_term {
+	position: sticky;
+	top: 0;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin-top: 0;
+	padding: 0;
+	z-index: 1;
+}
+
+.recruitment_term_li {
+	position: relative;
+	display: block;
+	width: calc(100% / 5);
+	padding: 23px 0;
+	background-color: #fff;
+	text-align: center;
+	border-top: 2px solid #887766;
+	border-bottom: 2px solid #887766;
+	color: #887766;
+	box-shadow: 0px 10px 16px rgba(0, 0, 0, 0.05);
+	cursor: pointer;
+}
+
+.recruitment_term_li.on {
+	pointer-events: none;
+	background-color: #887766;
+	color: #ffffff;
+}
+
+.recruitment_term_li:nth-child(1) {
+	border-top-left-radius: 100px;
+	border-bottom-left-radius: 100px;
+	border-left: 2px solid #887766;
+}
+
+.recruitment_term_li:last-child {
+	border-top-right-radius: 100px;
+	border-bottom-right-radius: 100px;
+	border-right: 2px solid #887766;
+}
+
+.recruitment_term_li.on+.recruitment_term_li::before {
+	display: none;
+}
+
+.inv_file_title {
+	margin-bottom: 24px;
+	font-size: 28px;
+	font-weight: 600;
+	color: rgba(136, 119, 102, 1);
+}
+
+.inv_selbox+.inv_file_title {
+	margin-top: 70px;
+}
+
+.yearList {
+	display: none;
+	height: 45px;
+	margin-top: 70px;
+}
+
+.yearList.on {
+	display: flex;
+	justify-content: center;
+}
+
+.yearList._inside {
+	margin-top: 24px;
+	margin-bottom: 24px;
+}
+
+.yearList_item {
+	position: relative;
+	font-size: 20px;
+	font-weight: 500;
+	list-style: 27px;
+	color: rgba(158, 158, 158, 1);
+	cursor: pointer;
+
+}
+
+.yearList_item.on {
+	color: rgba(136, 119, 102, 1);
+	font-weight: 700;
+}
+
+.yearList_item.on:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	display: block;
+	width: 11px;
+	height: 12px;
+	margin: 4px auto 0;
+	background: url('../images/icon/icon_triangle_year.svg')no-repeat center/contain;
+}
+
+.yearList_item+.yearList_item {
+	margin-left: 22px;
+}
+
+.join_box {
+	padding: 50px 0;
+}
+
+.footer {
+	height: 500px;
+	background-color: #ccc;
+}
+
+@media screen and (max-width: 1280px) {
+	.yearList_item+.yearList_item {
+		margin-left: 0;
+	}
+
+	.yearList_item {
+		width: 46px;
+		font-size: 12px;
+		text-align: center;
+	}
+
+	.yearList._inside {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	.yearList {
+		margin-top: 26px;
+	}
+
+	.wrap {
+		padding-top: 54px;
+	}
+
+	.header {
+		height: 54px;
+		padding: 0 20px;
+	}
+
+	.inv h2 {
+		font-size: 24px;
+		line-height: 32px;
+	}
+
+	.inv {
+		padding-top: 38px;
+		padding-bottom: 50px;
+	}
+
+	.inv_selbox {
+		top: 20px;
+		position: sticky;
+		top: 53px;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		width: 100%;
+		margin: 40px auto 0;
+		padding-top: 10px;
+	}
+
+	.inv_selbox_txt {
+		display: flex;
+	}
+
+	.recruitment_term {
+		position: absolute;
+		top: calc(100% - 55px);
+		left: 0;
+		right: 0;
+		display: none;
+		width: 100%;
+		max-width: 268px;
+		margin: 0 auto;
+		padding: 16px 20px;
+		border-radius: 16px;
+		background-color: rgba(51, 51, 51, 0.7);
+		border: 1px solid rgba(51, 51, 51, 0.2);
+	}
+
+	.recruitment_term.on {
+		display: block;
+	}
+
+	.recruitment_term_li {
+		width: 100%;
+		padding: 0;
+		border: none;
+		background-color: transparent;
+		color: rgba(255, 255, 255, 1);
+		text-align: left;
+	}
+
+	.recruitment_term_li::before {
+		display: none;
+	}
+
+	.recruitment_term_li.on {
+		color: rgba(153, 153, 153, 1);
+		pointer-events: none;
+	}
+
+	.recruitment_term_li+.recruitment_term_li {
+		margin-top: 15px;
+	}
+
+	.inv_file_title {
+		margin-bottom: 8px;
+		font-size: 13px;
+	}
+
+	.inv_selbox+.inv_file_title {
+		margin-top: 26px;
+	}
+
+	.footer {
+		height: 260px;
+	}
+}
