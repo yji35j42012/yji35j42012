@@ -142,7 +142,7 @@
 			});
 			//滑鼠鬆開
 			window.addEventListener("touchend", function (e) {
-				console.log("滑鼠彈起")
+				console.log("滑鼠彈起");
 				ifBool = false;
 			});
 			//獲取元素的絕對位置
@@ -223,9 +223,11 @@
 			var move = function (e) {
 				if (ifBool) {
 					console.log("滑鼠拖動")
-					if (!e.touches) {  //相容移動端
+					if (!e.touches) {
+						//相容移動端
 						var x = e.clientX;
-					} else {   //相容PC端
+					} else {
+						//相容PC端
 						var x = e.touches[0].pageX;
 					}
 					//var x = e.touches[0].pageX || e.clientX; //滑鼠橫座標var x
