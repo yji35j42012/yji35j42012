@@ -2,114 +2,114 @@
 <html lang="zh-Hant">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>滑動隱藏 Header/Footer 修正版</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>滑動隱藏 Header/Footer 修正版</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
 
-        body,
-        html {
-            height: 100%;
-            font-family: Arial, sans-serif;
-            overflow-x: hidden;
-        }
+		body,
+		html {
+			height: 100%;
+			font-family: Arial, sans-serif;
+			overflow-x: hidden;
+		}
 
-        header,
-        footer {
-            position: fixed;
-            width: 100%;
-            left: 0;
-            transition: transform 0.3s ease;
-            z-index: 1000;
-        }
+		header,
+		footer {
+			position: fixed;
+			width: 100%;
+			left: 0;
+			transition: transform 0.3s ease;
+			z-index: 1000;
+		}
 
-        header {
-            top: 0;
-            height: 48px;
-            background-color: #333;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+		header {
+			top: 0;
+			height: 48px;
+			background-color: #333;
+			color: #fff;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
 
-        footer {
-            bottom: 0;
-            height: 56px;
-            background-color: #444;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+		footer {
+			bottom: 0;
+			height: 56px;
+			background-color: #444;
+			color: #fff;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
 
-        /* 隱藏狀態 */
-        .hide-header {
-            transform: translateY(-100%);
-        }
+		/* 隱藏狀態 */
+		.hide-header {
+			transform: translateY(-100%);
+		}
 
-        .hide-footer {
-            transform: translateY(100%);
-        }
+		.hide-footer {
+			transform: translateY(100%);
+		}
 
-        .content {
-            padding-top: 48px;
-            padding-bottom: 56px;
-            min-height: 200vh;
-            /* 確保可滾動 */
-            background-color: #f2f2f2;
-        }
+		.content {
+			padding-top: 48px;
+			padding-bottom: 56px;
+			min-height: 200vh;
+			/* 確保可滾動 */
+			background-color: #f2f2f2;
+		}
 
-        .content-inner {
-            padding: 16px;
-        }
-    </style>
+		.content-inner {
+			padding: 16px;
+		}
+	</style>
 </head>
 
 <body>
-    <header id="header">這是 Header</header>
+	<header id="header">這是 Header</header>
 
-    <div class="content">
-        <div class="content-inner">
-            <p>向下滑動隱藏 Header/Footer，向上滑動顯示。</p>
-            <p style="margin-top: 1200px;">測試底部長內容。</p>
-        </div>
-    </div>
+	<div class="content">
+		<div class="content-inner">
+			<p>向下滑動隱藏 Header/Footer，向上滑動顯示。</p>
+			<p style="margin-top: 1200px;">測試底部長內容。</p>
+		</div>
+	</div>
 
-    <footer id="footer">這是 Footer</footer>
+	<footer id="footer">這是 Footer</footer>
 
-    <script>
-        (function () {
-            let lastScrollTop = 0;
-            const header = document.getElementById('header');
-            const footer = document.getElementById('footer');
-            const delta = 5; // 最小位移閾值
-            const headerHeight = header.offsetHeight;
+	<script>
+		(function () {
+			let lastScrollTop = 0;
+			const header = document.getElementById('header');
+			const footer = document.getElementById('footer');
+			const delta = 5; // 最小位移閾值
+			const headerHeight = header.offsetHeight;
 
-            window.addEventListener('scroll', () => {
-                const st = window.pageYOffset || document.documentElement.scrollTop;
-                // 滑動距離小於閾值則不處理
-                if (Math.abs(st - lastScrollTop) <= delta) {
-                    return;
-                }
-                if (st > lastScrollTop && st > headerHeight) {
-                    // 向下滑且超過 header 高度
-                    header.classList.add('hide-header');
-                    footer.classList.add('hide-footer');
-                } else if (st + window.innerHeight < document.body.scrollHeight) {
-                    // 向上滑或未到頁尾
-                    header.classList.remove('hide-header');
-                    footer.classList.remove('hide-footer');
-                }
-                lastScrollTop = st <= 0 ? 0 : st;
-            }, { passive: true });
-        })();
-    </script>
+			window.addEventListener('scroll', () => {
+				const st = window.pageYOffset || document.documentElement.scrollTop;
+				// 滑動距離小於閾值則不處理
+				if (Math.abs(st - lastScrollTop) <= delta) {
+					return;
+				}
+				if (st > lastScrollTop && st > headerHeight) {
+					// 向下滑且超過 header 高度
+					header.classList.add('hide-header');
+					footer.classList.add('hide-footer');
+				} else if (st + window.innerHeight < document.body.scrollHeight) {
+					// 向上滑或未到頁尾
+					header.classList.remove('hide-header');
+					footer.classList.remove('hide-footer');
+				}
+				lastScrollTop = st <= 0 ? 0 : st;
+			}, { passive: true });
+		})();
+	</script>
 </body>
 
 </html>

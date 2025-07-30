@@ -119,11 +119,11 @@
 			minDiv.addEventListener("touchstart", function (e) {
 				e.stopPropagation();
 				ifBool = true;
-				console.log("滑鼠按下")
+				console.log("滑鼠按下");
 			});
 			//拖動
 			window.addEventListener("touchmove", function (e) {
-				console.log("滑鼠拖動")
+				console.log("滑鼠拖動");
 				if (ifBool) {
 					var x = e.touches[0].pageX || e.touches[0].clientX; //滑鼠橫座標var x
 					var lineDiv_left = getPosition(lineDiv).left; //長線條的橫座標
@@ -218,7 +218,7 @@
 			var start = function (e) {
 				e.stopPropagation();
 				ifBool = true;
-				console.log("滑鼠按下")
+				console.log("滑鼠按下");
 			}
 			var move = function (e) {
 				if (ifBool) {
