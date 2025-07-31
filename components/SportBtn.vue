@@ -30,7 +30,6 @@ module.exports = {
 	mounted() {
 		var sportbtn = this.$refs.sport_group;
 		var content_l = document.querySelector("#content_l");
-		console.log('content_l',content_l);
 		console.log('sportbtn', sportbtn.offsetWidth);
 	},
 	computed: {

@@ -155,21 +155,14 @@
 					var scroll_body = document.querySelector("#scroll_body");
 					const docHeight = document.documentElement.scrollHeight;
 					var totalHeight = scroll_html.scrollHeight;
-					if (scrollTop + clientHeight >= totalHeight) {
-						this.isScrollBottom = true;
-					} else if (this.isScrollBottom) {
-						this.isScrollBottom = false;
-					}
+					if (scrollTop + clientHeight >= totalHeight) { this.isScrollBottom = true; }
+					else if (this.isScrollBottom) { this.isScrollBottom = false; }
 					if (scrollTop > this.lastScrollTop) {
 						// 如果目前 scrollTop 大於上一次，表示往下滑
-						if (window.scrollY > 56) {
-							scroll_body.classList.add("hide");
-						}
+						if (window.scrollY > 56) { scroll_body.classList.add("hide"); }
 					} else if (scrollTop < this.lastScrollTop) {
 						// 如果目前 scrollTop 小於上一次，表示往上滑
-						if (this.isScrollBottom) {
-							return;
-						}
+						if (this.isScrollBottom) { return; }
 						scroll_body.classList.remove("hide");
 					}
 					// 更新 this.lastScrollTop，準備下一次比較

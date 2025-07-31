@@ -30,7 +30,7 @@ module.exports = {
 	props: ['SelectGroup'],
 	mounted() {
 		var path = this.$route.path.split("/");
-		let select_lists = this.$props.SelectGroup.lists
+		let select_lists = this.$props.SelectGroup.lists;
 		select_lists.forEach((item, index) => {
 			if (item.select_view == path[path.length - 1]) {
 				this.select_txt = this.$props.SelectGroup.lists[index].select_title;
