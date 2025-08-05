@@ -30,8 +30,7 @@ module.exports = {
 			icon_all: icon_all,
 		}
 	},
-	components: {
-	},
+	components: {},
 	computed: {},
 	methods: {},
 }

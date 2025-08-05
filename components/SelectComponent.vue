@@ -39,7 +39,6 @@ module.exports = {
 				this.select_txt = this.$props.SelectGroup.lists[0].select_title;
 			}
 		});
-
 	},
 	computed: {},
 	methods: {

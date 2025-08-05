@@ -31,11 +31,8 @@ module.exports = {
 			// isShowMenu: false
 		}
 	},
-	created() {
-	},
-	mounted() {
-		// this.isShowMenu = this.$store.state.isShowMenu;
-	},
+	created() { },
+	mounted() { },
 	computed: {
 		isShowMenu() {
 			return this.$store.state.isShowMenu;

@@ -432,7 +432,6 @@
 	min-height: 58px;
 	background-color: #1e2841;
 
-
 	@include mw(L) {
 		display: block;
 	}
@@ -485,8 +484,6 @@
 			transform: translateX(0);
 		}
 	}
-
-
 
 	// .right_menu_title
 	&_title {

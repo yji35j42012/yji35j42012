@@ -1,7 +1,7 @@
 <style scoped></style>
 
 <template>
-	<div class="sportBtn_group" ref="sport_group">
+	<div class="sportBtn_group" id="sport_group">
 		<div v-for="item in sport_list" :class="['sportBtn_group_item', r_sport == item.sport_s ? 'on' : '']"
 			@click="page(item.sport_s)">
 			<i v-if="item.sport_s == 'ft'" class="sportBtn_group_icon" v-html="icon_all.icon_ft"></i>
@@ -28,9 +28,13 @@ module.exports = {
 		}
 	},
 	mounted() {
-		var sportbtn = this.$refs.sport_group;
-		var content_l = document.querySelector("#content_l");
-		console.log('sportbtn', sportbtn.offsetWidth);
+		var sportBtn_group = document.querySelectorAll("#sport_group > .sportBtn_group_item");
+		var content_l = document.querySelector("#content_l").offsetWidth;
+		var total_w = sportBtn_group[0].offsetWidth * sportBtn_group.length
+		console.log('content_l', content_l);
+		if (content_l < total_w) {
+			console.log('show');
+		}
 	},
 	computed: {
 		r_sport() {
