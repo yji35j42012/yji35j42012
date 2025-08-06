@@ -28,7 +28,7 @@ a {
   text-decoration: none;
 }
 
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0), screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0), screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   /* scroll bar style setting */
   ::-webkit-scrollbar {
     width: 4px;
@@ -43,7 +43,7 @@ a {
     border-radius: 20px;
   }
 }
-.sportBtn_group_item, .home_sport_new, .header_menuBtn, .header_link, .normal_select_txt, .normal_select_li, .acc_info_money, .acc_eyes, .icon_close, .sportBody .icon_heart, .sportBody_title, .sportHead_tab_item, .sportHead_title_txt .league, .icon_back,
+.doc_tag_item, .sportBtn_group_item, .home_sport_new, .header_menuBtn, .header_link, .normal_select_txt, .normal_select_li, .acc_info_money, .acc_eyes, .icon_close, .sportBody .icon_heart, .sportBody_title, .sportHead_tab_item, .sportHead_title_txt .league, .icon_back,
 .icon_reload {
   cursor: pointer;
 }
@@ -70,7 +70,7 @@ a {
   background-color: #428bca;
   border-color: #357ebd;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .normal_btn:hover {
     background-color: #3071a9;
     border-color: #285e8e;
@@ -158,7 +158,7 @@ a {
   height: 32px;
   fill: #fff;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .icon_back:hover,
   .icon_reload:hover {
     background-color: rgba(255, 255, 255, 0.1);
@@ -219,7 +219,7 @@ a {
 .selectBox_group_list.on {
   color: #30dff2;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .selectBox_group_list:hover {
     background-color: rgba(255, 255, 255, 0.1);
   }
@@ -266,7 +266,7 @@ a {
   color: rgba(255, 255, 255, 0.72);
   fill: rgba(255, 255, 255, 0.72);
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .sportHead_title_txt .league:hover {
     color: #30dff2;
     fill: #30dff2;
@@ -322,7 +322,7 @@ a {
 .sportHead_tab_item + .sportHead_tab_item {
   margin-left: 8px;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .sportHead_tab_item:hover {
     background-color: #6700F4;
     color: #ffffff;
@@ -354,7 +354,7 @@ a {
   font-size: 14px;
   font-weight: bold;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .sportBody_title:hover {
     background-color: #2d3c62;
   }
@@ -395,7 +395,7 @@ a {
   fill: rgba(167, 128, 37, 0);
   stroke: #ffffff;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .sportBody .icon_heart:hover {
     padding: 6px;
     fill: rgba(255, 255, 255, 0.5);
@@ -546,7 +546,7 @@ a {
   color: #ffffff;
   fill: #ffffff;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .right_menu_item:hover {
     border-color: #fff;
     background: rgba(0, 0, 0, 0.04);
@@ -588,7 +588,7 @@ a {
   fill: #fff;
   opacity: 0.56;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .icon_close:hover {
     opacity: 1;
     background-color: rgba(255, 255, 255, 0.1);
@@ -698,7 +698,7 @@ a {
   padding: 4px 48px 4px 16px;
   font-size: 14px;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .normal_select_li:hover {
     background-color: rgba(255, 255, 255, 0.1);
   }
@@ -720,7 +720,7 @@ a {
   color: #ffffff;
   border-radius: 3px;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .normal_select_txt:hover {
     background-color: rgba(255, 255, 255, 0.1);
   }
@@ -787,7 +787,7 @@ a {
   color: #ffffff;
   fill: #ffffff;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .header_link:hover {
     color: #ffffff;
     fill: #ffffff;
@@ -816,7 +816,7 @@ a {
   height: 48px;
   fill: #75829b;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .header_menuBtn:hover {
     color: #ffffff;
     fill: #ffffff;
@@ -973,7 +973,7 @@ a {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .home_sport_new:hover {
     background-color: #62c4d9;
     color: #ffffff;
@@ -1021,7 +1021,7 @@ a {
   color: rgba(255, 255, 255, 0.45);
   fill: rgba(255, 255, 255, 0.45);
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .sportBtn_group_item:hover {
     color: #30dff2;
     fill: #30dff2;
@@ -1199,4 +1199,42 @@ a {
 }
 .rule_menu_btn:active {
   background-color: #131a2a;
+}
+
+.doc_tag {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+.doc_tag_item {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 48px;
+  color: #75829b;
+  font-size: 14px;
+}
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
+  .doc_tag_item:hover {
+    color: #30dff2;
+  }
+}
+.doc_tag_item:active {
+  color: #30dff2;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.doc_tag_item.on {
+  color: #30dff2;
+}
+.doc_tag_item.on:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #30dff2;
 }/*# sourceMappingURL=all.css.map */

@@ -69,7 +69,14 @@
 			{ path: '/virtual/:sport', component: () => loadModule('./page/virtual.vue', options), },
 			{ path: '/result', component: () => loadModule('./page/result.vue', options), },
 			{ path: '/tv', component: () => loadModule('./page/tv.vue', options), },
-			{ path: '/history', component: () => loadModule('./page/history.vue', options), },
+			{
+				path: '/doc/', component: () => loadModule('./page/doc.vue', options),
+				children: [
+					{ path: '', component: () => loadModule('./page/doc/todaywagers.vue', options) },
+					{ path: 'todaywagers', component: () => loadModule('./page/doc/todaywagers.vue', options) },
+					{ path: 'history', component: () => loadModule('./page/doc/history.vue', options) },
+				]
+			},
 			{ path: '/todaywagers', component: () => loadModule('./page/todaywagers.vue', options), },
 			{
 				path: '/rule/', component: () => loadModule('./page/rule.vue', options),

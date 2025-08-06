@@ -254,7 +254,7 @@ header.showMenu {
   background-color: #000000;
   color: #fff;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .normal_btn:hover {
     opacity: 0.9;
   }
@@ -280,7 +280,7 @@ header.showMenu {
   height: 30px;
   border-radius: 50%;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .page_prev:hover, .page_next:hover {
     background-color: #000;
     color: #fff;
@@ -308,7 +308,7 @@ header.showMenu {
 .page_dot.on {
   background-color: #000;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .page_dot:hover {
     border-color: #000;
   }
@@ -457,7 +457,7 @@ header.showMenu {
   background-color: #000000;
   fill: #fff;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .link li:hover {
     background-color: #fff;
     fill: #000;

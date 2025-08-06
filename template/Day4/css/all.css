@@ -141,7 +141,7 @@ img {
   border-radius: 8px;
   font-weight: 200;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .normal_btn:hover {
     background-color: #9ececc;
   }
@@ -179,7 +179,7 @@ img {
   content: attr(data-txt);
   color: #fff;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .normal_btn:hover {
     color: #ffffff;
     background-color: #222226;
@@ -229,7 +229,7 @@ header {
 .menu li + li {
   margin-left: 26px;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .menu li:hover a {
     color: #55b9ff;
     text-decoration: underline;
@@ -259,7 +259,7 @@ header {
   align-items: center;
   justify-content: flex-start;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .func_car span:hover {
     color: #3baeff;
   }
@@ -303,7 +303,7 @@ header {
   margin: auto 0;
   background-color: #000;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .func_burger_btn:hover span {
     width: 100%;
   }
@@ -320,7 +320,7 @@ header {
   color: #222226;
   font-size: 24px;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .func_info p:hover {
     color: #55b9ff;
   }
@@ -395,7 +395,7 @@ header {
   margin-bottom: 12px;
   padding: 0 6px;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .imgGroup li:hover img {
     transform: scale(1.1);
   }

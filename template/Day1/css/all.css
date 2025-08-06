@@ -129,7 +129,7 @@ img {
   border-radius: 8px;
   font-weight: 200;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .normal_btn:hover {
     background-color: #9ececc;
   }
@@ -256,7 +256,7 @@ img {
 .menu_group_item.active span::after {
   color: #fff;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .menu_group_item:hover {
     background: rgba(0, 0, 0, 0.15);
   }
@@ -288,7 +288,7 @@ img {
   color: #41484c;
   font-size: 18px;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .menu_link a:hover {
     color: #fff;
   }

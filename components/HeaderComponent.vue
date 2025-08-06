@@ -16,9 +16,7 @@
 			<div class="time">23:56:39</div>
 			<div :class="['header_link', r_sport_type == 'result' ? 'on' : '']" @click="page('result')">賽果</div>
 			<div :class="['header_link', r_sport_type == 'tv' ? 'on' : '']" @click="page('tv')">賽程</div>
-			<div :class="['header_link', r_sport_type == 'history' ? 'on' : '']" @click="page('history')">帳戶歷史</div>
-			<div :class="['header_link', r_sport_type == 'todaywagers' ? 'on' : '']" @click="page('todaywagers')">交易狀況
-			</div>
+			<div :class="['header_link', r_sport_type == 'doc' ? 'on' : '']" @click="page('doc/todaywagers')">投注記錄</div>
 			<acc-component></acc-component>
 			<div class="header_menuBtn" @click="menuHandler"><i class="icon_menu" v-html="icon_all.menuBtn"></i></div>
 		</div>
@@ -74,6 +72,7 @@ module.exports = {
 			else if (sport == null) { this.$router.push("/" + p + "/ft"); }
 			else if (p == 'result') { this.$router.push("/" + p); }
 			else if (p == 'tv') { this.$router.push("/" + p); }
+			else if (p == 'doc/todaywagers') { this.$router.push("/" + p); }
 			else if (p == 'history') { this.$router.push("/" + p); }
 			else if (p == 'todaywagers') { this.$router.push("/" + p); }
 			else if (p == 'soon') { this.$router.push("/" + p); }

@@ -269,7 +269,7 @@ h4._leftLine.txt_primary::before, h4._rightLine.txt_primary::after {
   border-radius: 50px;
   color: #fff;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .normal_btn:hover {
     transform: translateY(-8px);
   }
@@ -386,7 +386,7 @@ h4._leftLine.txt_primary::before, h4._rightLine.txt_primary::after {
     border-bottom: 1px solid rgba(40, 40, 40, 0.2);
   }
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .nav_item:hover a {
     color: #2F95CD;
   }
@@ -1178,7 +1178,7 @@ h4._leftLine.txt_primary::before, h4._rightLine.txt_primary::after {
   line-height: 1em;
   letter-spacing: 0;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .footer_head_a:hover {
     color: #2F95CD;
     border-color: #2F95CD;
@@ -1247,7 +1247,7 @@ h4._leftLine.txt_primary::before, h4._rightLine.txt_primary::after {
   line-height: 1em;
   letter-spacing: 0px;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .footer_content_a:hover {
     color: #2F95CD;
   }
@@ -1263,7 +1263,7 @@ h4._leftLine.txt_primary::before, h4._rightLine.txt_primary::after {
   font-weight: 400;
   line-height: 30px;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .footer_content_link:hover {
     color: #2F95CD;
   }

@@ -1,0 +1,42 @@
+.doc {
+
+	// .doc_tag
+	&_tag {
+		@include d_f(flex);
+
+		// .doc_tag_item
+		&_item {
+			position: relative;
+			@include d_f(flex, center, center);
+			width: 100%;
+			height: 48px;
+			color: #75829b;
+			font-size: 14px;
+			@extend %hand;
+
+			@include hv {
+				color: #30dff2;
+			}
+
+			@include ac {
+				color: #30dff2;
+				background-color: rgba(255, 255, 255, 0.1);
+			}
+
+			&.on {
+				color: #30dff2;
+
+				&:after {
+					content: '';
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					right: 0;
+					width: 100%;
+					height: 2px;
+					background-color: #30dff2;
+				}
+			}
+		}
+	}
+}

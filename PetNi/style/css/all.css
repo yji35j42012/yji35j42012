@@ -266,13 +266,13 @@ select {
   margin-left: 0;
   white-space: nowrap;
 }
-@media (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (pointer: fine) and (max-resolution: 2dppx), screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2), (-moz-touch-enabled: 0) {
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .menu_item:hover span {
     width: 100%;
     margin-left: 12px;
   }
 }
-@media screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2) and (max-width: 995px), screen and (pointer: fine) and (max-resolution: 2dppx) and (max-width: 995px), screen and (-moz-touch-enabled: 0) and (max-width: 995px) {
+@media screen and (pointer: fine) and (max-resolution: 2dppx) and (max-width: 995px), screen and (-moz-touch-enabled: 0) and (max-width: 995px) {
   .menu_item:hover span {
     display: none;
   }
