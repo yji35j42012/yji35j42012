@@ -1,0 +1,228 @@
+/* login.html edit 19/08/06 */
+i>svg{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+input[type="text"]{
+	transform: translate3d(0, 0, 0);
+}
+input[type="button"]{
+	cursor: pointer;
+}
+
+.bg_login{
+	width: 100%;
+	min-height: 100%;
+	padding-bottom: 16px;
+}
+.box_language{
+	display: flex;
+	width: 100%;
+	height: 55px;
+	line-height: 55px;
+	text-align: center;
+	font-size: 17px;
+}
+.btn_language{
+	display: inline-block;
+	width: 33.33%;
+	height: 100%;
+	color: #fff;
+	background: #323232;
+}
+.btn_language.on{
+	color: #930000;
+	background: #fff;
+}
+.icon_login{
+	display: block;
+	width: 280px;
+	height: 179px;
+	margin: 14px auto;
+	background: url(../images/asp_index_img.jpg) no-repeat;
+	background-size: contain;
+}
+.box_login{
+	width: 100%;
+	margin: 0 auto 20px auto;
+	padding: 0 10px;
+	text-align: center;
+}
+.box_asp{
+	width: 100%;
+	margin-bottom: 11px;
+	padding: 0 7px;
+	border: 1px solid #878786;
+}
+.lab_input{
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 56px;
+}
+.lab_input:first-child{
+	border-bottom: 1px solid #878786;
+}
+.input_chgpwd .lab_input{
+	margin-bottom: 0;
+}
+.lab_input>input{
+	display: block;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 5px 10px 5px 52px;
+	font-size: 17px;
+	border: none;
+	color: #000;
+	box-shadow: none;
+	pointer-events: auto;
+}
+.userid{
+	background: url(../images/asp_log_name.png) no-repeat 9px center;
+}
+.pwd{
+	background: url(../images/asp_log_pass.png) no-repeat 9px center;
+}
+.lab_input>input::placeholder{
+	color: rgba(133,132,132,0.8);
+}
+
+.text_input{
+	line-height: normal!important;
+	pointer-events: none;
+}
+.text_input:after{
+	content: attr(data-tooltip);
+	position: absolute;
+	top: 0px;
+	left: 14px;
+	display: flex;
+	height: 100%;
+	align-items: center;
+	padding: 0 4px;
+	font-size: 16px;
+	color: rgba(0,0,0,0.24);
+	background: #fff0;
+}
+
+.text_error{
+	display: block;
+	width: 100%;
+    margin: 19px 0 18px 0;
+    padding: 18px 20px 19px 36px;
+    text-align: left;
+    color: #D12D22;
+    font-size: 16px;
+    background: #F1D8DB url(../images/asp_pending_icon.png) no-repeat 10px 50%;
+    border: 1px solid #D47B7B;
+}
+.lab_input .btn_clear{
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	width: 32px;
+	height: 32px;
+	padding: 8px;
+	background-image: url(../images/icon_close_b.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	transition: none!important;
+	pointer-events: auto;
+	/* cursor: text; */
+	z-index: -1;
+}
+.lab_input .btn_clear svg{
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	fill: rgba(0,0,0,0.4);
+	pointer-events: none;
+}
+
+.btn_login{
+	width: 100%;
+	height: 55px;
+	line-height: 55px;
+	margin-bottom: 16px;
+	padding: 0 16px;
+	text-align: center;
+	font-size: 17px;
+	border: none;
+	color: #fff;
+	background: #04689A;
+}
+.box_remember{
+	width: 100%;
+	margin-bottom: 10px;
+	text-align: left;
+}
+.check_remember{
+	position: relative;
+	display: block;
+	margin-right: 8px;
+	color: rgba(0, 0, 0, 0.64);
+}
+.check_remember input{
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+.checkmark{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	vertical-align: middle;
+	border-radius: 3px;
+	border: solid 1px rgba(0, 0, 0, 0.38);
+
+	background: url('../images/asp_check_sheet.png') no-repeat;
+	background-position: -24px;
+
+}
+.check_remember tt{
+	display: inline-block;
+	line-height: 30px;
+	vertical-align: middle;
+	font-size: 14px;
+	color: #858484;
+}
+.check_remember input:checked ~ .checkmark{
+	background-position: center 4px;
+}
+.btn_forgot{
+	float: right;
+	display: block;
+	margin-top: 1px;
+	text-align: right;
+	font-size: 14px;
+	color: #007ba8;
+	cursor: pointer;
+}
+.btn_passcode{
+	width: 100%;
+	height: 48px;
+	line-height: 48px;
+	margin-bottom: 16px;
+	padding: 0 16px;
+	border-radius: 4px;
+	font-size: 12px;
+	font-weight: 600;
+	border: none;
+	color: #fff;
+	background: #9b8d79;
+}
+.btn_oldsite{
+	width: 100%;
+	height: 48px;
+	line-height: 48px;
+	padding: 0 16px;
+	border-radius: 4px;
+	font-size: 14px;
+	border: none;
+	color: #007ba8;
+	background: #fff;
+}
