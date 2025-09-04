@@ -572,13 +572,9 @@ body {
 .noBonus .show_Bonus {
 	display: none !important;
 }
+
 /* 代理商球類未勾選活動時 隱藏相關按鈕與框架 */
 .noBonus .show_Bonus {
-	display: none !important;
-}
-
-/* 代理商球類未勾選網球時 隱藏相關按鈕與框架 */
-.noTN .show_tnop {
 	display: none !important;
 }
 
