@@ -138,6 +138,7 @@ module.exports = {
 	computed: {},
 	methods: {
 		moveHandler(event) {
+			// if(windo)
 			var header_h = document.querySelector("#header");
 			var scroll_tag = document.querySelector("#content_l");
 			var n = event.target.getAttribute('name');
