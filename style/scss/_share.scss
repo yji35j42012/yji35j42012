@@ -15,7 +15,6 @@
 	border-color: #357ebd;
 	@extend %transition;
 
-	
 	@include hoverHandler {
 		background-color: #3071a9;
 		border-color: #285e8e;
