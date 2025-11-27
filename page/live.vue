@@ -27,7 +27,14 @@
 						</div>
 						<div class="state"></div>
 					</div>
-					<div class="sportBody_game_r"></div>
+					<div class="sportBody_game_r">
+						<div class="item">
+							<div class="box_score"></div>
+							<div class="box_team"></div>
+							<div class="box_team"></div>
+						</div>
+						<div class="more"></div>
+					</div>
 				</div>
 			</div>
 		</div>

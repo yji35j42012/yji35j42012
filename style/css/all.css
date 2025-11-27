@@ -43,7 +43,7 @@ a {
     border-radius: 20px;
   }
 }
-.doc_tag_item, .sportBtn_group_item, .home_sport_new, .header_menuBtn, .header_link, .normal_select_txt, .normal_select_li, .acc_info_money, .acc_eyes, .icon_close, .sportBody .icon_heart, .sportBody_title, .sportHead_tab_item, .sportHead_title_txt .league, .icon_back,
+.doc_tag_item, .rule_menu_btn, .sportBtn_group_item, .home_sport_new, .header_menuBtn, .header_link, .normal_select_txt, .normal_select_li, .acc_info_money, .acc_eyes, .icon_close, .sportBody .icon_heart, .sportBody_title, .sportHead_tab_item, .sportHead_title_txt .league, .icon_back,
 .icon_reload {
   cursor: pointer;
 }
@@ -941,7 +941,7 @@ a {
   align-items: stretch;
   width: 58%;
   height: 100%;
-  padding: 12px 0 12px 8px;
+  padding: 12px 8px;
 }
 .home_sport_new {
   position: relative;
