@@ -2813,7 +2813,9 @@ i[class^="icon_flag flag"] {
 	background-color: var(--game_date_bg);
 	color: var(--game_date_tx);
 }
-
+.ru .btn_date{
+	width: 82px;
+}
 .btn_date:first-child {
 	margin-left: 16px;
 }

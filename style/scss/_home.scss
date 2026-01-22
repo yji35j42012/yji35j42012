@@ -128,13 +128,12 @@
 				font-weight: 700;
 				color: #fff;
 				flex: 1 1 auto;
-				white-space: nowrap;
 				text-overflow: ellipsis;
 				white-space: nowrap;
 			}
 
 			@include hv {
-				background-color: #62c4d9;
+				background-color: #62c4d9; 
 				color: #ffffff;
 				fill: #ffffff;
 			}

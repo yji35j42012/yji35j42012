@@ -31,11 +31,7 @@
 			</ul>
 			<div class="todolist_box">
 				<table class="todolist_tb">
-					<todoitem 
-						v-for="item of list" 
-						:key="item.tId" 
-						:todo="item.todo" 
-						:edit="item.tId === edit">
+					<todoitem v-for="item of list" :key="item.tId" :todo="item.todo" :edit="item.tId === edit">
 					</todoitem>
 					<!-- <tr v-for="(item, index) in filterList" :key="item.tId">
 						<td width="10%">

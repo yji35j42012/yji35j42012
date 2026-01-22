@@ -43,12 +43,12 @@ a {
     border-radius: 20px;
   }
 }
-.doc_tag_item, .rule_menu_btn, .sportBtn_group_item, .home_sport_new, .header_menuBtn, .header_link, .normal_select_txt, .normal_select_li, .acc_info_money, .acc_eyes, .icon_close, .sportBody .icon_heart, .sportBody_title, .sportHead_tab_item, .sportHead_title_txt .league, .icon_back,
+.doc_tag_item, .rule_menu_btn, .sportBtn_group_item, .home_sport_new, .header_menuBtn, .header_link, .tab_categoryItem, .normal_select_txt, .normal_select_li, .acc_info_money, .acc_eyes, .icon_close, .sportBody .icon_heart, .sportBody_title, .sportHead_tab_item, .sportHead_title_txt .league, .icon_back,
 .icon_reload {
   cursor: pointer;
 }
 
-.home_sport_new, .header, .acc_eyes, .icon_close, .right_menu_item, .right_menu_box, .hide .bottom_menu, .content, .normal_btn {
+.home_sport_new, .header, .acc_eyes, .icon_close, .right_menu_item, .right_menu_box, .bottom_menu, .content, .normal_btn {
   transition: 0.3s ease;
 }
 
@@ -66,7 +66,7 @@ a {
   font-size: 18px;
   line-height: 1.33;
   border-radius: 6px;
-  color: #fff;
+  color: #ffffff;
   background-color: #428bca;
   border-color: #357ebd;
 }
@@ -146,7 +146,7 @@ a {
   width: 100%;
   font-size: 16px;
   font-weight: bold;
-  color: #fff;
+  color: #ffffff;
   text-align: center;
 }
 
@@ -156,7 +156,7 @@ a {
   display: block;
   width: 32px;
   height: 32px;
-  fill: #fff;
+  fill: #ffffff;
 }
 @media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .icon_back:hover,
@@ -198,7 +198,7 @@ a {
 }
 .selectBox_title {
   padding: 0 16px;
-  color: #fff;
+  color: #ffffff;
   font-size: 14px;
 }
 .selectBox_group {
@@ -293,7 +293,7 @@ a {
   overflow: hidden;
   height: 18px;
   line-height: 18px;
-  color: #fff;
+  color: #ffffff;
   font-size: 18px;
   font-weight: bold;
   text-overflow: ellipsis;
@@ -548,7 +548,7 @@ a {
 }
 @media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
   .right_menu_item:hover {
-    border-color: #fff;
+    border-color: #ffffff;
     background: rgba(0, 0, 0, 0.04);
   }
 }
@@ -585,7 +585,7 @@ a {
   width: 40px;
   height: 40px;
   padding: 12px;
-  fill: #fff;
+  fill: #ffffff;
   opacity: 0.56;
 }
 @media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
@@ -626,7 +626,7 @@ a {
   height: 16px;
   line-height: 16px;
   font-size: 14px;
-  color: #fff;
+  color: #ffffff;
 }
 .header_info .acc_info_name {
   display: none;
@@ -649,7 +649,7 @@ a {
   width: 100%;
   max-width: 650px;
   margin: auto;
-  color: #fff;
+  color: #ffffff;
 }
 .normal_select .icon_arr {
   pointer-events: none;
@@ -724,6 +724,48 @@ a {
   .normal_select_txt:hover {
     background-color: rgba(255, 255, 255, 0.1);
   }
+}
+
+.tab_category {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+.tab_categoryItem {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 48px;
+  color: #75829b;
+  font-size: 14px;
+}
+@media (pointer: fine) and (max-resolution: 2dppx), (-moz-touch-enabled: 0) {
+  .tab_categoryItem:hover {
+    color: #30dff2;
+  }
+}
+.tab_categoryItem:active {
+  color: #30dff2;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.tab_categoryItem.router-link-active {
+  color: #30dff2;
+}
+.tab_categoryItem.router-link-active:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #30dff2;
+}
+
+.div_space {
+  height: 58px;
 }
 
 .icon_home {
@@ -969,7 +1011,6 @@ a {
   font-weight: 700;
   color: #fff;
   flex: 1 1 auto;
-  white-space: nowrap;
   text-overflow: ellipsis;
   white-space: nowrap;
 }

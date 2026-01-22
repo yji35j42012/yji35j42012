@@ -10,7 +10,7 @@
 	font-size: 18px;
 	line-height: 1.33;
 	border-radius: 6px;
-	color: #fff;
+	color: #ffffff;
 	background-color: #428bca;
 	border-color: #357ebd;
 	@extend %transition;
@@ -86,7 +86,7 @@
 		width: 100%;
 		font-size: 16px;
 		font-weight: bold;
-		color: #fff;
+		color: #ffffff;
 		text-align: center;
 	}
 }
@@ -97,7 +97,7 @@
 	display: block;
 	width: 32px;
 	height: 32px;
-	fill: #fff;
+	fill: #ffffff;
 	@extend %hand;
 
 	@include hv {
@@ -140,7 +140,7 @@
 	// .selectBox_title
 	&_title {
 		padding: 0 16px;
-		color: #fff;
+		color: #ffffff;
 		font-size: 14px;
 	}
 
@@ -251,7 +251,7 @@
 				overflow: hidden;
 				height: 18px;
 				line-height: 18px;
-				color: #fff;
+				color: #ffffff;
 				font-size: 18px;
 				font-weight: bold;
 				text-overflow: ellipsis;
@@ -346,7 +346,7 @@
 				span {
 					@include d_f(flex, none, center);
 					line-height: 1;
-					white-space: nowrap;
+					white-space: nowrap;                                                                                                                                                                                            
 				}
 			}
 
@@ -429,13 +429,15 @@
 	min-height: 58px;
 	background-color: #1e2841;
 
+	
+	@extend %transition;
+
 	@include mw(L) {
 		display: block;
 	}
 
 	.hide & {
 		bottom: -58px;
-		@extend %transition;
 	}
 }
 
@@ -537,7 +539,7 @@
 		@extend %transition;
 
 		@include hv {
-			border-color: #fff;
+			border-color: #ffffff;
 			background: rgba(0, 0, 0, 0.04);
 		}
 
@@ -579,7 +581,7 @@
 	width: 40px;
 	height: 40px;
 	padding: 12px;
-	fill: #fff;
+	fill: #ffffff;
 	opacity: 0.56;
 	@extend %hand;
 	@extend %transition;
@@ -632,7 +634,7 @@
 			height: 16px;
 			line-height: 16px;
 			font-size: 14px;
-			color: #fff;
+			color: #ffffff;
 
 			.header_info & {
 				display: none;
@@ -662,7 +664,7 @@
 	width: 100%;
 	max-width: 650px;
 	margin: auto;
-	color: #fff;
+	color: #ffffff;
 
 	.icon_arr {
 		pointer-events: none;
@@ -749,4 +751,51 @@
 			background-color: rgba(255, 255, 255, .1);
 		}
 	}
+}
+
+.tab {
+
+	// .tab_category
+	&_category {
+		@include d_f(flex);
+	}
+
+	// .tab_categoryItem
+	&_categoryItem {
+		position: relative;
+		@include d_f(flex, center, center);
+		width: 100%;
+		height: 48px;
+		color: #75829b;
+		font-size: 14px;
+		@extend %hand;
+
+		@include hv {
+			color: #30dff2;
+		}
+
+		@include ac {
+			color: #30dff2;
+			background-color: rgba(255, 255, 255, 0.1);
+		}
+
+		&.router-link-active {
+			color: #30dff2;
+
+			&:after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				width: 100%;
+				height: 2px;
+				background-color: #30dff2;
+			}
+		}
+	}
+}
+
+.div_space {
+	height: 58px;
 }

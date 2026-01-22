@@ -104,12 +104,16 @@
 					lastScrollTop: 0,
 					isMobile: false,
 					isScrollBottom: false,
+					scroll_html: document.querySelector("html"),
+					scroll_body: document.querySelector("#scroll_body"),
 				}
 			},
 			mounted() {
-				let scroll_html = document.querySelector("html");
+				console.log(this.scroll_html);
+				// let scroll_html = document.querySelector("html");
+
 				if (/Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-					scroll_html.classList.add("ios_scroll");
+					this.scroll_html.classList.add("ios_scroll");
 					this.isMobile = true;
 				} else {
 					this.isMobile = false;
@@ -130,17 +134,33 @@
 				}, false);
 
 				window.addEventListener("resize", () => {
-					console.log('window.innerWidth', window.innerWidth);
+					if (window.innerWidth <= 1024) {
+						this.scroll_body.classList.remove("hide");
+					}
+				});
+				var mybot = this.$refs.mybottom;
+				console.log('aaa', mybot);
+				var ml = document.addEventListener("mouseleave", function (params) {
+					// console.log('mouseleave');
+					// bm.style = "transition:0s"
+				});
+				var me = document.addEventListener("mouseenter", function (params) {
+					// console.log('mouseenter');
+					// bm.style = "";
 				});
 			},
 			watch: {
 				$route(to, from) {
 					var path = this.$route.path;
+					this.scroll_body.classList.remove("hide");
+					// console.log('path',path);
 					if (path.split('/').length == 2) {
 						this.$store.dispatch('SET_SPORT_TYPE', path.split('/')[1]);
+						this.nowPage = path.split('/')[1];
 					} else if (path.split('/').length > 2) {
 						this.$store.dispatch('SET_SPORT_TYPE', path.split('/')[1]);
 						this.$store.dispatch('SET_SPORT', path.split('/')[2]);
+						this.nowPage = path.split('/')[2];
 					}
 				},
 			},
@@ -169,7 +189,9 @@
 					else if (this.isScrollBottom) { this.isScrollBottom = false; }
 					if (scrollTop > this.lastScrollTop) {
 						// 如果目前 scrollTop 大於上一次，表示往下滑
-						if (window.scrollY > 56) { scroll_body.classList.add("hide"); }
+						if (window.scrollY > 1 && !scroll_body.classList.contains("hide")) {
+							scroll_body.classList.add("hide");
+						}
 					} else if (scrollTop < this.lastScrollTop) {
 						// 如果目前 scrollTop 小於上一次，表示往上滑
 						if (this.isScrollBottom) { return; }

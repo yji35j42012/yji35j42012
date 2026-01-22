@@ -1,7 +1,7 @@
 <style scoped></style>
 
 <template>
-	history
+	<sport-title msg="帳戶歷史"></sport-title>
 </template>
 
 <script>
@@ -10,6 +10,9 @@ module.exports = {
 		return {}
 	},
 	computed: {},
+	components: {
+		'sport-title': Vue.defineAsyncComponent(() => loadModule('./components/SportTitle.vue', options)),
+	},
 	methods: {},
 }
 </script>

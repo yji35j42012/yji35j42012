@@ -1,7 +1,7 @@
 <style scoped></style>
 
 <template>
-	todaywagers
+	<sport-title msg="交易狀況"></sport-title>
 </template>
 
 <script>
@@ -10,6 +10,9 @@ module.exports = {
 		return {}
 	},
 	computed: {},
+	components: {
+		'sport-title': Vue.defineAsyncComponent(() => loadModule('./components/SportTitle.vue', options)),
+	},
 	methods: {},
 }
 </script>

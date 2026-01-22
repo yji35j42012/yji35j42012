@@ -1,8 +1,9 @@
 <style scoped></style>
 
 <template>
-	<div class="bottom_menu">
-		
+	<div class="bottom_menu" >
+		<!-- :ref="mybottom" -->
+		<div class="div_space"></div>
 	</div>
 </template>
 
