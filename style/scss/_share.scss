@@ -346,7 +346,7 @@
 				span {
 					@include d_f(flex, none, center);
 					line-height: 1;
-					white-space: nowrap;                                                                                                                                                                                            
+					white-space: nowrap;
 				}
 			}
 
@@ -429,7 +429,7 @@
 	min-height: 58px;
 	background-color: #1e2841;
 
-	
+
 	@extend %transition;
 
 	@include mw(L) {

@@ -72,7 +72,8 @@
 			{
 				path: '/doc/', component: () => loadModule('./page/doc.vue', options),
 				children: [
-					{ path: '', component: () => loadModule('./page/doc/todaywagers.vue', options) },
+					{ path: '', component
+					: () => loadModule('./page/doc/todaywagers.vue', options) },
 					{ path: 'todaywagers', component: () => loadModule('./page/doc/todaywagers.vue', options) },
 					{ path: 'history', component: () => loadModule('./page/doc/history.vue', options) },
 				]
@@ -142,7 +143,7 @@
 				console.log('aaa', mybot);
 				var ml = document.addEventListener("mouseleave", function (params) {
 					// console.log('mouseleave');
-					// bm.style = "transition:0s"
+					// bm.style = "transition:0s";
 				});
 				var me = document.addEventListener("mouseenter", function (params) {
 					// console.log('mouseenter');
